@@ -1,0 +1,20 @@
+{
+  "name": "tum-mim-study",
+  "interface": {
+    "displayName": "TUM MiM Study Workspace"
+  },
+  "plugins": [
+    {
+      "name": "superpowers",
+      "source": {
+        "source": "local",
+        "path": "./plugins/superpowers"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    }
+  ]
+}

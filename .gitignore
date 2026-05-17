@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local Python/tooling
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Temporary extraction/output
+/tmp/
+tmp/
+*.log
+
+# Editor/local state
+.vscode/
+.idea/
+
+# Keep Moodle/course raw files local-only if you later decide to uncomment this.
+# raw/
+# */raw/
