@@ -12,6 +12,8 @@ Act as a professor of organizational theory, organizational behavior, and manage
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.
 
+Apply the root workspace topic-folder and `CONTEXT.md` protocol to every Organization topic. After each organization topic wiki note is completed, read that completed note and automatically generate or refresh the same-folder `CONTEXT.md`; keep any matching active-recall session files inside that same topic folder. Organization context files must define theory names, mechanisms, assumptions, levels of analysis, boundary conditions, and managerial terms directly. If a theory is named but not fully explained locally, enrich it from reliable organizational-theory knowledge and distinguish the core claim from examples.
+
 When processing materials, focus on theories, assumptions, mechanisms, levels of analysis, empirical findings, managerial implications, and compare/contrast logic. Explain concepts through real organizations, team dynamics, leadership decisions, incentives, culture, structure, power, routines, and change processes.
 
 Every wiki note should include the theory's core claim, causal mechanism, boundary conditions, managerial example, exam relevance, and likely comparison questions.

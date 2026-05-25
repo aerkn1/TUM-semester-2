@@ -20,6 +20,14 @@ Each lecture folder must contain:
 
 Each lecture `wiki/` folder may also contain `_course-logistics.md` for administrative information such as exam format, dates, grading, lecturer information, tutorial schedule, office hours, Moodle instructions, and course organization.
 
+All lecture topics across all courses must use same-slug topic folders once a subject wiki note exists. Use:
+
+- `<topic-slug>/<topic-slug>.md`: the main exam-ready wiki note.
+- `<topic-slug>/CONTEXT.md`: the topic-specific ubiquitous-language file for terminology, examples, visual intuition, and ambiguity control.
+- `<topic-slug>/<topic-slug>-active-recall-session-YYYY-MM-DD.md`: any active-recall or brainstorming session outcome files for that topic.
+
+The `CONTEXT.md` file is a companion learning layer. It must not replace the main wiki note, dashboard entry, active-recall session file, course logistics file, or lecture-level knowledge graph. Keep `_course-logistics.md` and `_course-knowledge-graph.md` at the lecture `wiki/` root.
+
 ## Core Role
 
 Act as a professor-level study coach for each lecture, switching domain perspective based on the active course:
@@ -74,6 +82,55 @@ Every generated wiki note should be useful as a standalone study source. Include
 
 Use the user's requested exam standard: aim for notes that cover the material most likely to matter for the exam, roughly the highest-value 90% of examinable content. Do not fabricate certainty; label inferred exam relevance clearly.
 
+## Topic Context Standard
+
+Create or update a topic-level `CONTEXT.md` automatically after the corresponding topic wiki note is completed. This requirement applies across all lecture folders and all topics.
+
+Before writing `CONTEXT.md`, read the completed topic note and scan the raw/source file when available. Use those local materials to identify the terminology, notation, formulas, legal references, theories, frameworks, overloaded words, and example situations that must be explained. The local materials are the discovery source for what belongs in the file, but they are not the only definition source.
+
+If the wiki note or raw file mentions a term without defining it well enough, enrich the `CONTEXT.md` definition from reliable domain knowledge and, when needed, external references such as official statutes, authoritative textbooks, reputable encyclopedias, official standards, or university-quality materials. For current statutes, regulations, standards, or unstable facts, verify externally before stating the definition. Mark definitions as `local`, `enriched`, or `verified external` when useful so the user knows whether the explanation came directly from the course materials or from broader domain knowledge.
+
+Embed this Matt Pocock-style ubiquitous-language process as the baseline:
+
+1. Scan the topic note, raw/source material, and current study-session language for domain-relevant nouns, verbs, formulas, symbols, and concepts.
+2. Identify terminology problems: same word used for different concepts, different words used for the same concept, vague labels, overloaded formulas, and ambiguous abbreviations.
+3. Choose opinionated canonical terms and list aliases to avoid.
+4. Write or refresh `CONTEXT.md` in the same topic folder.
+5. Summarize major terminology changes when closing the turn.
+
+Use this `CONTEXT.md` structure:
+
+- title and source note reference
+- grouped term tables with `Term`, `Definition`, and `Aliases to avoid`
+- relationships between canonical terms
+- example dialogue showing precise use of the language
+- flagged ambiguities with canonical recommendations
+
+Rules inherited from the ubiquitous-language skill:
+
+- Be opinionated: when multiple words exist for one concept, pick the best canonical term.
+- Flag conflicts explicitly with a clear recommendation.
+- Include only domain terms, formulas, symbols, legal tests, frameworks, and study-relevant course language.
+- Skip generic words unless the course uses them with a specific technical meaning.
+- Keep definitions tight, but complete enough to stand alone.
+- Group terms into natural clusters by subtopic, actor, formula family, legal remedy, framework, or decision process.
+- Show relationships between terms using bold canonical names.
+- Include a short example dialogue that demonstrates the terms interacting naturally.
+
+Enrich this baseline for exam study:
+
+- short real-world examples
+- formula intuition and unit interpretation
+- simple visual representations such as Mermaid maps, ASCII sketches, or compact comparison tables
+- exam traps and correction rules
+- cheat-sheet language for high-yield formulas or decision rules
+
+For legal topics, especially Business Law, `CONTEXT.md` must also include statutory anchors when the topic uses statutes or code sections. Add a compact `Statutory Anchors` table that ties each section to its legal function, trigger facts, and exam use. This table should help the user know when to cite a section in a case answer; it must not become a long statute copy. Distinguish formation anchors, interpretation anchors, effectiveness anchors, validity limits, remedies, exclusions, and topic-specific special provisions where relevant.
+
+Never write placeholder definitions such as "use the source note", "canonical concept in this topic", or "see the wiki for the full rule". `CONTEXT.md` must be a standalone terminology and formula companion. It may link to the source note, but it must directly explain each listed term.
+
+Keep `CONTEXT.md` focused on language, formulas, notation, examples, and mental models. Do not duplicate the full source note, do not include administrative logistics, and do not add `CONTEXT.md` files to Mermaid diagrams or lecture-level knowledge graphs unless the context file introduces a conceptual correction that belongs in the main note or course graph.
+
 ## Course Logistics Standard
 
 When source material includes non-subject course information, preserve it in `wiki/_course-logistics.md` instead of a subject wiki note.
@@ -102,11 +159,14 @@ Instead:
 
 The goal is active recall, encoding, and durable understanding, not passive rereading.
 
+For terminology-heavy or unfamiliar domains, especially Business Law, active recall may start with a concrete use case before asking abstract definitions. In that structure, first give a short realistic fact pattern, then translate the technical vocabulary in context, then ask the user to identify the issue, rule, application, conclusion, and any statutory anchors. Keep the session retrieval-based: the example should create a mental hook, but the user must still produce the legal or conceptual reasoning.
+
 After each active-recall or brainstorming study session, create or update a dated session outcome file in the same lecture `wiki/` folder. Use a name like `<subject-slug>-active-recall-session-YYYY-MM-DD.md`.
 
 Session outcome files should include:
 
 - linked source wiki note
+- every recall prompt or question asked by the coach, preserved verbatim or near-verbatim before the user's answer
 - user raw answers
 - professor feedback and corrections
 - refined mental models
@@ -150,6 +210,18 @@ Priority rule:
 5. Optional mixed practice.
 
 If the user asks what to study and there are overdue items, explicitly warn them that the repetition window has been missed and recommend repairing the overdue items before taking a new subject.
+
+When the user asks what is in the calendar today, what to review today, what is awaiting today, or similar:
+
+1. Treat the actual current date as authoritative, not the date printed in `learning-system/weekly-calendar.md`.
+2. Read both `learning-system/review-dashboard.md` and `learning-system/weekly-calendar.md`.
+3. Identify every unfinished item whose scheduled review date, active-recall date, or repair date is before the actual current date.
+4. Reschedule each expired unfinished item forward starting from the actual current date, preserving its intended repetition role as much as possible: D+1 remains the next near repair, D+3 remains the next short repair, D+7 remains the next medium repair, and so on. Mark the original missed date explicitly in the status.
+5. Shift later awaiting items that would collide with or sit inside the newly rescheduled repair window. Do not leave two heavy items stacked on the same day unless the user explicitly asks for an intensive day.
+6. Update the affected status fields in `learning-system/review-dashboard.md` first. The dashboard is the source of truth for completion state, missed checkpoints, next repair dates, and next review dates.
+7. Refresh `learning-system/weekly-calendar.md` from the updated dashboard with the new generation timestamp, covered week, today's actual queue, rescheduled repair queue, due-this-week table, and recommended next starts.
+8. Verify the same item/date/status appears consistently in both files before answering.
+9. Only after this refresh, answer the user with what is actually awaiting today and the recommendation.
 
 The Weekly Mixed Practice section in `learning-system/review-dashboard.md` must never stay blank once at least two subject notes exist. Entries should be practical and exam-oriented, with hints such as:
 
@@ -262,8 +334,8 @@ Moodle materials are private course materials. Keep generated notes for the user
 
 Use clear, sortable names in `wiki/`, for example:
 
-- `week-01-introduction.md`
-- `module-03-contract-formation.md`
-- `deck-2026-05-14-capital-budgeting.md`
+- `week-01-introduction/week-01-introduction.md`
+- `module-03-contract-formation/module-03-contract-formation.md`
+- `deck-2026-05-14-capital-budgeting/deck-2026-05-14-capital-budgeting.md`
 
 Prefer lowercase kebab-case file names.

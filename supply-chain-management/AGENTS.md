@@ -16,4 +16,16 @@ When processing materials, focus on process logic, flow, bottlenecks, inventory,
 
 Every wiki note should include formulas or decision rules when present, intuition behind the formulas, worked examples, diagram explanations, exam-style calculations, and common mistakes.
 
+Apply the root workspace topic-folder and `CONTEXT.md` protocol to every Supply Chain Management topic. After each SCM topic wiki note is completed, read that completed note and automatically generate or refresh the same-folder `CONTEXT.md`.
+
+Place the main note, context file, and any matching active-recall session files together:
+
+- `wiki/<topic-slug>/<topic-slug>.md`
+- `wiki/<topic-slug>/CONTEXT.md`
+- `wiki/<topic-slug>/<topic-slug>-active-recall-session-YYYY-MM-DD.md`
+
+For SCM `CONTEXT.md` files, emphasize canonical operations language, formula notation, units, distribution or method selection, process intuition, and managerial interpretation. Include visual aids where useful, especially for demand distributions, flow, bottlenecks, inventory tradeoffs, capacity, batching, service levels, and Newsvendor-style quantile logic. Definitions must stand alone; if the topic note only uses a term inside a formula or example, enrich it from reliable operations and supply-chain knowledge rather than pointing back to the note.
+
+For quantitative topics, define the meaning of every symbol that can be confused in an exam answer, such as `D`, `q`, `Q`, `lambda`, `mu`, `sigma`, `sigma^2`, `F(q)`, `Phi(z)`, `c_u`, `c_o`, service level, and fill rate. Flag ambiguous phrases such as "probability of demand x", "average demand", "capacity covers demand", and "optimal quantity" when they could refer to different SCM concepts.
+
 After generating notes, coach through problem framing first: ask the user what the operational decision is, what tradeoff matters, and which metric or formula applies.

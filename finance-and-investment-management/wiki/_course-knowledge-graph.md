@@ -96,46 +96,46 @@ graph LR
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
 |---|---|---|---|
 | Course logistics | `finance-and-investment-management/wiki/_course-logistics.md` | Excluded from conceptual graph | 2026-05-16 |
-| Financial Analysis | `finance-and-investment-management/wiki/session-01-02-financial-analysis.md` | Statements to ratios to interpretation | 2026-05-16 |
-| Fundamental Analysis Excursus | `finance-and-investment-management/wiki/session-01-02-excursus-fundamental-analysis-german-stock-market.md` | M/B and F-Score as investment signals | 2026-05-16 |
-| Investment Analysis | `finance-and-investment-management/wiki/session-03-04-investment-analysis.md` | NPV as master rule; IRR/payback/PI as limited alternatives | 2026-05-16 |
-| Interest Calculation | `finance-and-investment-management/wiki/exercise-01-02-interest-calculation.md` | Time value of money and compounding | 2026-05-16 |
-| Annuities | `finance-and-investment-management/wiki/exercise-03-04-annuities.md` | Repeated payments by timing and growth pattern | 2026-05-16 |
-| Redemptions | `finance-and-investment-management/wiki/exercise-05-redemptions.md` | Loan payment split into interest and principal | 2026-05-16 |
-| Bonds I | `finance-and-investment-management/wiki/exercise-06-bonds-i.md` | Bond price as discounted promised cash flows | 2026-05-16 |
+| Financial Analysis | `finance-and-investment-management/wiki/session-01-02-financial-analysis/session-01-02-financial-analysis.md` | Statements to ratios to interpretation | 2026-05-16 |
+| Fundamental Analysis Excursus | `finance-and-investment-management/wiki/session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` | M/B and F-Score as investment signals | 2026-05-16 |
+| Investment Analysis | `finance-and-investment-management/wiki/session-03-04-investment-analysis/session-03-04-investment-analysis.md` | NPV as master rule; IRR/payback/PI as limited alternatives | 2026-05-16 |
+| Interest Calculation | `finance-and-investment-management/wiki/exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` | Time value of money and compounding | 2026-05-16 |
+| Annuities | `finance-and-investment-management/wiki/exercise-03-04-annuities/exercise-03-04-annuities.md` | Repeated payments by timing and growth pattern | 2026-05-16 |
+| Redemptions | `finance-and-investment-management/wiki/exercise-05-redemptions/exercise-05-redemptions.md` | Loan payment split into interest and principal | 2026-05-16 |
+| Bonds I | `finance-and-investment-management/wiki/exercise-06-bonds-i/exercise-06-bonds-i.md` | Bond price as discounted promised cash flows | 2026-05-16 |
 
 ## Nodes
 
 | Node | Meaning | Source Note |
 |---|---|---|
-| Financial statements | Accounting reports used for analysis | `session-01-02-financial-analysis.md` |
-| Balance sheet | Point-in-time assets, liabilities, equity | `session-01-02-financial-analysis.md` |
-| Ratio analysis | Standardized firm comparison | `session-01-02-financial-analysis.md` |
-| DuPont identity | ROE decomposed into margin, turnover, leverage | `session-01-02-financial-analysis.md` |
-| M/B ratio | Market value relative to book equity | `session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
-| Piotroski F-Score | Financial strength score | `session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
-| NPV | Present value of all project cash flows | `session-03-04-investment-analysis.md` |
-| IRR | Discount rate that makes NPV zero | `session-03-04-investment-analysis.md` |
-| Time value of money | Money depends on timing | `exercise-01-02-interest-calculation.md` |
-| Effective annual rate | Actual annual rate after compounding | `exercise-01-02-interest-calculation.md` |
-| Annuity | Repeated cash-flow stream | `exercise-03-04-annuities.md` |
-| Redemption | Loan repayment calculation | `exercise-05-redemptions.md` |
-| Bond | Debt security with promised payments | `exercise-06-bonds-i.md` |
-| Duration | Interest-rate sensitivity measure | `exercise-06-bonds-i.md` |
+| Financial statements | Accounting reports used for analysis | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| Balance sheet | Point-in-time assets, liabilities, equity | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| Ratio analysis | Standardized firm comparison | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| DuPont identity | ROE decomposed into margin, turnover, leverage | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| M/B ratio | Market value relative to book equity | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| Piotroski F-Score | Financial strength score | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| NPV | Present value of all project cash flows | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
+| IRR | Discount rate that makes NPV zero | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
+| Time value of money | Money depends on timing | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Effective annual rate | Actual annual rate after compounding | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Annuity | Repeated cash-flow stream | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
+| Redemption | Loan repayment calculation | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| Bond | Debt security with promised payments | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
+| Duration | Interest-rate sensitivity measure | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 
 ## Edges
 
 | From | Relationship | To | Source Note |
 |---|---|---|---|
-| Financial statements | provide inputs for | ratio analysis | `session-01-02-financial-analysis.md` |
-| DuPont identity | decomposes | ROE | `session-01-02-financial-analysis.md` |
-| M/B ratio | classifies | value vs growth stocks | `session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
-| Piotroski F-Score | complements | M/B ratio | `session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
-| NPV | dominates when conflicting with | IRR | `session-03-04-investment-analysis.md` |
-| Payback rule | ignores | time value of money | `session-03-04-investment-analysis.md` |
-| Time value of money | supports | NPV | `exercise-01-02-interest-calculation.md` |
-| Interest calculation | supports | annuities | `exercise-01-02-interest-calculation.md` |
-| Annuity formulas | support | redemption calculations | `exercise-03-04-annuities.md` |
-| Bond pricing | uses | discounted cash flow | `exercise-06-bonds-i.md` |
-| Higher discount rate | lowers | bond price | `exercise-06-bonds-i.md` |
-| Duration | approximates | bond price sensitivity | `exercise-06-bonds-i.md` |
+| Financial statements | provide inputs for | ratio analysis | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| DuPont identity | decomposes | ROE | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| M/B ratio | classifies | value vs growth stocks | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| Piotroski F-Score | complements | M/B ratio | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| NPV | dominates when conflicting with | IRR | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
+| Payback rule | ignores | time value of money | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
+| Time value of money | supports | NPV | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Interest calculation | supports | annuities | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Annuity formulas | support | redemption calculations | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
+| Bond pricing | uses | discounted cash flow | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
+| Higher discount rate | lowers | bond price | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
+| Duration | approximates | bond price sensitivity | `exercise-06-bonds-i/exercise-06-bonds-i.md` |

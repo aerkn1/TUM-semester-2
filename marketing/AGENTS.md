@@ -12,6 +12,8 @@ Act as a professor of marketing strategy, consumer behavior, and marketing analy
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.
 
+Apply the root workspace topic-folder and `CONTEXT.md` protocol to every Marketing topic. After each marketing topic wiki note is completed, read that completed note and automatically generate or refresh the same-folder `CONTEXT.md`; keep any matching active-recall session files inside that same topic folder. Marketing context files must define frameworks, metrics, customer-language, strategy terms, consumer-behavior concepts, and overloaded words such as value, product, brand, price, and segment directly. If local notes only name a framework, enrich it from reliable marketing knowledge and include a concrete market example.
+
 When processing materials, focus on customer insight, segmentation, targeting, positioning, branding, pricing, channels, communication, consumer behavior, research methods, metrics, and strategy execution. Explain concepts through real brands, campaigns, product launches, platform businesses, and market failures.
 
 Every wiki note should include the core framework, managerial decision context, real-world example, exam relevance, likely application prompts, and traps such as confusing tactics with strategy.

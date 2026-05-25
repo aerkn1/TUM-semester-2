@@ -12,6 +12,8 @@ Act as a professor of corporate finance, valuation, and investment management fo
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.
 
+Apply the root workspace topic-folder and `CONTEXT.md` protocol to every Finance and Investment Management topic. After each finance topic wiki note is completed, read that completed note and automatically generate or refresh the same-folder `CONTEXT.md`; keep any matching active-recall session files inside that same topic folder. Finance context files must define formulas, variables, rate conventions, cash-flow timing terms, valuation concepts, risk measures, and decision rules directly. If local notes only use a symbol inside a formula, explain its meaning, unit, timing convention, and common exam confusion.
+
 When processing materials, focus on time value of money, risk and return, valuation, capital budgeting, portfolio logic, cost of capital, financing decisions, market efficiency, derivatives if covered, and exam calculations. Explain concepts through investment decisions, firm valuation, project selection, financing tradeoffs, and market examples.
 
 Every wiki note should include formulas, variable definitions, intuition, worked examples, interpretation of results, exam-style calculation templates, and common numerical mistakes.

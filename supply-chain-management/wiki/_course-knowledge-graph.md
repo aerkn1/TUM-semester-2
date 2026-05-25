@@ -125,57 +125,57 @@ flowchart TD
 
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
 |---|---|---|---|
-| Topic 01 Kristen Cookies Company Case | `topic-01-kristen-cookie-case.md` | Process flow -> bottleneck -> cycle time/capacity -> improvement logic | 2026-05-14 |
-| Topic 02 Forecasting | `topic-02-forecasting.md` | Demand uncertainty -> forecast methods -> error metrics -> monitoring | 2026-05-14 |
-| Topic 03 Newsvendor Model | `topic-03-newsvendor-model.md` | Forecast distribution -> underage/overage tradeoff -> service level -> order quantity | 2026-05-14 |
-| Topic 04 Modeling Uncertain Demand With Random Variables | `topic-04-modeling-uncertain-demand-random-variables.md` | Real demand -> random variable -> distribution -> CDF/service level -> inventory decision | 2026-05-14 |
-| Topic 05 EOQ, Production Systems, And Batching | `topic-05-eoq-production-systems-batching.md` | Deterministic demand -> setup/holding tradeoff -> EOQ -> lead time/finite horizon -> EPQ/batching | 2026-05-14 |
+| Topic 01 Kristen Cookies Company Case | `topic-01-kristen-cookie-case/topic-01-kristen-cookie-case.md` | Process flow -> bottleneck -> cycle time/capacity -> improvement logic | 2026-05-14 |
+| Topic 02 Forecasting | `topic-02-forecasting/topic-02-forecasting.md` | Demand uncertainty -> forecast methods -> error metrics -> monitoring | 2026-05-14 |
+| Topic 03 Newsvendor Model | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` | Forecast distribution -> underage/overage tradeoff -> service level -> order quantity | 2026-05-14 |
+| Topic 04 Modeling Uncertain Demand With Random Variables | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` | Real demand -> random variable -> distribution -> CDF/service level -> inventory decision | 2026-05-14 |
+| Topic 05 EOQ, Production Systems, And Batching | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` | Deterministic demand -> setup/holding tradeoff -> EOQ -> lead time/finite horizon -> EPQ/batching | 2026-05-14 |
 
 ## Supporting Node Reference
 
 | Node | Meaning | Source Note |
 |---|---|---|
-| Kristen Cookies Case | Make-to-order cookie operation used to study process flow and capacity | `topic-01-kristen-cookie-case.md` |
-| Process Flow | Ordered sequence of operational steps, waits, and buffers | `topic-01-kristen-cookie-case.md` |
-| Bottleneck | Resource limiting system capacity | `topic-01-kristen-cookie-case.md` |
-| Forecasting | Estimating future demand for operational decisions | `topic-02-forecasting.md` |
-| ME | Mean signed error; bias | `topic-02-forecasting.md` |
-| MAD | Mean absolute deviation; typical absolute miss | `topic-02-forecasting.md` |
-| MSE | Mean squared error; large-error penalty | `topic-02-forecasting.md` |
-| Control Limits | Bounds for forecast-error monitoring | `topic-02-forecasting.md` |
-| Newsvendor Model | Single-period order decision under uncertain demand | `topic-03-newsvendor-model.md` |
-| Underage Cost | Cost of ordering one unit too few | `topic-03-newsvendor-model.md` |
-| Overage Cost | Cost of ordering one unit too many | `topic-03-newsvendor-model.md` |
-| Critical Fractile | `c_u / (c_u + c_o)` | `topic-03-newsvendor-model.md` |
-| Random Variable | Function mapping uncertain outcomes to numbers | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| Poisson Distribution | Count-demand model with parameter `lambda` | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| Uniform Distribution | Equal-density model over interval `[A, B]` | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| Normal Distribution | Bell-shaped model with `mu` and `sigma` | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| CDF | `F(q)=P(D<=q)`; service level at stock/order quantity q | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| EOQ | Deterministic order quantity model | `topic-05-eoq-production-systems-batching.md` |
-| Reorder Point | Inventory level for placing order under deterministic lead time | `topic-05-eoq-production-systems-batching.md` |
-| Finite Horizon | Inventory problem with limited selling period and integer orders | `topic-05-eoq-production-systems-batching.md` |
-| Production Systems | Make-to-stock, assemble-to-order, make-to-order, engineer-to-order positioning | `topic-05-eoq-production-systems-batching.md` |
-| EPQ | EOQ extension with finite production rate | `topic-05-eoq-production-systems-batching.md` |
+| Kristen Cookies Case | Make-to-order cookie operation used to study process flow and capacity | `topic-01-kristen-cookie-case/topic-01-kristen-cookie-case.md` |
+| Process Flow | Ordered sequence of operational steps, waits, and buffers | `topic-01-kristen-cookie-case/topic-01-kristen-cookie-case.md` |
+| Bottleneck | Resource limiting system capacity | `topic-01-kristen-cookie-case/topic-01-kristen-cookie-case.md` |
+| Forecasting | Estimating future demand for operational decisions | `topic-02-forecasting/topic-02-forecasting.md` |
+| ME | Mean signed error; bias | `topic-02-forecasting/topic-02-forecasting.md` |
+| MAD | Mean absolute deviation; typical absolute miss | `topic-02-forecasting/topic-02-forecasting.md` |
+| MSE | Mean squared error; large-error penalty | `topic-02-forecasting/topic-02-forecasting.md` |
+| Control Limits | Bounds for forecast-error monitoring | `topic-02-forecasting/topic-02-forecasting.md` |
+| Newsvendor Model | Single-period order decision under uncertain demand | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Underage Cost | Cost of ordering one unit too few | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Overage Cost | Cost of ordering one unit too many | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Critical Fractile | `c_u / (c_u + c_o)` | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Random Variable | Function mapping uncertain outcomes to numbers | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| Poisson Distribution | Count-demand model with parameter `lambda` | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| Uniform Distribution | Equal-density model over interval `[A, B]` | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| Normal Distribution | Bell-shaped model with `mu` and `sigma` | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| CDF | `F(q)=P(D<=q)`; service level at stock/order quantity q | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| EOQ | Deterministic order quantity model | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Reorder Point | Inventory level for placing order under deterministic lead time | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Finite Horizon | Inventory problem with limited selling period and integer orders | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Production Systems | Make-to-stock, assemble-to-order, make-to-order, engineer-to-order positioning | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| EPQ | EOQ extension with finite production rate | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
 
 ## Supporting Edge Reference
 
 | From | Relationship | To | Source Note |
 |---|---|---|---|
-| Bottleneck | determines | System Capacity | `topic-01-kristen-cookie-case.md` |
-| Forecast Error | is measured by | ME / MAD / MSE | `topic-02-forecasting.md` |
-| MAD / MSE | support | Forecast Method Selection | `topic-02-forecasting.md` |
-| Control Limits | monitor | Forecast Method Stability | `topic-02-forecasting.md` |
-| Forecast Distribution | feeds | Newsvendor Model | `topic-03-newsvendor-model.md` |
-| Underage Cost | increases | Service Level | `topic-03-newsvendor-model.md` |
-| Overage Cost | decreases | Service Level | `topic-03-newsvendor-model.md` |
-| Random Variable | models | Real-life uncertain demand | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| CDF | gives | Service Level | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| z-score | converts | General normal to standard normal | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| Poisson Distribution | can be approximated by | Normal Distribution when lambda is large | `topic-04-modeling-uncertain-demand-random-variables.md` |
-| EOQ | balances | Setup/order cost and holding cost | `topic-05-eoq-production-systems-batching.md` |
-| Lead Time | determines | Reorder Point | `topic-05-eoq-production-systems-batching.md` |
-| Finite Horizon | requires | Integer order decision | `topic-05-eoq-production-systems-batching.md` |
-| Batch-And-Queue | reduces | Setup frequency | `topic-05-eoq-production-systems-batching.md` |
-| Batch-And-Queue | increases | WIP and waiting | `topic-05-eoq-production-systems-batching.md` |
-| EPQ | extends | EOQ with finite production rate | `topic-05-eoq-production-systems-batching.md` |
+| Bottleneck | determines | System Capacity | `topic-01-kristen-cookie-case/topic-01-kristen-cookie-case.md` |
+| Forecast Error | is measured by | ME / MAD / MSE | `topic-02-forecasting/topic-02-forecasting.md` |
+| MAD / MSE | support | Forecast Method Selection | `topic-02-forecasting/topic-02-forecasting.md` |
+| Control Limits | monitor | Forecast Method Stability | `topic-02-forecasting/topic-02-forecasting.md` |
+| Forecast Distribution | feeds | Newsvendor Model | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Underage Cost | increases | Service Level | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Overage Cost | decreases | Service Level | `topic-03-newsvendor-model/topic-03-newsvendor-model.md` |
+| Random Variable | models | Real-life uncertain demand | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| CDF | gives | Service Level | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| z-score | converts | General normal to standard normal | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| Poisson Distribution | can be approximated by | Normal Distribution when lambda is large | `topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md` |
+| EOQ | balances | Setup/order cost and holding cost | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Lead Time | determines | Reorder Point | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Finite Horizon | requires | Integer order decision | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Batch-And-Queue | reduces | Setup frequency | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| Batch-And-Queue | increases | WIP and waiting | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |
+| EPQ | extends | EOQ with finite production rate | `topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md` |

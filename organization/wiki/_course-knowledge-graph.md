@@ -174,52 +174,52 @@ flowchart TD
 
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
 |---|---|---|---|
-| Session 01 Definitional Basics | `session-01-definitional-basics-of-organization.md` | Definition -> organizing problems -> rational/natural/open views -> management | 2026-05-16 |
-| Session 02 Formal Organizational Design | `session-02-formal-organizational-design.md` | Weber -> rules/roles/incentives/structures -> BP formal design | 2026-05-16 |
-| Session 03 Organization And Environment | `session-03-organization-and-environment.md` | Boundaries -> task/global environment -> uncertainty -> theories -> BP interdependence | 2026-05-16 |
-| Session 04 Strategic Organization Design | `session-04-strategic-organization-design.md` | Strategy intent -> structure relation -> ambidexterity/diversification/responsibility -> strategy-as-practice | 2026-05-16 |
-| Session 05 Technology And Organization | `session-05-technology-and-organization.md` | Technology classification -> symbolic use -> adaptive structuration -> control | 2026-05-16 |
-| Session 06 AI And Organization | `session-06-ai-and-organization.md` | AI no determinism -> task division/expertise/stability/ethics -> Aurelia operating concepts | 2026-05-16 |
+| Session 01 Definitional Basics | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` | Definition -> organizing problems -> rational/natural/open views -> management | 2026-05-16 |
+| Session 02 Formal Organizational Design | `session-02-formal-organizational-design/session-02-formal-organizational-design.md` | Weber -> rules/roles/incentives/structures -> BP formal design | 2026-05-16 |
+| Session 03 Organization And Environment | `session-03-organization-and-environment/session-03-organization-and-environment.md` | Boundaries -> task/global environment -> uncertainty -> theories -> BP interdependence | 2026-05-16 |
+| Session 04 Strategic Organization Design | `session-04-strategic-organization-design/session-04-strategic-organization-design.md` | Strategy intent -> structure relation -> ambidexterity/diversification/responsibility -> strategy-as-practice | 2026-05-16 |
+| Session 05 Technology And Organization | `session-05-technology-and-organization/session-05-technology-and-organization.md` | Technology classification -> symbolic use -> adaptive structuration -> control | 2026-05-16 |
+| Session 06 AI And Organization | `session-06-ai-and-organization/session-06-ai-and-organization.md` | AI no determinism -> task division/expertise/stability/ethics -> Aurelia operating concepts | 2026-05-16 |
 
 ## Supporting Node Reference
 
 | Node | Meaning | Source Note |
 |---|---|---|
-| Organization | Social, goal-directed, deliberately structured, environment-linked entity | `session-01-definitional-basics-of-organization.md` |
-| Rational System | Formal goals and formalized structure | `session-01-definitional-basics-of-organization.md` |
-| Natural System | Multiple interests, informal behavior, power | `session-01-definitional-basics-of-organization.md` |
-| Open System | Interdependent flows embedded in wider environment | `session-01-definitional-basics-of-organization.md` |
-| Formal Design | Planned rules, roles, incentives, structures | `session-02-formal-organizational-design.md` |
-| Structural Forms | Simple, functional, divisional, matrix, horizontal | `session-02-formal-organizational-design.md` |
-| Task Environment | Direct actors/forces linked to task accomplishment | `session-03-organization-and-environment.md` |
-| Global Environment | Wider technological/legal/social/ecological/macro context | `session-03-organization-and-environment.md` |
-| Contingency Theory | Organization structure must fit environment | `session-03-organization-and-environment.md` |
-| Resource Dependence | Dependence on external resource holders | `session-03-organization-and-environment.md` |
-| Population Ecology | Population-level selection and retention | `session-03-organization-and-environment.md` |
-| Strategic Intent | Mission, vision, purpose, goals | `session-04-strategic-organization-design.md` |
-| Ambidexterity | Exploration and exploitation | `session-04-strategic-organization-design.md` |
-| Technology | Means of transforming inputs into outputs | `session-05-technology-and-organization.md` |
-| Adaptive Structuration | Technology and routines mutually shape each other | `session-05-technology-and-organization.md` |
-| AI | Machine performance of cognitive functions | `session-06-ai-and-organization.md` |
-| Automation/Augmentation | AI task takeover vs human-AI support | `session-06-ai-and-organization.md` |
-| Algorithmic Control | AI-enabled monitoring/evaluation/allocation/control | `session-06-ai-and-organization.md` |
+| Organization | Social, goal-directed, deliberately structured, environment-linked entity | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` |
+| Rational System | Formal goals and formalized structure | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` |
+| Natural System | Multiple interests, informal behavior, power | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` |
+| Open System | Interdependent flows embedded in wider environment | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` |
+| Formal Design | Planned rules, roles, incentives, structures | `session-02-formal-organizational-design/session-02-formal-organizational-design.md` |
+| Structural Forms | Simple, functional, divisional, matrix, horizontal | `session-02-formal-organizational-design/session-02-formal-organizational-design.md` |
+| Task Environment | Direct actors/forces linked to task accomplishment | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Global Environment | Wider technological/legal/social/ecological/macro context | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Contingency Theory | Organization structure must fit environment | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Resource Dependence | Dependence on external resource holders | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Population Ecology | Population-level selection and retention | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Strategic Intent | Mission, vision, purpose, goals | `session-04-strategic-organization-design/session-04-strategic-organization-design.md` |
+| Ambidexterity | Exploration and exploitation | `session-04-strategic-organization-design/session-04-strategic-organization-design.md` |
+| Technology | Means of transforming inputs into outputs | `session-05-technology-and-organization/session-05-technology-and-organization.md` |
+| Adaptive Structuration | Technology and routines mutually shape each other | `session-05-technology-and-organization/session-05-technology-and-organization.md` |
+| AI | Machine performance of cognitive functions | `session-06-ai-and-organization/session-06-ai-and-organization.md` |
+| Automation/Augmentation | AI task takeover vs human-AI support | `session-06-ai-and-organization/session-06-ai-and-organization.md` |
+| Algorithmic Control | AI-enabled monitoring/evaluation/allocation/control | `session-06-ai-and-organization/session-06-ai-and-organization.md` |
 
 ## Supporting Edge Reference
 
 | From | Relationship | To | Source Note |
 |---|---|---|---|
-| Organization | solves | Collective-action problems | `session-01-definitional-basics-of-organization.md` |
-| Formal Structure | enables/constrains | Organizing in practice | `session-01-definitional-basics-of-organization.md` |
-| Rules | increase | Control | `session-02-formal-organizational-design.md` |
-| Rules | do not determine | Action | `session-02-formal-organizational-design.md` |
-| Roles | coordinate through | Monitoring/substitution/common perspective | `session-02-formal-organizational-design.md` |
-| Environmental change and complexity | create | Uncertainty | `session-03-organization-and-environment.md` |
-| Stable environment | fits | Mechanistic structure | `session-03-organization-and-environment.md` |
-| Dynamic environment | fits | Organic structure | `session-03-organization-and-environment.md` |
-| Need and scarcity | increase | Resource dependence | `session-03-organization-and-environment.md` |
-| Strategic intent | guides | Organization design | `session-04-strategic-organization-design.md` |
-| Structure | can shape | Strategy | `session-04-strategic-organization-design.md` |
-| Technology | shapes and is shaped by | Routines | `session-05-technology-and-organization.md` |
-| AI | affects | Task division/expertise/stability/ethics | `session-06-ai-and-organization.md` |
-| Automation | can erode | Expertise | `session-06-ai-and-organization.md` |
-| Algorithmic dashboard | can become | Control instrument | `session-06-ai-and-organization.md` |
+| Organization | solves | Collective-action problems | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` |
+| Formal Structure | enables/constrains | Organizing in practice | `session-01-definitional-basics-of-organization/session-01-definitional-basics-of-organization.md` |
+| Rules | increase | Control | `session-02-formal-organizational-design/session-02-formal-organizational-design.md` |
+| Rules | do not determine | Action | `session-02-formal-organizational-design/session-02-formal-organizational-design.md` |
+| Roles | coordinate through | Monitoring/substitution/common perspective | `session-02-formal-organizational-design/session-02-formal-organizational-design.md` |
+| Environmental change and complexity | create | Uncertainty | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Stable environment | fits | Mechanistic structure | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Dynamic environment | fits | Organic structure | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Need and scarcity | increase | Resource dependence | `session-03-organization-and-environment/session-03-organization-and-environment.md` |
+| Strategic intent | guides | Organization design | `session-04-strategic-organization-design/session-04-strategic-organization-design.md` |
+| Structure | can shape | Strategy | `session-04-strategic-organization-design/session-04-strategic-organization-design.md` |
+| Technology | shapes and is shaped by | Routines | `session-05-technology-and-organization/session-05-technology-and-organization.md` |
+| AI | affects | Task division/expertise/stability/ethics | `session-06-ai-and-organization/session-06-ai-and-organization.md` |
+| Automation | can erode | Expertise | `session-06-ai-and-organization/session-06-ai-and-organization.md` |
+| Algorithmic dashboard | can become | Control instrument | `session-06-ai-and-organization/session-06-ai-and-organization.md` |
