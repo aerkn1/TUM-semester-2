@@ -2,7 +2,7 @@
 
 This file aggregates the Finance and Investment Management concepts learned so far. It is lecture-scoped only.
 
-Last updated: 2026-05-16
+Last updated: 2026-05-25
 
 ## Course-Level Mermaid Graph
 
@@ -16,17 +16,27 @@ graph TD
     FSA -->|uses report| IS[Income Statement]
     FSA -->|uses report| CF[Cash Flow Statement]
     FSA -->|turns reports into| RATIOS[Ratio Analysis]
+    FSA -->|starts from| DQ[Decision Question]
+    DQ -->|profit and margins| IS
+    DQ -->|position and liquidity| BS
+    DQ -->|cash quality| CF
     RATIOS -->|measures short-term solvency| LIQ[Liquidity]
     RATIOS -->|measures debt reliance| LEV[Leverage]
     RATIOS -->|measures margin quality| PROF[Profitability]
     RATIOS -->|supports market comparison| VAL[Valuation]
     RATIOS -->|explains ROE through| DUPONT[DuPont ROE Decomposition]
+    RATIOS -->|measures operating capital productivity| ROIC[ROIC]
+    RATIOS -->|measures shareholder return| ROE[ROE]
+    DUPONT -->|decomposes| ROE
 
     FSA -->|extends into| FUND[Fundamental Analysis Excursus]
     FUND -->|uses valuation signal| MB[Market-to-Book]
+    FUND -->|uses valuation signal| PE[P/E Ratio]
     FUND -->|uses quality signal| FSCORE[Piotroski F-Score]
     FUND -->|detects suspicious patterns| REDFLAG[Wirecard Red Flags]
-    FSCORE -->|complements| MB
+    FSCORE -->|filters cheapness from| MB
+    FSCORE -->|filters cheapness from| PE
+    FSCORE -->|helps identify| VTRAP[Value Trap Risk]
 
     CORP -->|continues with| IA[Investment Analysis]
     IA -->|master decision rule| NPV[Net Present Value]
@@ -39,9 +49,11 @@ graph TD
 
     MATH -->|is built on| TVM
     TVM -->|operationalized by| INT[Interest Calculation]
+    INT -->|starts with| DIR[PV Or FV Direction]
     INT -->|no interest-on-interest| SIMPLE[Simple Interest]
     INT -->|interest-on-interest| COMP[Compound Interest]
     INT -->|converts nominal to actual| EFF[Effective Annual Rate]
+    INT -->|matches rate with periods| PERIOD[Periodic Rate]
     INT -->|limit of compounding frequency| CONT[Continuous Compounding]
 
     TVM -->|values repeated cash flows| ANN[Annuities]
@@ -96,8 +108,8 @@ graph LR
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
 |---|---|---|---|
 | Course logistics | `finance-and-investment-management/wiki/_course-logistics.md` | Excluded from conceptual graph | 2026-05-16 |
-| Financial Analysis | `finance-and-investment-management/wiki/session-01-02-financial-analysis/session-01-02-financial-analysis.md` | Statements to ratios to interpretation | 2026-05-16 |
-| Fundamental Analysis Excursus | `finance-and-investment-management/wiki/session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` | M/B and F-Score as investment signals | 2026-05-16 |
+| Financial Analysis | `finance-and-investment-management/wiki/session-01-02-financial-analysis/session-01-02-financial-analysis.md` | Decision questions to statements, ratios, ROIC/ROE, and valuation interpretation | 2026-05-25 |
+| Fundamental Analysis Excursus | `finance-and-investment-management/wiki/session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` | M/B, P/E, and F-Score as value-opportunity vs value-trap signals | 2026-05-25 |
 | Investment Analysis | `finance-and-investment-management/wiki/session-03-04-investment-analysis/session-03-04-investment-analysis.md` | NPV as master rule; IRR/payback/PI as limited alternatives | 2026-05-16 |
 | Interest Calculation | `finance-and-investment-management/wiki/exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` | Time value of money and compounding | 2026-05-16 |
 | Annuities | `finance-and-investment-management/wiki/exercise-03-04-annuities/exercise-03-04-annuities.md` | Repeated payments by timing and growth pattern | 2026-05-16 |
@@ -112,12 +124,18 @@ graph LR
 | Balance sheet | Point-in-time assets, liabilities, equity | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
 | Ratio analysis | Standardized firm comparison | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
 | DuPont identity | ROE decomposed into margin, turnover, leverage | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| ROIC | Operating return on invested capital | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| ROE | Shareholder return on book equity | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| P/E ratio | Market value relative to current net income | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
 | M/B ratio | Market value relative to book equity | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
 | Piotroski F-Score | Financial strength score | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| Value trap | Cheap-looking stock with weak or deteriorating fundamentals | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
 | NPV | Present value of all project cash flows | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
 | IRR | Discount rate that makes NPV zero | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
 | Time value of money | Money depends on timing | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| PV/FV direction | Whether a cash flow must be discounted backward or compounded forward | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Effective annual rate | Actual annual rate after compounding | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Periodic rate | Rate per compounding period, matched to number of periods | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Annuity | Repeated cash-flow stream | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
 | Redemption | Loan repayment calculation | `exercise-05-redemptions/exercise-05-redemptions.md` |
 | Bond | Debt security with promised payments | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
@@ -128,12 +146,20 @@ graph LR
 | From | Relationship | To | Source Note |
 |---|---|---|---|
 | Financial statements | provide inputs for | ratio analysis | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| Decision question | selects | financial statement focus | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
 | DuPont identity | decomposes | ROE | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| ROIC | evaluates | operating capital productivity | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| ROE | evaluates | shareholder return | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
+| P/E ratio | values | earnings power | `session-01-02-financial-analysis/session-01-02-financial-analysis.md` |
 | M/B ratio | classifies | value vs growth stocks | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
-| Piotroski F-Score | complements | M/B ratio | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| Piotroski F-Score | filters | valuation cheapness | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
+| Low M/B plus low F-Score | indicates | value trap risk | `session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` |
 | NPV | dominates when conflicting with | IRR | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
 | Payback rule | ignores | time value of money | `session-03-04-investment-analysis/session-03-04-investment-analysis.md` |
 | Time value of money | supports | NPV | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Interest calculation | starts by choosing | PV/FV direction | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Nominal rate | converts into | periodic or effective rate | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
+| Periodic rate | must match | number of periods | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Interest calculation | supports | annuities | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Annuity formulas | support | redemption calculations | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
 | Bond pricing | uses | discounted cash flow | `exercise-06-bonds-i/exercise-06-bonds-i.md` |

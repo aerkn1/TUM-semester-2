@@ -47,6 +47,7 @@ graph LR
     ContractLaw -->|can be altered by| Termination[Contract termination routes]
 
     Formation -->|requires| Offer[Offer]
+    Formation -->|door sections| FormationSections[130, 133/157, 145, 146, 148, 150 II BGB]
     Formation -->|requires| Acceptance[Acceptance]
     Offer -->|must contain| Essentialia[Essentialia negotii]
     Offer -->|becomes effective through| IssuingReception[Issuing and reception]
@@ -60,6 +61,7 @@ graph LR
 
     PrivateAutonomy -->|allows| FreedomContract[Freedom of conclusion, party, form, content]
     PrivateAutonomy -->|limited by| LimitsAutonomy[Mandatory limits]
+    LimitsAutonomy -->|lock sections| ValiditySections[125, 134, 138, 305 ff., 276 III BGB]
     LimitsAutonomy -->|statutory prohibition| S134[Section 134 BGB]
     LimitsAutonomy -->|public policy / usury| S138[Section 138 BGB]
     LimitsAutonomy -->|standard terms| S305[Sections 305 ff. BGB]
@@ -72,8 +74,10 @@ graph LR
     Termination -->|mutual agreement| Dissolution[Dissolution]
 
     Rescission -->|grounds| ErrorDeceitDuress[Error, deceit, duress]
+    Rescission -->|emergency-exit sections| RescissionSections[119, 120, 123, 143, 121/124, 144, 142, 122 BGB]
     Rescission -->|effect| ExTunc[Void ex tunc]
     Revocation -->|grounds| PerformanceBreach[Primary duty, ancillary duty, impossibility]
+    Revocation -->|return-desk sections| RevocationSections[323, 324, 326 V, 349, 346-348, 325 BGB]
     Revocation -->|effect| Restitution346[Restitution under Sections 346-348 BGB]
     Withdrawal -->|requires| ConsumerTrader[Consumer and trader]
     Withdrawal -->|covers| DistanceOffPremises[Distance / off-premises contracts]
@@ -127,6 +131,7 @@ flowchart TD
 flowchart TD
     Start[Contract issue] --> FormationQuestion{Is the contract formed?}
     FormationQuestion -->|No / uncertain| Formation[Check offer and acceptance]
+    Formation --> DoorSections[Door sections: 130, 133/157, 145, 146, 148, 150 II]
     Formation --> OfferCheck[Offer: essentialia negotii + intention to be bound]
     OfferCheck --> ReceptionCheck[Effective DoI: issuing + reception]
     ReceptionCheck --> AcceptanceCheck[Acceptance mirrors offer?]
@@ -134,7 +139,10 @@ flowchart TD
     AcceptanceCheck -->|Yes| ValidContract[Contract formed]
 
     FormationQuestion -->|Yes| ValidContract
-    ValidContract --> ProblemType{What problem occurred?}
+    ValidContract --> ValidityCheck{Validity problem?}
+    ValidityCheck -->|Yes| LockSections[Lock sections: 125, 134, 138, 305 ff., 276 III]
+    ValidityCheck -->|No| ProblemType{What problem occurred?}
+    LockSections --> ProblemType
 
     ProblemType -->|Flawed declaration of intent| Rescission[Rescission]
     Rescission --> Grounds119123[Sections 119, 120, 123 BGB]
@@ -165,8 +173,8 @@ flowchart TD
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
 |---|---|---|---|
 | Week 01-02 Introduction To Business Law | `week-01-02-introduction-to-business-law/week-01-02-introduction-to-business-law.md` | Legal system map: sources, hierarchy, public/private classification, BGB method | 2026-05-14 |
-| Week 03 Contract Law I | `week-03-contract-law-i/week-03-contract-law-i.md` | Contract formation: declaration of intent, offer, acceptance, private autonomy, contract types | 2026-05-14 |
-| Week 04 Contract Law II | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` | Termination I: rescission for flawed DoI and revocation for performance problems | 2026-05-14 |
+| Week 03 Contract Law I | `week-03-contract-law-i/week-03-contract-law-i.md` | Contract formation and validity sections: door and lock memory map | 2026-05-25 |
+| Week 04 Contract Law II | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` | Exit routes: emergency exit for rescission and return desk for revocation | 2026-05-25 |
 | Week 05 Contract Law III | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` | Termination II: withdrawal, cancellation, dissolution, and full termination decision tree | 2026-05-14 |
 
 ## Supporting Node Reference
@@ -193,8 +201,12 @@ flowchart TD
 | Offer | DoI enabling contract conclusion by acceptance alone | `week-03-contract-law-i/week-03-contract-law-i.md` |
 | Acceptance | Agreement with the offer | `week-03-contract-law-i/week-03-contract-law-i.md` |
 | Private Autonomy | Freedom to shape contractual relations | `week-03-contract-law-i/week-03-contract-law-i.md` |
+| Door sections | Formation anchors: receipt, interpretation, offer, expiry, deadline, modified acceptance | `week-03-contract-law-i/week-03-contract-law-i.md` |
+| Lock sections | Validity anchors: form, prohibition, public policy, standard terms, intentional liability | `week-03-contract-law-i/week-03-contract-law-i.md` |
 | Rescission | Right to eradicate a flawed DoI | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
 | Revocation | Right to undo a valid reciprocal contract due to performance problem | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
+| Emergency exit sections | Rescission anchors: mistake, deceit/duress, declaration, timing, exclusion, effects | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
+| Return desk sections | Revocation anchors: breach routes, declaration, restitution, damages | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
 | Withdrawal | Consumer-protection exit right | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Cancellation | Termination of continuing obligation | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Dissolution | Consensual termination agreement | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
@@ -221,8 +233,12 @@ flowchart TD
 | Offer | must include | Essentialia Negotii | `week-03-contract-law-i/week-03-contract-law-i.md` |
 | Acceptance | must mirror | Offer | `week-03-contract-law-i/week-03-contract-law-i.md` |
 | Private Autonomy | is limited by | Sections 134 and 138 BGB | `week-03-contract-law-i/week-03-contract-law-i.md` |
+| Contract formation | is routed through | Door sections | `week-03-contract-law-i/week-03-contract-law-i.md` |
+| Contract validity | is tested by | Lock sections | `week-03-contract-law-i/week-03-contract-law-i.md` |
 | Rescission | attacks | Declaration of Intent | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
+| Rescission | is routed through | Emergency exit sections | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
 | Revocation | responds to | Performance Problem | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
+| Revocation | is routed through | Return desk sections | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` |
 | Withdrawal | protects | Consumer | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Cancellation | applies to | Continuing Obligation | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Dissolution | requires | Agreement | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |

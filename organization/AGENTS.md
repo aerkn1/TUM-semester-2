@@ -19,3 +19,5 @@ When processing materials, focus on theories, assumptions, mechanisms, levels of
 Every wiki note should include the theory's core claim, causal mechanism, boundary conditions, managerial example, exam relevance, and likely comparison questions.
 
 After generating notes, coach through conceptual retrieval first: ask the user to explain the mechanism in their own words before giving the polished professor-level version.
+
+For Organization clarification sessions, prioritize the bridge between theory and managerial diagnosis. Explain each theory by linking `core mechanism -> organizational symptom -> managerial decision -> boundary condition -> exam comparison trap`. Use concrete company, team, structure, incentive, culture, technology, and change examples. When the user later asks to update the files, add these decision-use explanations, analogies, and comparison corrections to the topic note and `CONTEXT.md`.

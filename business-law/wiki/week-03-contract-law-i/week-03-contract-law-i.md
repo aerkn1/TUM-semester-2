@@ -247,6 +247,45 @@ Distinction:
 - Section 134 BGB asks whether the transaction violates a statutory prohibition.
 - Section 138 BGB asks whether the transaction is intolerable under public policy/morality as recognized by law.
 
+## Section Memory Map: Contract Law I
+
+Contract Law I builds the contract. Use these sections to decide whether a valid legal transaction exists.
+
+```text
+130 receives.
+133/157 interpret.
+145 binds.
+146 expires.
+148 deadlines.
+150 changes.
+125 form fails.
+134 law forbids.
+138 morality breaks.
+305 controls clauses.
+276 intentional liability stays.
+```
+
+| Case trigger | Section | Function | Consequence |
+|---|---|---|---|
+| Email, letter, or message reaches an absent recipient | Section 130 BGB | Effectiveness of declaration upon receipt | Declaration becomes effective when it reaches the recipient's sphere. |
+| Ambiguous wording or disputed meaning | Sections 133 and 157 BGB | Interpretation by real will and objective recipient horizon | Meaning is determined from reasonable-recipient perspective in context. |
+| Definite offer with intention to be bound | Section 145 BGB | Binding effect of offer | Offeror is bound unless binding is excluded. |
+| Rejection or no timely acceptance | Section 146 BGB | Expiry of offer | Offer no longer capable of acceptance. |
+| Offeror sets deadline | Section 148 BGB | Fixed acceptance period | Acceptance must arrive within the deadline. |
+| Reply changes price, quantity, object, or terms | Section 150 II BGB | Modified acceptance | Rejection plus new offer, not acceptance. |
+| Required legal form is missing | Section 125 BGB | Form defect | Legal transaction is void. |
+| Contract violates statutory prohibition | Section 134 BGB | Mandatory legal prohibition | Legal transaction is void unless statute says otherwise. |
+| Exploitative or immoral transaction | Section 138 BGB | Public policy/usury limit | Legal transaction is void. |
+| Pre-written terms are imposed | Sections 305 ff. BGB | Standard business terms control | Clause may be invalid or ineffective. |
+| Clause excludes intentional liability in advance | Section 276 III BGB | Mandatory liability limit | Exclusion is invalid; intentional liability remains. |
+
+Lifecycle memory:
+
+```text
+Door = formation: 130, 133/157, 145, 146, 148, 150
+Lock = validity: 125, 134, 138, 305 ff., 276 III
+```
+
 ## Overview Of Contract Types
 
 | Contract Type | Core Obligation | Key Sections |
@@ -408,4 +447,3 @@ Future links:
 ## Open Uncertainties
 
 - The deck asks how common law regulates binding offers. The common-law detail is not developed in this deck and may require extra Moodle material if tested.
-

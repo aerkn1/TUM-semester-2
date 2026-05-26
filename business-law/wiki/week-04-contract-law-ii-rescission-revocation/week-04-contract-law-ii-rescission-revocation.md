@@ -21,6 +21,32 @@ This deck introduces two ways to alter or undo a contract:
 
 ## Core Concepts
 
+## Relationship To Contract Law I
+
+Contract Law I and Contract Law II belong to the same contract lifecycle, but they answer different legal questions.
+
+```text
+Contract Law I: Did a valid contract arise?
+Contract Law II: Can a party attack or unwind the legal situation?
+```
+
+Contract Law I evaluates formation and validity: offer, acceptance, effectiveness, interpretation, form, statutory prohibitions, public policy, and standard terms. Contract Law II assumes there is a legal situation to attack or unwind and asks which exit route applies.
+
+| Stage | Main question | Typical issue | Legal route |
+|---|---|---|---|
+| Formation | Did offer and acceptance match? | Product display, online checkout, late or modified acceptance | Contract Law I |
+| Validity | Is the formed transaction void or a clause ineffective? | Missing form, illegality, usury, invalid standard term | Contract Law I |
+| Defective declaration | Was a party's declaration flawed at formation? | Typo, misunderstanding, deception, threat, transmission error | Contract Law II: rescission |
+| Performance failure | Was there a valid contract but performance went wrong? | Non-delivery, non-payment, impossible performance, serious ancillary-duty breach | Contract Law II: revocation |
+
+Memory:
+
+```text
+Contract Law I builds the house.
+Rescission attacks a defective foundation stone.
+Revocation returns the furniture after the valid house cannot be used as promised.
+```
+
 ## Rescission
 
 ### Function
@@ -198,6 +224,79 @@ Examples:
 
 Revocation can be combined with damages under Section 325 BGB, but double compensation must not occur.
 
+## Section Memory Map: Contract Law II
+
+Contract Law II is the exit-route map. First choose rescission or revocation.
+
+```text
+Mistake or manipulation in declaration? -> Rescission.
+Performance problem in valid reciprocal contract? -> Revocation.
+```
+
+### Rescission Route
+
+```text
+119 mistakes.
+120 messenger misfires.
+123 fraud or force.
+143 declare it.
+121 fast for mistakes.
+124 one year for fraud/force.
+144 confirmation kills it.
+142 void from the start.
+122 protects reliance.
+```
+
+| Case trigger | Section | Function | Consequence |
+|---|---|---|---|
+| Declaror says what they intended but misunderstands meaning | Section 119 I Alt. 1 BGB | Error of content | Rescission possible if causal and timely. |
+| Declaror types, clicks, says, or signs the wrong thing | Section 119 I Alt. 2 BGB | Error of declaration | Rescission possible if causal and timely. |
+| Mistake concerns essential attribute of person or thing | Section 119 II BGB | Error about essential characteristics | Rescission possible; distinguish from mere motive error. |
+| Messenger, system, or transmission channel changes the declaration | Section 120 BGB | Transmission error | Rescission possible. |
+| Other party deceives or unlawfully threatens | Section 123 BGB | Deceit or duress | Rescission possible with longer time limit; Section 122 reliance damages usually excluded for deceiver/threatener. |
+| Party wants to exercise rescission | Section 143 BGB | Declaration of rescission | Rescission must be declared to correct addressee. |
+| Error under Sections 119 or 120 | Section 121 BGB | Time limit | Rescind without undue delay. |
+| Deceit or duress under Section 123 | Section 124 BGB | Time limit | Rescind within one year. |
+| Party confirms after knowing the defect | Section 144 BGB | Exclusion | Rescission blocked. |
+| Rescission is effective | Section 142 I BGB | Ex tunc voidness | Declaration/transaction is void from the beginning. |
+| Opponent relied on error-based declaration | Section 122 BGB | Negative interest | Reliance damages possible in certain error cases. |
+
+### Revocation Route
+
+```text
+323 main duty fails.
+324 side duty breaks trust.
+326 V performance impossible.
+349 declare revocation.
+346-348 return everything.
+325 damages can remain.
+```
+
+| Case trigger | Section | Function | Consequence |
+|---|---|---|---|
+| Seller does not deliver, buyer does not pay, or performance is improper | Section 323 BGB | Primary performance breach | Revocation possible, usually after additional period or cure opportunity. |
+| Protective/cooperation duty is seriously breached | Section 324 BGB | Ancillary duty breach | Revocation possible if upholding the contract is unreasonable. |
+| Performance duty is excluded, especially impossible | Section 326 V BGB | Impossibility/excluded performance | Revocation possible without additional period. |
+| Party wants to exercise revocation | Section 349 BGB | Declaration of revocation | Revocation must be declared; it does not happen automatically. |
+| Revocation is effective | Sections 346-348 BGB | Restitution | Received performances must be returned, generally concurrently. |
+| Additional loss remains after revocation | Section 325 BGB | Damages alongside revocation | Damages may coexist, but no double compensation. |
+
+### Full Contract Lifecycle Map
+
+```text
+1. Did contract form?
+   -> Contract Law I: 130, 133/157, 145, 146, 148, 150 II.
+
+2. Is contract invalid despite formation?
+   -> Contract Law I: 125, 134, 138, 305 ff., 276 III.
+
+3. Was a declaration defective at formation?
+   -> Rescission: 119, 120, 123, 143, 121/124, 144, 142, 122.
+
+4. Was the contract valid, but performance failed?
+   -> Revocation: 323, 324, 326 V, 349, 346-348, 325.
+```
+
 ## Visual Knowledge Map
 
 ```mermaid
@@ -325,4 +424,3 @@ Future links:
 ## Open Uncertainties
 
 - The deck uses "revocation" for Rücktritt-like termination from reciprocal contracts. Keep it separate from consumer withdrawal in Week 5, which is also sometimes translated differently in English.
-

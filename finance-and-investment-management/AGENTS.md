@@ -19,3 +19,5 @@ When processing materials, focus on time value of money, risk and return, valuat
 Every wiki note should include formulas, variable definitions, intuition, worked examples, interpretation of results, exam-style calculation templates, and common numerical mistakes.
 
 After generating notes, coach through intuition and calculation setup first: ask the user what cash flows, discount rate, risk measure, or decision rule is relevant before solving or explaining.
+
+For Finance clarification sessions, prioritize the bridge between calculations and decisions. Explain each ratio, valuation multiple, return measure, compounding convention, or capital-budgeting metric by linking `what it measures -> why it matters -> which decision it supports -> what it cannot prove alone`. Use concrete investor, CFO, bank-lending, project-selection, and household-saving analogies. When the user later asks to update the files, add these decision-use explanations, analogies, and exam-trap corrections to the topic note and `CONTEXT.md`.

@@ -34,6 +34,9 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 |---|---|---|
 | **Rescission** | A legal mechanism that retroactively removes the effects of a declaration of intent because of a defect such as error, deceit, or duress. | revocation, withdrawal |
 | **Revocation** | A remedy allowing a party to undo a contract because performance obligations were not properly fulfilled. | rescission |
+| **Formation Problem** | A Contract Law I issue about whether offer, acceptance, effectiveness, and validity produced a contract. | rescission problem |
+| **Defective Declaration Problem** | A Contract Law II issue where a declaration can be attacked because the declaror made a relevant mistake or was deceived/threatened. | performance breach |
+| **Performance Problem** | A Contract Law II issue where a valid contract exists but a main duty, ancillary duty, or performance possibility failed. | formation defect |
 | **Material Error** | A mistake relevant enough under the statute to justify rescission. | any regret |
 | **Deceit** | Intentional misleading behavior that induces a declaration of intent. | mistake |
 | **Duress** | Unlawful pressure that induces a declaration of intent. | hard bargaining |
@@ -60,44 +63,63 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Section 349 BGB** | Revocation must be declared. | Creditor has a revocation reason and wants to exercise it. | Do not assume revocation happens automatically. |
 | **Section 325 BGB** | Damages can coexist with revocation. | Revocation occurs but remaining loss still needs compensation. | Use to avoid the trap that revocation excludes damages. |
 
+## Section Routing Memory Aid
+
+Think in four stations:
+
+```text
+Door = Contract Law I formation.
+Lock = Contract Law I validity.
+Emergency exit = Contract Law II rescission.
+Return desk = Contract Law II revocation.
+```
+
+| Station | Sections | Trigger facts | Consequence |
+|---|---|---|---|
+| **Door: formation** | 130, 133/157, 145, 146, 148, 150 II BGB | Receipt, interpretation, offer, expiry, deadline, modified acceptance. | Contract formed, no contract, expired offer, or counteroffer. |
+| **Lock: validity** | 125, 134, 138, 305 ff., 276 III BGB | Missing form, legal prohibition, public policy/usury, invalid standard terms, intentional-liability exclusion. | Transaction void or clause invalid/ineffective. |
+| **Emergency exit: rescission** | 119, 120, 123, 143, 121/124, 144, 142, 122 BGB | Mistake, transmission error, deceit, duress, declaration, time limit, confirmation, effects. | Declaration/transaction void ex tunc; possible reliance damages in error cases. |
+| **Return desk: revocation** | 323, 324, 326 V, 349, 346-348, 325 BGB | Valid reciprocal contract plus performance problem. | Restitution duties; damages may remain. |
+ 
+Cheat sentences:
+
+```text
+119 mistakes; 120 messenger misfires; 123 fraud or force; 143 declare it; 121 fast; 124 one year; 144 confirmation kills it; 142 void from start; 122 protects reliance.
+323 main duty fails; 324 side duty breaks trust; 326 V performance impossible; 349 declare revocation; 346-348 return everything; 325 damages can remain.
+```
+
 ## Relationships
 
-- **Law** should be distinguished from **Morality** when writing exam answers.
-- **Morality** should be distinguished from **Source of Law** when writing exam answers.
-- **Source of Law** should be distinguished from **Civil Law System** when writing exam answers.
-- **Civil Law System** should be distinguished from **Common Law System** when writing exam answers.
-- **Common Law System** should be distinguished from **Hierarchy of Norms** when writing exam answers.
-- **Hierarchy of Norms** should be distinguished from **Lex Specialis** when writing exam answers.
+- **Formation Problem** belongs to Contract Law I; **Defective Declaration Problem** and **Performance Problem** belong to Contract Law II.
+- **Rescission** attacks a flawed declaration of intent and has **ex tunc** effect under Section 142 I BGB.
+- **Revocation** assumes a valid reciprocal contract and creates **Restitution** under Sections 346-348 BGB.
+- **Deceit** and **Duress** use Section 123 BGB and the longer Section 124 BGB time limit.
+- **Material Error** under Sections 119/120 BGB usually requires action without undue delay under Section 121 BGB.
 - A strong answer defines the canonical term, applies the rule or formula, and states the managerial, legal, or analytical implication.
 
 ## Visual Memory Aid
 
 ```mermaid
 flowchart TD
-    N1[Law]
-    N2[Morality]
-    N1 --> N2
-    N3[Source of Law]
-    N2 --> N3
-    N4[Civil Law System]
-    N3 --> N4
-    N5[Common Law System]
-    N4 --> N5
-    N6[Hierarchy of Norms]
-    N5 --> N6
-    N7[Lex Specialis]
-    N6 --> N7
+    Issue[Contract Case] --> CL1{Formation or validity?}
+    CL1 -->|offer/acceptance/effectiveness| Door[Door: Contract Law I formation]
+    CL1 -->|form/prohibition/public policy/clauses| Lock[Lock: Contract Law I validity]
+    Issue --> CL2{Need exit route?}
+    CL2 -->|defective declaration| Rescission[Emergency Exit: Rescission]
+    CL2 -->|performance problem| Revocation[Return Desk: Revocation]
+    Rescission --> RSections[119/120/123 + 143 + 121/124 + 144 + 142/122]
+    Revocation --> VSections[323/324/326 V + 349 + 346-348 + 325]
 ```
 
 ## Example Dialogue
 
 > **Student:** "I see **Law** and **Morality** in the note. Are they interchangeable?"
 >
-> **Professor:** "No. Use **Law** for its precise technical meaning, and use **Morality** only when the facts match that definition."
+> **Professor:** "For this topic, ask a more precise routing question: are we building the contract, attacking a flawed declaration, or unwinding a valid contract because performance failed?"
 >
-> **Student:** "So in an exam answer I should name the exact term first?"
+> **Student:** "If someone typed 1,000 instead of 100, is that revocation?"
 >
-> **Professor:** "Yes. Name the canonical term, apply the decision rule or mechanism, then state the implication."
+> **Professor:** "No. That is a defective declaration problem: possible **Rescission** under Section 119 I Alt. 2 BGB. **Revocation** is for valid contracts with later performance problems."
 
 ## Flagged Ambiguities
 
@@ -114,10 +136,16 @@ flowchart TD
 | Treating examples as definitions. | Use examples only after the canonical definition is clear. |
 | Mixing related terms. | State the boundary between the terms before comparing them. |
 | Copying a formula without variable meaning. | Define each variable and unit before substitution. |
+| Mixing rescission and revocation. | Rescission = flawed declaration at formation; revocation = valid contract plus performance problem. |
+| Forgetting exercise declarations. | Rescission requires Section 143 BGB declaration; revocation requires Section 349 BGB declaration. |
+| Treating revocation as ex tunc. | Ex tunc is rescission under Section 142 I BGB; revocation creates restitution under Sections 346-348 BGB. |
 
 ## Cheat-Sheet Language
 
 ```text
 Identify the legal issue, state the rule, apply facts to rule elements, and conclude.
-For every technical term: define it, identify when it applies, and state the common confusion to avoid.
+Formation first, validity second, exit route third.
+Mistake/deceit/duress at declaration = rescission.
+Non-performance/improper performance/impossibility = revocation.
+For every exit route: ground -> declaration -> timing/exclusions -> consequence.
 ```

@@ -31,3 +31,5 @@ For Business Law active recall, prefer a use-case-driven structure because the u
 7. Record the exact case prompt, follow-up questions, raw user answers, corrections, and weak spots in the topic active-recall session file.
 
 After generating notes, coach through issue spotting first, but make the issue spotting case-based: ask the user to identify the legal issue, rule, statutory anchor, application, and conclusion before giving the full explanation.
+
+For Business Law clarification sessions, prioritize the bridge between legal vocabulary and business consequences. Explain each doctrine by linking `trigger facts -> statutory anchor -> legal effect -> business decision consequence -> exam trap`. Use concrete contract, consumer, commercial, and compliance analogies. When the user later asks to update the files, add these decision-use explanations, analogies, statutory-anchor clarifications, and issue-spotting corrections to the topic note and `CONTEXT.md`.

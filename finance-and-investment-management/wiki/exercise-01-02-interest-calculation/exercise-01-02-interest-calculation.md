@@ -140,6 +140,69 @@ Nominal continuous rate 6%:
 r_eff = e^0.06 - 1 = 6.18%
 ```
 
+## Interest-Type Selection For Values And Comparisons
+
+Before choosing a formula, identify the direction of movement and the interest convention.
+
+```text
+Move money forward  -> Future Value
+Move money backward -> Present Value
+Compare alternatives -> Convert rates to the same effective period
+```
+
+| Interest type | Future value formula | Present value formula | Use when | Decision interpretation |
+|---|---|---|---|---|
+| Simple interest | `C_n = C_0 x (1 + r x n)` | `C_0 = C_n / (1 + r x n)` | The problem explicitly says simple interest or interest is not reinvested. | Growth is linear; interest is earned only on original principal. |
+| Annual compound interest | `C_n = C_0 x (1 + r)^n` | `C_0 = C_n / (1 + r)^n` | Interest is reinvested once per year. | Growth is exponential; interest earns interest. |
+| Intra-year compounding | `C_n = C_0 x (1 + r/m)^(m x n)` | `C_0 = C_n / (1 + r/m)^(m x n)` | A nominal annual rate is compounded monthly, quarterly, semiannually, etc. | Match the periodic rate and number of periods before calculating. |
+| Continuous compounding | `C_n = C_0 x e^(r x n)` | `C_0 = C_n / e^(r x n)` | The problem explicitly says continuously compounded. | This is the limit case of infinitely frequent compounding. |
+
+For the same stated annual rate and time horizon:
+
+```text
+Simple interest < Annual compounding < Intra-year compounding < Continuous compounding
+```
+
+Example with `C_0 = 1000`, `r = 10%`, `n = 2`:
+
+```text
+Simple:     1000 x (1 + 0.10 x 2) = 1200.00
+Compound:   1000 x 1.10^2 = 1210.00
+Continuous: 1000 x e^(0.10 x 2) = 1221.40
+```
+
+The values differ because the interest convention changes how often interest is added to the interest-earning base.
+
+### Nominal, Periodic, And Effective Rates
+
+Use rate conversion when the task compares bank offers or when the compounding interval is not annual.
+
+```text
+Periodic rate = nominal annual rate / m
+Number of periods = years x m
+Effective annual rate = (1 + r_nominal / m)^m - 1
+Continuous effective annual rate = e^r - 1
+```
+
+Example: 12% nominal annual rate compounded monthly:
+
+```text
+Monthly rate = 0.12 / 12 = 0.01 = 1%
+EAR = (1 + 0.12/12)^12 - 1 = 12.68%
+```
+
+Decision use: if two bank offers quote different compounding frequencies, convert both to effective annual rates before comparing. A higher nominal rate is not automatically better if compounding conventions differ.
+
+### Formula Choice Checklist
+
+```text
+1. What is unknown: C_0, C_n, r, or n?
+2. Are we moving money forward or backward?
+3. Is interest simple, compound, intra-year, or continuous?
+4. Do rate and period units match?
+5. If comparing offers, did we convert to the same effective period?
+```
+
 ## Worked Exercise Patterns
 
 ### Pattern 1: Needed Present Value
@@ -187,6 +250,8 @@ C_0 = C_1 / e^r = 90,909.09
 - Asked monthly/quarterly: convert via `m` or `r_eff`.
 - Asked continuous: use `e^(r x n)`.
 - Asked less than one year: check day-count convention.
+- Asked to compare offers: convert all quoted rates to the same effective period.
+- If `r` is monthly, `n` must be months; if `r` is annual, `n` must be years.
 
 ## Common Mistakes
 
@@ -196,6 +261,8 @@ C_0 = C_1 / e^r = 90,909.09
 - Comparing cash flows at different dates.
 - Rounding rates too early.
 - Ignoring day-count conventions.
+- Using the interest rate `r` as the growth factor instead of `1 + r`.
+- Using continuous compounding formula when the problem only says annual compounding.
 
 ## Practice Questions
 
@@ -224,6 +291,7 @@ graph TD
     INTRA --> REFF[Effective Annual Rate]
     CONT --> E[e^(r x n)]
     REFF --> NOM[Nominal vs Effective Rate]
+    INTRA --> PERIOD[Match Rate And Periods]
     SAME --> VAL[Valuation And NPV]
 ```
 
@@ -238,6 +306,8 @@ graph TD
 | Effective rate | Actual annual rate after compounding |
 | Continuous compounding | Infinite compounding frequency |
 | Day-count convention | Rule for fractional period calculation |
+| Periodic rate | Rate per compounding interval |
+| Effective annual rate | Comparable annual rate after compounding |
 
 | From | Relationship | To |
 |---|---|---|
@@ -245,6 +315,8 @@ graph TD
 | Present value | discounts | future cash flow |
 | Compound interest | grows faster than | simple interest |
 | Intra-year compounding | increases | effective rate |
+| Nominal rate | converts into | periodic rate |
+| Periodic rate | must match | number of periods |
 | Continuous compounding | is limit of | intra-year compounding |
 | Day-count convention | determines | fractional period |
 | Interest calculation | supports | annuities, bonds, NPV |

@@ -59,6 +59,37 @@ Strategy in the slides:
 
 Exam interpretation: F-Score adds quality/health information to raw valuation. Low M/B can mean undervaluation, but it can also mean distress; F-Score helps separate value opportunities from value traps.
 
+## How F-Score Strengthens Valuation Interpretation
+
+F-Score should be wired into the analysis after valuation ratios such as M/B and P/E.
+
+```text
+P/E and M/B ask: "Is the market price cheap or expensive?"
+F-Score asks: "Is the financial condition strong enough for cheapness to be believable?"
+```
+
+F-Score is especially useful when a stock looks cheap by low M/B. Low M/B only says the market value of equity is low relative to accounting book equity. It does not explain whether the market is wrong or whether the company is deteriorating.
+
+| Valuation signal | F-Score signal | Interpretation |
+|---|---:|---|
+| Low M/B or low P/E | High F-Score | Possible value opportunity: cheapness plus healthier fundamentals. |
+| Low M/B or low P/E | Low F-Score | Possible value trap: cheap because profitability, cash flow, leverage, or efficiency are weak. |
+| High M/B or high P/E | High F-Score | Quality/growth candidate, but check whether price already reflects the quality. |
+| High M/B or high P/E | Low F-Score | Expensive and weak; risky unless there is a strong turnaround explanation. |
+| High ROE but low F-Score | Warning signal: ROE may be leverage-driven or temporarily distorted. |
+| High ROIC and high F-Score | Stronger evidence of operating quality and financial health. |
+
+Analogy: M/B or P/E is the price tag on a used car. F-Score is the inspection report. A low price can be attractive if the car is healthy, but dangerous if the engine is failing.
+
+Decision-maker use:
+
+- Investor: use F-Score to avoid buying cheap-looking value traps.
+- CFO: use F-Score components as internal financial-health targets: profitability, cash flow, leverage/liquidity, and efficiency.
+- Manager: use weak F-Score components to identify operational repair areas, such as margin deterioration or poor asset turnover.
+- Lender: use F-Score-like signals as repayment-risk evidence, especially when leverage rises and operating cash flow weakens.
+
+Exam-ready sentence: F-Score does not replace valuation ratios; it filters them. Low P/E or low M/B identifies possible cheapness, while F-Score helps decide whether that cheapness is supported by financial strength or explained by distress.
+
 ## Limitations
 
 The slides list several limitations:
@@ -102,12 +133,16 @@ graph LR
     RED --> WIRE[Wirecard]
     WIRE --> BORROW[Borrowing Without Clear Purpose]
     FSA --> MB[Market-to-Book]
+    FSA --> PE[P/E Ratio]
     MB --> VALUE[Value Stocks]
     MB --> GROWTH[Growth Stocks]
     FSA --> FSCORE[Piotroski F-Score]
     FSCORE --> PROF[Profitability]
     FSCORE --> LIQ[Leverage And Liquidity]
     FSCORE --> EFF[Operating Efficiency]
+    FSCORE --> FILTER[Quality Filter]
+    FILTER --> OPPORTUNITY[Value Opportunity]
+    FILTER --> TRAP[Value Trap]
     MB --> STRAT1[Value-Growth Strategy]
     FSCORE --> STRAT2[Quality Strategy]
     STRAT1 --> LIMIT[Implementation Limits]
@@ -121,9 +156,12 @@ graph LR
 | Wirecard | Fraud/red-flag case |
 | Borrowing for no clear purpose | Suspicious balance-sheet behavior |
 | M/B ratio | Market valuation relative to book equity |
+| P/E ratio | Market valuation relative to current earnings |
 | Value stock | Low M/B stock |
 | Growth stock | High M/B stock |
 | Piotroski F-Score | Financial strength score from 0 to 9 |
+| Value trap | Cheap-looking stock with weak fundamentals |
+| Quality filter | Financial-health check applied after valuation screen |
 | Transaction costs | Implementation friction |
 | Short-selling constraints | Limits to long-short strategy execution |
 
@@ -133,7 +171,9 @@ graph LR
 | Wirecard | illustrates | limits and importance of analysis |
 | M/B ratio | classifies | value vs growth stocks |
 | Piotroski F-Score | measures | financial health |
-| F-Score | complements | M/B ratio |
+| F-Score | filters | low M/B and low P/E cheapness |
+| Low M/B plus high F-Score | suggests | value opportunity |
+| Low M/B plus low F-Score | suggests | value trap |
 | Long-short strategy | depends on | short-selling feasibility |
 | Rebalancing | creates | transaction costs |
 | Single-variable strategy | can be improved by | multi-signal analysis |

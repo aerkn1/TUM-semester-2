@@ -19,3 +19,5 @@ When processing materials, focus on customer insight, segmentation, targeting, p
 Every wiki note should include the core framework, managerial decision context, real-world example, exam relevance, likely application prompts, and traps such as confusing tactics with strategy.
 
 After generating notes, coach through market diagnosis first: ask the user to identify the customer, need, value proposition, and strategic tradeoff before giving the full explanation.
+
+For Marketing clarification sessions, prioritize the bridge between frameworks and market decisions. Explain each concept by linking `customer/market signal -> framework lens -> managerial choice -> expected behavior or financial consequence -> exam trap`. Use concrete brand, product, pricing, channel, campaign, segmentation, and consumer-behavior analogies. When the user later asks to update the files, add these decision-use explanations, analogies, metric interpretations, and framework-comparison corrections to the topic note and `CONTEXT.md`.

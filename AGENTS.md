@@ -187,6 +187,21 @@ After every active-recall or brainstorming session, also update `learning-system
 
 Do not include session outcome files in Mermaid diagrams or lecture-level knowledge graphs unless the session reveals a conceptual correction that should be added to the main subject note or course graph.
 
+## Clarification And Wiki Refinement Sessions
+
+When the user asks for a clarification session on an already-generated note, treat it as a targeted understanding-repair session rather than a new material-ingestion task. Start from the relevant wiki note, `CONTEXT.md`, most recent active-recall session file, review-dashboard weak spots, and course logistics. The user may ask open clarification questions; answer with concrete real-life descriptions, analogies, formula intuition, metric-selection logic, and decision-making consequences before returning to exam language.
+
+During the session, keep track of the user's actual confusion points, useful analogies, corrected mental models, and any language that made the concept click. At the end of the session, when the user asks to update the files, revise the relevant topic wiki note and `CONTEXT.md` so later repetitions explain not only the calculation or definition but also why the metric, rule, formula, or framework is used and how it supports a decision. Add or update the dated session outcome file with the clarification questions, user wording, feedback, refined mental models, and remaining weak spots. Then refresh `learning-system/review-dashboard.md` and `learning-system/weekly-calendar.md` as with any active-recall or revision session.
+
+For formula-heavy and metric-heavy topics, wiki refinements after clarification should explicitly connect:
+
+- what the metric or formula measures
+- why a manager, investor, lawyer, marketer, or operations decision-maker would use it
+- what decision it supports
+- what it cannot prove on its own
+- a compact real-world analogy
+- the common exam trap and correction rule
+
 ## Weekly Calendar And Mixed Practice Protocol
 
 Maintain `learning-system/weekly-calendar.md` as a rolling study-control file. Update it after every material-ingestion session, active-recall session, revision session, or dashboard change.

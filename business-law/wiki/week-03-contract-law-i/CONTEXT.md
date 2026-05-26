@@ -57,6 +57,22 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Section 276 III BGB** | Liability for intent cannot be excluded in advance. | Contract clause tries to exclude liability even for intentional conduct. | Use as a mandatory-law limit on freedom of contract. |
 | **Section 766 BGB** | Written-form requirement for a suretyship declaration by the surety. | A person promises to answer for another person's debt, such as guaranteeing a friend's bank loan. | Pair with Section 125 BGB: if the required form is missing, the suretyship declaration is generally void. |
 
+## Section Routing Memory Aid
+
+Use Contract Law I sections in two groups: formation first, validity second.
+
+| Memory hook | Sections | When to use | Legal consequence |
+|---|---|---|---|
+| **Door: formation** | Section 130 BGB; Sections 133 and 157 BGB; Sections 145, 146, 148, 150 II BGB | Ask whether declarations formed a contract. | Contract formed, no contract, offer expired, or counteroffer. |
+| **Lock: validity** | Sections 125, 134, 138, 305 ff., 276 III BGB | Ask whether a formed transaction or clause survives mandatory-law limits. | Transaction void or clause invalid/ineffective. |
+
+Cheat sentence:
+
+```text
+130 receives; 133/157 interpret; 145 binds; 146 expires; 148 deadlines; 150 changes.
+125 form fails; 134 law forbids; 138 morality breaks; 305 controls clauses; 276 intentional liability stays.
+```
+
 ## Relationships
 
 - **Law** should be distinguished from **Morality** when writing exam answers.
@@ -71,19 +87,19 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 
 ```mermaid
 flowchart TD
-    N1[Law]
-    N2[Morality]
-    N1 --> N2
-    N3[Source of Law]
-    N2 --> N3
-    N4[Civil Law System]
-    N3 --> N4
-    N5[Common Law System]
-    N4 --> N5
-    N6[Hierarchy of Norms]
-    N5 --> N6
-    N7[Lex Specialis]
-    N6 --> N7
+    CL1[Contract Law I] --> FORM[Formation]
+    CL1 --> VALID[Validity]
+    FORM --> S130[130 Receipt]
+    FORM --> S133157[133/157 Interpretation]
+    FORM --> S145[145 Binding Offer]
+    FORM --> S146[146 Expiry]
+    FORM --> S148[148 Deadline]
+    FORM --> S150[150 II Modified Acceptance]
+    VALID --> S125[125 Form Voidness]
+    VALID --> S134[134 Statutory Prohibition]
+    VALID --> S138[138 Public Policy / Usury]
+    VALID --> S305[305 ff. Standard Terms]
+    VALID --> S276[276 III Intent Liability]
 ```
 
 ## Example Dialogue
@@ -95,6 +111,10 @@ flowchart TD
 > **Student:** "So in an exam answer I should name the exact term first?"
 >
 > **Professor:** "Yes. Name the canonical term, apply the decision rule or mechanism, then state the implication."
+
+> **Student:** "How do I memorize the Contract Law I sections?"
+>
+> **Professor:** "Think lifecycle. First open the **Door**: receipt, interpretation, offer, expiry, deadline, modified acceptance. Then test the **Lock**: form, statutory prohibition, public policy, standard terms, and intentional liability."
 
 ## Flagged Ambiguities
 
@@ -111,6 +131,8 @@ flowchart TD
 | Treating examples as definitions. | Use examples only after the canonical definition is clear. |
 | Mixing related terms. | State the boundary between the terms before comparing them. |
 | Copying a formula without variable meaning. | Define each variable and unit before substitution. |
+| Jumping to rescission before formation. | First check Contract Law I: offer, acceptance, effectiveness, and validity. Rescission only matters if there is a declaration to attack. |
+| Treating invalid clause and void contract as identical. | Standard-term or liability clauses may be invalid while the rest of the contract remains valid. |
 
 ## Cheat-Sheet Language
 
