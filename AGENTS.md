@@ -54,7 +54,7 @@ When the user provides a PPTX, PDF, exercise, or other course file:
 8. Create a comprehensive Markdown note for subject-learning content in the lecture's `wiki/` folder.
 9. Link the new note to relevant earlier notes from the same lecture.
 10. Flag connections to other lectures when useful, especially law/organization/marketing/finance/SCM overlaps.
-11. Add the generated note to `learning-system/review-dashboard.md` with spaced retrieval checkpoints.
+11. Add the generated note to `learning-system/review-dashboard.md` with status `first pass pending — note generated YYYY-MM-DD` and leave `First Pass` plus every `D+n` cell blank. The spaced-repetition schedule starts only after the first active-recall session is completed. See `Spaced Repetition Schedule Semantics`.
 12. Include retrieval prompts and practice tasks in the wiki note using `templates/wiki-note-template.md` as the baseline.
 13. Add a subject-level Mermaid visual map and node/edge knowledge graph inside the generated wiki note.
 14. Update the lecture-specific `wiki/_course-knowledge-graph.md` so it aggregates all subjects learned so far within that same lecture.
@@ -174,18 +174,52 @@ Session outcome files should include:
 - next recall prompts
 - references back to relevant note sections
 
-After every active-recall or brainstorming session, also update `learning-system/review-dashboard.md` before ending the turn:
+After every active-recall or brainstorming session, also update `learning-system/review-dashboard.md` before ending the turn. Follow the chained schedule defined in `Spaced Repetition Schedule Semantics`:
 
-- Change the relevant review queue row from `active recall pending` to `active recall completed YYYY-MM-DD`.
-- Preserve the next scheduled review date in the status field, usually the next unfinished checkpoint from `D+1`, `D+3`, `D+7`, `D+14`, or `D+30`.
-- Compare all review dates in the dashboard with the actual current date. If a scheduled review date has passed, mark it clearly as overdue or missed in the status field and prioritize it before recommending new subject intake.
+- If the topic had no `First Pass` date, write the actual completion date into `First Pass` and compute `D+1` as `First Pass + 1 day`. Carry that planned `D+1` date in the status field as `next review YYYY-MM-DD`.
+- If this session closed a `D+n` checkpoint, write the actual completion date into the `D+n` cell. Compute the next checkpoint's planned date by adding the next interval (3, 7, 14, or 30 days) to that completion date, and carry it in the status field as the next review date.
+- The `D+n` columns store actual completion dates once each checkpoint is closed. The next planned review date lives in the status field, not in a column, until that next checkpoint is closed.
+- Compare all planned next-review dates in the dashboard with the actual current date. If a planned date has passed, mark it as missed in the status field and schedule a repair date. Once the repair recall completes, treat its actual date as the `D+n` completion and chain the next checkpoint from there.
 - Add meaningful weak spots from the session to the Mistake Ledger with the date, course, topic, prompt/task, error type, corrective action, and next review date.
-- If a session is only partially completed, mark it as `active recall in progress YYYY-MM-DD` and state the next prompt or unfinished section.
-- Do not mark a session complete just because a note was generated; completion requires an actual retrieval/coaching session.
-- Refresh `learning-system/weekly-calendar.md` so the user can see overdue reviews, due reviews, and recommended new subjects for the current week.
+- If a session is only partially completed, mark it as `active recall in progress YYYY-MM-DD` and state the next prompt or unfinished section. Do not advance `First Pass` or any `D+n` cell until the session is closed.
+- Do not mark a session complete just because a note was generated; completion requires an actual retrieval/coaching session. Note generation never sets `First Pass`.
+- Refresh `learning-system/weekly-calendar.md` so the user can see overdue reviews, due reviews, first-pass candidates, and recommended next starts for the current week.
 - Keep the Weekly Mixed Practice section in `learning-system/review-dashboard.md` non-empty. Add or update at least two concrete mixed-practice suggestions whenever enough processed material exists.
 
 Do not include session outcome files in Mermaid diagrams or lecture-level knowledge graphs unless the session reveals a conceptual correction that should be added to the main subject note or course graph.
+
+## Spaced Repetition Schedule Semantics
+
+`learning-system/review-dashboard.md` uses a chained spaced-repetition schedule. `First Pass` and every `D+n` date are exam-retrieval anchors, not file-generation dates.
+
+Canonical definitions:
+
+- `First Pass`: the date the topic's first active-recall (or guided-brainstorming retrieval) session is actually completed. Generating a wiki note, `CONTEXT.md`, raw extraction, Mermaid map, or any reading-only activity does NOT set `First Pass`.
+- `D+1`: planned as `First Pass completion date + 1 day`.
+- `D+3`: planned as `D+1 completion date + 3 days`, NOT as `First Pass + 3 days`.
+- `D+7`: planned as `D+3 completion date + 7 days`.
+- `D+14`: planned as `D+7 completion date + 14 days`.
+- `D+30`: planned as `D+14 completion date + 30 days`.
+
+Each checkpoint chains off the prior checkpoint's actual completion date. If the user closes `D+1` early or late, the `D+3` planned date shifts accordingly. The `D+n` cell holds the **actual completion date** for that checkpoint once closed; the next planned review date is carried in the status field as `next review YYYY-MM-DD` until that next checkpoint is closed.
+
+Pending-first-pass state:
+
+- For notes generated but never actively recalled, leave `First Pass` and every `D+n` cell blank. The status column must read `first pass pending — note generated YYYY-MM-DD`.
+- Pending-first-pass items are not yet in the D+ schedule. They cannot be "overdue" under the spaced-repetition rule. They are recommendation candidates for next study intake, not repair targets.
+
+Missed checkpoint repair:
+
+- If a planned next-review date passes without completion, mark the planned date as missed in the status field and schedule a repair date.
+- When the repair recall actually completes, record the repair completion date in the `D+n` cell. Compute the next checkpoint's planned date by adding the next interval (3, 7, 14, or 30 days) to that repair completion date.
+- Repairs that are themselves missed get rescheduled the same way. The chain always runs from whichever date the prior checkpoint was actually closed, never from the original planned date.
+
+Recommendation logic for pending-first-pass items:
+
+- A topic with no `First Pass` date is a candidate for next study intake.
+- When proposing a first-pass session for a given day, count the existing scheduled D+ load (planned next-review dates) for that day. Avoid placing a heavy first-pass session on a day already stacked with D+ reviews unless the user explicitly asks for an intensive day.
+- Prefer first-pass candidates whose subject continues a recently completed topic (low context-switch cost) when load permits.
+- Always present overdue and due-today D+ reviews before recommending a first-pass candidate, per the priority rule in the Weekly Calendar protocol.
 
 ## Clarification And Wiki Refinement Sessions
 
@@ -209,19 +243,19 @@ Maintain `learning-system/weekly-calendar.md` as a rolling study-control file. U
 The weekly calendar must include:
 
 - Generation timestamp and the covered week.
-- Priority warning for overdue spaced-repetition checkpoints.
+- Priority warning for overdue chained-`D+n` checkpoints (the planned next-review date for an active topic has passed).
 - Overdue items that should be repaired before new material.
-- Due-today and upcoming D+1/D+3/D+7/D+14/D+30 reviews.
-- Recommended new subjects only after overdue work is visible.
+- Due-today and upcoming chained `D+1`/`D+3`/`D+7`/`D+14`/`D+30` reviews, computed per `Spaced Repetition Schedule Semantics` (each next planned date is the prior completion date plus the next interval).
+- Pending-first-pass candidates (topics whose wiki note exists but `First Pass` is blank), listed after overdue work, with proposed day-of-week placement chosen to avoid stacking on heavy D+ days.
 - Low-context continuation choices, meaning topics that naturally follow the last studied concept without heavy switching cost.
 - Suggested mixed-practice blocks across complementary subjects.
 
 Priority rule:
 
-1. Overdue review or missed spaced-repetition checkpoint.
-2. Active recall pending for already-generated notes.
-3. Due-today review.
-4. New subject ingestion or first-pass study.
+1. Overdue chained `D+n` review (planned next-review date earlier than today).
+2. Due-today chained `D+n` review.
+3. Pending-first-pass candidate, selected to balance against today's D+ load and prefer low-context continuation.
+4. New subject ingestion when no wiki note exists yet and raw material is on hand.
 5. Optional mixed practice.
 
 If the user asks what to study and there are overdue items, explicitly warn them that the repetition window has been missed and recommend repairing the overdue items before taking a new subject.
@@ -262,7 +296,7 @@ This workspace should optimize retention under exam time pressure, not just prod
 Default evidence-based protocol:
 
 - Retrieval first: start coaching sessions with closed-book recall before explanation.
-- Spacing: schedule reviews around D+1, D+3, D+7, D+14, and D+30 when feasible.
+- Spacing: chain reviews after the first active-recall session — `D+1` from `First Pass + 1`, `D+3` from `D+1 completion + 3`, `D+7` from `D+3 completion + 7`, `D+14` from `D+7 completion + 14`, `D+30` from `D+14 completion + 30`. Never schedule a `D+n` from the note-generation date. See `Spaced Repetition Schedule Semantics`.
 - Successive relearning: repeat retrieval until the user can answer correctly, then revisit in later sessions.
 - Interleaving: mix courses and problem types after the first pass, especially for formulas, frameworks, legal issue spotting, and managerial case prompts.
 - Elaboration: ask why/how/when questions so the user connects concepts to mechanisms and real examples.

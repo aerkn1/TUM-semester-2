@@ -1,91 +1,111 @@
 # Weekly Study Calendar
 
-Generated: 2026-05-26 09:00 CEST
-Coverage window: 2026-05-26 to 2026-06-01
+Generated: 2026-05-31 11:54 CEST
+Coverage window: 2026-05-31 to 2026-06-06
 Source of truth: `learning-system/review-dashboard.md`
+Schedule semantics: chained model per `Spaced Repetition Schedule Semantics` in root `AGENTS.md`. `First Pass` = first active-recall completion date. Each `D+n` chains off the prior actual completion date (`D+1 = First Pass + 1`, `D+3 = D+1 completion + 3`, ...). Items with no `First Pass` are pending-first-pass candidates, not overdue repairs.
 
 ## Priority Warning
 
-Today is 2026-05-26. The SCM Kristen Cookie Case repair was missed on 2026-05-24 and again on 2026-05-25. Business Law Contract Law II is now active recall in progress, not completed. Repair overdue retrieval before starting new material where possible.
+Today is 2026-05-31. Several planned attempts from 2026-05-28 to 2026-05-30 are now missed and have been pushed into a repair window starting 2026-06-01. Finance Investment Analysis received a clarification session today, but its first active-recall session is still pending.
+
+Do not stack all missed items into today. The recommended move is to preserve today's finance clarification, then use 2026-06-01 for a focused finance-and-law repair block.
 
 ## Today Plan
 
-| Order | Course | Item | Target | Notes |
-|---:|---|---|---|---|
-| 1 | Business Law | Contract Law II active recall | continue later | In progress. Typo/order rescission case completed; resume with Wrong Painting case. |
-| 2 | SCM | Kristen Cookie Case | 25-35 min | Overdue repair missed on 2026-05-24 and 2026-05-25. Repair bottleneck, capacity, flow time, throughput, and case logic. |
-| 3 | Organization | Sessions 01-02 | 30-45 min | Due today as prerequisite repair before later Organization topics. |
-| 4 | Finance | Investment Analysis | 30-45 min | Due today if enough energy remains; focus on NPV/IRR/payback/PI decision-rule conflicts. |
+| Order | Course | Item | Type | Target | Notes |
+|---:|---|---|---|---|---|
+| 1 | Finance | Investment Analysis clarification consolidation | Clarification completed today | 10 min | Recite: NPV = euro value today; IRR = break-even rate; cost of capital = required return percentage; payback = liquidity recovery only. |
+| 2 | Finance | Exercise 06 Bonds I | First-pass candidate due today | Optional 25 min | Only start if attention remains. Bonds depends on the same time-value-of-money pipeline, but Investment Analysis is the lower-context continuation from today's work. |
+| 3 | Marketing | Chapter 03 Product | First-pass candidate due today | Optional 20 min | Defer if the finance block already used the study slot. |
 
 ## Completed Recently
 
-| Date | Course | Item | Result | Next Review |
-|---|---|---|---|---|
-| 2026-05-24 | Business Law | Contract Law I | Active recall completed with use-case-driven cases | 2026-05-28 |
-| 2026-05-24 | Finance | Session 01-02 Financial/Fundamental Analysis + Interest | Active recall completed with ratio, valuation-signal, DuPont, and interest cases | 2026-05-30 |
-| 2026-05-25 | Finance | Session 01-02 Financial Analysis clarification | Clarification completed; wiki and context updated with decision-use logic, company-use cases, ROIC vs ROE, P/E vs M/B, and F-Score filtering | 2026-05-30 |
-| 2026-05-25 | Finance | Exercise 01-02 Interest Calculation clarification | Clarification completed; wiki and context updated with interest-type selection, PV/FV direction, rate conversions, and comparison rules | 2026-05-30 |
-| 2026-05-25 | Business Law | Contract Law II clarification | Clarification completed; wiki, context, and course graph updated with Contract Law I/II distinction and section memory maps | 2026-05-28 |
-| 2026-05-26 | Business Law | Contract Law II active recall | In progress; typo/order case completed and ex tunc clarified | Resume with Wrong Painting case |
-
-## Rescheduled Repair Queue
-
-| Repair Date | Course | Item | Original Missed Date | Status | Repair Action |
+| Date | Course | Item | Type | Result | Next Planned Review |
 |---|---|---|---|---|---|
-| 2026-05-26 | Business Law | Contract Law II active recall | 2026-05-15 active recall; rescheduled 2026-05-20 and 2026-05-25 missed | in progress | Resume with Wrong Painting case; then do one revocation case. |
-| 2026-05-26 | SCM | Kristen Cookie Case | 2026-05-15 active recall; 2026-05-24 and 2026-05-25 repairs missed | repair scheduled | Short bottleneck/capacity/case-logic recall. |
-| 2026-05-26 | Organization | Sessions 01-02 | 2026-05-17 D+1; 2026-05-19 D+3; rescheduled 2026-05-22 and 2026-05-24 missed | repair scheduled | Definitions plus formal design; do before later Organization sessions. |
-| 2026-05-26 | Finance | Investment Analysis | 2026-05-17 D+1; 2026-05-19 D+3; 2026-05-24 repair deferred; 2026-05-25 shifted | repair scheduled | NPV, IRR, payback, profitability index, and decision-rule conflicts. |
-| 2026-05-27 | SCM | EOQ, Production Systems, Batching | 2026-05-15 active recall; rescheduled 2026-05-20 missed | active recall scheduled | Inventory continuation after Newsvendor and Kristen Cookie. |
-| 2026-05-27 | Business Law | Week 01-02 Introduction | 2026-05-17 D+3; rescheduled 2026-05-21 missed | short review/repair scheduled | Repair public/private law, EU regulation/directive, lex specialis. |
-| 2026-05-28 | Business Law | Contract Law I | D+14 | formal review scheduled | Fast case drill: offer/acceptance, Section 130, Section 150 II, Sections 305 ff. |
-| 2026-05-28 | Business Law | Contract Law III | 2026-05-15 active recall; rescheduled 2026-05-22 missed | active recall scheduled | Do after Contract Law II case repair and Contract Law I warm-up. |
-| 2026-05-29 | SCM | Forecasting + Random Variables + Newsvendor | 2026-05-21 formal/mixed review missed | mixed repair scheduled | Use one demand pipeline drill from forecast to quantity decision. |
-| 2026-05-29 | Organization | Sessions 03-04 | 2026-05-17 D+1; 2026-05-19 D+3; rescheduled 2026-05-23 missed | repair scheduled | Environment plus strategic design after Sessions 01-02 are repaired. |
-| 2026-05-30 | Marketing | Chapters 1-2 | 2026-05-15 active recall | repair scheduled | Basic marketing concepts plus branding. |
-| 2026-05-30 | Finance | Annuities + Redemptions | 2026-05-17 D+1; 2026-05-19 D+3 | repair scheduled | Time-value-of-money pipeline. |
-| 2026-05-31 | Marketing | Chapter 3 Product | 2026-05-15 active recall | repair scheduled | Product lifecycle, product line/mix, cannibalization. |
-| 2026-05-31 | Finance | Bonds I | 2026-05-17 D+1; 2026-05-19 D+3 | repair scheduled | Bond pricing, yield, duration basics. |
-| 2026-06-01 | Organization | Sessions 05-06 | 2026-05-17 D+1; 2026-05-19 D+3; 2026-05-24 deferred | repair scheduled | Technology and AI organization after Sessions 01-04. |
+| 2026-05-24 | Business Law | Contract Law I | First pass | Completed with use-case-driven cases | `D+1` repair scheduled 2026-06-01 after missed attempts. |
+| 2026-05-24 | Finance | Session 01-02 Financial/Fundamental Analysis | First pass | Completed with ratio, valuation-signal, DuPont cases | `D+1` repair scheduled 2026-06-01 after 2026-05-30 miss. |
+| 2026-05-24 | Finance | Exercise 01-02 Interest Calculation | First pass | Completed with interest and rate-convention cases | `D+1` repair scheduled 2026-06-01 after 2026-05-30 miss. |
+| 2026-05-25 | Finance | Financial Analysis / Interest clarification | Clarification | Ratio decision-use, ROIC vs ROE, F-Score filtering, rate conventions | Same chain as first pass. |
+| 2026-05-27 | Business Law | Contract Law II | First pass | Completed with rescission/revocation routing sprint | `D+1` repair scheduled 2026-06-01 after 2026-05-28 miss. |
+| 2026-05-31 | Finance | Investment Analysis | Clarification | NPV vs IRR, cost of capital, discount rate, IRR pitfalls, payback limitations | First active recall scheduled 2026-06-01. |
+
+## D+n Repair Queue
+
+For topics that already have a `First Pass` and whose chained checkpoint was missed.
+
+| Repair Date | Course | Item | Checkpoint | Status | Repair Action |
+|---|---|---|---|---|---|
+| 2026-06-01 | Business Law | Week 01-02 Introduction | `D+3` chained from `D+1` 2026-05-16 | 2026-05-28 repair missed | 10-minute public/private law, EU regulation/directive, lex specialis recall. |
+| 2026-06-01 | Business Law | Contract Law I | `D+1` chained from first pass 2026-05-24 | 2026-05-28 repair missed | Offer/acceptance case drill: Section 130, Section 150 II, Sections 305 ff. BGB. |
+| 2026-06-01 | Business Law | Contract Law II | `D+1` chained from first pass 2026-05-27 | 2026-05-28 due date missed | Rescission vs revocation routing; Section 119/123 vs Sections 323/324/326. |
+| 2026-06-01 | Finance | Session 01-02 Financial Analysis | `D+1` chained from first pass 2026-05-24 | 2026-05-30 repair missed | Ratio decision-use, F-Score as value-trap filter. |
+| 2026-06-01 | Finance | Excursus Fundamental Analysis | `D+1` chained from first pass 2026-05-24 | 2026-05-30 repair missed | P/E, M/B, F-Score signal sequence. |
+| 2026-06-01 | Finance | Exercise 01-02 Interest Calculation | `D+1` chained from first pass 2026-05-24 | 2026-05-30 repair missed | Formula selection and rate-period matching. |
+| 2026-06-02 | SCM | Forecasting + Random Variables + Newsvendor | Mixed `D+3` repair | Prior mixed attempts missed | Demand pipeline: forecast, model uncertainty, choose order quantity. |
+
+## Pending-First-Pass Queue
+
+Topics with a wiki note but no completed first active-recall session. Order by rescheduled attempt date and prerequisite logic.
+
+| Scheduled Attempt | Course | Item | Note Generated | Prior Missed Attempts | Notes |
+|---|---|---|---|---|---|
+| 2026-05-31 | Finance | Exercise 06 Bonds I | 2026-05-16 | 2026-05-17, 2026-05-19, 2026-05-26 | Due today; defer if Investment Analysis consolidation used the study slot. |
+| 2026-05-31 | Marketing | Chapter 03 - Product | 2026-05-14 | 2026-05-15, 2026-05-26 | Due today; lower priority than finance continuation. |
+| 2026-06-01 | Finance | Investment Analysis (Session 03-04) | 2026-05-16 | 2026-05-17, 2026-05-19, 2026-05-24 deferred, 2026-05-25, 2026-05-26, 2026-05-29 | Clarification completed 2026-05-31. Start active recall from NPV/IRR/cost-of-capital/payback prompts. |
+| 2026-06-02 | Organization | Session 01 - Definitional Basics | 2026-05-16 | 2026-05-17, 2026-05-22, 2026-05-24, 2026-05-26, 2026-05-28 | Prerequisite for Sessions 03-06. |
+| 2026-06-02 | Organization | Session 02 - Formal Design | 2026-05-16 | 2026-05-17, 2026-05-22, 2026-05-24, 2026-05-26, 2026-05-28 | Prerequisite for Sessions 03-06. |
+| 2026-06-03 | SCM | Kristen Cookie Case | 2026-05-14 | 2026-05-15, 2026-05-24, 2026-05-25, 2026-05-26, 2026-05-27, 2026-05-29 | Keep only if useful despite scope concerns; use as process/capacity practice, not a broad SCM case. |
+| 2026-06-03 | Business Law | Contract Law III | 2026-05-14 | 2026-05-15, 2026-05-22, 2026-05-29 | Do after Contract Law I/II repair. |
+| 2026-06-04 | Finance | Exercise 03-04 Annuities | 2026-05-16 | 2026-05-17, 2026-05-19, 2026-05-25, 2026-05-30 | After interest repair. |
+| 2026-06-04 | Finance | Exercise 05 Redemptions | 2026-05-16 | 2026-05-17, 2026-05-19, 2026-05-25, 2026-05-30 | After interest repair. |
+| 2026-06-04 | SCM | EOQ, Production Systems, Batching | 2026-05-14 | 2026-05-15, 2026-05-20, 2026-05-26, 2026-05-27, 2026-05-30 | After Kristen Cookie or a replacement process-capacity drill. |
+| 2026-06-04 | Marketing | Chapter 01 - Basic Concepts | 2026-05-14 | 2026-05-15, 2026-05-25, 2026-05-30 | Basic marketing concepts. |
+| 2026-06-04 | Marketing | Chapter 02 - Branding | 2026-05-14 | 2026-05-15, 2026-05-25, 2026-05-30 | Branding fundamentals. |
+| 2026-06-05 | Organization | Session 03 - Environment | 2026-05-16 | 2026-05-17, 2026-05-23, 2026-05-27, 2026-05-29 | Shifted behind Organization Sessions 01-02. |
+| 2026-06-05 | Organization | Session 04 - Strategic Design | 2026-05-16 | 2026-05-17, 2026-05-23, 2026-05-27, 2026-05-29 | Shifted behind Organization Sessions 01-02. |
+| 2026-06-06 | Organization | Session 05 - Technology | 2026-05-16 | 2026-05-17, 2026-05-29, 2026-06-01 shifted | After Sessions 03-04. |
+| 2026-06-06 | Organization | Session 06 - AI | 2026-05-16 | 2026-05-17, 2026-05-29, 2026-06-01 shifted | After Sessions 03-04. |
 
 ## Due This Week
 
-| Date | Review Type | Items | Recommended Handling |
+| Date | Type | Items | Recommended Handling |
 |---|---|---|---|
-| 2026-05-26 | Overdue repair and due-today repair | Contract Law II in progress; SCM Kristen Cookie; Organization 01-02; Finance Investment Analysis | Finish Contract Law II if staying in law; otherwise repair SCM Kristen Cookie before new material. |
-| 2026-05-27 | Inventory/legal intro repair | SCM EOQ; Business Law Intro | Keep Business Law Intro short and use EOQ as the main quantitative session. |
-| 2026-05-28 | Contract law review sequence | Contract Law I D+14; Contract Law III active recall | Warm up with Contract Law I, then contrast withdrawal/cancellation/dissolution. |
-| 2026-05-29 | Mixed SCM and organization repair | Forecasting -> Random Variables -> Newsvendor; Organization 03-04 | Use short mixed drills, not rereading. |
-| 2026-05-30 | Marketing/finance repair | Marketing Ch. 1-2; Finance Annuities/Redemptions | Use compare/contrast prompts and timelines. |
-| 2026-05-31 | Remaining repair | Marketing Product; Finance Bonds I | Close remaining carried items. |
-| 2026-06-01 | Organization continuation | Organization Sessions 05-06 | Technology and AI after Sessions 01-04. |
+| 2026-05-31 | Clarification consolidation + optional first-pass | Finance Investment Analysis consolidation; optional Bonds I or Marketing Product | Keep today light after the clarification. |
+| 2026-06-01 | Repair + first-pass | Business Law D+n trio; Finance 01-02 D+1 repair trio; Finance Investment Analysis first active recall | Start with Finance Investment Analysis while fresh, then do one compact repair block. |
+| 2026-06-02 | First-pass + mixed repair | Organization Sessions 01-02; SCM demand-pipeline mixed repair | Organization first because it unlocks later Organization sessions. |
+| 2026-06-03 | First-pass | SCM Kristen Cookie; Business Law Contract Law III | Use one case drill each; avoid full rereading. |
+| 2026-06-04 | First-pass | Finance Annuities/Redemptions; SCM EOQ; Marketing Chapters 01-02 | Choose one course cluster, not all. |
+| 2026-06-05 | First-pass + buffer | Organization Sessions 03-04; missed repairs | Do Sessions 03-04 only if Sessions 01-02 are complete. |
+| 2026-06-06 | First-pass or mixed practice | Organization Sessions 05-06 or Finance + SCM mixed practice | Do Sessions 05-06 only if Sessions 03-04 are complete; otherwise use mixed practice. |
 
 ## Recommended Next Starts
 
 | Priority | Course | Subject | Why |
 |---:|---|---|---|
-| 1 | Business Law | Contract Law II cases | Already in progress; finish the active-recall repair before moving to Contract Law III. |
-| 2 | SCM | Kristen Cookie Case | Missed twice and foundational for process/capacity reasoning. |
-| 3 | Organization | Sessions 01-02 | Due today and prerequisite for later Organization sessions. |
-| 4 | Finance | Investment Analysis | Next finance continuation after Financial/Fundamental Analysis and Interest Calculation. |
-| 5 | SCM | EOQ, Production Systems, Batching | Inventory continuation after Newsvendor and Kristen Cookie. |
+| 1 | Finance | Investment Analysis active recall | The clarification is fresh; closing first pass now has high retention payoff. |
+| 2 | Finance | 01-02 + Interest D+1 repair | These are already first-pass topics with missed chained checkpoints. |
+| 3 | Business Law | Contract Law I/II repair | Keeps rescission/revocation and formation routing from decaying. |
+| 4 | Organization | Sessions 01-02 | Prerequisite for the rest of Organization. |
+| 5 | SCM | Demand-pipeline mixed repair | High-value interleaving across forecasting, random variables, and Newsvendor. |
 
 ## Weekly Mixed Practice Suggestions
 
 | Block | Courses | Task | Hint |
 |---|---|---|---|
-| A | Business Law Contract Law I + II | One case: valid offer/acceptance first, then ask whether a flawed declaration can be rescinded. | Formation first; rescission only after a legal transaction exists or is attacked. |
-| B | SCM Forecasting + Random Variables + Newsvendor | One bakery case: forecast demand, model uncertainty, choose order quantity. | Forecasting estimates demand; random variables model uncertainty; Newsvendor optimizes quantity. |
-| C | Finance Interest + Annuities + Bonds | One time-value pipeline from single cash flow to repeated payments to security pricing. | First choose PV/FV direction and compounding convention, then extend the logic to annuities and bonds. |
-| D | Organization Formal Design + Business Law Rules | Compare formal legal rules with internal organizational coordination rules. | Legal enforceability vs managerial coordination. |
-| E | Marketing Branding + Finance Fundamental Analysis | Link brand equity and customer value to expected cash-flow quality. | Marketing explains drivers; finance tests valuation consequences. |
+| A | Finance Investment Analysis + Finance Interest Calculation | One timeline drill: single cash flow, repeated cash flows, then project NPV/IRR decision. | Every answer starts with timing, rate convention, and target date. |
+| B | Business Law Contract Law I + II | One case: form a contract, then decide whether rescission or revocation unwinds it. | Formation first; remedy second; consequence wording last. |
+| C | SCM Forecasting + Random Variables + Newsvendor | One demand case from forecast error to distribution to order quantity. | Forecast estimates demand; probability models uncertainty; Newsvendor optimizes quantity. |
+| D | Marketing Branding + Finance Fundamental Analysis | Link brand equity and customer value to expected cash-flow quality. | Marketing explains drivers; finance tests valuation consequences. |
+| E | Organization Formal Design + Business Law Rules | Compare internal organizational rules with external legal rules. | Coordination versus enforceability. |
 
 ## End-Of-Session Update Checklist
 
 After every study session:
 
-1. Update `learning-system/review-dashboard.md` status for the studied row.
-2. Add weak spots to the Mistake Ledger.
-3. Mark missed dates explicitly if a D+ checkpoint has passed.
-4. Refresh this weekly calendar with the new current date and next actions.
-5. Keep Weekly Mixed Practice populated with concrete, low-context continuation hints.
+1. If this session completed a first pass, write the completion date into `First Pass` for that row in `learning-system/review-dashboard.md` and carry the planned `D+1 = First Pass + 1` date in the status field.
+2. If this session closed a `D+n` checkpoint, write the actual completion date into the `D+n` cell and compute the next planned date by adding the next interval to that completion date.
+3. Add weak spots to the Mistake Ledger with the next review date.
+4. Mark any missed planned dates explicitly in the status field; schedule a repair date for the missed checkpoint.
+5. Refresh this weekly calendar with the new current date and chained next actions.
+6. Keep Weekly Mixed Practice populated with concrete, low-context continuation hints.

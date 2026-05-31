@@ -1,7 +1,7 @@
 # Session 03-04: Investment Analysis
 
-Source file: `finance-and-investment-management/raw/IuF_0304_SS2026_Investment_Analysis_Update NEU.pdf`  
-Lecture folder: `finance-and-investment-management/`  
+Source file: `finance-and-investment-management/raw/IuF_0304_SS2026_Investment_Analysis_Update NEU.pdf`
+Lecture folder: `finance-and-investment-management/`
 Date processed: 2026-05-16
 
 ## High-Yield 80/20 Summary
@@ -22,6 +22,14 @@ Core exam logic:
 A cash-flow timeline prevents timing mistakes. Cash flows at different dates cannot be directly compared; they must be discounted or compounded to the same point in time.
 
 This connects directly to the exercise track on interest calculation and annuities.
+
+Investment analysis is the continuation of the cash-flow calculation logic:
+
+```text
+single cash flow PV/FV -> repeated cash flows -> project cash-flow timeline -> NPV / IRR / payback / PI
+```
+
+The new question is not only "what is this cash flow worth today?" but "does the whole project create enough value to accept it?"
 
 ## Net Present Value
 
@@ -56,6 +64,60 @@ NPV = -250 + 35/r
 
 At `r = 10%`, `NPV = -250 + 350 = 100`, so accept.
 
+## Clarification: NPV, IRR, Cost Of Capital, And Discount Rate
+
+### Comparison Frame
+
+| Metric | What it means | Unit | Who chooses it? | Decision use |
+|---|---|---:|---|---|
+| NPV | Value created today after all cash flows are discounted at the required return. | Money, e.g. EUR | Calculated from cash flows and discount rate | Accept if positive; choose highest NPV among mutually exclusive projects. |
+| IRR | Break-even return rate implied by the project cash flows; the discount rate that makes NPV zero. | Percent | Solved from the project cash flows | Useful support rule for normal stand-alone projects. |
+| Cost of capital | Required return investors/lenders demand for financing a project with this risk. | Percent per period | Estimated externally from financing cost, opportunity cost, and risk | Usually used as the discount rate in NPV. |
+| Discount rate | Rate used to translate future cash flows into today's money. | Percent per period | Chosen for the risk and time period of the cash flows | Converts future cash flows into present values. |
+
+NPV answers: "How many euros of value does this project add today, after compensating for time and risk?"
+
+IRR answers: "What return rate would make me exactly indifferent, with NPV equal to zero?"
+
+Cost of capital is not the initial investment amount. The initial investment is a euro cash outflow, such as `CF_0 = -1,000`. The cost of capital is a percentage hurdle rate, such as `10%`, because it measures the return required by capital providers.
+
+Real-life cost-of-capital example:
+
+```text
+60% bank loan at 6%
+40% equity investors requiring 16%
+
+Weighted required return = 0.60 x 6% + 0.40 x 16% = 10%
+```
+
+If a project with this risk earns less than 10%, capital providers are not compensated enough. Therefore 10% becomes the discount rate for the NPV calculation.
+
+### Where IRR Comes From
+
+IRR is not chosen by the manager. It is solved from the cash-flow timeline.
+
+For a one-year project:
+
+```text
+CF_0 = -100
+CF_1 = +112
+
+0 = -100 + 112 / (1+IRR)
+100 = 112 / (1+IRR)
+1+IRR = 112/100 = 1.12
+IRR = 12%
+```
+
+At a 12% discount rate, the project has exactly zero NPV. If the cost of capital is 10%, the NPV is positive. If the cost of capital is 15%, the NPV is negative.
+
+High-yield wording:
+
+```text
+NPV tells me how much value the investment creates today.
+IRR tells me the break-even return rate implied by the project cash flows.
+If they conflict, I trust NPV.
+```
+
 ## Internal Rate Of Return
 
 Definition:
@@ -77,6 +139,10 @@ This works reliably for normal stand-alone projects: one initial negative cash f
 ### Pitfall 1: Delayed Investments
 
 If benefits arrive before costs, NPV can increase with the discount rate. The IRR rule can reverse the decision.
+
+Normal project intuition is: invest now, receive cash later. A higher discount rate makes later benefits less valuable, so NPV usually falls.
+
+Delayed investment reverses the timing: receive cash now, pay costs later. A higher discount rate makes later costs less painful, so NPV can rise when the discount rate rises. This breaks the simple "accept if IRR > cost of capital" intuition.
 
 Book-deal example:
 
@@ -103,6 +169,8 @@ Example structure:
 ```
 
 The slides report two IRRs: 7.164% and 33.673%. Because more than one IRR exists, the IRR rule cannot be applied cleanly.
+
+Exam rule: more than one sign change means more than one NPV crossing may exist. Do not force one IRR into the decision. Use NPV at the relevant cost of capital.
 
 ### Pitfall 3: Nonexistent IRR
 
@@ -158,6 +226,21 @@ Shortcomings:
 
 Managerial interpretation: firms may use payback because liquidity risk matters, but it is not a value-maximization rule.
 
+### What The Payback Criticisms Mean
+
+**Ignores time value of money** means simple payback treats EUR 100 in year 1 and EUR 100 in year 3 as equally useful for recovering the investment. In NPV logic, the year-3 cash flow is worth less today because it arrives later and is riskier.
+
+**Ignores cash flows after payback** means a project can look good because it recovers the initial investment quickly, even if it destroys value later or misses much larger later benefits.
+
+Example:
+
+| Project | Cash Flows | Simple Payback | Problem |
+|---|---|---:|---|
+| A | `-100, +100, +0, +0` | 1 year | Fast recovery, but no later value. |
+| B | `-100, +40, +40, +140` | Between years 2 and 3 | Slower recovery, but much larger total value. |
+
+**Arbitrary cutoff** means the accept/reject threshold is chosen without valuation logic. If management says "accept only if payback is under 2 years", a project paying back in 2.1 years may be rejected even when its NPV is strongly positive.
+
 ## Profitability Index
 
 Definition:
@@ -179,6 +262,44 @@ Limitations:
 ## Real-Life Example
 
 A company with 10 engineers can build either a small software feature with 80% IRR and EUR 100k NPV or a larger platform product with 35% IRR and EUR 2m NPV. IRR sounds better for the small feature, but if the company wants to maximize value and has enough resources, NPV points to the platform.
+
+## Worked Clarification Examples
+
+### Example 1: Normal Stand-Alone Project
+
+Project: buy a machine for EUR 1,000 and receive EUR 450 at the end of each of the next three years. Cost of capital = 10%.
+
+```text
+NPV = -1,000 + 450/1.10 + 450/1.10^2 + 450/1.10^3
+NPV = -1,000 + 409.09 + 371.90 + 338.09
+NPV = 119.08
+```
+
+Interpretation: after paying investors their required 10% return, the project still creates EUR 119.08 today. Accept.
+
+The IRR is about 16.7%. Interpretation: the project can tolerate a discount rate up to about 16.7% before NPV becomes zero. Since `16.7% > 10%`, IRR also says accept.
+
+### Example 2: One-Year IRR Calculation
+
+```text
+CF_0 = -100
+CF_1 = +112
+Cost of capital = 10%
+
+NPV = -100 + 112/1.10 = 1.82
+IRR = 112/100 - 1 = 12%
+```
+
+Interpretation: positive NPV means value creation. IRR means the project breaks even at 12%. Because the required return is only 10%, the project clears the hurdle.
+
+### Example 3: Mutually Exclusive Scale Conflict
+
+| Project | Cash Flows | IRR | NPV at 10% |
+|---|---|---:|---:|
+| A | `-100, +140` | 40% | 27.27 |
+| B | `-1,000, +1,250` | 25% | 136.36 |
+
+IRR favors A because A has the higher percentage return. NPV favors B because B creates more euros of value. If only one can be chosen and the firm can finance either project, choose B.
 
 ## Exam Decision Tree
 
