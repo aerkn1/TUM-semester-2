@@ -7,6 +7,8 @@ Wiki note: `business-law/wiki/week-05-contract-law-iii-withdrawal-cancellation-d
 
 Course direction checked against `business-law/wiki/_course-logistics.md`: this is Session 5, Contract Law III, completing the initial contract termination block.
 
+Continuity bridge: `contract-law-iii-continuity-bridge.md` links Contract Law III back to Contract Law I formation/validity and Contract Law II rescission/revocation. Use it before first active recall if the termination routes feel disconnected.
+
 ## 80/20 Exam Summary
 
 This deck completes the contract-termination map:
@@ -17,6 +19,18 @@ This deck completes the contract-termination map:
 - Extraordinary cancellation under Section 314 BGB requires a compelling reason and is a last resort.
 - Dissolution is consensual termination by agreement, not a unilateral right.
 - The exam-critical skill is choosing the correct termination route: rescission, revocation, withdrawal, cancellation, or dissolution.
+
+## Relationship To Contract Law I And II
+
+Contract Law III completes the first contract-law lifecycle. Contract Law I asks whether the contract was formed and valid. Contract Law II asks whether one party can attack or unwind a legal situation because of a defective declaration or later performance problem. Contract Law III adds three more exit routes: consumer withdrawal, cancellation of continuing obligations, and consensual dissolution.
+
+```text
+Contract Law I: build and validate the contract.
+Contract Law II: attack or unwind through rescission/revocation.
+Contract Law III: exit through consumer protection, ongoing-relationship termination, or agreement.
+```
+
+For a fuller routing map, use the continuity bridge: `contract-law-iii-continuity-bridge.md`.
 
 ## Withdrawal
 
@@ -383,4 +397,3 @@ Future links:
 ## Open Uncertainties
 
 - The deck uses English labels that can overlap with other translations. Keep the functional distinctions clear: rescission = flawed DoI/formation; revocation = performance issue in reciprocal contract; withdrawal = consumer-protection exit; cancellation = continuing obligation; dissolution = agreement.
-

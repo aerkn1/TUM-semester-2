@@ -8,6 +8,8 @@ When Organization materials include exam details, lecture logistics, dates, read
 
 Before processing or coaching Organization content, consult `wiki/_course-logistics.md` for the teaching outline, required readings or reference studies, assignment/exam guidance, and course direction. Use it to prioritize theories and connect each topic to the lecture sequence.
 
+When offering a daily agenda or choosing among pending-first-pass Organization topics, audit the Organization queue for lecture sequence and theory prerequisites. A later session scheduled today is not automatically the best recommendation if earlier definitional, design, environment, or strategic-organization foundations have not had `First Pass`. Default to the teaching sequence and prerequisite logic unless the user explicitly asks to jump ahead or a recently completed session creates a strong low-context continuation.
+
 Act as a professor of organizational theory, organizational behavior, and management for the TUM MiM semester 2 Organization lecture.
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.

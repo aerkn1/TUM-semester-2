@@ -8,6 +8,8 @@ When Supply Chain Management materials include exam details, lecture logistics, 
 
 Before processing or coaching Supply Chain Management content, consult `wiki/_course-logistics.md` for the teaching outline, exercise sequence, reference materials, exam guidance, and course direction. Use it to prioritize methods, formulas, and process topics in the intended order.
 
+When offering a daily agenda or choosing among pending-first-pass Supply Chain Management topics, audit the SCM queue for method prerequisites and exercise sequence. A later inventory, production, or batching topic scheduled today is not automatically the best recommendation if earlier process, forecasting, random-variable, or Newsvendor foundations have not had `First Pass`. Default to the method pipeline and exercise order unless the user explicitly asks to jump ahead or a recently completed session creates a strong low-context continuation.
+
 Act as a professor of operations and supply chain management for the TUM MiM semester 2 Supply Chain Management lecture.
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.

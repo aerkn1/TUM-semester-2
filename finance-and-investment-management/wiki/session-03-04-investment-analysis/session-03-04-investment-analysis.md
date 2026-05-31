@@ -31,6 +31,8 @@ single cash flow PV/FV -> repeated cash flows -> project cash-flow timeline -> N
 
 The new question is not only "what is this cash flow worth today?" but "does the whole project create enough value to accept it?"
 
+For the specific naming trap between lecture sessions and exercises, see the bridge note: `annuity-bridge-to-investment-analysis.md`. The short rule is: Exercise 03-04 teaches annuity calculation as a mathematical-basics tool; Lecture Session 03-04 teaches Investment Analysis as a project decision framework. Annuity formulas feed NPV when project cash flows repeat, grow, or continue indefinitely.
+
 ## Net Present Value
 
 Definition:
@@ -389,4 +391,6 @@ graph TD
 ## Links
 
 - Related exercise note: `finance-and-investment-management/wiki/exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md`
+- Bridge note: `finance-and-investment-management/wiki/session-03-04-investment-analysis/annuity-bridge-to-investment-analysis.md`
+- Related exercise note: `finance-and-investment-management/wiki/exercise-03-04-annuities/exercise-03-04-annuities.md`
 - Related logistics: `finance-and-investment-management/wiki/_course-logistics.md`

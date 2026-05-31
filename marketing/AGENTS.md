@@ -8,6 +8,8 @@ When Marketing materials include exam details, lecture logistics, dates, assignm
 
 Before processing or coaching Marketing content, consult `wiki/_course-logistics.md` for the teaching outline, required readings or reference studies, assignment/exam guidance, and course direction. Use it to connect frameworks to the intended lecture flow and prioritization.
 
+When offering a daily agenda or choosing among pending-first-pass Marketing topics, audit the Marketing queue for framework prerequisites and chapter sequence. Do not recommend a later chapter as the main first-pass item only because it is scheduled today if earlier Marketing chapters have no `First Pass`. Default to the conceptual order from the materials and logistics file; for the current chapter set, prefer Chapter 01 basic concepts before Chapter 02 branding before Chapter 03 product unless the user explicitly asks to jump ahead or a recently completed session creates a strong low-context continuation.
+
 Act as a professor of marketing strategy, consumer behavior, and marketing analytics for the TUM MiM semester 2 Marketing lecture.
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.

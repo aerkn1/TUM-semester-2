@@ -46,6 +46,23 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Nonexistent IRR** | A situation where the cash-flow stream never produces an NPV of zero, so no IRR can be solved. | very bad IRR |
 | **Arbitrary Payback Cutoff** | A management threshold such as "payback under two years" that is not derived from value creation. | risk-adjusted decision rule |
 
+## Annuity Bridge Language
+
+| Term | Definition | Aliases to avoid |
+|---|---|---|
+| **Annuity Calculation** | A mathematical-basics tool for valuing a repeated cash-flow stream at one date. | investment decision |
+| **Investment Analysis Decision** | A project or firm decision that compares the PV of benefits with the investment cost and risk, usually through NPV. | annuity calculation |
+| **Annuity-Immediate** | Repeated payments at the end of each period, such as `t=1` through `t=5` for five annual payments. | annuity-due |
+| **Annuity-Due** | Repeated payments at the beginning of each period, such as `t=0` through `t=4` for five annual payments. | extra payment |
+| **Constant Annuity** | A finite repeated cash-flow stream with the same payment each period. | perpetuity |
+| **Growing Annuity** | A finite repeated cash-flow stream that grows by a percentage each period. | arithmetic annuity |
+| **Arithmetic Annuity** | A finite repeated cash-flow stream that changes by a fixed euro amount each period. | growing annuity |
+| **Perpetuity** | A constant cash-flow stream with no finite end date. | very long annuity always |
+| **Growing Perpetuity** | A cash-flow stream that grows forever at a constant rate, valid only when the growth rate is below the discount rate. | guaranteed growth value |
+| **Present Value Direction** | Discounting cash flows back to today, used when the question asks what a stream is worth now or whether to accept a project today. | future value |
+| **Future Value Direction** | Compounding cash flows forward to a target date, used when the question asks how much will accumulate later. | present value |
+| **Sinking Fund Problem** | A funding problem where equal deposits accumulate to a required future amount. | NPV problem |
+
 ## Relationships
 
 - **Cash Flow** is first placed on a **Timeline**, then converted into **Present Value** through a **Discount Rate**.
@@ -54,6 +71,11 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 - **Internal Rate of Return** is the **Break-Even Discount Rate** implied by the project cash flows, not a rate chosen by the manager.
 - **Normal Cash Flows** make the **IRR Rule** more reliable; **Non-Normal Cash Flows** trigger **Multiple IRRs** or **Nonexistent IRR** risk.
 - **Payback Period** measures liquidity recovery speed, not value creation.
+- **Annuity Calculation** values repeated cash flows; **Investment Analysis Decision** uses that value to accept, reject, or compare projects.
+- **Annuity-Due** has the same number of payments as **Annuity-Immediate**, but each payment arrives one period earlier, which increases PV and can increase NPV.
+- **Growing Annuity**, **Arithmetic Annuity**, **Perpetuity**, and **Growing Perpetuity** describe cash-flow patterns; none is automatically a better investment until NPV compares PV against cost and risk.
+- **Present Value Direction** and **Future Value Direction** use the same timing distinction: end-of-period means annuity-immediate, beginning-of-period means annuity-due.
+- **Sinking Fund Problem** uses **Future Value Direction** because the target amount is in the future; if deposits are end-of-period, it is FV of annuity-immediate, and if deposits are beginning-of-period, it is FV of annuity-due.
 - A strong answer defines the canonical term, applies the rule or formula, and states the managerial, legal, or analytical implication.
 
 ## Visual Memory Aid
@@ -132,6 +154,10 @@ Managerial decision language:
 | Saying IRR is chosen by management. | IRR is solved from project cash flows; management chooses or estimates the discount rate/cost of capital. |
 | Trusting IRR under non-normal cash flows. | Multiple sign changes can create multiple or nonexistent IRRs; use NPV. |
 | Treating payback as a value rule. | Payback is a liquidity/recovery-time rule; it ignores time value, later cash flows, and cutoff logic. |
+| Treating IRR as an input into NPV. | NPV needs cash flows, timing, and cost of capital; IRR is a separate rate solved from the same cash flows. |
+| Saying annuity-due gives an extra payment. | Annuity-due gives the same number of payments one period earlier, so PV is higher. |
+| Treating the annuity result as the final answer in an investment problem. | The annuity result is an input into NPV; the final answer is the accept/reject or comparison decision. |
+| Saying NPV when the task asks how much will accumulate in the future. | Use FV language for accumulation/funding targets; use PV/NPV language for today's value or accept/reject decisions. |
 
 ## Cheat-Sheet Language
 

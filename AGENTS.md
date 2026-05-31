@@ -218,7 +218,8 @@ Recommendation logic for pending-first-pass items:
 
 - A topic with no `First Pass` date is a candidate for next study intake.
 - When proposing a first-pass session for a given day, count the existing scheduled D+ load (planned next-review dates) for that day. Avoid placing a heavy first-pass session on a day already stacked with D+ reviews unless the user explicitly asks for an intensive day.
-- Prefer first-pass candidates whose subject continues a recently completed topic (low context-switch cost) when load permits.
+- Before recommending a pending-first-pass topic in any lecture, audit all other pending-first-pass topics in the same lecture and ask whether the candidate depends on earlier un-recalled material. A scheduled attempt date is only a calendar hint; it must not override prerequisite logic, lecture sequence, or conceptual build-up. This applies across Business Law, Organization, Supply Chain Management, Marketing, and Finance. If a later topic is scheduled today but earlier prerequisite topics have no `First Pass`, label the later topic as optional/deferred and recommend the earlier foundational topic unless there is a strong low-context continuation reason.
+- Prefer first-pass candidates whose subject continues a recently completed topic (low context-switch cost) when load permits, but only after the prerequisite audit above.
 - Always present overdue and due-today D+ reviews before recommending a first-pass candidate, per the priority rule in the Weekly Calendar protocol.
 
 ## Clarification And Wiki Refinement Sessions
@@ -248,6 +249,7 @@ The weekly calendar must include:
 - Due-today and upcoming chained `D+1`/`D+3`/`D+7`/`D+14`/`D+30` reviews, computed per `Spaced Repetition Schedule Semantics` (each next planned date is the prior completion date plus the next interval).
 - Pending-first-pass candidates (topics whose wiki note exists but `First Pass` is blank), listed after overdue work, with proposed day-of-week placement chosen to avoid stacking on heavy D+ days.
 - Low-context continuation choices, meaning topics that naturally follow the last studied concept without heavy switching cost.
+- Prerequisite and lecture-sequence warnings for pending-first-pass topics whose scheduled attempt date is earlier than foundational topics in the same lecture. Do not present these later topics as the main recommendation unless their prerequisites are already active-recalled or the user explicitly asks to jump ahead.
 - Suggested mixed-practice blocks across complementary subjects.
 
 Priority rule:
@@ -265,12 +267,13 @@ When the user asks what is in the calendar today, what to review today, what is 
 1. Treat the actual current date as authoritative, not the date printed in `learning-system/weekly-calendar.md`.
 2. Read both `learning-system/review-dashboard.md` and `learning-system/weekly-calendar.md`.
 3. Identify every unfinished item whose scheduled review date, active-recall date, or repair date is before the actual current date.
-4. Reschedule each expired unfinished item forward starting from the actual current date, preserving its intended repetition role as much as possible: D+1 remains the next near repair, D+3 remains the next short repair, D+7 remains the next medium repair, and so on. Mark the original missed date explicitly in the status.
-5. Shift later awaiting items that would collide with or sit inside the newly rescheduled repair window. Do not leave two heavy items stacked on the same day unless the user explicitly asks for an intensive day.
-6. Update the affected status fields in `learning-system/review-dashboard.md` first. The dashboard is the source of truth for completion state, missed checkpoints, next repair dates, and next review dates.
-7. Refresh `learning-system/weekly-calendar.md` from the updated dashboard with the new generation timestamp, covered week, today's actual queue, rescheduled repair queue, due-this-week table, and recommended next starts.
-8. Verify the same item/date/status appears consistently in both files before answering.
-9. Only after this refresh, answer the user with what is actually awaiting today and the recommendation.
+4. For every pending-first-pass item scheduled today or proposed as a next start, scan the same lecture's pending-first-pass rows and the lecture's `_course-logistics.md` or AGENTS ordering guidance. Identify prerequisite or earlier-sequence topics that have not yet completed `First Pass`.
+5. Reschedule each expired unfinished item forward starting from the actual current date, preserving its intended repetition role as much as possible: D+1 remains the next near repair, D+3 remains the next short repair, D+7 remains the next medium repair, and so on. Mark the original missed date explicitly in the status.
+6. Shift later awaiting items that would collide with or sit inside the newly rescheduled repair window, or that should move behind prerequisite pending-first-pass topics. Do not leave two heavy items stacked on the same day unless the user explicitly asks for an intensive day.
+7. Update the affected status fields in `learning-system/review-dashboard.md` first. The dashboard is the source of truth for completion state, missed checkpoints, next repair dates, and next review dates.
+8. Refresh `learning-system/weekly-calendar.md` from the updated dashboard with the new generation timestamp, covered week, today's actual queue, rescheduled repair queue, due-this-week table, prerequisite warnings, and recommended next starts.
+9. Verify the same item/date/status appears consistently in both files before answering.
+10. Only after this refresh, answer the user with what is actually awaiting today and the recommendation, distinguishing `scheduled today` from `recommended today` when prerequisite logic changes the advice.
 
 The Weekly Mixed Practice section in `learning-system/review-dashboard.md` must never stay blank once at least two subject notes exist. Entries should be practical and exam-oriented, with hints such as:
 

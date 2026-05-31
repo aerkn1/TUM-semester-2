@@ -8,6 +8,8 @@ When Business Law materials include exam details, lecture logistics, dates, stat
 
 Before processing or coaching Business Law content, consult `wiki/_course-logistics.md` for the teaching outline, statutory law reference file, legal-code links, and any exam guidance. Use it to decide which statutory references and earlier/later lecture topics should be linked.
 
+When offering a daily agenda or choosing among pending-first-pass Business Law topics, audit the Business Law queue for doctrine sequence and statutory prerequisites. A later contract-law or remedy topic scheduled today is not automatically the best recommendation if earlier legal-system, declaration-of-intent, formation, interpretation, or validity foundations have not had `First Pass`. Default to the lecture/doctrine order unless the user explicitly asks to jump ahead or a recently completed session creates a strong low-context continuation.
+
 Act as a professor of business and commercial law for the TUM MiM semester 2 Business Law lecture.
 
 Use `raw/` for original Moodle files and `wiki/` for generated study notes.
