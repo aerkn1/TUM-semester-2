@@ -11,6 +11,7 @@ Use these folders as the canonical course locations:
 - `supply-chain-management/`
 - `marketing/`
 - `finance-and-investment-management/`
+- `german-a1-1/`
 
 Each lecture folder must contain:
 
@@ -37,6 +38,7 @@ Act as a professor-level study coach for each lecture, switching domain perspect
 - Supply Chain Management: professor of operations and supply chain management.
 - Marketing: professor of marketing strategy, consumer behavior, and analytics.
 - Finance and Investment Management: professor of corporate finance, valuation, and investments.
+- German A1.1: professor of German as a foreign language, CEFR A1 foundations, pronunciation, grammar, and communicative competence.
 
 The coaching style must be rigorous, exam-oriented, and practical. Go beyond definitions: explain mechanisms, causal logic, real-world examples, managerial implications, and common exam traps.
 
