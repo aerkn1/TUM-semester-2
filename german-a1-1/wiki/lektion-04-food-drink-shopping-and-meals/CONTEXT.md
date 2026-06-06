@@ -4,7 +4,7 @@ Source note: `lektion-04-food-drink-shopping-and-meals.md`
 
 ## Source Boundary
 
-The local Moodle-Studio source provides the chapter structure and Quizlet links for `Lebensmittel`, `Beim Einkaufen`, and `Beim Essen`, but not the full card text. Terms below are marked as `local` when directly supported by headings and as `enriched A1.1` when added as reliable beginner German needed to make the topic usable.
+The local Moodle-Studio source provides the chapter structure and Quizlet links for `Lebensmittel`, `Beim Einkaufen`, and `Beim Essen`, but not the full card text. Terms below are marked as `local` when directly supported by headings, `enriched A1.1` when added as reliable beginner German needed to make the topic usable, and `verified external` when aligned with official/trusted A1 grammar or exam resources.
 
 ## Food And Drink Categories
 
@@ -21,11 +21,22 @@ The local Moodle-Studio source provides the chapter structure and Quizlet links 
 | Term | Definition | Aliases to avoid |
 |---|---|---|
 | `ich möchte ...` | `enriched A1.1`: polite request pattern meaning "I would like ...". | `ich will` as default polite customer language |
+| `ich nehme ...` | `verified external/enriched`: restaurant or shopping choice pattern meaning "I will take / I will have ...". | only physical taking |
+| `mögen` | `verified external/enriched`: verb for liking food, drinks, or activities: `Ich mag Kaffee`; negative with accusative noun: `Ich mag keinen Fisch.` | `möchten` |
 | `Was kostet ...?` | `enriched A1.1`: price question: "What does ... cost?" | `Wie viel kostet?` without a subject |
 | `Sonst noch etwas?` | `enriched A1.1`: shopkeeper/server question meaning "anything else?" | literal word-by-word translation |
 | `Das ist alles, danke.` | `enriched A1.1`: customer closing phrase meaning "That is all, thank you." | ending the dialogue without closing |
 | `bitte` | `enriched A1.1`: please/here you are depending on context; in requests it softens the sentence. | translating it only one way |
 | `danke` | `enriched A1.1`: thank you. | omitting politeness in customer dialogue |
+
+## Object Grammar For Buying And Ordering
+
+| Term | Definition | Aliases to avoid |
+|---|---|---|
+| Direct object | `verified external/enriched`: the thing bought, ordered, needed, taken, liked, or possessed after verbs such as `möchten`, `nehmen`, `brauchen`, `kaufen`, `mögen`, and `haben`. | subject |
+| Accusative | `verified external/enriched`: direct-object case. In A1.1 shopping language, the main visible change is masculine singular: `einen Kaffee`, `keinen Fisch`. | a completely new word |
+| Masculine accusative | `verified external/enriched`: `der/ein/kein` becomes `den/einen/keinen` when the masculine noun is the object. | `ein Kaffee` after `ich möchte` |
+| Neuter/feminine/plural accusative | `verified external/enriched`: forms normally look the same as nominative at this level: `ein Wasser`, `eine Banane`, `keine Eier`. | changing every article |
 
 ## Quantity And Container Language
 
@@ -55,6 +66,8 @@ The local Moodle-Studio source provides the chapter structure and Quizlet links 
 - **Getränke** often combine with **container language**: **eine Flasche**, **ein Glas**, **eine Tasse**.
 - **Beim Essen** uses **essen**, **trinken**, **meal nouns**, and polite table phrases.
 - **ich möchte** is the safest A1 request frame for both shopping and ordering.
+- **ich möchte**, **ich nehme**, **ich brauche**, **ich kaufe**, **ich mag**, and **ich habe** often create a **direct object**, so masculine nouns need **masculine accusative**.
+- **mögen** means liking generally; **möchten** means wanting or ordering now.
 
 ## Visual Mini-Map
 
@@ -62,10 +75,15 @@ The local Moodle-Studio source provides the chapter structure and Quizlet links 
 flowchart LR
     A[Food/Drink Item] --> B{Situation}
     B -->|shopping| C[ich möchte + quantity + noun]
-    B -->|price| D[Was kostet das?]
-    B -->|meal| E[Ich esse/trinke...]
-    C --> F[Polite closing]
-    E --> G[Guten Appetit / Es schmeckt gut]
+    B -->|menu choice| D[ich nehme + object]
+    B -->|preference| E[ich mag / ich mag keinen...]
+    B -->|price| F[Was kostet das?]
+    B -->|meal| G[Ich esse/trinke...]
+    C --> H[Check accusative]
+    D --> H
+    E --> H
+    H --> I[Polite closing]
+    G --> J[Guten Appetit / Es schmeckt gut]
 ```
 
 ## Example Dialogue
@@ -74,7 +92,7 @@ flowchart LR
 A: Guten Tag. Was möchten Sie?
 B: Ich möchte zwei Brötchen und eine Flasche Wasser.
 A: Sonst noch etwas?
-B: Ja, ein Stück Käse bitte. Was kostet das?
+B: Ja, einen Kaffee und ein Stück Käse bitte. Was kostet das?
 A: Das kostet fünf Euro.
 B: Danke.
 ```
@@ -86,6 +104,8 @@ B: Danke.
 | The local HTML has Quizlet embeds but no card text. | Treat the exact Quizlet vocabulary as external practice; use this file as the local A1.1 production companion. |
 | `Essen` can mean food, eating, or a meal. | Use **Lebensmittel** for grocery item category and **Beim Essen** for meal context. |
 | `Ich will ...` is grammatically possible. | Use **ich möchte** as canonical polite A1 customer language. |
+| `mögen` and `möchten` look similar. | Use **mögen** for liking, **möchten** for polite requests. |
+| `ein Kaffee` appears possible from the base article. | In ordering/requesting, use **einen Kaffee** because it is masculine accusative. |
 
 ## Exam Traps And Correction Rules
 
@@ -93,6 +113,8 @@ B: Danke.
 |---|---|
 | food nouns without articles | Learn article and plural together: `der Apfel`, `die Äpfel`. |
 | `Ich will ein Kaffee` | Prefer `Ich möchte einen Kaffee.` |
+| `Ich nehme ein Salat` | Masculine object: `Ich nehme einen Salat.` |
+| `Ich möchte keinen Wasser` | Neuter object stays `kein`: `Ich möchte kein Wasser.` |
 | `eine Glas Wasser` | `Glas` is neuter: `ein Glas Wasser`. |
 | using `essen` for drinks | Use `trinken`: `Ich trinke Wasser.` |
 | `Wie viel kostet?` | Use `Was kostet das?` or `Was kostet der Käse?` |
@@ -100,6 +122,10 @@ B: Danke.
 ## Cheat-Sheet Language
 
 - `Ich möchte ...`
+- `Ich nehme ...`
+- `Ich mag ...`
+- `Ich mag keinen/kein/keine ...`
+- `einen Kaffee`, `einen Apfel`, `keinen Fisch`
 - `Was kostet das?`
 - `Sonst noch etwas?`
 - `Das ist alles, danke.`

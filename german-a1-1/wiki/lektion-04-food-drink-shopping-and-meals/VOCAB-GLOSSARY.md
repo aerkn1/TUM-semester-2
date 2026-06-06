@@ -3,13 +3,14 @@
 Source note: `lektion-04-food-drink-shopping-and-meals.md`
 Context file: `CONTEXT.md`
 Processed: 2026-06-01
+Enriched: 2026-06-04 with official/trusted A1 source alignment for accusative objects, `nehmen`, and `mögen`.
 CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings and Quizlet links; detailed entries are enriched A1.1 production vocabulary.
 
 ## Level Summary
 
 - Main output domain: food, drink, grocery shopping, ordering, and meals.
-- Must-produce items: common nouns with articles, `ich möchte`, quantity phrases, `Was kostet das?`, `essen`, `trinken`, meal phrases.
-- Main trap: direct translation from English into German customer language; use short A1 patterns instead.
+- Must-produce items: common nouns with articles, `ich möchte`, `ich nehme`, `mögen`, quantity phrases, `Was kostet das?`, `essen`, `trinken`, meal phrases.
+- Main trap: direct translation from English into German customer language; use short A1 patterns and check masculine accusative objects.
 
 ## Food Nouns
 
@@ -149,9 +150,25 @@ CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings 
 - Meaning: would like.
 - Forms: `ich möchte`, `du möchtest`, `er/sie möchte`, `Sie möchten`.
 - Example: `Ich möchte ein Brot.`
-- Pitfall: much safer and more polite than `ich will` in customer dialogue.
+- Pitfall: much safer and more polite than `ich will` in customer dialogue; masculine objects change: `einen Kaffee`.
 - Flashcard prompt: Say "I would like a bread roll."
 - CEFR note: enriched A1.1.
+
+### nehmen
+- Meaning: to take; in restaurant/shop language, to choose/order.
+- Forms: `ich nehme`, `du nimmst`, `er/sie nimmt`, `Sie nehmen`.
+- Example: `Ich nehme die Suppe und einen Kaffee.`
+- Pitfall: stem change in `du nimmst`, `er/sie nimmt`; masculine objects take `einen`.
+- Flashcard prompt: Say "I will take the soup and a coffee."
+- CEFR note: enriched from official/trusted A1 grammar sequence.
+
+### mögen
+- Meaning: to like.
+- Forms: `ich mag`, `du magst`, `er/sie mag`, `Sie mögen`.
+- Example: `Ich mag Kaffee, aber ich mag keinen Fisch.`
+- Pitfall: not the same as `möchten`; `mögen` = like generally, `möchten` = would like now.
+- Flashcard prompt: Say one food you like and one you do not like.
+- CEFR note: enriched from official/trusted A1 grammar sequence.
 
 ### kaufen
 - Meaning: to buy.
@@ -211,6 +228,18 @@ CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings 
 | `die Tasse` | cup | `eine Tasse Kaffee` | feminine: `eine Tasse` |
 | `das Stück` | piece | `ein Stück Kuchen` | neuter: `ein Stück` |
 
+## Accusative Object Mini-Table
+
+| Base Noun | Request/Order Form | Why |
+|---|---|---|
+| `der Kaffee` | `Ich möchte einen Kaffee.` | masculine direct object |
+| `der Tee` | `Ich nehme einen Tee.` | masculine direct object |
+| `der Apfel` | `Ich möchte einen Apfel.` | masculine direct object |
+| `der Fisch` | `Ich mag keinen Fisch.` | masculine negative direct object |
+| `das Wasser` | `Ich möchte ein Wasser.` | neuter object stays same |
+| `die Banane` | `Ich möchte eine Banane.` | feminine object stays same |
+| `die Eier` | `Ich brauche Eier.` / `Ich brauche keine Eier.` | plural object keeps zero/`keine` |
+
 ## Meal And Table Phrases
 
 | Entry | Meaning | Example | Pitfall |
@@ -229,6 +258,9 @@ CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings 
 |---|---|
 | Order two bread rolls. | `Ich möchte zwei Brötchen.` |
 | Order one coffee. | `Ich möchte einen Kaffee.` |
+| Choose soup. | `Ich nehme die Suppe.` |
+| Say you like coffee. | `Ich mag Kaffee.` |
+| Say you do not like fish. | `Ich mag keinen Fisch.` |
 | Ask what it costs. | `Was kostet das?` |
 | Say you need milk and eggs. | `Ich brauche Milch und Eier.` |
 | Say you eat bread and cheese. | `Ich esse Brot und Käse.` |

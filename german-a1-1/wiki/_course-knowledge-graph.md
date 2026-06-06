@@ -2,7 +2,7 @@
 
 This file aggregates the German A1.1 concepts learned so far. It is lecture-scoped only.
 
-Last updated: 2026-06-01
+Last updated: 2026-06-04
 
 ## Course-Level Mermaid Graph
 
@@ -12,6 +12,7 @@ graph TD
     GER --> L2[Lektion 2: Hobbies And Appointments]
     GER --> L3[Lektion 3: City, Articles, Negation, Adjectives]
     GER --> L4[Lektion 4: Food, Shopping, Meals]
+    GER --> COV[A1.1 CEFR And Goethe Coverage]
 
     L1 --> GREET[Greeting And Goodbye]
     L1 --> REG[du vs Sie Register]
@@ -44,7 +45,16 @@ graph TD
     L4 --> MEAL[Beim Essen]
     L4 --> QTY[Quantity Phrases]
     L4 --> REQ[Polite Request: ich möchte]
+    L4 --> ACC[Accusative Objects In Shopping]
+    L4 --> TAKE[nehmen And mögen]
     L4 --> PRICE[Price Question: kosten]
+
+    COV --> CEFR[CEFR A1 Boundary]
+    COV --> GOETHE[Goethe A1 Vocabulary Domains]
+    COV --> VHS[VHS A1 Grammar Sequence]
+    COV --> K5[Kapitel 5: Alltag, Time, Family]
+    COV --> K6[Kapitel 6: Free Time, Celebrations, Restaurant]
+    COV --> PROD[Production Chunks]
 
     REG -->|selects form for| ID
     ID -->|uses| VERBS1
@@ -63,9 +73,16 @@ graph TD
     QTY -->|combines with| FOOD
     QTY -->|combines with| DRINK
     REQ -->|drives| SHOP
+    REQ -->|triggers| ACC
+    TAKE -->|triggers| ACC
     PRICE -->|closes| SHOP
     MEAL -->|uses| FOOD
     MEAL -->|uses| DRINK
+    CEFR -->|constrains| PROD
+    GOETHE -->|supplies| PROD
+    VHS -->|confirms| PROD
+    K5 -->|extends| APPT
+    K6 -->|extends| MEAL
 ```
 
 ## Subject Graph Index
@@ -76,7 +93,8 @@ graph TD
 | Lektion 1 | `german-a1-1/wiki/lektion-01-greetings-identity-and-origin/lektion-01-greetings-identity-and-origin.md` | Identity speech acts flow into verb conjugation and V2 word order | 2026-06-01 |
 | Lektion 2 | `german-a1-1/wiki/lektion-02-hobbies-verb-position-and-appointments/lektion-02-hobbies-verb-position-and-appointments.md` | Preferences and appointments use present-tense verbs, yes/no questions, and the sentence bracket | 2026-06-01 |
 | Lektion 3 | `german-a1-1/wiki/lektion-03-city-articles-negation-and-adjectives/lektion-03-city-articles-negation-and-adjectives.md` | City descriptions require article choice, negation, adjective endings, and question formulation | 2026-06-01 |
-| Lektion 4 | `german-a1-1/wiki/lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` | Food and drink nouns combine with quantity phrases, polite requests, and price/meal dialogue | 2026-06-01 |
+| Lektion 4 | `german-a1-1/wiki/lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` | Food and drink nouns combine with quantity phrases, polite requests, accusative objects, `nehmen`, `mögen`, and price/meal dialogue | 2026-06-04 |
+| A1.1 CEFR and Goethe Coverage | `german-a1-1/wiki/a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` | Official/trusted A1 sources define the practical A1.1 production boundary and missing vocabulary/grammar layer | 2026-06-04 |
 
 ## Nodes
 
@@ -97,7 +115,14 @@ graph TD
 | Getränk | Drink item such as water, coffee, tea, milk, juice, or beer | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Quantity phrase | Product amount such as `ein Kilo`, `eine Flasche`, `ein Glas`, or `eine Tasse` | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Polite request | A1 buying/ordering pattern with `ich möchte ...` | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| Accusative object | Direct object after buying/ordering/needing/liking verbs, with masculine `einen/keinen` as the main A1.1 visible change | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md`; `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| `nehmen` | Restaurant/shop choice pattern, e.g. `Ich nehme die Suppe` | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| `mögen` | Liking pattern, e.g. `Ich mag Kaffee`; `Ich mag keinen Fisch` | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Price question | Buying pattern with `Was kostet ...?` | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| CEFR A1 boundary | Official beginner communication boundary for simple concrete everyday language | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| Production chunk | Memorized sentence pattern that combines vocabulary and grammar for active output | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| Daily routine layer | Alltag, time expressions, appointments, and family vocabulary from local Kapitel 5 headings plus official A1 alignment | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| Restaurant/social layer | Free time, celebrations, restaurant ordering, paying, and polite social chunks from local Kapitel 6 headings plus official A1 alignment | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
 
 ## Edges
 
@@ -114,5 +139,12 @@ graph TD
 | Article choice | controls | food and drink noun phrases | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Quantity phrase | specifies | food/drink amount | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Polite request | initiates | shopping or ordering dialogue | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| Polite request | triggers | accusative object checking | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| `nehmen` | triggers | accusative object checking | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| `mögen` | supports | food preference statements | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Price question | completes | shopping exchange | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
 | Meal phrase | contextualizes | eating and drinking sentences | `lektion-04-food-drink-shopping-and-meals/lektion-04-food-drink-shopping-and-meals.md` |
+| CEFR A1 boundary | constrains | A1.1 course-local scope | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| Official vocabulary boundary | guides | production chunk selection | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| Daily routine layer | extends | appointment and time language | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |
+| Restaurant/social layer | extends | food and meal language | `a1-1-cefr-goethe-coverage/a1-1-cefr-goethe-coverage.md` |

@@ -59,6 +59,15 @@ graph LR
     SubjectiveElement -->|includes| IntentionBound[Intention to be legally bound]
     IntentionBound -->|separates offer from| Invitatio[Invitatio ad offerendum]
 
+    ContractLaw -->|can be concluded through| Agency[Agency]
+    Agency -->|requires under Section 164 I| AgencyRequirements[Own DoI + publicity + power of representation]
+    AgencyRequirements -->|if fulfilled| DirectAgencyEffect[Principal and third party bound directly]
+    AgencyRequirements -->|if no authority| UnauthorizedAgent[Unauthorized agent]
+    UnauthorizedAgent -->|principal may approve| Ratification[Ratification under Section 177 BGB]
+    UnauthorizedAgent -->|principal refuses| AgentLiability[Agent liability under Section 179 BGB]
+    Agency -->|separates| InternalExternal[Can do vs may do]
+    Agency -->|creates management risk| PrincipalAgentProblem[Principal-agent problem]
+
     PrivateAutonomy -->|allows| FreedomContract[Freedom of conclusion, party, form, content]
     PrivateAutonomy -->|limited by| LimitsAutonomy[Mandatory limits]
     LimitsAutonomy -->|lock sections| ValiditySections[125, 134, 138, 305 ff., 276 III BGB]
@@ -66,6 +75,13 @@ graph LR
     LimitsAutonomy -->|public policy / usury| S138[Section 138 BGB]
     LimitsAutonomy -->|standard terms| S305[Sections 305 ff. BGB]
     LimitsAutonomy -->|consumer protection| B2C[B2C rules]
+    S305 -->|case route| SBTExam[SBT examination]
+    SBTExam -->|starts with| SBTExistence[Existence under Section 305 I]
+    SBTExam -->|then checks| SBTIncorporation[Incorporation and surprise control]
+    SBTExam -->|then checks| SBTContentControl[Content control under Sections 307-309]
+    SBTContentControl -->|usually leads to| Section306[Section 306 consequence]
+    SBTIncorporation -->|battle of forms| ConflictingTerms[Conflicting standard terms]
+    Section306 -->|preserves| ContractSurvives[Contract usually survives]
 
     Termination -->|formation flaw| Rescission[Rescission]
     Termination -->|performance problem| Revocation[Revocation]
@@ -129,7 +145,11 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    Start[Contract issue] --> FormationQuestion{Is the contract formed?}
+    Start[Contract issue] --> AgencyQuestion{Did someone act for another?}
+    AgencyQuestion -->|Yes| AgencyCheck[Agency check: own DoI + publicity + power of representation]
+    AgencyCheck --> AgencyResult[If effective, principal and third party are bound]
+    AgencyResult --> FormationQuestion{Is the contract formed?}
+    AgencyQuestion -->|No| FormationQuestion
     FormationQuestion -->|No / uncertain| Formation[Check offer and acceptance]
     Formation --> DoorSections[Door sections: 130, 133/157, 145, 146, 148, 150 II]
     Formation --> OfferCheck[Offer: essentialia negotii + intention to be bound]
@@ -142,6 +162,9 @@ flowchart TD
     ValidContract --> ValidityCheck{Validity problem?}
     ValidityCheck -->|Yes| LockSections[Lock sections: 125, 134, 138, 305 ff., 276 III]
     ValidityCheck -->|No| ProblemType{What problem occurred?}
+    LockSections --> SBTCheck[If standard terms: Section 305 ff. route]
+    SBTCheck --> SBTSteps[Existence + incorporation + interpretation + content + Section 306]
+    SBTSteps --> ProblemType
     LockSections --> ProblemType
 
     ProblemType -->|Flawed declaration of intent| Rescission[Rescission]
@@ -176,6 +199,8 @@ flowchart TD
 | Week 03 Contract Law I | `week-03-contract-law-i/week-03-contract-law-i.md` | Contract formation and validity sections: door and lock memory map | 2026-05-25 |
 | Week 04 Contract Law II | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` | Exit routes: emergency exit for rescission and return desk for revocation | 2026-05-25 |
 | Week 05 Contract Law III | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` | Termination II: withdrawal, cancellation, dissolution, and full termination decision tree | 2026-05-14 |
+| Week 06 Standard Business Terms | `week-06-standard-business-terms/week-06-standard-business-terms.md` | SBT case route: existence, incorporation, interpretation, content control, and Section 306 consequences | 2026-06-04 |
+| Week 07 Agency | `week-07-agency/week-07-agency.md` | Agency triangle: principal, agent, third party, authority, ratification, liability, and principal-agent problem | 2026-06-04 |
 
 ## Supporting Node Reference
 
@@ -210,6 +235,22 @@ flowchart TD
 | Withdrawal | Consumer-protection exit right | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Cancellation | Termination of continuing obligation | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Dissolution | Consensual termination agreement | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
+| Standard Business Terms | Pre-formulated contract terms presented by one party for repeated use | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| User of SBT | Party introducing the pre-formulated clause | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Individual Agreement | Truly negotiated clause outside SBT status | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Incorporation Control | Whether SBT became part of the contract | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Surprising Clause | Unexpected SBT clause that is not incorporated | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Contra Proferentem | Ambiguity interpreted against the SBT user | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Content Control | Validity review under Sections 307-309 BGB | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Section 306 Consequence | Failed clause drops out; contract usually survives and statutory law fills the gap | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Principal | Person for whom an agent's declaration should create legal effect | `week-07-agency/week-07-agency.md` |
+| Agent | Person making an own declaration in the principal's name within power of representation | `week-07-agency/week-07-agency.md` |
+| Third Party | Outside contract partner dealing with the agent | `week-07-agency/week-07-agency.md` |
+| Power of Representation | External authority to bind the principal | `week-07-agency/week-07-agency.md` |
+| Internal Relationship | Principal-agent relationship defining what the agent may do | `week-07-agency/week-07-agency.md` |
+| Unauthorized Agent | Person acting as agent without power of representation | `week-07-agency/week-07-agency.md` |
+| Ratification | Principal's later approval of an unauthorized transaction | `week-07-agency/week-07-agency.md` |
+| Principal-Agent Problem | Information asymmetry and self-interest risk between principal and agent | `week-07-agency/week-07-agency.md` |
 
 ## Supporting Edge Reference
 
@@ -242,3 +283,18 @@ flowchart TD
 | Withdrawal | protects | Consumer | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Cancellation | applies to | Continuing Obligation | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
 | Dissolution | requires | Agreement | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` |
+| Standard Business Terms | are introduced by | User of SBT | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Standard Business Terms | require first | Contract formation | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Individual Agreement | defeats | Standard Business Terms | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Incorporation Control | filters | Surprising Clause | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Contra Proferentem | allocates ambiguity risk to | User of SBT | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Content Control | tests | Standard Business Terms | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Invalid SBT clause | triggers | Section 306 Consequence | `week-06-standard-business-terms/week-06-standard-business-terms.md` |
+| Agent | acts on behalf of | Principal | `week-07-agency/week-07-agency.md` |
+| Agent | declares to | Third Party | `week-07-agency/week-07-agency.md` |
+| Effective agency | binds directly | Principal and Third Party | `week-07-agency/week-07-agency.md` |
+| Power of Representation | defines external | Can do | `week-07-agency/week-07-agency.md` |
+| Internal Relationship | defines internal | May do | `week-07-agency/week-07-agency.md` |
+| Unauthorized Agent | creates | Ratification question | `week-07-agency/week-07-agency.md` |
+| Refused ratification | can trigger | Agent liability | `week-07-agency/week-07-agency.md` |
+| Information asymmetry | creates | Principal-Agent Problem | `week-07-agency/week-07-agency.md` |

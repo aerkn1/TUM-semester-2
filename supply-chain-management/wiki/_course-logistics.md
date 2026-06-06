@@ -35,6 +35,23 @@ Question types:
 | A | Open-ended, for example numerical calculation | 2 |
 | B | Multiple-selection questions where several options may be selected | 1 |
 
+Additional sample-exam signals:
+
+Source: `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/Sample Examinations/`
+
+- Sample exams reviewed: SS20, SS21, WS22/23, SS23.
+- All reviewed sample exams state an available time of 120 minutes.
+- The reviewed sample exams instruct students to round numbers to two decimals unless otherwise stated.
+- The reviewed sample exams include the warning that grammar or language errors do not make an otherwise correct true statement false.
+- Multiple-choice sections in the reviewed samples commonly state that only one answer is correct and that wrong answers have no negative points.
+- Earlier samples are organized by Production and Logistics modules; SS23 uses one integrated Production & Logistics exam structure.
+
+Study implication from sample exams:
+
+- Preparation should include both MCQ trap recognition and open numerical calculation.
+- Forecasting, inventory management, process/capacity analysis, EOQ/EPQ, lean, bullwhip, network design, SCF, and cases such as Kristen Cookies, OceanCove, and HP recur across samples.
+- Because sample exams ask for short explanations and quantitative recommendations, practice should require both formula setup and managerial interpretation.
+
 Grading scale from source:
 
 | Points out of 60 | Approx. % | Final Grade |

@@ -2,97 +2,98 @@
 
 Source files:
 
-- `supply-chain-management/raw/TUM_PL_2026_05_EOQ.pdf`
-- `supply-chain-management/raw/3. PL- EOQ-Exercise-Task.xlsx`
-- `supply-chain-management/raw/TUM_PL_2026_05_production systems, batching.pdf`
+- `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/05 Economic Order Quantity Mod___roduction Systems and Batching/Slides EOQ.pdf`
+- `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/05 Economic Order Quantity Mod___roduction Systems and Batching/Slides Production systems, and Batching.pdf`
+- `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/05 Economic Order Quantity Mod___roduction Systems and Batching/Exercise EOQ.xlsx`
+- `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/05 Economic Order Quantity Mod___roduction Systems and Batching/Exercise EPQ.xlsx`
+- `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/05 Economic Order Quantity Mod___roduction Systems and Batching/Exercise Answer Key EOQ.pdf`
 
 Course: Supply Chain Management
-Processed: 2026-05-14
+Processed: 2026-05-14; refreshed with Moodle export on 2026-06-04
 Wiki note: `supply-chain-management/wiki/topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md`
 
-Course logistics checked: the SCM exam allows a one-page handwritten cheat sheet and includes numerical/open-ended tasks. EOQ/EPQ formulas, reorder point logic, and finite-horizon integer order logic are high-priority cheat-sheet candidates.
+Course logistics checked: the SCM exam is closed-book except for one handwritten A4 cheat sheet and includes numerical/open-ended tasks. EOQ, finite-horizon EOQ, reorder points, and EPQ formulas are high-priority cheat-sheet candidates.
 
 ## 80/20 Exam Summary
 
-EOQ answers a deterministic inventory question:
+Topic 05 is the deterministic inventory and production-lot-size block.
+
+The decision is:
 
 ```text
-How large should each order be when demand is constant and known?
+How large should each order or production batch be when demand is known and constant?
 ```
 
 The core tradeoff:
 
-- larger orders reduce setup/order frequency
-- larger orders increase average inventory and holding cost
+- larger orders or batches reduce setup/order frequency
+- larger orders or batches increase average inventory
+- finite production lowers peak inventory because demand continues while production is running
 
-Basic EOQ formula:
+The basic EOQ model applies when replenishment is instantaneous:
 
 ```text
 Q* = sqrt(2K lambda / h)
+TC(Q) = hQ/2 + K lambda/Q
+```
+
+The EPQ model applies when the production rate is finite:
+
+```text
+Q* = sqrt(2K lambda / h) * sqrt(p / (p - lambda))
+Imax = ((p - lambda) / p) * Q
+TC(Q) = h Imax/2 + K lambda/Q
 ```
 
 Where:
 
-- `lambda`: demand rate, units/year
-- `K`: setup/order cost per order
+- `lambda`: deterministic demand rate, units per year
+- `K`: fixed order/setup cost per order or batch
 - `h`: holding cost per unit per year
-- `Q`: order quantity
+- `Q`: order quantity or batch size
+- `p`: production rate, units per year, with `p > lambda`
 
-Total annual cost:
+High-yield extensions:
 
-```text
-TC(Q) = h Q/2 + K lambda/Q
-```
-
-At EOQ:
-
-```text
-annual holding cost = annual setup/order cost
-TC(Q*) = sqrt(2 h K lambda)
-```
-
-Main extensions:
-
-- initial inventory: wait `I0 / lambda` before starting the EOQ cycle
-- positive lead time: reorder when inventory reaches `lambda * l`
-- finite horizon: choose an integer number of orders `m`
-- production batching/EPQ: production is finite, so inventory builds while production and demand happen simultaneously
-
-EPQ formula:
-
-```text
-Q* = sqrt(2K lambda / h) * sqrt(p / (p - lambda))
-```
-
-Where `p` is production rate and must be greater than demand rate `lambda`.
+- initial inventory delays the first order
+- deterministic lead time changes when to order, not how much to order
+- finite horizon requires an integer number of orders
+- production-system choice positions inventory along the customer-order decoupling point
+- batching can improve machine efficiency but increases WIP, waiting, and lead-time risk
 
 ## Where This Fits In SCM
 
-Previous topics handled uncertainty:
+The earlier SCM topics built the demand side:
 
-- Forecasting estimates future demand.
-- Random variables model demand uncertainty.
-- Newsvendor decides single-period order quantity under uncertainty.
+- [Topic 02 Forecasting](../topic-02-forecasting/topic-02-forecasting.md): estimate future demand.
+- [Topic 04 Random Variables](../topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md): model uncertain demand.
+- [Topic 03 Newsvendor](../topic-03-newsvendor-model/topic-03-newsvendor-model.md): choose a single-period order quantity under uncertainty.
 
-EOQ is different:
+Topic 05 switches to deterministic planning:
 
 ```text
-EOQ assumes deterministic, constant, known demand.
+Forecasting/random variables/Newsvendor = demand uncertainty.
+EOQ/EPQ = known, constant demand and recurring replenishment.
 ```
 
-It is not about stockout risk. It is about minimizing the cost tradeoff between ordering/setup cost and holding cost.
+Do not use EOQ to solve a stockout-risk or service-level problem. Use it when the fact pattern gives constant demand, setup/order cost, and holding cost.
 
-Related notes:
+## Model Selection Router
 
-- `supply-chain-management/wiki/topic-02-forecasting/topic-02-forecasting.md`
-- `supply-chain-management/wiki/topic-03-newsvendor-model/topic-03-newsvendor-model.md`
-- `supply-chain-management/wiki/topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md`
+| Fact Pattern | Use | Decision Output |
+|---|---|---|
+| Known constant demand, instant replenishment, repeated orders | Basic EOQ | `Q*`, order frequency, total annual cost |
+| Known constant demand, current inventory exists | EOQ with initial inventory | `Q*`, first-order timing |
+| Known constant demand, positive lead time | EOQ with reorder point | `Q*`, reorder point `lambda l` |
+| Known constant demand, finite selling season | Finite-horizon EOQ | integer number of orders `m*`, order quantity `t lambda / m*` |
+| Known constant demand, finite production rate | EPQ | batch size `Q*`, maximum inventory, run duration |
+| Unknown or random demand | Forecasting, random variables, Newsvendor | forecast, distribution, service level, quantile |
 
 ## Basic EOQ Model
 
 ### Assumptions
 
-The basic EOQ model assumes:
+The lecture's basic deterministic inventory model assumes:
 
 - no initial inventory
 - no order lead time
@@ -100,134 +101,117 @@ The basic EOQ model assumes:
 - one product
 - deterministic and constant demand rate
 - shortages are not permitted
-- costs include setup/order cost and holding cost
+- costs include fixed setup/order cost and holding cost
 
-These assumptions are restrictive. Exam questions often ask what changes when one assumption is relaxed.
+These assumptions are exam triggers. If the case changes one of them, the formula may need an extension.
 
 ### Inventory Pattern
 
-Inventory follows a sawtooth pattern:
+EOQ inventory is a sawtooth:
 
 1. Order `Q` units.
 2. Inventory jumps to `Q`.
-3. Inventory decreases at constant slope `-lambda`.
-4. When inventory reaches zero, the next order arrives.
+3. Inventory decreases at slope `-lambda`.
+4. The next order arrives exactly when inventory reaches zero.
 
-Average inventory:
-
-```text
-Q / 2
-```
-
-Cycle length:
+Core quantities:
 
 ```text
-T = Q / lambda
+Average inventory = Q/2
+Cycle length T = Q/lambda
+Orders per year N = lambda/Q
 ```
 
-Number of orders per year:
-
-```text
-N = lambda / Q
-```
-
-### Cost Function
+### Cost Function And Optimum
 
 Holding cost per year:
 
 ```text
-H(Q) = h * Q/2
+H(Q) = hQ/2
 ```
 
 Setup/order cost per year:
 
 ```text
-k(Q) = K * lambda/Q
+k(Q) = K lambda/Q
 ```
 
 Total annual cost:
 
 ```text
-TC(Q) = h Q/2 + K lambda/Q
+TC(Q) = hQ/2 + K lambda/Q
 ```
 
-### Optimal Order Quantity
-
-Minimize total annual cost:
+Optimal order quantity:
 
 ```text
 Q* = sqrt(2K lambda / h)
 ```
 
-Economic interpretation:
-
-- If `K` increases, order less often but in larger quantities.
-- If `lambda` increases, order quantity increases.
-- If `h` increases, order smaller quantities to avoid holding inventory.
-
-At the optimum:
+Cost at optimum:
 
 ```text
-h Q*/2 = K lambda/Q*
+TC(Q*) = sqrt(2hK lambda)
 ```
 
-This equality is useful for checking calculations.
+At the EOQ optimum:
+
+```text
+annual holding cost = annual setup/order cost
+```
+
+That equality is a useful calculation check.
+
+### Managerial Interpretation
+
+- Higher `K`: each order is expensive, so order less often and in larger quantities.
+- Higher `lambda`: demand is larger, so the optimal lot size rises.
+- Higher `h`: inventory is expensive, so order smaller quantities.
+- Lead time alone does not change `Q*` under deterministic demand and no shortages.
 
 ## EOQ Extensions
 
 ### Positive Initial Inventory
 
-If initial inventory is `I0 > 0`, do not order immediately.
+If current inventory is `I0 > 0`, do not order immediately.
 
-Time until inventory reaches zero:
+Without lead time, wait:
 
 ```text
 I0 / lambda
 ```
 
-Then order `Q*` and continue the EOQ cycle.
+Then order `Q*` and continue the normal EOQ cycle.
 
-If lead time also exists, place the first order earlier so it arrives when inventory hits zero.
+With lead time `l`, place the order early enough that it arrives when inventory reaches zero.
 
 ### Positive Order Lead Time
 
-If order lead time is `l`, place the order when inventory reaches:
+If it takes lead time `l` for an order to arrive, reorder when inventory reaches:
 
 ```text
-reorder point = lambda * l
+reorder point = lambda l
 ```
 
 Interpretation:
 
 ```text
-During lead time l, demand consumes lambda*l units. Ordering at that inventory level makes the delivery arrive exactly when inventory reaches zero.
+During lead time l, deterministic demand consumes lambda*l units.
 ```
 
-Important: under deterministic demand and no shortages, lead time changes when you order, not how much you order.
-
-```text
-Q* is unchanged.
-```
+Under the lecture assumptions, lead time changes the reorder point but not `Q*`.
 
 ### Finite Planning Horizon
 
-The infinite-horizon EOQ assumes a continuing cycle. Seasonal products may have a finite horizon `[0, t]`.
+Finite-horizon EOQ applies to seasonal or limited-horizon products where the horizon is `[0, t]`, no starting inventory exists, and no leftover inventory remains at `t`.
 
-Assumptions in the lecture:
-
-- finite horizon length `t`
-- total of `m >= 1` orders
-- no initial inventory
-- no leftover inventory at time `t`
-- deterministic demand rate `lambda`
-
-If `m` orders are placed, equally spaced order intervals minimize holding cost:
+For a fixed number of orders `m`, equally spaced intervals minimize holding cost:
 
 ```text
 T1 = T2 = ... = Tm = t/m
 ```
 
-Average cost per unit time for `m` orders:
+Average cost per unit time:
 
 ```text
 TC(m) = K m/t + h lambda t/(2m)
@@ -239,572 +223,485 @@ Continuous minimizer:
 m_hat = t * sqrt(h lambda / (2K))
 ```
 
-But the number of orders must be an integer. Therefore:
+But `m` must be an integer. Therefore:
 
 ```text
-m* is either floor(m_hat) or ceil(m_hat)
-```
-
-Decision rule:
-
-1. Compute `m_hat`.
-2. Evaluate `TC(m)` at `floor(m_hat)` and `ceil(m_hat)`.
-3. Choose the lower-cost integer.
-4. Order quantity in the finite horizon:
-
-```text
+m* is floor(m_hat) or ceil(m_hat)
 Q* = t lambda / m*
 ```
 
-Common trap:
+Exam procedure:
+
+1. Compute `m_hat`.
+2. Check `floor(m_hat)` and `ceil(m_hat)` in `TC(m)`.
+3. Choose the lower-cost integer.
+4. Compute the per-order quantity `Q* = t lambda / m*`.
+
+Common trap: do not place `2.72` orders. The finite-horizon decision needs an integer order count.
+
+## Production Systems
+
+The production-systems slides position inventory relative to the customer-order decoupling point.
+
+| System | Inventory Position | Customer Lead Time | Inventory Investment | Managerial Meaning |
+|---|---|---:|---:|---|
+| Make-to-stock | Finished goods exist before the customer order | low | high | Fast delivery, but inventory risk is high. |
+| Assemble-to-order | Components/modules are stocked, final assembly waits for order | medium-low | medium | Good for variety with manageable delivery time. |
+| Make-to-order | Production starts after order | medium-high | low | Lower finished-goods inventory, longer customer wait. |
+| Engineer-to-order | Design and production start after order | high | lowest finished-goods stock | Custom projects; long lead time and high coordination needs. |
+
+The visual logic is:
 
 ```text
-Do not place 2.72 orders. You must choose an integer number of orders.
+Engineer-to-order -> high customer lead time, low inventory investment
+Make-to-stock -> low customer lead time, high inventory investment
 ```
 
-## Production Systems And Batching
+### Push Versus Pull
 
-The production systems deck connects inventory decisions to how products are made and where inventory is positioned.
+The customer-order decoupling point separates:
 
-### Production System Types
+- push activity: planned from forecasts before the customer order
+- pull activity: triggered by a real customer order
 
-| System | Main logic | Inventory position | Customer lead time |
-|---|---|---|---|
-| Make-to-stock | Produce before customer order | Finished goods inventory | Short |
-| Assemble-to-order | Keep components, assemble after order | Component inventory | Medium |
-| Make-to-order | Produce after customer order | Little finished goods inventory | Longer |
-| Engineer-to-order | Design/engineer after order | Minimal prebuilt inventory | Longest |
+This connects directly to Topic 06: if upstream firms see only distorted orders, the push side can amplify demand signals.
+
+### Batch-And-Queue Logic
+
+Batch-and-queue tries to maximize efficiency through:
+
+- more products per setup
+- fewer setups
+- specialization
+- clear work-center structures
+
+In a job-shop/work-center layout, similar machines are grouped into departments. Batches move between departments, creating setups between different batches and inventory between work centers.
 
 Managerial tradeoff:
 
 ```text
-More inventory investment usually reduces customer lead time.
-Less inventory investment usually increases customer lead time.
+larger batches -> fewer setups and higher local machine efficiency
+larger batches -> more WIP, waiting, lead time, and coordination risk
 ```
 
-### Push Vs Pull
-
-Push production:
-
-```text
-Production starts based on forecast or plan before customer order is known.
-```
-
-Pull production:
-
-```text
-Production starts or moves based on actual customer/order signal.
-```
-
-The customer order decoupling point separates forecast-driven stages from order-driven stages.
-
-### Batch-And-Queue Philosophy
-
-Batch-and-queue aims for efficiency through:
-
-- larger batches
-- fewer setups
-- specialization
-- clear department structures
-
-Typical job-shop logic:
-
-```text
-Similar machines are grouped into departments -> products move in batches -> setups occur between batches -> inventory and waiting accumulate.
-```
-
-Benefit:
-
-```text
-Fewer setups and high local utilization.
-```
-
-Cost:
-
-```text
-More work-in-process inventory, longer lead times, and slower response.
-```
-
-This is why batching links directly to EOQ/EPQ: larger batches save setup cost but increase inventory and waiting.
+This is not automatically "better operations." It can make a machine look efficient while the whole system becomes slower.
 
 ## Economic Production Quantity Model
 
-EOQ assumes inventory arrives instantly. EPQ relaxes this: production happens at finite rate `p` while demand simultaneously consumes units at rate `lambda`.
+EPQ extends EOQ to finite production rate.
 
 Assumptions:
 
-- deterministic constant demand
 - one product
-- shortages not permitted
+- deterministic and constant demand
+- shortages are not permitted
 - no order lead time
-- setup cost and holding cost
-- finite production rate `p`
-- `p > lambda`
+- setup and holding costs matter
+- production rate `p` is finite and greater than `lambda`
 
-### Inventory Dynamics
+### Inventory Pattern
 
 During production:
 
 ```text
-inventory builds at rate p - lambda
+inventory builds at slope p - lambda
 ```
 
 After production stops:
 
 ```text
-inventory decreases at rate -lambda
+inventory falls at slope -lambda
 ```
 
-If a batch size is `Q`, production run duration is:
+Production-run duration:
 
 ```text
-T0 = Q / p
+T0 = Q/p
 ```
 
-Maximum inventory is lower than `Q` because demand consumes during production:
+Maximum inventory:
 
 ```text
-I_max = ((p - lambda) / p) * Q
+Imax = (p - lambda) T0 = ((p - lambda)/p) Q
 ```
 
 Average inventory:
 
 ```text
-I_max / 2 = ((p - lambda) / p) * Q/2
+Imax/2
 ```
 
-### EPQ Cost Function
+### EPQ Cost And Optimum
+
+Total annual cost:
 
 ```text
-TC(Q) = h * ((p - lambda) / p) * Q/2 + K lambda/Q
+TC(Q) = h * ((p - lambda)/p) * Q/2 + K lambda/Q
 ```
 
-Optimal production batch size:
+Optimal production batch:
 
 ```text
 Q* = sqrt(2K lambda / h) * sqrt(p / (p - lambda))
 ```
 
-Equivalent form:
+Production-run duration at optimum:
 
 ```text
-Q* = sqrt((2K lambda p) / (h(p - lambda)))
+T0* = Q*/p
 ```
 
-Production run duration:
+Extreme cases:
+
+- If `p -> infinity`, EPQ becomes EOQ because replenishment is effectively instantaneous.
+- If `p -> lambda`, inventory builds very slowly and the formula pushes `Q*` upward.
+
+Exam trap: EPQ is usually larger than EOQ, but maximum inventory is lower than the batch size because demand consumes units during production.
+
+## Exercise Answer Guides
+
+### EOQ Task 1: ABI Warehouses
+
+Facts:
+
+- two warehouses
+- each has demand `50` units/year
+- `h = EUR 20` per unit/year
+- `K = EUR 50` per order
+
+Per warehouse:
 
 ```text
-T0* = Q* / p
-```
-
-### EPQ Intuition
-
-Compared with EOQ, EPQ batch size is larger because inventory does not all arrive at once. While production is happening, demand already consumes some units, so average inventory is lower for the same batch size.
-
-Extreme cases from the lecture:
-
-```text
-p -> infinity: EPQ becomes EOQ
-p -> lambda: Q* -> infinity
-```
-
-Interpretation:
-
-- If production is extremely fast, it behaves like instant replenishment.
-- If production rate barely exceeds demand rate, inventory accumulates very slowly; large batches become attractive in the formula, but this is also a warning sign that capacity is tight.
-
-## Worked Exercise Answers
-
-### Exercise Task 1: ABI GmbH Warehouse Pooling
-
-Given for each warehouse:
-
-```text
-lambda = 50 units/year
-h = 20 euros/unit/year
-K = 50 euros/order
-```
-
-#### a. Annual Logistics Costs With Two Warehouses
-
-EOQ per warehouse:
-
-```text
-Q* = sqrt(2K lambda / h)
-   = sqrt(2 * 50 * 50 / 20)
-   = sqrt(250)
-   = 15.81
-```
-
-Total logistics cost per warehouse:
-
-```text
-TC = hQ/2 + K lambda/Q
-   = 20 * 15.81/2 + 50 * 50/15.81
-   = 158.11 + 158.11
-   = 316.23
+Q* = sqrt(2*50*50/20) = 15.81
+TC per warehouse = EUR 316.23
 ```
 
 Two warehouses:
 
 ```text
-TC_company = 2 * 316.23 = 632.46
+TC company = EUR 632.46
 ```
-
-#### b. Pooling Demand Into One Warehouse
 
 Pooled demand:
 
 ```text
-lambda_pooled = 100 units/year
+lambda = 100
+Q* = 22.36
+TC pooled = EUR 447.21
+savings = EUR 185.24 = 29.29%
 ```
 
-EOQ pooled:
+Interpretation: pooling reduces total safety/order-system duplication in this deterministic cost setup because setup/holding tradeoffs are optimized over aggregated demand.
+
+### EOQ Task 2: Tek Pak Beer Crates
+
+Facts:
+
+- `h = EUR 0.65` per crate/year
+- `K = EUR 25`
+- `lambda = 130` crates/year
+- initial inventory `I0 = 100`
+- lead time `l = 2` weeks
+- assume 52 weeks/year
+
+Answer key:
 
 ```text
-Q*_pooled = sqrt(2 * 50 * 100 / 20)
-          = sqrt(500)
-          = 22.36
+Q* = 100 crates
+reorder point = 5 crates
+first order should be placed after 38 weeks
 ```
 
-Pooled cost:
+Reasoning:
 
 ```text
-TC_pooled = 20 * 22.36/2 + 50 * 100/22.36
-          = 223.61 + 223.61
-          = 447.21
+demand per week = 130/52 = 2.5
+lead-time demand = 2.5*2 = 5
+inventory reaches 5 after (100 - 5)/2.5 = 38 weeks
 ```
 
-Savings:
+### EOQ Task 3: Kerosene Infinite Versus Finite Horizon
+
+Facts:
+
+- `K = EUR 10`
+- `h = EUR 2`
+- `lambda = 8000` gallons/year
+- finite selling season: 5 weeks
+
+Infinite horizon:
 
 ```text
-Savings = 632.46 - 447.21 = 185.24
-Savings % = 185.24 / 632.46 = 29.3%
+Q* = 282.84 gallons
+orders/year = 28.28
+orders in 5 weeks = 2.72
 ```
 
-Managerial interpretation:
-
-```text
-Pooling reduces total logistics cost because setup and holding tradeoffs scale sublinearly with demand under EOQ.
-```
-
-### Exercise Task 2: Tek Pak Beer Crates
-
-Given:
-
-```text
-h = 0.65 euros/crate/year
-K = 25 euros/order
-lambda = 130 crates/year
-I0 = 100 crates
-lead time = 2 weeks
-52 weeks/year
-```
-
-#### a. EOQ
-
-```text
-Q* = sqrt(2 * 25 * 130 / 0.65)
-   = sqrt(10000)
-   = 100 crates
-```
-
-#### b. Inventory Level To Place New Orders
-
-Weekly demand:
-
-```text
-lambda_week = 130 / 52 = 2.5 crates/week
-```
-
-Reorder point:
-
-```text
-lambda_week * lead time = 2.5 * 2 = 5 crates
-```
-
-#### c. When To Place The First Order
-
-Without lead time, inventory lasts:
-
-```text
-I0 / lambda_week = 100 / 2.5 = 40 weeks
-```
-
-Because lead time is 2 weeks, place the order:
-
-```text
-40 - 2 = 38 weeks from now
-```
-
-### Exercise Task 3: Kerosene Oil Infinite Vs Finite Horizon
-
-Given:
-
-```text
-K = 10 euros/order
-h = 2 euros/gallon/year
-lambda = 8000 gallons/year
-```
-
-#### a. Infinite Planning Horizon
-
-EOQ:
-
-```text
-Q* = sqrt(2 * 10 * 8000 / 2)
-   = sqrt(80000)
-   = 282.84 gallons
-```
-
-Orders per year:
-
-```text
-N = lambda / Q* = 8000 / 282.84 = 28.28 orders/year
-```
-
-Expected orders in 5 weeks:
-
-```text
-N_5weeks = 28.28 * 5/52 = 2.72 orders
-```
-
-This is an average under the infinite-horizon model, not an allowed finite-horizon integer order count.
-
-#### b. Finite 5-Week Selling Season
-
-Horizon:
-
-```text
-t = 5/52 years = 0.09615
-```
-
-Continuous optimal number of orders:
-
-```text
-m_hat = t * sqrt(h lambda / (2K))
-      = 5/52 * sqrt(2 * 8000 / (2 * 10))
-      = 2.72
-```
-
-Integer candidates:
-
-```text
-floor(m_hat) = 2
-ceil(m_hat) = 3
-```
-
-Finite-horizon cost function:
-
-```text
-TC(m) = K m/t + h lambda t/(2m)
-```
-
-Check `m = 2`:
-
-```text
-TC(2) = 10*2/(5/52) + 2*8000*(5/52)/(2*2)
-      = 208.00 + 384.62
-      = 592.62
-```
-
-Check `m = 3`:
-
-```text
-TC(3) = 10*3/(5/52) + 2*8000*(5/52)/(2*3)
-      = 312.00 + 256.41
-      = 568.41
-```
-
-Choose:
+Finite horizon:
 
 ```text
 m* = 3 orders
+Q* = 256.41 gallons per order
 ```
 
-Finite-horizon order quantity:
+Answer key interpretation:
 
 ```text
-Q*_finite = lambda * t / m*
-          = 8000 * (5/52) / 3
-          = 256.41 gallons
+The finite-period average total cost is 0.48% larger because the integer order count rounds away from the continuous optimum.
 ```
 
-#### c. Cost Comparison
+### EPQ Task 1: Battery-Cell Line
 
-Infinite-horizon annualized cost:
+Facts:
+
+- `lambda = 12000` packs/year
+- `p = 60000` packs/year
+- `K = EUR 500`
+- `h = EUR 4`
+
+Computed from lecture EPQ formulas:
 
 ```text
-TC_infinite = K N + h Q*/2
-            = 10 * 28.28 + 2 * 282.84/2
-            = 282.84 + 282.84
-            = 565.69
+EPQ Q* = 1936.49 packs
+production-run duration = 1.68 weeks
+maximum inventory = 1549.19 packs
+EPQ total annual cost = EUR 6196.77
+instantaneous EOQ total annual cost = EUR 6928.20
+EPQ cost reduction = EUR 731.43, about 10.56%
 ```
 
-Finite-horizon annualized cost:
+Interpretation: finite production lowers average inventory because units are consumed during the production run.
+
+### EPQ Task 2: Router Make-To-Stock Factory
+
+Facts:
+
+- `lambda = 10400` units/year
+- `p = 52000` units/year
+- `K = EUR 750`
+- `h = EUR 6`
+- initial inventory `I0 = 1300`
+- preparation lead time `l = 2` weeks
+- demand per week `= 200`
+
+Computed from lecture EPQ formulas:
 
 ```text
-TC_finite = 568.41
+EPQ Q* = 1802.78 units
+start preparation inventory level = 400 units
+start preparation after 4.5 weeks
+actual first production starts after 6.5 weeks
+maximum inventory = 1442.22 units
+cycle time = 9.01 weeks
+production-run duration = 1.80 weeks
+non-production duration = 7.21 weeks
 ```
 
-Difference:
+Interpretation: start preparation when the remaining inventory equals demand during the two-week preparation lead time.
+
+### EPQ Task 3: Shovel Factory And Technology Adoption
+
+Facts:
+
+- production rate `p = 200` units/week
+- maximum inventory `Imax = 150`
+- current economic production quantity `Q* = 300`
+- assume 52 weeks/year
+
+Demand implied by the EPQ maximum-inventory formula:
 
 ```text
-568.41 - 565.69 = 2.72
+Imax = ((p - lambda)/p) Q
+150 = ((200 - lambda)/200) * 300
+lambda = 100 units/week = 5200 units/year
 ```
 
-Percent difference:
+New technology:
+
+- production rate increases by 50%: `p = 300` units/week = `15600` units/year
+- same demand: `lambda = 5200` units/year
+- `K = EUR 350`
+- `h = EUR 5`
+- previous total cost: `EUR 6000`
+
+Computed from lecture EPQ formulas:
 
 ```text
-2.72 / 565.69 = 0.48%
+new EPQ Q* = 1044.99 units
+new maximum inventory = 696.66 units
+new total annual cost = EUR 3483.29
+maximum willingness to invest = EUR 2516.71
 ```
 
-Interpretation:
+Interpretation: willingness to invest equals avoided annual cost if the decision threshold allows zero incremental value.
+
+## Diagrams, Tables, And Visuals
+
+### EOQ Sawtooth
+
+The EOQ diagram is a sawtooth with peak `Q`, slope `-lambda`, and average inventory `Q/2`. It teaches why holding cost grows with `Q` and setup cost falls with `Q`.
+
+### Finite-Horizon Diagram
+
+The finite-horizon diagram shows separate triangles for each order interval. Equal interval lengths minimize holding cost for a fixed number of orders, but the number of orders must be rounded to an integer.
+
+### Production-System Positioning
+
+The production-system diagram maps customer lead time against inventory investment. Moving from make-to-stock toward engineer-to-order reduces finished-goods inventory but increases customer waiting time and customization complexity.
+
+### EPQ Inventory Triangle
+
+The EPQ diagram has two slopes:
 
 ```text
-The finite-horizon solution is slightly more expensive because the best continuous number of orders is 2.72, but the real system must choose an integer number of orders. Rounding creates a small inefficiency.
+production phase: p - lambda
+depletion phase: -lambda
 ```
 
-## Mermaid Visual Map
+This is the visual reason EPQ uses `Imax`, not `Q`, as the inventory peak.
+
+## Visual Knowledge Map
 
 ```mermaid
 flowchart TD
-    EOQ[EOQ problem] --> Tradeoff[Order/setup cost vs holding cost]
-    Tradeoff --> Setup[Setup/order cost K lambda/Q]
-    Tradeoff --> Holding[Holding cost hQ/2]
-    Setup --> TC[TC(Q) = hQ/2 + K lambda/Q]
-    Holding --> TC
-    TC --> EOQFormula[Q* = sqrt(2K lambda / h)]
-    EOQFormula --> OrderCycle[Cycle length T = Q/lambda]
-    EOQFormula --> Orders[N = lambda/Q]
-
-    EOQ --> Assumptions[Deterministic constant demand]
-    Assumptions --> InitialInventory[Initial inventory I0]
-    InitialInventory --> Wait[Wait I0/lambda]
-    Assumptions --> LeadTime[Positive lead time l]
-    LeadTime --> ReorderPoint[Reorder point = lambda*l]
-    Assumptions --> FiniteHorizon[Finite horizon t]
-    FiniteHorizon --> IntegerOrders[m* = floor or ceil m_hat]
-    IntegerOrders --> FiniteQ[Q = t lambda / m*]
-
-    EOQ --> ProductionSystems[Production systems]
+    Start[Deterministic recurring demand] --> CostTradeoff[Setup or order cost vs holding cost]
+    CostTradeoff --> Instant{Replenishment instant?}
+    Instant -->|Yes| EOQ[Basic EOQ]
+    EOQ --> EOQQ[Q* = sqrt(2K lambda / h)]
+    EOQ --> Lead{Lead time exists?}
+    Lead -->|Yes| ROP[Reorder point = lambda l]
+    EOQ --> Initial{Initial inventory exists?}
+    Initial -->|Yes| Wait[Wait I0/lambda, adjusted for lead time]
+    EOQ --> Horizon{Finite horizon?}
+    Horizon -->|Yes| IntegerOrders[Compute m_hat, check floor and ceil]
+    IntegerOrders --> FiniteQ[Q* = t lambda / m*]
+    Instant -->|No| EPQ[EPQ finite production rate]
+    EPQ --> Build[Inventory builds at p - lambda]
+    EPQ --> EPQQ[Q* = EOQ * sqrt(p/(p-lambda))]
+    EPQ --> Imax[Imax = ((p-lambda)/p)Q]
+    CostTradeoff --> ProductionSystems[Production-system choice]
     ProductionSystems --> MTS[Make-to-stock]
     ProductionSystems --> ATO[Assemble-to-order]
     ProductionSystems --> MTO[Make-to-order]
     ProductionSystems --> ETO[Engineer-to-order]
-    ProductionSystems --> BatchQueue[Batch-and-queue]
-    BatchQueue --> Setups[Fewer setups]
-    BatchQueue --> WIP[More WIP and waiting]
-
-    BatchQueue --> EPQ[EPQ finite production rate]
-    EPQ --> BuildRate[Inventory builds at p-lambda]
-    EPQ --> MaxInv[Imax = (p-lambda)/p * Q]
-    MaxInv --> EPQCost[TC = h((p-lambda)/p)Q/2 + K lambda/Q]
-    EPQCost --> EPQFormula[Q* = sqrt(2Klambda/h) * sqrt(p/(p-lambda))]
+    ProductionSystems --> BatchQueue[Batch-and-queue tradeoff]
 ```
 
 ## Subject Knowledge Graph
 
-### Nodes
-
-| Node | Meaning |
-|---|---|
-| EOQ | Deterministic order quantity model |
-| Demand Rate `lambda` | Constant known demand per year |
-| Setup Cost `K` | Fixed cost per order/setup |
-| Holding Cost `h` | Annual cost of holding one unit |
-| Order Quantity `Q` | Units ordered per cycle |
-| Average Inventory | `Q/2` in basic EOQ |
-| Total Cost | Holding plus setup/order cost |
-| Reorder Point | Inventory level for placing order under lead time |
-| Initial Inventory | Starting stock before EOQ cycle begins |
-| Finite Horizon | Inventory problem with limited selling period |
-| Integer Orders `m` | Number of orders in finite horizon |
-| Production System | How production is triggered and inventory positioned |
-| Batch-And-Queue | Efficiency philosophy using large batches and departments |
-| EPQ | EOQ extension with finite production rate |
-| Production Rate `p` | Units produced per time period |
-| Maximum Inventory `Imax` | Peak inventory in EPQ |
-
-### Edges
-
-| From | Relationship | To |
+| Node | Meaning | Exam Relevance |
 |---|---|---|
-| EOQ | minimizes | Total Cost |
-| Total Cost | combines | Holding Cost |
-| Total Cost | combines | Setup Cost |
-| Larger Order Quantity | decreases | Setup Cost per year |
-| Larger Order Quantity | increases | Holding Cost |
-| EOQ Formula | balances | Holding and setup costs |
-| Positive Lead Time | changes | Reorder Point |
-| Positive Lead Time | does not change | EOQ quantity under deterministic demand |
-| Initial Inventory | delays | First order |
-| Finite Horizon | requires | Integer order count |
-| Batch-And-Queue | reduces | Setup frequency |
-| Batch-And-Queue | increases | WIP and waiting |
-| EPQ | extends | EOQ |
-| Finite Production Rate | reduces | Maximum inventory vs instant replenishment |
-| Production Rate approaching infinity | makes EPQ become | EOQ |
+| Deterministic Demand | Known, constant demand rate `lambda` | Trigger for EOQ/EPQ instead of Newsvendor. |
+| Setup/Order Cost | Fixed cost `K` per order or production batch | Drives larger optimal quantities when it rises. |
+| Holding Cost | Cost `h` per unit per year | Drives smaller optimal quantities when it rises. |
+| EOQ | Order size minimizing setup plus holding cost with instant replenishment | Core formula and calculation topic. |
+| Reorder Point | Inventory level `lambda l` for ordering under deterministic lead time | Separates order timing from order quantity. |
+| Finite-Horizon EOQ | EOQ variant with integer number of orders in a fixed horizon | Exam trap: round `m`, not `Q` first. |
+| Customer-Order Decoupling Point | Boundary between forecast-driven and order-driven activity | Explains make-to-stock through engineer-to-order. |
+| Batch-And-Queue | Large batches moving between work centers | Links efficiency to WIP and lead-time cost. |
+| EPQ | EOQ extension with finite production rate | Uses `Imax`, production-run duration, and `p > lambda`. |
+| Maximum Inventory | EPQ peak inventory `((p-lambda)/p)Q` | Prevents confusing batch size with inventory peak. |
+
+| From | Relationship | To | Why It Matters |
+|---|---|---|---|
+| Deterministic Demand | enables | EOQ | The model assumes known constant demand. |
+| Setup/Order Cost | decreases as Q rises | Order Frequency Cost | Larger orders reduce setup frequency. |
+| Holding Cost | increases as Q rises | Inventory Carrying Cost | Larger orders raise average inventory. |
+| EOQ | balances | Setup/Order Cost and Holding Cost | This balance creates the square-root formula. |
+| Lead Time | determines | Reorder Point | Lead time changes timing, not `Q*`, under deterministic assumptions. |
+| Finite-Horizon EOQ | requires | Integer Orders | The continuous optimum must be rounded and checked. |
+| Production Rate | constrains | EPQ | Finite production changes inventory buildup. |
+| EPQ | uses | Maximum Inventory | Holding cost is based on `Imax/2`, not `Q/2`. |
+| Batch-And-Queue | reduces | Setup Frequency | Local efficiency benefit. |
+| Batch-And-Queue | increases | WIP and Waiting | System-level cost. |
+
+## Real Business Examples
+
+- A pharmacy replenishing a stable medication SKU can use EOQ if demand is predictable and stockouts are not allowed.
+- A warehouse with current inventory and a two-week supplier lead time should use the reorder point to avoid ordering too late.
+- A seasonal kerosene seller should use finite-horizon EOQ because it cannot place a fractional number of orders before the season ends.
+- A router factory with finite production capacity should use EPQ, because inventory builds while production and demand happen simultaneously.
+- A furniture company moving from make-to-stock to make-to-order lowers finished-goods inventory but customers wait longer.
 
 ## Exam Relevance
 
-Likely question types:
+Likely prompts:
 
-- Compute EOQ from `K`, `h`, and `lambda`.
-- Compute total annual cost at EOQ.
-- Compute number of annual orders and cycle time.
-- Calculate reorder point with deterministic lead time.
-- Handle initial inventory and first-order timing.
-- Compare decentralized vs pooled inventory cost.
-- Solve finite-horizon integer order problems.
-- Explain why finite horizon can cost more than infinite-horizon EOQ.
-- Explain production system types and the inventory/customer lead-time tradeoff.
-- Calculate EPQ or interpret how finite production changes average inventory.
+- Compute EOQ, order frequency, total annual cost, and interpretation.
+- Add initial inventory or deterministic lead time and compute first-order timing or reorder point.
+- Compare finite-horizon and infinite-horizon EOQ.
+- Compute EPQ, maximum inventory, production-run duration, and non-production time.
+- Explain make-to-stock, assemble-to-order, make-to-order, and engineer-to-order in terms of inventory and customer lead time.
+- Explain why batch-and-queue can improve local efficiency while harming flow.
 
-Common mistakes:
+Common traps:
 
-- Mixing annual and weekly demand units.
-- Forgetting to convert lead time into years or demand into weekly units.
-- Using `Q/2` average inventory in EPQ instead of `((p-lambda)/p)Q/2`.
-- Treating `m_hat` as feasible when it is not an integer.
-- Forgetting that lead time changes reorder point, not EOQ quantity, under deterministic demand.
-- Confusing Newsvendor uncertainty with EOQ deterministic demand.
+- Using EOQ when demand is uncertain and the decision is single-period.
+- Forgetting that `lambda` and `h` must use the same time unit.
+- Treating lead time as a reason to change `Q*` under deterministic EOQ.
+- Using `Q/2` as average inventory in EPQ instead of `Imax/2`.
+- Allowing fractional finite-horizon order counts.
+- Calling make-to-order "zero inventory"; it may still have raw-material or WIP inventory.
 
-## Cheat-Sheet Candidates
+High-scoring answer structure:
 
-```text
-EOQ TC(Q) = hQ/2 + K lambda/Q
-EOQ Q* = sqrt(2K lambda / h)
-At EOQ: hQ*/2 = K lambda/Q*
-TC(Q*) = sqrt(2hKlambda)
-Orders/year: N = lambda/Q
-Cycle time: T = Q/lambda
-Initial inventory wait: I0/lambda
-Reorder point with lead time: lambda*l
-Finite horizon: TC(m) = Km/t + h lambda t/(2m)
-Finite horizon: m_hat = t*sqrt(hlambda/(2K))
-Finite horizon: m* = floor(m_hat) or ceil(m_hat), whichever has lower TC
-Finite horizon quantity: Q = t lambda/m*
-EPQ: Imax = ((p-lambda)/p)Q
-EPQ TC(Q) = h((p-lambda)/p)Q/2 + K lambda/Q
-EPQ Q* = sqrt(2Klambda/h) * sqrt(p/(p-lambda))
-Production run time: T0 = Q/p
-```
+1. State the operational decision.
+2. Identify whether demand is deterministic or uncertain.
+3. Choose EOQ, finite-horizon EOQ, EPQ, or a production-system concept.
+4. Define variables and units before substitution.
+5. Compute the quantity/timing/cost.
+6. Interpret what the decision changes operationally.
 
-## Practice Questions
+## Retrieval Prompts
 
-1. Why does EOQ increase when setup cost `K` increases?
-2. A product has `lambda = 1000`, `K = 40`, `h = 5`. Compute EOQ.
-3. If lead time is 3 weeks and weekly demand is 20 units, what is the reorder point?
+Closed-book questions:
+
+1. What assumptions must hold before basic EOQ is appropriate?
+2. Why does EOQ use `Q/2` as average inventory?
+3. Why does deterministic lead time change reorder timing but not `Q*`?
 4. Why does finite-horizon EOQ require checking `floor(m_hat)` and `ceil(m_hat)`?
-5. In EPQ, why is average inventory lower than in EOQ for the same batch size `Q`?
-6. Explain the tradeoff between make-to-stock and engineer-to-order.
+5. Why is EPQ's maximum inventory lower than the production batch size?
+6. What is the operational difference between make-to-stock and make-to-order?
 
-## Short Answer Guide
+Application prompts:
 
-1. Higher setup cost makes frequent ordering expensive, so larger orders reduce setup frequency.
-2. `Q* = sqrt(2*40*1000/5) = sqrt(16000) = 126.49`.
-3. `20*3 = 60 units`.
-4. The optimal continuous number of orders may be fractional, but actual orders must be integer.
-5. Demand consumes units while production is still running, so maximum inventory is only `((p-lambda)/p)Q`.
-6. Make-to-stock uses more inventory to give short customer lead time; engineer-to-order uses little prebuilt inventory but creates long customer lead time.
+1. A supplier has stable demand, fixed order cost, holding cost, and a two-week lead time. What model and what outputs are needed?
+2. A factory produces faster than demand but not instantaneously. Which formula changes relative to EOQ?
+3. A seasonal product has a five-week selling window. Why can the finite-horizon cost be higher than infinite-horizon EOQ?
+4. A manager wants larger batches to improve machine utilization. What system-level risk should you mention?
+
+## Practice Tasks
+
+1. Compute EOQ for `lambda = 9600` units/year, `K = 80`, `h = 6`. Then compute orders per year and average inventory.
+2. With the same facts and lead time of three weeks, compute the reorder point. Assume 52 weeks/year.
+3. A finite season lasts 10 weeks. Compute `m_hat`, test floor/ceil, and state why integer rounding matters.
+4. For EPQ with `lambda = 12000`, `p = 60000`, `K = 500`, `h = 4`, compute `Q*`, `Imax`, and production-run duration.
+5. Explain when a firm should prefer assemble-to-order over make-to-stock.
+
+## Connections
+
+Previous notes from this lecture:
+
+- [Topic 01 Kristen Cookie Case](../topic-01-kristen-cookie-case/topic-01-kristen-cookie-case.md): process flow, capacity, bottleneck, and cycle-time logic.
+- [Topic 02 Forecasting](../topic-02-forecasting/topic-02-forecasting.md): deterministic planning depends on demand estimates.
+- [Topic 03 Newsvendor Model](../topic-03-newsvendor-model/topic-03-newsvendor-model.md): contrast uncertainty-driven service level with EOQ's deterministic cost tradeoff.
+- [Topic 04 Random Variables](../topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md): distributions are needed before using stochastic inventory models.
+
+Next related topic:
+
+- [Topic 06 Supply Chain Coordination And Bullwhip Effect](../topic-06-supply-chain-coordination-bullwhip-effect/topic-06-supply-chain-coordination-bullwhip-effect.md): batching and distorted order signals can amplify upstream variability.
+
+Cross-course links:
+
+- Finance: cost minimization and investment in new technology should be interpreted as a cash-flow improvement, not only a lower formula result.
+- Organization: production-system choice is also an organizational coordination design problem.
+
+## Open Uncertainties
+
+- The EPQ workbook did not include a separate answer-key PDF. The answer guides above are computed directly from the lecture formulas and workbook task wording.
+- The production-system slides use visual examples for make-to-stock through engineer-to-order; the exact pictured products are less important than the inventory-positioning logic.
+
+## Weakness Flags
+
+- Pending active recall: the user has not yet completed a first-pass retrieval session for this topic.
+- Highest-risk formulas: finite-horizon `m_hat`, EPQ `Imax`, and lead-time first-order timing.
