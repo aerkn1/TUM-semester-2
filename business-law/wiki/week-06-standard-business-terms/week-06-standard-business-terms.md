@@ -243,6 +243,19 @@ The deck's visual order is:
 
 Section 309 and much of Section 308 are not directly applied to B2B SBT under Section 310 I BGB, but their values can influence Section 307 BGB.
 
+### B2C Versus B2B Router
+
+Classify the transaction by its purpose, not by a permanent label attached to the person.
+
+| Transaction | Actor role | Main SBT content-control route |
+|---|---|---|
+| Natural person buys mainly for private purposes | Consumer under Section 13 BGB; B2C when the other party acts commercially | Sections 307-309 apply in the consumer-protection route. |
+| Person or company acts for commercial or independent professional purposes | Entrepreneur under Section 14 BGB; B2B when both sides act commercially | Section 307 is central; Section 310 I limits direct use of Section 309 and much of Section 308, while their values can influence Section 307. |
+
+The same restaurant owner can therefore be a consumer when buying a television for a private bedroom and an entrepreneur when buying a refrigerator for the restaurant.
+
+Liability example: a clear SBT clause excluding liability for gross negligence is a content-control issue, not a surprising-clause issue. In a B2C case, Section 309 No. 7(b) is the direct prohibition. In the standard B2B route, use Section 307 with Section 310 I and treat Section 309's value as indirect guidance.
+
 ### Section 309 BGB
 
 Section 309 lists clauses that are generally too unfair without case-by-case valuation. The deck highlights:
@@ -463,6 +476,7 @@ Cross-course links:
 
 ## Weakness Flags
 
-- Active recall not yet completed.
-- Clarification completed 2026-06-04 with a plain-language router. Keep drilling these distinctions: SBT issue versus unfairness issue; hidden surprise versus unclear ambiguity versus clear-but-harsh content control; non-incorporation versus ineffective clause; Section 306 consequence.
-- First active-recall drill should start with a webshop voucher-only clause, then a hidden liability clause, then the battle-of-forms machine case.
+- First active recall completed 2026-06-07; D+1 due 2026-06-08.
+- Keep drilling SBT classification before scrutiny, accept-or-leave versus genuine negotiation, and hidden surprise versus clear-but-harsh content control.
+- Keep the B2C/B2B route explicit: transaction purpose -> Sections 13/14 -> direct Section 309 or B2B Section 307 with Section 310 I.
+- Use precise consequence language: **not incorporated** for Section 305c I; **ineffective** for failed content control; Section 306 usually preserves the contract.

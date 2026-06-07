@@ -68,6 +68,10 @@ Bad clause out, contract usually stays.
 | **Hard Prohibition** | A Section 309 BGB clause type that is prohibited without individual valuation. | flexible unfairness test |
 | **Valuation Prohibition** | A Section 308 BGB clause type that is normally prohibited but leaves room for case-specific evaluation. | absolute ban always |
 | **Spillover Effect** | Values from Sections 308 and 309 can influence Section 307 analysis in B2B cases even where direct application is limited. | direct Section 309 B2B application |
+| **Consumer** | A natural person acting mainly outside commercial or independent professional activity in the specific transaction. | private person always |
+| **Entrepreneur** | A natural or legal person acting in commercial or independent professional activity in the specific transaction. | company only, business owner always |
+| **B2C Contract** | A contract in which a consumer acts privately and the other party acts as an entrepreneur. | any contract involving a natural person |
+| **B2B Contract** | A contract in which both parties act for commercial or independent professional purposes. | contract between companies only |
 
 ## Consequence Language
 
@@ -86,6 +90,8 @@ Bad clause out, contract usually stays.
 | Section | Canonical function | Trigger facts | Exam use |
 |---|---|---|---|
 | **Sections 145 et seq. BGB** | Ordinary offer-and-acceptance contract formation. | Parties exchange offers, acceptances, or modified terms. | Start here before SBT control. |
+| **Section 13 BGB** | Defines a consumer by private-purpose action. | Natural person buys mainly outside commercial or professional activity. | Decide whether the stronger B2C route applies. |
+| **Section 14 BGB** | Defines an entrepreneur by business-purpose action. | Person or entity acts commercially or professionally. | Distinguish B2B from a private purchase by the same person. |
 | **Section 150 II BGB** | Modified acceptance counts as rejection plus new offer. | Acceptance adds or changes SBT. | Use in battle-of-forms formation analysis. |
 | **Section 151 BGB** | Acceptance without declaration to the offeror in some circumstances. | Performance suggests acceptance without express notice. | Relevant to last-shot theory. |
 | **Section 154 BGB** | Open disagreement can prevent contract conclusion. | Parties have not agreed on an essential or reserved point. | Contrast with Section 306 preserving a contract despite failed SBT. |
@@ -102,6 +108,7 @@ Bad clause out, contract usually stays.
 | **Section 307 III BGB** | Content control focuses on deviations from statutory provisions. | Main price/performance is attacked as unfair. | Explain why core price-performance is usually outside SBT control. |
 | **Section 308 BGB** | Prohibited clauses with valuation possibility. | Clause type is normally unfair but context may matter. | Apply after Section 309 in the deck's scrutiny order. |
 | **Section 309 BGB** | Prohibited clauses without valuation possibility. | Clause matches hard-prohibited type. | First content-control check in B2C-style scrutiny. |
+| **Section 309 No. 7(b) BGB** | Prohibits specified exclusions or limitations of liability for gross fault. | SBT clearly exclude liability for gross negligence in a B2C case. | Use as the direct anchor instead of calling a clear liability clause surprising. |
 | **Section 310 I BGB** | Modifies SBT control in B2B and public-law entity contexts. | SBT used with traders or comparable non-consumer parties. | Do not apply all B2C rules mechanically in B2B. |
 | **Section 310 III No. 2 BGB** | Consumer one-time pre-formulated terms can be treated as SBT. | B2C contract with pre-formulated term used once. | Important exception to ordinary multiple-use intuition. |
 | **Section 449 I BGB** | Retention of title must be agreed. | Seller claims ownership until full payment. | In battle-of-forms cases, failed retention clause means no retention by default. |
@@ -154,6 +161,7 @@ flowchart TD
 | "Invalid SBT" | Specify whether the clause failed **Incorporation Control** or **Content Control**. |
 | "Fairness" | Translate into the statutory test: Section 309, Section 308, or Section 307 BGB. |
 | "B2B means no SBT law" | Wrong. B2B scrutiny is less strict, but Section 307 BGB remains important. |
+| "A business owner is never a consumer" | Wrong. Classify the purpose of the specific transaction: restaurant equipment may be B2B, while a private bedroom television may be B2C. |
 | "The clause is SBT because the product is defective" | Defect facts may make the clause important, but SBT classification comes from pre-formulated repeated-use wording provided by one party. |
 | "The clause was visible, so it must be valid" | Visibility helps incorporation, but a clear clause can still fail content control if it is too harsh. |
 
@@ -166,6 +174,7 @@ flowchart TD
 | Treating every harsh clause as surprising. | Surprise requires unusual placement or unexpected content, not merely disadvantage. |
 | Thinking invalid clause voids the whole contract. | Section 306 usually keeps the rest of the contract effective. |
 | Applying hard B2C prohibitions mechanically to traders. | In B2B, check Section 310 I and use Section 307 for spillover reasoning. |
+| Calling a clear gross-negligence exclusion surprising. | Clear harsh wording is content control: Section 309 No. 7(b) in B2C; Section 307 with Section 310 I in B2B. |
 | Saving overbroad clauses by imagination. | Only use the **Blue-Pencil Test** when wording splits cleanly. |
 | Calling every unfair clause "surprising." | Surprise is about hidden or unexpected incorporation; unfairness is content control. |
 | Calling every clear harsh clause "ambiguous." | Ambiguity needs unclear wording. Clear harsh wording goes to content control. |

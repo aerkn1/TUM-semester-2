@@ -78,6 +78,64 @@ EOQ/EPQ = known, constant demand and recurring replenishment.
 
 Do not use EOQ to solve a stockout-risk or service-level problem. Use it when the fact pattern gives constant demand, setup/order cost, and holding cost.
 
+## Clarification Bridge: From Forecast Uncertainty To EOQ
+
+EOQ is a continuation of inventory decision-making, but it is not the next calculation in the Newsvendor formula chain. Forecasting and Random Variables first describe the demand environment; then the decision pattern determines the inventory model.
+
+```text
+Forecasting estimates demand
+        |
+Random Variables describe uncertainty
+        |
+Model router
+        |-- one-time uncertain commitment --> Newsvendor
+        `-- repeated replenishment with stable demand --> EOQ
+```
+
+### Why The Cost Trade-Off Changes
+
+Newsvendor asks how much to commit once before uncertain demand is realized. Excess units may become obsolete, discounted, or wasted, so the model balances underage and overage costs through a service-level quantile.
+
+EOQ assumes recurring demand. Units ordered today can normally satisfy later demand, so excess stock is not automatically lost. The operating problem is instead:
+
+```text
+Large Q -> fewer orders -> lower setup cost -> higher holding cost
+Small Q -> more orders -> higher setup cost -> lower holding cost
+```
+
+Basic EOQ therefore has no service-level target. When recurring demand is uncertain, use EOQ for the replenishment quantity and add a reorder point plus safety stock for timing and protection. An emergency order does not automatically create a Newsvendor problem; Newsvendor returns only when the event creates a separate one-time uncertain commitment.
+
+### Constant Demand Is A Planning Assumption
+
+The demand rate `lambda` is fixed only within the current decision horizon. It may originate from a forecast and should be revised when persistent forecast errors, control-limit violations, trend, seasonality, or structural change make the old estimate unreliable.
+
+```text
+Actual demand -> forecast-error monitoring -> model refit
+-> updated lambda -> recalculated EOQ
+```
+
+One unusual observation should normally trigger investigation, not an automatic model replacement. Persistent instability can require shorter planning windows, safety stock, or a model beyond basic EOQ.
+
+## EOQ Variant Analogies And Use Cases
+
+Use one bakery consuming flour at a known constant rate:
+
+| Variant | Bakery example | Operational interpretation |
+|---|---|---|
+| Basic EOQ | Regular flour deliveries arrive immediately. | Choose the recurring delivery size balancing order and storage costs. |
+| Initial inventory | The bakery already has flour. | Existing stock delays the first order; it does not normally change future `Q*`. |
+| Positive lead time | The supplier needs two weeks. | Order at `lambda l` so delivery arrives at depletion; lead time changes when, not how much. |
+| Initial inventory plus lead time | Existing flour lasts four weeks and delivery needs two. | Place the first order after two weeks: `I0/lambda - l`. |
+| Finite horizon | A temporary bakery operates for ten weeks. | Choose a feasible integer number of deliveries, then divide total known demand by that count. |
+| EPQ | Flour is produced gradually while the bakery consumes it. | Inventory builds at `p - lambda`; use EPQ and `Imax/2`, not EOQ and `Q/2`. |
+
+Memory hooks:
+
+- Existing inventory is like groceries already at home: it changes the next shopping date.
+- Lead time is like ordering medicine before the current supply runs out.
+- A finite horizon is like a holiday with only a whole number of shopping trips.
+- EPQ is a bathtub filling while the drain remains open: net build equals inflow minus outflow.
+
 ## Model Selection Router
 
 | Fact Pattern | Use | Decision Output |

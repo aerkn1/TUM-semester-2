@@ -84,6 +84,29 @@ This file is a standalone terminology, formula, and notation companion. Use it t
 - **Customer-order decoupling point** explains why **make-to-stock** has low customer lead time and high inventory investment, while **engineer-to-order** has the opposite profile.
 - **Batch-and-queue** reduces **setup frequency** but increases **WIP** and waiting risk.
 
+## Clarification Language: How The Models Diverge
+
+| Canonical distinction | Precise interpretation |
+|---|---|
+| **Forecasting versus EOQ** | Forecasting estimates the current demand rate; EOQ uses that rate to choose a recurring lot size. If the forecast is refitted, recalculate EOQ. |
+| **Newsvendor versus EOQ** | Newsvendor controls one-time mismatch risk under uncertain demand; EOQ controls recurring ordering and holding costs under stable demand. |
+| **EOQ plus uncertainty** | Use EOQ for how much and reorder point plus safety stock for when and for lead-time protection. Do not automatically insert Newsvendor. |
+| **Constant demand** | A local planning assumption for the current horizon, not a claim that real demand can never change. |
+| **Initial inventory** | Changes first-order timing, not the normal recurring batch size. |
+| **Lead time** | Changes reorder timing through `lambda l`, not basic deterministic `Q*`. |
+| **Finite horizon** | Changes the feasible number of orders because order count must be an integer. |
+| **Finite production** | Changes the inventory path because units arrive gradually while demand continues; use EPQ. |
+
+## Analogy Set
+
+| Concept | Analogy |
+|---|---|
+| **Basic EOQ** | Choose the best size for regular supermarket trips: large trips reduce travel frequency but increase storage. |
+| **Initial inventory** | Groceries already at home delay the next trip. |
+| **Lead time** | Reorder medicine early enough for delivery before the current supply is exhausted. |
+| **Finite horizon** | A ten-day holiday permits only a whole number of shopping trips. |
+| **EPQ** | A bathtub fills while the drain remains open; inventory rises at inflow minus outflow. |
+
 ## Formula Cheat Sheet
 
 | Decision | Formula | Unit Check |

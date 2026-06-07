@@ -4,6 +4,7 @@ Source files processed:
 
 - `finance-and-investment-management/raw/IuF_Introduction_SS2026_Master.pdf`
 - `finance-and-investment-management/raw/Formulary.pdf`
+- `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514.zip`
 
 Administrative/logistical content is preserved here and excluded from subject Mermaid diagrams and the course knowledge graph unless it directly affects exam preparation.
 
@@ -77,9 +78,26 @@ Dates and content are subject to change.
 
 - Guest lecturer: Falk Baurle, CFO/COO at SCHUNK SE & Co. KG.
 - Date/time: 2026-05-19, 12:15-13:45.
-- Topic: to be announced.
+- Topic: SCHUNK company context and applied investment theory.
 - Language: English.
 - Participation is not mandatory and content is not directly relevant for the exam.
+- Guest lecture deck preserved under the 2026-06-04 Moodle export. It contains optional applied examples for payback, NPV, IRR, discounted payback, sensitivity analysis, and DCF/M&A valuation, but it is not added as a spaced-repetition topic because the course logistics mark the guest lecture as not directly exam-relevant.
+
+## Moodle Export Update 2026-06-04
+
+The Moodle export `Investment and  950881761 (S26)_2026064_1514` was copied into `raw/` on 2026-06-06. It included:
+
+| Export folder | File | Handling |
+|---|---|---|
+| CW21 19.05 / 20.05 | `Exercise 6 - Solutions.pdf` | Used to refresh `exercise-06-bonds-i` with solution-backed zero-bond material. |
+| CW21 19.05 / 20.05 | `Guest Lecture Schunk 19.05..pdf` | Preserved as optional applied investment context; not scheduled for retrieval. |
+| CW22 26.05 / 27.05 | `Lecture 0506 Capital Budgeting.pdf` | Generated `session-05-06-capital-budgeting`. |
+| CW23 02.06 / 03.06 | `Exercise 7.pdf` | Used to refresh `exercise-06-bonds-i` with coupon-bond, accrued-interest, and YTM material. |
+| CW23 02.06 / 03.06 | `Lecture 78 Cost of Capital.pdf` | Generated `session-07-08-cost-of-capital`. |
+| CW25 16.06 / 17.06 | `Lecture 910 Capital Structure.pdf` | Generated `session-09-10-capital-structure`. |
+| CW27 30.06 / 01.07 | `Lecture 1112 Capital Structure with Taxes.pdf` | Generated `session-11-12-capital-structure-and-taxes`. |
+
+The export suggests the live upload order may differ from the earlier schedule table for some weeks. For study sequencing, use the generated wiki-note order and prerequisite logic: Investment Analysis -> Capital Budgeting -> Cost of Capital -> Capital Structure -> Capital Structure and Taxes.
 
 ## Study Implications
 

@@ -1,12 +1,14 @@
-# Exercise 06: Bonds I
+# Exercise 06-07: Bonds I
 
 Source files:
 
 - `finance-and-investment-management/raw/Exercise_6_Bonds_I_Without_Solutions.pdf`
+- `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514/CW 21  19.05. _ 20.05./Exercise 6 - Solutions.pdf`
+- `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514/CW 23  02.06. _ 03.06./Exercise 7.pdf`
 - `finance-and-investment-management/raw/Formulary.pdf`
 
 Lecture folder: `finance-and-investment-management/`  
-Date processed: 2026-05-16
+Date processed: 2026-05-16; refreshed with solution and Exercise 7 material on 2026-06-06
 
 ## High-Yield 80/20 Summary
 
@@ -19,6 +21,8 @@ Core logic:
 3. Discount at the appropriate risk-adjusted rate or term structure.
 4. Interpret price changes when market interest rates change.
 5. Know that creditworthiness, coupon, rights, liquidity, and interest rates affect bond prices.
+6. For coupon bonds, separate market price, accrued interest, and final settlement price.
+7. Understand that discount bonds move upward toward face value over time, while premium bonds move downward toward face value.
 
 ## Bond Definition
 
@@ -100,7 +104,10 @@ Interpretation: the investor pays far below face value because all return comes 
 A coupon bond pays coupons and face value.
 
 ```text
-B_0 = C x [(1+r)^N - 1] / r + B_N x 1/(1+r)^N
+B_0 = sum from k=1 to N of C/(1+r)^k + B_N/(1+r)^N
+
+Equivalent annuity form:
+B_0 = C x [1 - 1/(1+r)^N] / r + B_N/(1+r)^N
 ```
 
 Equivalent interpretation:
@@ -111,6 +118,62 @@ Bond price = PV(coupon annuity) + PV(face value)
 
 Exam trap: if coupon is given as a percentage of face value, convert it into the coupon cash flow before using the formula.
 
+### Par, Discount, And Premium
+
+The refreshed Exercise 7 slides categorize coupon-bond prices relative to face value:
+
+| Price relation | Meaning | Typical condition |
+|---|---|---|
+| `B_0 = 100` | Bond trades at par | Coupon rate equals market yield |
+| `B_0 < 100` | Bond trades below par / at discount | Coupon rate below market yield |
+| `B_0 > 100` | Bond trades above par / at premium | Coupon rate above market yield |
+
+For a 10% coupon bond with face value 100 and market interest rate 10%, the price is 100 because the coupon rate equals the market-required return.
+
+## Accrued Interest And Settlement Price
+
+If bond ownership changes between coupon dates, the buyer compensates the seller for the interest earned since the last coupon date.
+
+The lecture separates:
+
+| Term | Meaning |
+|---|---|
+| Market price / ex-coupon price | Quoted fair price of the bond excluding accrued interest |
+| Accrued interest | Pro-rata coupon compensation between the last coupon date and sale date |
+| Settlement / dirty price | Market price plus accrued interest, and in real markets possibly fees |
+
+The simplified accrued-interest formula in the slides is:
+
+```text
+I_0 = (t_1 - t_0) x (1/360) x C
+```
+
+where `t_1 - t_0` is the number of days between the last coupon payment date and the selling date, and `C` is the annual coupon amount.
+
+Exam trap: the exchange quote is usually the clean market price. The cash paid by the buyer can be higher because accrued interest is added.
+
+## Price Path Toward Maturity
+
+The Exercise 7 deck emphasizes how bond prices move as maturity approaches:
+
+- At maturity, the price equals nominal/face value, assuming repayment at par.
+- A discount bond tends to increase toward face value as maturity approaches.
+- A premium bond tends to decrease toward face value as maturity approaches.
+
+This is separate from market-yield shocks. Even if market rates do not change, time-to-maturity changes the present-value calculation.
+
+## Yield To Maturity
+
+Yield to maturity is the annual return earned if the bond is held to maturity and the assumptions of the calculation hold.
+
+```text
+Bond price = PV(promised coupons and redemption discounted at YTM)
+```
+
+The Exercise 7 slides add the reinvestment assumption: coupon cash flows are assumed to be reinvested at the market rate used in the YTM logic.
+
+Exam trap: YTM is not the same as coupon rate. YTM is solved from price and cash flows.
+
 ## Interest Rate And Price Relationship
 
 Bond prices move inversely with market yields:
@@ -119,6 +182,13 @@ Bond prices move inversely with market yields:
 - If discount rates fall, existing fixed cash flows become more valuable, so bond price rises.
 
 Zero-coupon bonds are especially sensitive because all cash flow occurs at maturity.
+
+For coupon bonds:
+
+- If the market yield falls below the coupon rate, the bond trades above par.
+- If the market yield rises above the coupon rate, the bond trades below par.
+- Investors who sell before maturity face interest-rate risk because the sale price depends on the market yield at the sale date.
+- If an investor holds a fixed promised-payment bond to maturity and all payments occur as promised, interim market price changes matter less for cash-flow receipt, but reinvestment assumptions can still matter for realized return.
 
 ## Sloping Yield Curves And Term Structure
 
@@ -166,6 +236,10 @@ Interpretation:
    - Use inverse relation or duration approximation.
 5. Is credit risk mentioned?
    - Higher risk requires higher discount rate, lowering price.
+6. Is the bond sold between coupon dates?
+   - Add accrued interest to the quoted market price to obtain the simplified settlement price.
+7. Is the question asking for YTM?
+   - Solve the discount rate that equates price to promised cash flows; do not use coupon rate automatically.
 
 ## Common Mistakes
 
@@ -176,6 +250,10 @@ Interpretation:
 - Assuming bond price is always face value.
 - Thinking rate increases raise bond prices.
 - Ignoring credit risk and liquidity effects.
+- Forgetting accrued interest when a bond is sold between coupon dates.
+- Confusing clean market price with settlement price.
+- Confusing coupon rate with YTM.
+- Forgetting that discount and premium bonds converge toward face value as maturity approaches.
 
 ## Practice Questions
 
@@ -189,6 +267,12 @@ Interpretation:
    - Answer: all cash flow occurs at maturity.
 5. What does modified duration approximate?
    - Answer: percentage price change for a small yield change.
+6. A 6% coupon bond is priced with a market yield of 4%. Is it below or above par?
+   - Answer: above par.
+7. What is accrued interest?
+   - Answer: pro-rata coupon compensation paid by the buyer to the seller between coupon dates.
+8. Why can the settlement price differ from the quoted market price?
+   - Answer: accrued interest is added to the clean market price.
 
 ## Mermaid Knowledge Map
 
@@ -202,8 +286,11 @@ graph TD
     ZB --> FACE[Face Value At Maturity]
     CB --> COUPON[Coupons]
     CB --> FACE
+    CB --> ACC[Accrued Interest]
+    CB --> YTM[Yield To Maturity]
     PRICE --> RATE[Risk-Adjusted Discount Rate]
     RATE --> INVERSE[Rate Up Price Down]
+    RATE --> PAR[Coupon Vs Yield Determines Par Discount Premium]
     BOND --> DRIVERS[Price Drivers]
     DRIVERS --> CREDIT[Creditworthiness]
     DRIVERS --> LIQ[Liquidity]
@@ -222,6 +309,10 @@ graph TD
 | Face value | Amount repaid at maturity |
 | Coupon | Periodic interest payment |
 | Discount rate | Risk-adjusted required return |
+| Clean price | Quoted bond market price excluding accrued interest |
+| Accrued interest | Pro-rata coupon earned since last coupon date |
+| Settlement price | Clean price plus accrued interest in the simplified exercise setting |
+| Yield to maturity | IRR that equates price to promised cash flows through maturity |
 | Duration | Weighted average timing of cash flows |
 | Modified duration | Price sensitivity approximation |
 
@@ -231,6 +322,10 @@ graph TD
 | Zero-coupon bond | pays | face value only |
 | Coupon bond | pays | coupons plus face value |
 | Higher discount rate | decreases | bond price |
+| Coupon rate below market yield | implies | discount bond |
+| Coupon rate above market yield | implies | premium bond |
+| Accrued interest | added to | clean market price |
+| Yield to maturity | solves | bond price equation |
 | Lower creditworthiness | increases | discount rate |
 | Duration | measures | timing and rate sensitivity |
 | Modified duration | approximates | percentage price change |

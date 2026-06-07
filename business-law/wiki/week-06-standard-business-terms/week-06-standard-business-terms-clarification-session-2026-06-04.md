@@ -4,7 +4,8 @@ Linked source note: `week-06-standard-business-terms.md`
 Linked context file: `CONTEXT.md`
 Course: Business Law
 Session type: clarification-first understanding repair
-Status: clarification completed; first active recall still pending
+Status as of 2026-06-04: clarification completed; first active recall pending
+Later update: first active recall completed 2026-06-07; see `week-06-standard-business-terms-active-recall-session-2026-06-07.md`
 
 ## Goal
 
