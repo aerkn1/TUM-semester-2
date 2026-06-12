@@ -6,6 +6,8 @@ Course: Supply Chain Management
 Session type: clarification-first conceptual bridge
 Status: clarification completed; first active recall pending
 
+Continuation instruction added 2026-06-08: every worked EOQ/EPQ calculation must show the symbolic formula, substituted values, numerical result, and units. Do not record result-only answer lines.
+
 ## Session Goal
 
 Connect EOQ to Forecasting, Random Variables, and Newsvendor before beginning calculations, then distinguish the main EOQ variants through analogies and use cases.
@@ -102,6 +104,16 @@ h = EUR 6/unit/year
 
 Compute `Q*`, orders per year, average inventory, and verify that annual ordering cost equals annual holding cost at the optimum.
 
+Use this recall sequence for each requested value:
+
+```text
+symbolic formula
+= substituted values
+= numerical result with units
+```
+
+The user should recall and place the variables before calculating; the coach should correct the formula setup before checking arithmetic.
+
 ## References
 
 - `topic-05-eoq-production-systems-batching.md`
@@ -109,4 +121,3 @@ Compute `Q*`, orders per year, average inventory, and verify that annual orderin
 - `../topic-02-forecasting/topic-02-forecasting.md`
 - `../topic-03-newsvendor-model/topic-03-newsvendor-model.md`
 - `../topic-04-modeling-uncertain-demand-random-variables/topic-04-modeling-uncertain-demand-random-variables.md`
-

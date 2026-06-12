@@ -108,6 +108,28 @@ graph LR
     Conjoint --> Attributes[Attributes and levels]
     Conjoint --> Utilities[Part-worth utilities]
     Conjoint --> CBC[Choice-based conjoint]
+
+    PriceP --> Pricing[Pricing policy]
+    Pricing --> Behavioral[Behavioral pricing]
+    Behavioral --> ReferencePrice[Reference price and fairness]
+    Behavioral --> ChoiceEffects[Compromise and decoy effects]
+    Pricing --> Differentiation[Price differentiation]
+    Differentiation --> Yield[Yield management]
+    Differentiation --> Bundling[Bundling and two-part tariffs]
+    Pricing --> Determination[Price determination]
+    Determination --> BreakEven[Break-even and contribution margin]
+    Determination --> Elasticity[Elasticity and demand functions]
+    Elasticity --> Monopoly[MR equals MC monopoly optimum]
+
+    PromotionP --> Communication[Marketing communication]
+    Communication --> FiveMs[Mission Money Message Media Measurement]
+    Communication --> PushPull[Push and pull]
+    Communication --> MediaMetrics[Reach frequency GRP CPT]
+    Communication --> Integrated[Integrated communication]
+    Communication --> WOM[WOM and eWOM]
+    WOM --> Credibility[Credibility and helpfulness]
+    Communication --> Influencer[Influencer marketing]
+    Influencer --> PKM[Persuasion Knowledge Model]
 ```
 
 ## Decision Flow View
@@ -146,6 +168,18 @@ flowchart TD
     RelationshipDecision --> Recover[Recovery/complaint handling]
     Recover --> AvoidDouble[Prevent double deviation]
 
+    Mix --> PriceDecision{Price question?}
+    PriceDecision -->|Customer perception| BehaviorRoute[Reference price fairness choice effects]
+    PriceDecision -->|Segment WTP| DifferenceRoute[Differentiation bundling yield]
+    PriceDecision -->|Required economics| PriceMath[Contribution break-even elasticity MR equals MC]
+
+    Mix --> PromotionDecision{Communication question?}
+    PromotionDecision --> Objective[Define audience and objective]
+    Objective --> FiveMRoute[Apply the 5Ms]
+    FiveMRoute --> Channel[Choose owned paid earned media]
+    Channel --> Metric[Measure reach fit memory attitude behavior]
+    PromotionDecision --> WOMRoute[Assess WOM eWOM influencer persuasion]
+
     Mix --> Control[Implementation and marketing controlling]
 ```
 
@@ -156,6 +190,8 @@ flowchart TD
 | Chapter 01 Basic Concepts Of Marketing | `chapter-01-basic-concepts-of-marketing/chapter-01-basic-concepts-of-marketing.md` | Value exchange -> marketing process -> 4Ps/3Rs -> satisfaction/segmentation/consumer behavior | 2026-05-14 |
 | Chapter 02 Branding | `chapter-02-branding/chapter-02-branding.md` | Brand knowledge -> associations -> positioning -> CBBE -> architecture/leverage | 2026-05-14 |
 | Chapter 03 Product | `chapter-03-product/chapter-03-product.md` | Product levels -> digitalization/packaging/assortment -> innovation/co-creation/agile -> conjoint | 2026-05-14 |
+| Chapter 04 Price | `chapter-04-price/chapter-04-price.md` | Behavioral evaluation -> differentiation/bundling -> break-even/elasticity -> profit decision | 2026-06-12 |
+| Chapter 05 Promotion And Communication | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` | 5Ms -> media planning/measurement -> WOM/eWOM -> influencer persuasion knowledge | 2026-06-12 |
 
 ## Supporting Node Reference
 
@@ -179,6 +215,14 @@ flowchart TD
 | Lead Users | Users ahead of mainstream needs | `chapter-03-product/chapter-03-product.md` |
 | Co-Creation | Customer participation in product/value creation | `chapter-03-product/chapter-03-product.md` |
 | Conjoint Analysis | Preference measurement through attribute tradeoffs | `chapter-03-product/chapter-03-product.md` |
+| Reference Price | Benchmark used to evaluate an observed price | `chapter-04-price/chapter-04-price.md` |
+| Price Differentiation | Different prices designed to capture heterogeneous willingness to pay | `chapter-04-price/chapter-04-price.md` |
+| Contribution Margin | Revenue remaining after variable cost | `chapter-04-price/chapter-04-price.md` |
+| Price Elasticity | Percentage demand response to a percentage price change | `chapter-04-price/chapter-04-price.md` |
+| 5Ms | Mission, Money, Message, Media, and Measurement | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Weighted CPT | Contact cost adjusted for target-group fit | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| eWOM | Online consumer communication available to broad audiences | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Persuasion Knowledge | Consumer knowledge of persuasion goals and tactics | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
 
 ## Supporting Edge Reference
 
@@ -198,3 +242,11 @@ flowchart TD
 | Lead Users | reveal | Future market needs | `chapter-03-product/chapter-03-product.md` |
 | Co-Creation | provides | Need and solution information | `chapter-03-product/chapter-03-product.md` |
 | Conjoint Analysis | estimates | Attribute-level utilities | `chapter-03-product/chapter-03-product.md` |
+| Reference Price | shapes | Price Fairness | `chapter-04-price/chapter-04-price.md` |
+| Heterogeneous WTP | enables | Price Differentiation | `chapter-04-price/chapter-04-price.md` |
+| Contribution Margin | determines | Break-Even Volume | `chapter-04-price/chapter-04-price.md` |
+| Marginal Revenue | equals at optimum | Marginal Cost | `chapter-04-price/chapter-04-price.md` |
+| Communication Mission | guides | Message Media Measurement | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Target-Group Fit | corrects | CPT | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Satisfaction And Trust | generate | eWOM | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Persuasion Recognition | activates | Coping Response | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |

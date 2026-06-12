@@ -12,6 +12,8 @@ Course: Supply Chain Management
 Processed: 2026-05-14; refreshed with Moodle export on 2026-06-04
 Wiki note: `supply-chain-management/wiki/topic-05-eoq-production-systems-batching/topic-05-eoq-production-systems-batching.md`
 
+Interactive companion: [EOQ and EPQ interactive tutorial](eoq-epq-interactive-tutorial.html) - editable versions of all six exercise workflows plus the saved free-practice case.
+
 Course logistics checked: the SCM exam is closed-book except for one handwritten A4 cheat sheet and includes numerical/open-ended tasks. EOQ, finite-horizon EOQ, reorder points, and EPQ formulas are high-priority cheat-sheet candidates.
 
 ## 80/20 Exam Summary
@@ -120,21 +122,66 @@ One unusual observation should normally trigger investigation, not an automatic 
 
 Use one bakery consuming flour at a known constant rate:
 
-| Variant | Bakery example | Operational interpretation |
-|---|---|---|
-| Basic EOQ | Regular flour deliveries arrive immediately. | Choose the recurring delivery size balancing order and storage costs. |
-| Initial inventory | The bakery already has flour. | Existing stock delays the first order; it does not normally change future `Q*`. |
-| Positive lead time | The supplier needs two weeks. | Order at `lambda l` so delivery arrives at depletion; lead time changes when, not how much. |
-| Initial inventory plus lead time | Existing flour lasts four weeks and delivery needs two. | Place the first order after two weeks: `I0/lambda - l`. |
-| Finite horizon | A temporary bakery operates for ten weeks. | Choose a feasible integer number of deliveries, then divide total known demand by that count. |
-| EPQ | Flour is produced gradually while the bakery consumes it. | Inventory builds at `p - lambda`; use EPQ and `Imax/2`, not EOQ and `Q/2`. |
+### Basic EOQ: Supplier Delivery
 
-Memory hooks:
+The bakery buys flour from an outside mill. Each order creates one administrative and transport event: the purchasing employee contacts the supplier, a truck is scheduled, the delivery is received, and the invoice is processed. This is the real asset represented by setup or ordering cost `K`.
 
-- Existing inventory is like groceries already at home: it changes the next shopping date.
-- Lead time is like ordering medicine before the current supply runs out.
-- A finite horizon is like a holiday with only a whole number of shopping trips.
-- EPQ is a bathtub filling while the drain remains open: net build equals inflow minus outflow.
+Once the truck arrives, the full quantity `Q` enters the flour storeroom immediately. Bakers then withdraw flour at the stable demand rate `lambda`. The stock level therefore falls from `Q` to zero as a straight line. The average amount physically occupying the storeroom is `Q/2`.
+
+The bakery uses EOQ to choose the recurring truckload size. A larger truckload means fewer delivery events but more flour tied up in storage; a smaller truckload means less stored flour but more frequent ordering and receiving work.
+
+### Initial Inventory: Flour Already In Storage
+
+Suppose the bakery starts the planning period with `I0` kilograms of flour already on its shelves. This stock is a real asset available for bread production; it is not a new delivery and does not create a new ordering cost.
+
+The bakers consume the opening stock at rate `lambda`. If replenishment is instantaneous, the first order is needed after `I0/lambda` time units. The existing flour changes the date of the first purchase, but it does not normally change the economical size `Q*` of every later delivery.
+
+Managerial meaning: do not place a fresh order merely because the EOQ has been calculated. First ask how long the stock already owned can support operations.
+
+### Positive Lead Time: Supplier Travel Time
+
+Suppose the flour mill needs `l` weeks to prepare and transport a delivery. The bakery cannot wait until the storeroom is empty before ordering. It must trigger the order while enough flour remains to cover all baking during the supplier's travel time.
+
+The reorder point is `r = lambda l`. Here, `r` is kilograms of flour physically left on the shelf when the purchasing employee sends the order. During the next `l` weeks, the bakery consumes those `r` kilograms. The truck should arrive exactly when inventory reaches zero.
+
+Deterministic lead time changes **when** the bakery orders, not the recurring quantity `Q*`. Uncertain demand or uncertain delivery would require protection such as safety stock, which basic EOQ does not provide.
+
+### Initial Inventory Plus Lead Time: First-Order Timing
+
+Now combine both facts: flour is already in storage and the supplier needs time to deliver. If the bakery has `I0` kilograms, it reaches the reorder point after `(I0 - r)/lambda`, equivalently `I0/lambda - l`.
+
+For example, if opening flour lasts four weeks and supplier travel takes two weeks, the bakery waits two weeks, places the order, consumes the remaining two weeks of flour, and receives the delivery at depletion. The first-order clock and the delivery clock are different operational events.
+
+Exam correction rule: `I0/lambda` is the time until stockout, not automatically the time to place the order. Subtract the lead time.
+
+### Finite Horizon: Temporary Bakery Event
+
+Suppose the bakery operates a ten-week festival stall and closes afterward. Total flour demand is known, but the bakery cannot make `2.7` deliveries. A truck either arrives or it does not, so the number of orders `m` must be a feasible integer.
+
+The continuous value `m_hat` identifies the neighborhood of the optimum. Management compares `floor(m_hat)` and `ceil(m_hat)`, chooses the lower-cost integer, and divides total event demand `t lambda` equally across those deliveries. Equal deliveries prevent one interval from carrying unnecessarily more flour than another.
+
+This variant answers a temporary planning question: how many real deliveries should serve the event, and how much flour should each truck bring?
+
+### EPQ: Flour Produced While Baking Continues
+
+Suppose the bakery mills flour internally instead of receiving an instantaneous truckload. The mill produces at rate `p`, while the ovens continue consuming flour at rate `lambda`. During milling, flour inventory rises only at the net rate `p - lambda` because some newly produced flour goes directly into baking.
+
+If a milling run produces batch `Q`, the storeroom never contains all `Q` kilograms at once. Its maximum is `Imax = Q(1 - lambda/p)`, and average inventory is `Imax/2`. When milling stops, baking continues, so the stored flour falls at rate `lambda` until the next run.
+
+The setup cost `K` is now the physical and administrative effort of preparing the mill: cleaning, calibration, changeover, labor, and startup loss. EPQ selects a production batch that balances those run setups against the cost of storing flour.
+
+### Bakery Flow Comparison
+
+| Variant | Asset entering inventory | Asset leaving inventory | Trigger or timing decision | Quantity decision |
+|---|---|---|---|---|
+| Basic EOQ | Full supplier truckload arrives instantly | Flour used for baking at `lambda` | Reorder at depletion under zero lead time | Recurring delivery size `Q*` |
+| Initial inventory | Opening flour already owned | Flour used for baking | First order after existing flour is consumed | Later deliveries still use `Q*` |
+| Positive lead time | Supplier delivery after `l` | Flour used during supplier travel | Order when `lambda l` remains | Lead time normally leaves `Q*` unchanged |
+| Initial inventory plus lead time | Opening flour, then supplier delivery | Flour used continuously | First order at `I0/lambda - l` | Recurring delivery size `Q*` |
+| Finite horizon | Integer number of event deliveries | Flour used before event closes | Choose feasible delivery count `m*` | `Q = t lambda/m*` per delivery |
+| EPQ | Flour output produced gradually at `p` | Flour consumed simultaneously at `lambda` | Start each milling setup before depletion | Production batch `Q*`; peak stock `Imax < Q*` |
+
+Memory hook: EOQ is a truckload appearing in inventory at once and then being consumed; EPQ is a tap filling a tank while an open drain continues removing material.
 
 ## Model Selection Router
 
@@ -420,6 +467,30 @@ Exam trap: EPQ is usually larger than EOQ, but maximum inventory is lower than t
 
 ### EOQ Task 1: ABI Warehouses
 
+#### Operating Story
+
+ABI stocks the same maintenance component in two regional warehouses. Each warehouse serves its own local technicians and issues 50 physical components per year. Every replenishment creates a fixed purchasing and inbound-receiving event costing EUR 50, regardless of whether the truck carries 10 or 30 components. Every component left on a shelf ties up space and capital worth EUR 20 per year.
+
+Management is comparing two operating designs: each warehouse orders independently, or one pooled location orders for the combined demand. Pooling does not reduce total customer usage; it removes one duplicated replenishment stream.
+
+#### Asset Dictionary
+
+| Symbol | Real asset or activity |
+|---|---|
+| `lambda = 50` | components withdrawn by technicians from each warehouse per year |
+| `K = EUR 50` | one purchase-order, transport, receiving, and invoice-processing event |
+| `h = EUR 20` | annual cost of keeping one component on a warehouse shelf |
+| `Q` | components delivered in one replenishment shipment |
+| `Q/2` | average physical shelf inventory under the sawtooth cycle |
+
+#### Full Operational Workflow
+
+1. A warehouse receives `Q` components and its stock jumps upward immediately.
+2. Technicians withdraw components at the stable rate of 50 per year until stock reaches zero.
+3. The warehouse repeats the order and incurs another EUR 50 ordering event.
+4. Under separate operation, this entire cycle and its fixed cost occur independently at both sites.
+5. Under pooling, one site serves 100 units of annual demand and places larger but less duplicated orders.
+
 Facts:
 
 - two warehouses
@@ -430,28 +501,95 @@ Facts:
 Per warehouse:
 
 ```text
-Q* = sqrt(2*50*50/20) = 15.81
-TC per warehouse = EUR 316.23
+Q* = sqrt(2K lambda / h)
+   = sqrt((2 * 50 * 50) / 20)
+   = 15.81 units/order
+
+Annual holding cost = hQ*/2
+                    = 20 * 15.8114 / 2
+                    = EUR 158.11/year
+
+Annual ordering cost = K lambda/Q*
+                     = 50 * 50 / 15.8114
+                     = EUR 158.11/year
+
+TC per warehouse = hQ*/2 + K lambda/Q*
+                 = 158.1139 + 158.1139
+                 = EUR 316.23/year
 ```
 
 Two warehouses:
 
 ```text
-TC company = EUR 632.46
+TC company = 2 * TC per warehouse
+           = 2 * 316.2278
+           = EUR 632.46/year
 ```
 
 Pooled demand:
 
 ```text
-lambda = 100
-Q* = 22.36
-TC pooled = EUR 447.21
-savings = EUR 185.24 = 29.29%
+lambda_pooled = 50 + 50
+              = 100 units/year
+
+Q*_pooled = sqrt(2K lambda_pooled / h)
+          = sqrt((2 * 50 * 100) / 20)
+          = 22.36 units/order
+
+TC_pooled = hQ*_pooled/2 + K lambda_pooled/Q*_pooled
+          = 20 * 22.3607 / 2 + 50 * 100 / 22.3607
+          = 223.6068 + 223.6068
+          = EUR 447.21/year
+
+Annual savings = TC_separate - TC_pooled
+               = 632.4555 - 447.2136
+               = EUR 185.24/year
+
+Percentage savings = Annual savings / TC_separate * 100
+                   = 185.2419 / 632.4555 * 100
+                   = 29.29%
 ```
 
-Interpretation: pooling reduces total safety/order-system duplication in this deterministic cost setup because setup/holding tradeoffs are optimized over aggregated demand.
+#### Physical Interpretation
+
+Separate operation keeps about `15.81/2 = 7.91` components on average at each location, or about 15.81 components across the company. Pooling keeps about `22.36/2 = 11.18` components on average in one system. The firm still supplies 100 components per year, but it carries less average stock and processes fewer duplicated replenishment cycles.
+
+#### Managerial Decision
+
+Centralizing the deterministic inventory saves EUR 185.24 per year, or 29.29% of the modeled relevant cost. ABI should pool only if that saving is not outweighed by extra outbound transport, slower technician access, service risk, or other costs excluded from the EOQ comparison.
+
+#### Exam Trap
+
+Do not double the individual EOQ and call it the pooled EOQ. Pool demand first and recalculate because EOQ grows with the square root of demand. Also do not claim pooling automatically improves service; this calculation proves only the modeled ordering-and-holding saving.
 
 ### EOQ Task 2: Tek Pak Beer Crates
+
+#### Operating Story
+
+Tek Pak supplies reusable beer crates from a storage yard. The yard begins with 100 crates. Customers collect 2.5 crates per week, and a supplier needs two weeks to deliver after Tek Pak places an order. Each order creates EUR 25 of fixed purchasing and delivery work, while each crate stored for a year costs EUR 0.65.
+
+The operating question has two parts: how many crates should arrive in each recurring shipment, and when must the first order be released so the initial 100 crates cover demand until the truck arrives?
+
+#### Asset Dictionary
+
+| Symbol | Real asset or activity |
+|---|---|
+| `I0 = 100` | reusable beer crates physically in the yard today |
+| `lambda = 130/year` | crates collected by customers, equal to 2.5 per week |
+| `K = EUR 25` | one supplier-order and inbound-delivery event |
+| `h = EUR 0.65` | annual storage cost for one crate |
+| `l = 2 weeks` | supplier preparation and transport time |
+| `r` | crates that must remain when the order is sent |
+| `Q` | crates arriving on each delivery truck |
+
+#### Full Operational Workflow
+
+1. Tek Pak starts with 100 crates and releases 2.5 crates to customers each week.
+2. The economical recurring shipment is 100 crates.
+3. A two-week delivery delay consumes `2.5 * 2 = 5` crates, so the order trigger is five crates.
+4. Stock falls from 100 to five over 38 weeks; Tek Pak then sends the purchase order.
+5. During the two-week lead time, customers collect the final five crates.
+6. The truck carrying 100 crates arrives when stock reaches zero, starting the recurring EOQ cycle.
 
 Facts:
 
@@ -462,23 +600,64 @@ Facts:
 - lead time `l = 2` weeks
 - assume 52 weeks/year
 
-Answer key:
+Worked calculation:
 
 ```text
-Q* = 100 crates
-reorder point = 5 crates
-first order should be placed after 38 weeks
+Q* = sqrt(2K lambda / h)
+   = sqrt((2 * 25 * 130) / 0.65)
+   = 100 crates/order
+
+demand per week = lambda/52
+                = 130/52
+                = 2.5 crates/week
+
+reorder point r = demand per week * lead time
+                = 2.5 * 2
+                = 5 crates
+
+first-order placement time = (I0 - r) / demand per week
+                           = (100 - 5) / 2.5
+                           = 38 weeks
 ```
 
-Reasoning:
+#### Physical Interpretation
 
-```text
-demand per week = 130/52 = 2.5
-lead-time demand = 2.5*2 = 5
-inventory reaches 5 after (100 - 5)/2.5 = 38 weeks
-```
+`Q* = 100` is the size of a physical inbound crate shipment. `r = 5` is not extra safety stock; it is exactly the deterministic quantity customers use while the supplier is travelling. The initial inventory lasts 40 weeks in total, but the order must be placed at week 38.
+
+#### Managerial Decision
+
+Tek Pak should order 100 crates per replenishment and release the first order after 38 weeks, assuming demand and the two-week lead time are reliable. If either varies, the five-crate trigger needs a separate safety-stock decision.
+
+#### Exam Trap
+
+Do not place the order after `I0/lambda = 40` weeks. That is the stockout date. Subtract the two-week lead time, or equivalently order when five crates remain. Lead time changes the timing trigger, not the EOQ quantity in this deterministic model.
 
 ### EOQ Task 3: Kerosene Infinite Versus Finite Horizon
+
+#### Operating Story
+
+A temporary heating-fuel seller operates for only five weeks and expects customers to draw kerosene at a known annualized rate of 8,000 gallons. Each tanker delivery costs EUR 10 to arrange, and storing one gallon for a year costs EUR 2. Unlike a permanent depot, this seller must finish the season without planning fractional deliveries beyond the closing date.
+
+The infinite-horizon EOQ gives a useful benchmark, but the real seasonal decision is the whole number of tanker visits during the five-week window.
+
+#### Asset Dictionary
+
+| Symbol | Real asset or activity |
+|---|---|
+| `lambda = 8000 gallons/year` | customer withdrawals expressed as an annual rate |
+| `t = 5/52 year` | the five-week period in which the temporary seller operates |
+| `K = EUR 10` | dispatching and receiving one tanker delivery |
+| `h = EUR 2` | annual cost of storing one gallon |
+| `m` | whole tanker deliveries during the season |
+| `Q` | gallons unloaded by each tanker |
+
+#### Full Operational Workflow
+
+1. The five-week season requires total fuel of `t lambda = 769.23` gallons.
+2. The perpetual EOQ benchmark suggests 282.84 gallons per delivery and 2.72 delivery cycles during the season.
+3. A real dispatcher cannot book 2.72 tanker visits, so management tests two and three visits.
+4. With two visits, each load is larger and more fuel waits in storage; with three, storage falls but another EUR 10 delivery setup is incurred.
+5. Three equal tanker loads minimize the feasible seasonal cost, so each carries 256.41 gallons.
 
 Facts:
 
@@ -490,25 +669,97 @@ Facts:
 Infinite horizon:
 
 ```text
-Q* = 282.84 gallons
-orders/year = 28.28
-orders in 5 weeks = 2.72
+Q* = sqrt(2K lambda / h)
+   = sqrt((2 * 10 * 8000) / 2)
+   = 282.84 gallons/order
+
+orders per year N = lambda/Q*
+                  = 8000/282.84
+                  = 28.28 orders/year
+
+selling horizon t = 5/52
+                  = 0.096154 years
+
+continuous orders in horizon = N * t
+                             = 28.28 * 5/52
+                             = 2.72 orders
+
+TC_infinite = sqrt(2hK lambda)
+            = sqrt(2 * 2 * 10 * 8000)
+            = EUR 565.69/year
 ```
 
 Finite horizon:
 
 ```text
-m* = 3 orders
-Q* = 256.41 gallons per order
+m_hat = t * sqrt(h lambda / (2K))
+      = (5/52) * sqrt((2 * 8000) / (2 * 10))
+      = 2.72 orders
+
+TC(m = 2) = Km/t + h lambda t/(2m)
+          = 10 * 2/(5/52) + 2 * 8000 * (5/52)/(2 * 2)
+          = 208.00 + 384.62
+          = EUR 592.62/year
+
+TC(m = 3) = Km/t + h lambda t/(2m)
+          = 10 * 3/(5/52) + 2 * 8000 * (5/52)/(2 * 3)
+          = 312.00 + 256.41
+          = EUR 568.41/year
+
+m* = 3 orders because TC(3) < TC(2)
+
+Q*_finite = t lambda/m*
+          = (5/52) * 8000 / 3
+          = 256.41 gallons/order
 ```
 
 Answer key interpretation:
 
 ```text
-The finite-period average total cost is 0.48% larger because the integer order count rounds away from the continuous optimum.
+Finite-horizon cost increase = (TC_finite - TC_infinite) / TC_infinite * 100
+                             = (568.41 - 565.69) / 565.69 * 100
+                             = 0.48%
 ```
 
+#### Physical Interpretation
+
+The continuous solution's `2.72` is a mathematical location between two feasible schedules, not a deliverable operating plan. Three tankers divide the 769.23 seasonal gallons into equal 256.41-gallon loads. The feasible annualized relevant cost is slightly above the smooth infinite-horizon benchmark because delivery count is indivisible.
+
+#### Managerial Decision
+
+Schedule three deliveries for the five-week season. The 0.48% increase is the operational cost of respecting an integer number of tanker visits rather than pretending the continuous optimum can be executed.
+
+#### Exam Trap
+
+Do not round `m_hat = 2.72` automatically without evaluating both neighboring integers. Compare `TC(floor(m_hat))` and `TC(ceil(m_hat))`. Also keep units consistent: the five-week horizon must be converted to years because `lambda` and `h` are annual.
+
 ### EPQ Task 1: Battery-Cell Line
+
+#### Operating Story
+
+A factory makes battery packs on an internal production line and ships them continuously to assembly customers. The line can produce 60,000 packs per year, while customers consume 12,000 per year. Starting a production run costs EUR 500 for cleaning, tooling, calibration, labor preparation, and startup loss. A finished pack held for a year costs EUR 4.
+
+This is EPQ rather than EOQ because a batch does not appear in the warehouse instantaneously. Packs enter storage gradually while customers keep removing packs during the same production run.
+
+#### Asset Dictionary
+
+| Symbol | Real asset or activity |
+|---|---|
+| `p = 60000/year` | battery packs completed by the production line per year while running |
+| `lambda = 12000/year` | finished packs shipped to customers per year |
+| `K = EUR 500` | one physical line setup and startup event |
+| `h = EUR 4` | annual holding cost for one finished battery pack |
+| `Q` | total packs manufactured during one production run |
+| `Imax` | highest number of finished packs simultaneously in storage |
+
+#### Full Operational Workflow
+
+1. The line is set up, creating one EUR 500 setup event.
+2. During the run, the line produces faster than customers withdraw: inventory builds at `60000 - 12000 = 48000` packs per year.
+3. The line runs for 1.68 weeks and makes 1,936.49 packs in total.
+4. Customers remove packs during those 1.68 weeks, so only 1,549.19 packs accumulate at the peak.
+5. Production stops, but customer shipments continue at 12,000 packs per year until stock reaches zero.
+6. The factory then starts the next setup and repeats the cycle.
 
 Facts:
 
@@ -520,17 +771,86 @@ Facts:
 Computed from lecture EPQ formulas:
 
 ```text
-EPQ Q* = 1936.49 packs
-production-run duration = 1.68 weeks
-maximum inventory = 1549.19 packs
-EPQ total annual cost = EUR 6196.77
-instantaneous EOQ total annual cost = EUR 6928.20
-EPQ cost reduction = EUR 731.43, about 10.56%
+EPQ Q* = sqrt(2K lambda / h) * sqrt(p / (p - lambda))
+       = sqrt((2 * 500 * 12000) / 4) * sqrt(60000 / (60000 - 12000))
+       = 1936.49 packs/batch
+
+production-run duration T0* = Q*/p
+                            = 1936.49/60000 years
+                            = 1936.49/60000 * 52
+                            = 1.68 weeks
+
+maximum inventory Imax = ((p - lambda)/p) * Q*
+                       = ((60000 - 12000)/60000) * 1936.49
+                       = 1549.19 packs
+
+EPQ annual holding cost = hImax/2
+                        = 4 * 1549.19 / 2
+                        = EUR 3098.39/year
+
+EPQ annual setup cost = K lambda/Q*
+                      = 500 * 12000 / 1936.49
+                      = EUR 3098.39/year
+
+TC_EPQ = hImax/2 + K lambda/Q*
+       = 3098.3867 + 3098.3867
+       = EUR 6196.77/year
+
+TC_EOQ = sqrt(2hK lambda)
+       = sqrt(2 * 4 * 500 * 12000)
+       = EUR 6928.20/year
+
+EPQ cost reduction = TC_EOQ - TC_EPQ
+                   = 6928.20 - 6196.77
+                   = EUR 731.43/year
+
+Percentage reduction = EPQ cost reduction / TC_EOQ * 100
+                     = 731.43 / 6928.20 * 100
+                     = 10.56%
 ```
 
-Interpretation: finite production lowers average inventory because units are consumed during the production run.
+#### Physical Interpretation
+
+`Q* = 1936.49` is total output during one run, not the warehouse peak. The peak is 1,549.19 packs because roughly 387.30 packs are shipped while the line is still producing. Average finished-goods inventory is `Imax/2 = 774.60` packs.
+
+#### Managerial Decision
+
+Run batches of about 1,936 packs for approximately 1.68 weeks each. Under the stated relevant costs, gradual production reduces annual modeled cost by EUR 731.43, or 10.56%, compared with treating replenishment as an instantaneous EOQ delivery.
+
+#### Exam Trap
+
+Do not use `Q/2` as average inventory for EPQ. Use `Imax/2`, where `Imax = Q(1 - lambda/p)`. Also do not interpret the EOQ comparison as a freely available saving unless the factory can actually choose between internal production and instantaneous external supply.
 
 ### EPQ Task 2: Router Make-To-Stock Factory
+
+#### Operating Story
+
+A factory produces one model of Wi-Fi router for stock. Retail and online orders remove 200 routers from the finished-goods warehouse every week. When the line is configured for this model, it can build 1,000 routers per week. Preparing the line takes two weeks, so planners must start changeover work before the current router stock is exhausted.
+
+The factory begins with 1,300 finished routers. A production batch is the total number of routers made during one run; it is not the maximum warehouse stock because customers continue buying routers while the line is running.
+
+#### Asset Dictionary
+
+| Symbol | Real asset or activity |
+|---|---|
+| `I0 = 1300` | finished Wi-Fi routers physically available in the warehouse today |
+| `lambda = 10400/year = 200/week` | routers shipped to customers each week |
+| `p = 52000/year = 1000/week` | routers completed by the line each week while this model is running |
+| `K = EUR 750` | one line preparation, changeover, and startup event |
+| `h = EUR 6` | annual cost of storing one finished router |
+| `l = 2 weeks` | time required to prepare the line before production can start |
+| `Q` | total routers manufactured during one run |
+| `Imax` | highest warehouse stock reached during the run |
+
+#### Full Operational Workflow
+
+1. The warehouse starts with 1,300 routers and ships 200 per week while this model is not being produced.
+2. After 4.5 weeks, 400 routers remain. Planning starts the two-week line preparation because those 400 routers exactly cover demand during preparation.
+3. At week 6.5, the final opening-stock routers are shipped and the prepared line starts producing this model.
+4. The line makes 1,000 routers per week while customers still remove 200, so warehouse stock builds at the net rate of 800 routers per week.
+5. The 1.80-week run produces 1,802.78 routers. Customers take about 360.56 during the run, leaving a peak warehouse stock of 1,442.22.
+6. Production of this router model stops. The factory may produce another product or perform other work, but router customers continue withdrawing 200 per week.
+7. Router stock depletes over 7.21 weeks. When 400 remain, preparation for the next router run begins, keeping the cycle continuous.
 
 Facts:
 
@@ -545,19 +865,89 @@ Facts:
 Computed from lecture EPQ formulas:
 
 ```text
-EPQ Q* = 1802.78 units
-start preparation inventory level = 400 units
-start preparation after 4.5 weeks
-actual first production starts after 6.5 weeks
-maximum inventory = 1442.22 units
-cycle time = 9.01 weeks
-production-run duration = 1.80 weeks
-non-production duration = 7.21 weeks
+EPQ Q* = sqrt(2K lambda / h) * sqrt(p / (p - lambda))
+       = sqrt((2 * 750 * 10400) / 6) * sqrt(52000 / (52000 - 10400))
+       = 1802.78 units/batch
+
+demand per week = lambda/52
+                = 10400/52
+                = 200 units/week
+
+start-preparation inventory r = demand per week * preparation lead time
+                              = 200 * 2
+                              = 400 units
+
+time until preparation starts = (I0 - r) / demand per week
+                              = (1300 - 400) / 200
+                              = 4.5 weeks
+
+time until first production starts = preparation-start time + lead time
+                                   = 4.5 + 2
+                                   = 6.5 weeks
+
+maximum inventory Imax = ((p - lambda)/p) * Q*
+                       = ((52000 - 10400)/52000) * 1802.78
+                       = 1442.22 units
+
+cycle time T = Q*/lambda
+             = 1802.78/10400 years
+             = 1802.78/10400 * 52
+             = 9.01 weeks
+
+production-run duration T0* = Q*/p
+                            = 1802.78/52000 years
+                            = 1802.78/52000 * 52
+                            = 1.80 weeks
+
+non-production duration = T - T0*
+                        = 9.01 - 1.80
+                        = 7.21 weeks
 ```
 
-Interpretation: start preparation when the remaining inventory equals demand during the two-week preparation lead time.
+#### Physical Interpretation
+
+`Q* = 1802.78` means the line manufactures about 1,803 routers in a run. It does not mean the warehouse holds that many routers. Because 200 routers leave each week during production, the peak stock is only 1,442.22. “Non-production duration” means this router model is not being made for 7.21 weeks; customer shipments continue, and the shared factory may be doing other work.
+
+At the EPQ optimum, annual setup cost and annual holding cost are each approximately EUR 4,326.66. This balance explains why management should neither run tiny, frequent router batches nor manufacture a very large stockpile.
+
+#### Managerial Decision
+
+Start preparing the line when finished-router inventory reaches 400 units. Start production two weeks later at depletion, run the model for about 1.80 weeks, and manufacture about 1,803 routers. This coordinates the warehouse asset, customer withdrawals, and line availability without a deterministic stockout.
+
+#### Exam Trap
+
+Do not confuse four different quantities: `Q` is run output, `Imax` is peak stock, `r` is the preparation trigger, and `I0` is opening stock. Also do not say production is idle for 7.21 weeks; only production of this router model is off under the modeled cycle.
 
 ### EPQ Task 3: Shovel Factory And Technology Adoption
+
+#### Operating Story
+
+A shovel factory currently makes 300 shovels in each production run. Its line can produce 200 shovels per week, but the highest finished-goods stock observed in a cycle is only 150 shovels. That gap reveals that dealers are collecting shovels while the production run is still active.
+
+Management is considering technology that raises the line rate by 50% to 300 shovels per week. The commercial question is not only the new batch size; it is the maximum annual amount the firm could pay for the technology from the modeled setup-and-holding savings.
+
+#### Asset Dictionary
+
+| Symbol | Real asset or activity |
+|---|---|
+| `p = 200/week` | shovels completed per week by the current line while running |
+| `Q = 300` | shovels made in one current production run |
+| `Imax = 150` | greatest physical finished-shovel inventory in the current cycle |
+| `lambda` | shovels collected by dealers per week or year |
+| `p_new = 300/week` | output rate of the proposed faster technology |
+| `K = EUR 350` | cost of preparing and starting one shovel run |
+| `h = EUR 5` | annual holding cost per finished shovel |
+| `TC` | annual relevant setup plus finished-goods holding cost |
+
+#### Full Operational Workflow
+
+1. Under the old process, the line produces 200 shovels per week while dealers withdraw an unknown quantity.
+2. A 300-shovel run raises stock by only 150, so the other 150 shovels leave during production.
+3. Solving the EPQ stock identity shows dealer demand is 100 shovels per week, or 5,200 per year.
+4. The proposed line makes 300 per week while dealers still take 100, so stock builds faster at 200 shovels per week.
+5. With the new economics, the optimal run makes 1,044.99 shovels and reaches a peak stock of 696.66.
+6. The faster process reduces the number of costly setups, but its larger inventory peak creates more holding cost; EPQ balances those effects.
+7. Management compares the new annual relevant cost with the old EUR 6,000 cost before valuing the investment.
 
 Facts:
 
@@ -571,12 +961,17 @@ Demand implied by the EPQ maximum-inventory formula:
 ```text
 Imax = ((p - lambda)/p) Q
 150 = ((200 - lambda)/200) * 300
-lambda = 100 units/week = 5200 units/year
+150/300 = (200 - lambda)/200
+0.5 * 200 = 200 - lambda
+lambda = 200 - 100
+       = 100 units/week
+       = 100 * 52
+       = 5200 units/year
 ```
 
 New technology:
 
-- production rate increases by 50%: `p = 300` units/week = `15600` units/year
+- production rate increases by 50%: `p_new = 200 * (1 + 0.50) = 300` units/week; `p_new = 300 * 52 = 15600` units/year
 - same demand: `lambda = 5200` units/year
 - `K = EUR 350`
 - `h = EUR 5`
@@ -585,13 +980,42 @@ New technology:
 Computed from lecture EPQ formulas:
 
 ```text
-new EPQ Q* = 1044.99 units
-new maximum inventory = 696.66 units
-new total annual cost = EUR 3483.29
-maximum willingness to invest = EUR 2516.71
+new EPQ Q* = sqrt(2K lambda / h) * sqrt(p / (p - lambda))
+           = sqrt((2 * 350 * 5200) / 5) * sqrt(15600 / (15600 - 5200))
+           = 1044.99 units/batch
+
+new maximum inventory Imax = ((p - lambda)/p) * Q*
+                           = ((15600 - 5200)/15600) * 1044.99
+                           = 696.66 units
+
+new annual holding cost = hImax/2
+                        = 5 * 696.66 / 2
+                        = EUR 1741.65/year
+
+new annual setup cost = K lambda/Q*
+                      = 350 * 5200 / 1044.99
+                      = EUR 1741.65/year
+
+new TC = hImax/2 + K lambda/Q*
+       = 1741.6467 + 1741.6467
+       = EUR 3483.29/year
+
+maximum willingness to invest = previous TC - new TC
+                              = 6000.00 - 3483.29
+                              = EUR 2516.71/year
 ```
 
-Interpretation: willingness to invest equals avoided annual cost if the decision threshold allows zero incremental value.
+#### Physical Interpretation
+
+The original 150-shovel peak is evidence about demand: half of the 300-shovel batch is shipped while production is active. Under the faster technology, a run creates more shovels than before and the warehouse peak rises to 696.66, but fewer setups are needed over the year. At the new optimum, annual setup and holding costs are each about EUR 1,741.65.
+
+#### Managerial Decision
+
+The technology creates up to EUR 2,516.71 of annual relevant-cost saving before acquisition, installation, maintenance, financing, tax, and risk effects. Management can use that annual saving as an operating benefit in an investment appraisal, but it is not automatically the one-time purchase price to pay.
+
+#### Exam Trap
+
+Do not treat EUR 2,516.71 per year as a present value. A technology with multiple years of benefits requires discounting and may have additional cash flows. Also derive demand using consistent time units before inserting it into the annual EPQ formula.
 
 ## Diagrams, Tables, And Visuals
 
@@ -730,11 +1154,65 @@ Application prompts:
 
 ## Practice Tasks
 
-1. Compute EOQ for `lambda = 9600` units/year, `K = 80`, `h = 6`. Then compute orders per year and average inventory.
-2. With the same facts and lead time of three weeks, compute the reorder point. Assume 52 weeks/year.
-3. A finite season lasts 10 weeks. Compute `m_hat`, test floor/ceil, and state why integer rounding matters.
-4. For EPQ with `lambda = 12000`, `p = 60000`, `K = 500`, `h = 4`, compute `Q*`, `Imax`, and production-run duration.
-5. Explain when a firm should prefer assemble-to-order over make-to-stock.
+### Practice Task 1: Medical-Glove Distributor
+
+**Operating setting:** A hospital-supply distributor sells 9,600 boxes of medical gloves per year. Placing and receiving one supplier order costs EUR 80. Keeping one box in the warehouse for a year costs EUR 6. Replenishment is instantaneous and demand is stable.
+
+**Asset mapping:** `lambda` is boxes shipped to hospitals per year; `K` is one purchasing and receiving event; `h` is annual shelf cost per box; `Q` is boxes arriving in one supplier shipment.
+
+**Your task:** Compute EOQ, orders per year, cycle time, and average inventory. Write every result with its physical unit.
+
+**Physical interpretation prompt:** Describe one complete warehouse cycle from truck arrival to depletion. Explain what becomes more frequent and what becomes larger if management chooses a quantity below or above EOQ.
+
+**Exam-trap check:** Did you distinguish annual demand from order quantity, and did you use `Q/2` only because replenishment is instantaneous?
+
+### Practice Task 2: Medical-Glove Reorder Timing
+
+**Operating setting:** Use the glove-distributor facts from Task 1, but assume the supplier takes three weeks to deliver and the warehouse currently follows the calculated EOQ policy. There are 52 weeks per year and no safety stock.
+
+**Asset mapping:** The reorder point is boxes physically remaining when the buyer sends the order; lead time is the supplier's preparation and transport time; weekly demand is boxes withdrawn while the truck is pending.
+
+**Your task:** Compute weekly demand and the deterministic reorder point. State when the order is placed and what should happen to inventory during the three-week lead time.
+
+**Physical interpretation prompt:** Narrate the flow from the moment the trigger is reached until the truck unloads. Explain why the lead time changes timing but does not change the EOQ quantity here.
+
+**Exam-trap check:** Did you convert annual demand into weekly demand before multiplying by a lead time measured in weeks? Did you avoid calling the reorder point safety stock?
+
+### Practice Task 3: Ten-Week Festival Beverage Stall
+
+**Operating setting:** A temporary festival stall has known, constant beverage demand of 5,200 cases per year but operates for only ten weeks. Each wholesaler delivery costs EUR 60 to arrange, and holding one case costs EUR 3 per year.
+
+**Asset mapping:** `t lambda` is total cases required during the festival; `m` is the whole number of delivery trucks; `Q = t lambda/m` is cases per truck; `m_hat` is a continuous benchmark, not a feasible truck count.
+
+**Your task:** Convert the ten-week horizon to years, compute `m_hat`, evaluate its floor and ceiling, choose `m*`, and calculate cases per delivery.
+
+**Physical interpretation prompt:** Draw or describe the inventory triangles for both neighboring integer schedules. Explain which plan has more delivery activity and which holds more beverage stock.
+
+**Exam-trap check:** Did you test both neighboring integers rather than merely rounding? Are `t`, `lambda`, and `h` expressed in compatible time units?
+
+### Practice Task 4: Battery-Pack Production Run
+
+**Operating setting:** A battery factory ships 12,000 packs per year and can produce 60,000 packs per year while its line is running. Each startup costs EUR 500, and holding one finished pack costs EUR 4 per year.
+
+**Asset mapping:** `p` is packs completed by the active line; `lambda` is packs shipped to customers; `Q` is total run output; `Imax` is peak warehouse stock; `K` is one line setup and startup event.
+
+**Your task:** Compute EPQ, maximum inventory, average inventory, production-run duration, cycle time, and non-production duration.
+
+**Physical interpretation prompt:** Quantify how many packs customers receive during the production run and use that amount to explain why `Imax` is below `Q`.
+
+**Exam-trap check:** Did you verify `p > lambda`, use `Imax/2` for holding cost, and keep annual rates consistent when converting durations to weeks?
+
+### Practice Task 5: Assemble-To-Order Computer Firm
+
+**Operating setting:** A computer firm can either stock finished laptop configurations or hold common modules and assemble a customer-specific laptop after an order arrives. Finished-product demand is varied, but customers tolerate a short assembly delay.
+
+**Asset mapping:** Finished laptops are make-to-stock inventory; common screens, batteries, and processors are component inventory; the customer-order decoupling point is where forecast-driven work changes into order-driven work.
+
+**Your task:** Recommend make-to-stock or assemble-to-order. Identify the inventory pooled by postponement, the customer lead-time consequence, the variety benefit, and two operating capabilities required to make the choice work.
+
+**Physical interpretation prompt:** Follow one laptop from shared components through customer configuration and delivery. Explain which assets exist before the order and which activities wait for the order.
+
+**Exam-trap check:** Did you discuss the trade-off rather than claim one system is universally superior? Did you separate inventory-cost effects from response-time and process-capability effects?
 
 ## Connections
 

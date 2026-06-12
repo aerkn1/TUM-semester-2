@@ -107,6 +107,41 @@ This file is a standalone terminology, formula, and notation companion. Use it t
 | **Finite horizon** | A ten-day holiday permits only a whole number of shopping trips. |
 | **EPQ** | A bathtub fills while the drain remains open; inventory rises at inflow minus outflow. |
 
+## Worked-Calculation Recall Standard
+
+For every EOQ or EPQ example, write the calculation as a four-step ladder:
+
+```text
+1. Symbolic formula
+2. Formula with the case values substituted into the correct variable positions
+3. Numerical result
+4. Unit and operational interpretation
+```
+
+Canonical example:
+
+```text
+Q* = sqrt(2K lambda / h)
+   = sqrt((2 * 80 * 9600) / 6)
+   = 505.96 units/order
+```
+
+When a result feeds another formula, show that dependency rather than jumping to the final value:
+
+```text
+orders per year N = lambda/Q*
+                  = 9600/505.96
+                  = 18.97 orders/year
+
+average inventory = Q*/2
+                  = 505.96/2
+                  = 252.98 units
+```
+
+This standard applies to quantities, order counts, timing, inventory levels, cost components, savings, and percentages. A result-only line such as `Q* = 505.96` is incomplete because it does not train formula recall or variable placement.
+
+Keep unrounded intermediate values for later calculations and round only the displayed final result. This prevents rounded cost components from producing a total that differs by one cent.
+
 ## Formula Cheat Sheet
 
 | Decision | Formula | Unit Check |

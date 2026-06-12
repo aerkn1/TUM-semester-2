@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EOQ and EPQ Interactive Tutorial</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e8;
+      --surface: #fffdf8;
+      --ink: #17212b;
+      --muted: #5b6773;
+      --line: #d9d1c3;
+      --blue: #176b87;
+      --blue-soft: #dceff5;
+      --amber: #b86712;
+      --amber-soft: #f7e6ca;
+      --green: #2f6b45;
+      --red: #a33b32;
+      --shadow: 0 12px 34px rgba(43, 38, 29, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(23, 107, 135, 0.12), transparent 28rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    button, input, select { font: inherit; }
+    button, input, select { accent-color: var(--blue); }
+    button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(23, 107, 135, 0.35);
+      outline-offset: 2px;
+    }
+
+    .page-shell { width: min(1440px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 64px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.7fr 1fr;
+      gap: 24px;
+      align-items: end;
+      padding: 34px;
+      color: #f8fbfc;
+      border-radius: 26px;
+      background: linear-gradient(130deg, #153b4b, #176b87 64%, #348da7);
+      box-shadow: var(--shadow);
+    }
+    .eyebrow { margin: 0 0 8px; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+    h1 { max-width: 850px; margin: 0; font-size: clamp(2.15rem, 5vw, 4.7rem); line-height: 0.98; letter-spacing: -0.055em; }
+    .hero p { max-width: 760px; margin: 18px 0 0; color: rgba(248, 251, 252, 0.84); font-size: 1.08rem; }
+    .hero-rule { padding: 20px; border: 1px solid rgba(255,255,255,0.22); border-radius: 16px; background: rgba(255,255,255,0.09); }
+    .hero-rule strong { display: block; margin-bottom: 6px; font-size: 1.05rem; }
+
+    .card {
+      margin-top: 22px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .card h2, .card h3 { margin-top: 0; line-height: 1.15; }
+    .section-heading { display: flex; gap: 16px; justify-content: space-between; align-items: start; margin-bottom: 18px; }
+    .section-heading p { max-width: 720px; margin: 4px 0 0; color: var(--muted); }
+
+    .notation-grid, .concept-grid, .metric-grid, .trap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+    .notation-grid div, .metric, .concept, .trap {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+    code, .formula, .value { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    .notation-grid code { display: block; color: var(--blue); font-size: 1.05rem; font-weight: 800; }
+    .notation-grid span { color: var(--muted); font-size: 0.9rem; }
+
+    .router-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    label { display: grid; gap: 6px; font-weight: 700; }
+    label small { color: var(--muted); font-weight: 500; }
+    select, input[type="number"] {
+      width: 100%;
+      min-height: 44px;
+      padding: 9px 11px;
+      border: 1px solid #bdb5a7;
+      border-radius: 9px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .router-answer { margin: 16px 0 0; padding: 14px 16px; border-left: 5px solid var(--blue); background: var(--blue-soft); font-weight: 700; }
+
+    .concept.eoq { border-top: 5px solid var(--blue); }
+    .concept.epq { border-top: 5px solid var(--amber); }
+    .concept .formula { display: block; margin-top: 12px; padding: 10px; background: #f4f6f7; border-radius: 8px; overflow-x: auto; }
+
+    .workflow-buttons { display: flex; flex-wrap: wrap; gap: 9px; }
+    .workflow-button, .secondary-button {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: #fff;
+      color: var(--ink);
+      font-weight: 750;
+    }
+    .workflow-button[aria-pressed="true"] { border-color: var(--blue); background: var(--blue); color: #fff; }
+    .secondary-button:hover, .workflow-button:hover { border-color: var(--blue); }
+
+    .tutorial-grid { display: grid; grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.5fr); gap: 22px; align-items: start; }
+    .input-card { position: sticky; top: 12px; }
+    .input-grid { display: grid; gap: 14px; }
+    .input-row { display: grid; grid-template-columns: 1fr 90px; gap: 10px; align-items: end; }
+    .unit { min-height: 44px; display: grid; place-items: center; padding: 8px; border-radius: 9px; background: #eee8dd; color: var(--muted); font-size: 0.85rem; text-align: center; }
+    .field-error { color: var(--red); font-size: 0.82rem; min-height: 1.2em; font-weight: 650; }
+    .input-actions { display: flex; gap: 10px; margin-top: 18px; }
+    .status-error { padding: 12px; border-radius: 10px; background: #f9dfdc; color: #6d2019; }
+
+    .workflow-title { margin-bottom: 4px; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .workflow-purpose { margin-top: 0; color: var(--muted); }
+    .metric .label { color: var(--muted); font-size: 0.82rem; font-weight: 750; text-transform: uppercase; letter-spacing: 0.04em; }
+    .metric .value { margin-top: 4px; font-size: 1.28rem; font-weight: 800; color: var(--blue); overflow-wrap: anywhere; }
+
+    .ladder { display: grid; gap: 10px; counter-reset: ladder; }
+    .ladder-step { position: relative; padding: 14px 14px 14px 52px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .ladder-step::before { counter-increment: ladder; content: counter(ladder); position: absolute; left: 14px; top: 14px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; }
+    .ladder-step strong { display: block; }
+    .ladder-step .formula { margin-top: 5px; color: #254756; overflow-wrap: anywhere; }
+
+    .charts { display: grid; grid-template-columns: 1.35fr 1fr; gap: 18px; }
+    .chart-card { min-width: 0; padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .chart-card h3 { margin-bottom: 6px; }
+    .chart-card p { margin-top: 0; color: var(--muted); font-size: 0.88rem; }
+    svg { display: block; width: 100%; height: auto; min-height: 260px; }
+    .axis { stroke: #66727c; stroke-width: 1.5; }
+    .guide { stroke: #aab3b9; stroke-width: 1; stroke-dasharray: 5 5; }
+    .eoq-line { fill: none; stroke: var(--blue); stroke-width: 4; stroke-linejoin: round; }
+    .epq-line { fill: rgba(184, 103, 18, 0.12); stroke: var(--amber); stroke-width: 4; stroke-linejoin: round; }
+    .svg-label { font-size: 12px; fill: #3d4a54; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .bar-bg { fill: #e9e4dc; }
+    .bar-blue { fill: var(--blue); }
+    .bar-amber { fill: var(--amber); }
+    .bar-green { fill: var(--green); }
+
+    .interpretation { border-left: 6px solid var(--green); background: #e9f3ec; }
+    .interpretation p { margin-bottom: 0; }
+    .trap { border-left: 4px solid var(--amber); }
+    .trap strong { display: block; margin-bottom: 5px; }
+
+    .self-test { margin-top: 18px; color: var(--muted); font-size: 0.88rem; }
+    .self-test.pass { color: var(--green); }
+    .self-test.fail { color: var(--red); }
+
+    @media (max-width: 980px) {
+      .hero, .tutorial-grid, .charts { grid-template-columns: 1fr; }
+      .router-grid { grid-template-columns: repeat(2, 1fr); }
+      .input-card { position: static; }
+    }
+    @media (max-width: 620px) {
+      .page-shell { width: min(100% - 18px, 1440px); padding-top: 10px; }
+      .hero, .card { padding: 18px; border-radius: 15px; }
+      .router-grid { grid-template-columns: 1fr; }
+      .workflow-buttons { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; }
+      .workflow-button { flex: 0 0 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Supply Chain Management - Topic 05</p>
+        <h1>See the inventory logic before using the formula.</h1>
+        <p>Change the facts, watch the inventory path respond, and connect each calculation to an operational decision. The presets reproduce the six EOQ and EPQ workflows in the wiki note.</p>
+      </div>
+      <aside class="hero-rule">
+        <strong>Exam sequence</strong>
+        Fact pattern -> model -> units -> formula -> calculation -> operational meaning.
+      </aside>
+    </header>
+
+    <section class="card" aria-labelledby="notation-title">
+      <div class="section-heading">
+        <div><h2 id="notation-title">Notation</h2><p>Keep every rate on the same time basis before calculating.</p></div>
+      </div>
+      <div class="notation-grid">
+        <div><code>lambda</code><span>deterministic demand rate</span></div>
+        <div><code>K</code><span>fixed setup or order cost</span></div>
+        <div><code>h</code><span>holding cost per unit and year</span></div>
+        <div><code>p</code><span>production rate, with p &gt; lambda</span></div>
+        <div><code>Q*</code><span>optimal order or production batch</span></div>
+        <div><code>Imax</code><span>EPQ peak inventory</span></div>
+        <div><code>l</code><span>order or preparation lead time</span></div>
+        <div><code>m*</code><span>feasible integer order count</span></div>
+      </div>
+    </section>
+
+    <section class="card" id="model-router" aria-labelledby="router-title">
+      <div class="section-heading">
+        <div><h2 id="router-title">Model router</h2><p>Route the operating facts first. Formula guessing is the first exam trap.</p></div>
+      </div>
+      <div class="router-grid">
+        <label>Demand pattern
+          <select id="router-demand"><option value="stable">Known and stable</option><option value="uncertain">One-time uncertain</option></select>
+        </label>
+        <label>Replenishment
+          <select id="router-supply"><option value="instant">Instant arrival</option><option value="finite">Finite production</option></select>
+        </label>
+        <label>Planning horizon
+          <select id="router-horizon"><option value="infinite">Ongoing</option><option value="finite">Finite season</option></select>
+        </label>
+        <label>Timing detail
+          <select id="router-timing"><option value="none">No lead time detail</option><option value="timing">Initial stock or lead time</option></select>
+        </label>
+      </div>
+      <p class="router-answer" id="router-answer" role="status"></p>
+    </section>
+
+    <section class="card" aria-labelledby="comparison-title">
+      <div class="section-heading"><div><h2 id="comparison-title">EOQ versus EPQ</h2><p>The cost trade-off is related; the inventory geometry is different.</p></div></div>
+      <div class="concept-grid">
+        <article class="concept eoq"><h3>EOQ: instant replenishment</h3><p>Inventory jumps to Q, then falls at demand rate lambda. The average inventory is Q/2.</p><span class="formula">Q* = sqrt(2 K lambda / h)</span></article>
+        <article class="concept epq"><h3>EPQ: gradual production</h3><p>Demand consumes units while production runs. Inventory builds at p - lambda and peaks below Q.</p><span class="formula">Q* = EOQ x sqrt(p / (p - lambda))</span></article>
+      </div>
+    </section>
+
+    <section class="card" id="workflow-selector" aria-labelledby="workflow-title">
+      <div class="section-heading"><div><h2 id="workflow-title">Choose an example workflow</h2><p>Every value remains editable after loading a preset.</p></div></div>
+      <div class="workflow-buttons" role="group" aria-label="Tutorial workflows">
+        <button class="workflow-button" data-workflow="free-practice" aria-pressed="true">Free practice</button>
+        <button class="workflow-button" data-workflow="abi-warehouses" aria-pressed="false">ABI warehouses</button>
+        <button class="workflow-button" data-workflow="tek-pak" aria-pressed="false">Tek Pak</button>
+        <button class="workflow-button" data-workflow="kerosene" aria-pressed="false">Kerosene</button>
+        <button class="workflow-button" data-workflow="battery-cell" aria-pressed="false">Battery cell</button>
+        <button class="workflow-button" data-workflow="router-factory" aria-pressed="false">Router factory</button>
+        <button class="workflow-button" data-workflow="shovel-factory" aria-pressed="false">Shovel factory</button>
+      </div>
+    </section>
+
+    <div class="tutorial-grid">
+      <section class="card input-card" id="input-panel" aria-labelledby="input-title">
+        <h2 id="input-title">Editable facts</h2>
+        <p id="input-guidance">Change any value. Results update immediately.</p>
+        <div id="input-fields" class="input-grid"></div>
+        <div class="input-actions"><button id="reset-workflow" class="secondary-button" type="button">Reset preset</button></div>
+        <div id="validation-summary" aria-live="polite"></div>
+      </section>
+
+      <div>
+        <section class="card" aria-labelledby="result-title">
+          <p class="eyebrow" id="workflow-kicker">Basic EOQ</p>
+          <h2 class="workflow-title" id="result-title">Free practice</h2>
+          <p class="workflow-purpose" id="workflow-purpose"></p>
+          <div id="metric-grid" class="metric-grid"></div>
+        </section>
+
+        <section class="card" id="calculation-ladder" aria-labelledby="ladder-title">
+          <div class="section-heading"><div><h2 id="ladder-title">Calculation ladder</h2><p>Formula, substitution, result, then interpretation.</p></div></div>
+          <div id="ladder-steps" class="ladder"></div>
+        </section>
+
+        <section class="card" aria-labelledby="visual-title">
+          <div class="section-heading"><div><h2 id="visual-title">Dynamic visual logic</h2><p>The charts scale from your current inputs.</p></div></div>
+          <div class="charts">
+            <div class="chart-card" id="inventory-chart"><h3>Inventory path</h3><p id="inventory-summary"></p><div id="inventory-svg"></div></div>
+            <div class="chart-card" id="cost-chart"><h3>Cost comparison</h3><p id="cost-summary"></p><div id="cost-svg"></div></div>
+          </div>
+        </section>
+
+        <section class="card interpretation" id="interpretation-panel" aria-labelledby="interpretation-title">
+          <h2 id="interpretation-title">Operational interpretation</h2>
+          <p id="interpretation-text"></p>
+        </section>
+
+        <section class="card" aria-labelledby="traps-title">
+          <div class="section-heading"><div><h2 id="traps-title">Exam traps</h2><p>Correct these before writing the final answer.</p></div></div>
+          <div id="trap-grid" class="trap-grid"></div>
+          <p id="self-test-status" class="self-test" aria-live="polite">Running internal checks...</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  /* CALCULATION_CORE_START */
+  (function () {
+    'use strict';
+
+    function positive(value, name) {
+      const number = Number(value);
+      if (!Number.isFinite(number) || number <= 0) throw new Error(name + ' must be greater than zero.');
+      return number;
+    }
+
+    function nonNegative(value, name) {
+      const number = Number(value);
+      if (!Number.isFinite(number) || number < 0) throw new Error(name + ' cannot be negative.');
+      return number;
+    }
+
+    function basicEoq(input) {
+      const demand = positive(input.demand, 'Demand');
+      const setupCost = positive(input.setupCost, 'Setup cost');
+      const holdingCost = positive(input.holdingCost, 'Holding cost');
+      const quantity = Math.sqrt((2 * setupCost * demand) / holdingCost);
+      const averageInventory = quantity / 2;
+      const ordersPerPeriod = demand / quantity;
+      const cycleDuration = quantity / demand;
+      const holdingCostTotal = holdingCost * averageInventory;
+      const setupCostTotal = setupCost * ordersPerPeriod;
+      return {
+        quantity,
+        averageInventory,
+        ordersPerPeriod,
+        cycleDuration,
+        holdingCostTotal,
+        setupCostTotal,
+        totalCost: holdingCostTotal + setupCostTotal,
+      };
+    }
+
+    function eoqTiming(input) {
+      const demand = positive(input.demand, 'Demand');
+      const initialInventory = nonNegative(input.initialInventory, 'Initial inventory');
+      const leadTime = nonNegative(input.leadTime, 'Lead time');
+      const periodsPerYear = positive(input.periodsPerYear, 'Periods per year');
+      const demandPerSubperiod = demand / periodsPerYear;
+      const reorderPoint = demandPerSubperiod * leadTime;
+      const rawPlacement = (initialInventory - reorderPoint) / demandPerSubperiod;
+      const orderImmediately = rawPlacement < 0;
+      const firstOrderPlacement = Math.max(0, rawPlacement);
+      return {
+        demandPerSubperiod,
+        reorderPoint,
+        rawPlacement,
+        firstOrderPlacement,
+        orderImmediately,
+        firstReplenishment: firstOrderPlacement + leadTime,
+      };
+    }
+
+    function finiteHorizonEoq(input) {
+      const demand = positive(input.demand, 'Demand');
+      const setupCost = positive(input.setupCost, 'Setup cost');
+      const holdingCost = positive(input.holdingCost, 'Holding cost');
+      const horizonPeriods = positive(input.horizonPeriods, 'Horizon');
+      const periodsPerYear = positive(input.periodsPerYear, 'Periods per year');
+      const horizon = horizonPeriods / periodsPerYear;
+      const infinite = basicEoq({ demand, setupCost, holdingCost });
+      const continuousOrders = horizon * Math.sqrt((holdingCost * demand) / (2 * setupCost));
+
+      function candidate(orders) {
+        const feasibleOrders = Math.max(1, orders);
+        const setup = (setupCost * feasibleOrders) / horizon;
+        const holding = (holdingCost * demand * horizon) / (2 * feasibleOrders);
+        return {
+          orders: feasibleOrders,
+          quantity: (horizon * demand) / feasibleOrders,
+          setupCostTotal: setup,
+          holdingCostTotal: holding,
+          cost: setup + holding,
+        };
+      }
+
+      const floorCandidate = candidate(Math.floor(continuousOrders));
+      const ceilCandidate = candidate(Math.ceil(continuousOrders));
+      const optimal = floorCandidate.cost <= ceilCandidate.cost ? floorCandidate : ceilCandidate;
+      return {
+        horizon,
+        infinite,
+        continuousOrders,
+        floorCandidate,
+        ceilCandidate,
+        optimal,
+        costIncreasePercent: ((optimal.cost - infinite.totalCost) / infinite.totalCost) * 100,
+      };
+    }
+
+    function epq(input) {
+      const demand = positive(input.demand, 'Demand');
+      const productionRate = positive(input.productionRate, 'Production rate');
+      const setupCost = positive(input.setupCost, 'Setup cost');
+      const holdingCost = positive(input.holdingCost, 'Holding cost');
+      const periodsPerYear = positive(input.periodsPerYear || 1, 'Periods per year');
+      if (productionRate <= demand) throw new Error('Production rate must be greater than demand for EPQ.');
+      const buildFraction = (productionRate - demand) / productionRate;
+      const quantity = Math.sqrt((2 * setupCost * demand) / (holdingCost * buildFraction));
+      const maximumInventory = buildFraction * quantity;
+      const averageInventory = maximumInventory / 2;
+      const productionDuration = quantity / productionRate;
+      const cycleDuration = quantity / demand;
+      const holdingCostTotal = holdingCost * averageInventory;
+      const setupCostTotal = setupCost * demand / quantity;
+      const totalCost = holdingCostTotal + setupCostTotal;
+      const eoqBenchmarkCost = basicEoq({ demand, setupCost, holdingCost }).totalCost;
+      return {
+        quantity,
+        buildFraction,
+        maximumInventory,
+        averageInventory,
+        productionDuration,
+        cycleDuration,
+        nonProductionDuration: cycleDuration - productionDuration,
+        productionDurationSubperiods: productionDuration * periodsPerYear,
+        cycleDurationSubperiods: cycleDuration * periodsPerYear,
+        nonProductionDurationSubperiods: (cycleDuration - productionDuration) * periodsPerYear,
+        holdingCostTotal,
+        setupCostTotal,
+        totalCost,
+        eoqBenchmarkCost,
+        costReduction: eoqBenchmarkCost - totalCost,
+        costReductionPercent: ((eoqBenchmarkCost - totalCost) / eoqBenchmarkCost) * 100,
+      };
+    }
+
+    function warehousePooling(input) {
+      const warehouseCount = positive(input.warehouseCount, 'Warehouse count');
+      const demandPerWarehouse = positive(input.demandPerWarehouse, 'Demand per warehouse');
+      const setupCost = positive(input.setupCost, 'Setup cost');
+      const holdingCost = positive(input.holdingCost, 'Holding cost');
+      const perWarehouse = basicEoq({ demand: demandPerWarehouse, setupCost, holdingCost });
+      const pooled = basicEoq({ demand: warehouseCount * demandPerWarehouse, setupCost, holdingCost });
+      const separateTotal = warehouseCount * perWarehouse.totalCost;
+      const savings = separateTotal - pooled.totalCost;
+      return {
+        separate: { ...perWarehouse, quantityPerWarehouse: perWarehouse.quantity, totalCost: separateTotal },
+        pooled,
+        savings,
+        savingsPercent: (savings / separateTotal) * 100,
+      };
+    }
+
+    function shovelTechnology(input) {
+      const productionRatePerPeriod = positive(input.productionRatePerPeriod, 'Current production rate');
+      const maximumInventory = nonNegative(input.maximumInventory, 'Maximum inventory');
+      const currentBatch = positive(input.currentBatch, 'Current batch');
+      const improvementPercent = nonNegative(input.improvementPercent, 'Improvement percentage');
+      const setupCost = positive(input.setupCost, 'Setup cost');
+      const holdingCost = positive(input.holdingCost, 'Holding cost');
+      const previousCost = nonNegative(input.previousCost, 'Previous cost');
+      const periodsPerYear = positive(input.periodsPerYear, 'Periods per year');
+      if (maximumInventory >= currentBatch) throw new Error('Maximum inventory must be lower than the EPQ batch size.');
+      const demandPerSubperiod = productionRatePerPeriod * (1 - maximumInventory / currentBatch);
+      const demandAnnual = demandPerSubperiod * periodsPerYear;
+      const newProductionRatePerSubperiod = productionRatePerPeriod * (1 + improvementPercent / 100);
+      const newProductionRateAnnual = newProductionRatePerSubperiod * periodsPerYear;
+      const newEpq = epq({
+        demand: demandAnnual,
+        productionRate: newProductionRateAnnual,
+        setupCost,
+        holdingCost,
+        periodsPerYear,
+      });
+      return {
+        demandPerSubperiod,
+        demandAnnual,
+        newProductionRatePerSubperiod,
+        newProductionRateAnnual,
+        newEpq,
+        maximumInvestment: previousCost - newEpq.totalCost,
+      };
+    }
+
+    globalThis.EOQ_EPQ_CALCULATIONS = {
+      basicEoq,
+      eoqTiming,
+      finiteHorizonEoq,
+      epq,
+      warehousePooling,
+      shovelTechnology,
+    };
+  }());
+  /* CALCULATION_CORE_END */
+
+  /* PRESET_DATA_START */
+  globalThis.EOQ_EPQ_PRESETS = {
+    'free-practice': {
+      title: 'Free practice: basic EOQ',
+      kicker: 'Basic EOQ',
+      purpose: 'Balance annual ordering cost against annual holding cost for recurring deterministic demand.',
+      kind: 'eoq',
+      fields: [
+        ['demand', 'Annual demand (lambda)', 9600, 'units/year'],
+        ['setupCost', 'Order cost (K)', 80, 'EUR/order'],
+        ['holdingCost', 'Holding cost (h)', 6, 'EUR/unit/year'],
+        ['leadTime', 'Lead time', 3, 'weeks'],
+        ['periodsPerYear', 'Weeks per year', 52, 'weeks/year'],
+      ],
+    },
+    'abi-warehouses': {
+      title: 'ABI warehouses: separate versus pooled',
+      kicker: 'EOQ and pooling',
+      purpose: 'Compare duplicated warehouse ordering systems with one pooled deterministic system.',
+      kind: 'pooling',
+      fields: [
+        ['warehouseCount', 'Warehouses', 2, 'locations'],
+        ['demandPerWarehouse', 'Demand per warehouse', 50, 'units/year'],
+        ['setupCost', 'Order cost (K)', 50, 'EUR/order'],
+        ['holdingCost', 'Holding cost (h)', 20, 'EUR/unit/year'],
+      ],
+    },
+    'tek-pak': {
+      title: 'Tek Pak beer crates',
+      kicker: 'EOQ with timing',
+      purpose: 'Keep the EOQ quantity decision separate from reorder point and first-order timing.',
+      kind: 'timing',
+      fields: [
+        ['demand', 'Annual demand (lambda)', 130, 'crates/year'],
+        ['setupCost', 'Order cost (K)', 25, 'EUR/order'],
+        ['holdingCost', 'Holding cost (h)', 0.65, 'EUR/crate/year'],
+        ['initialInventory', 'Initial inventory (I0)', 100, 'crates'],
+        ['leadTime', 'Lead time', 2, 'weeks'],
+        ['periodsPerYear', 'Weeks per year', 52, 'weeks/year'],
+      ],
+    },
+    'kerosene': {
+      title: 'Kerosene: infinite versus finite horizon',
+      kicker: 'Finite-horizon EOQ',
+      purpose: 'Test both neighboring integer order counts because a selling season cannot contain fractional orders.',
+      kind: 'finite',
+      fields: [
+        ['demand', 'Annual demand (lambda)', 8000, 'gallons/year'],
+        ['setupCost', 'Order cost (K)', 10, 'EUR/order'],
+        ['holdingCost', 'Holding cost (h)', 2, 'EUR/gallon/year'],
+        ['horizonPeriods', 'Selling season', 5, 'weeks'],
+        ['periodsPerYear', 'Weeks per year', 52, 'weeks/year'],
+      ],
+    },
+    'battery-cell': {
+      title: 'Battery-cell production line',
+      kicker: 'EPQ benchmark',
+      purpose: 'See how simultaneous production and demand reduce peak inventory relative to an instant-arrival EOQ benchmark.',
+      kind: 'epq',
+      fields: [
+        ['demand', 'Annual demand (lambda)', 12000, 'packs/year'],
+        ['productionRate', 'Production rate (p)', 60000, 'packs/year'],
+        ['setupCost', 'Setup cost (K)', 500, 'EUR/run'],
+        ['holdingCost', 'Holding cost (h)', 4, 'EUR/pack/year'],
+        ['periodsPerYear', 'Weeks per year', 52, 'weeks/year'],
+      ],
+    },
+    'router-factory': {
+      title: 'Router make-to-stock factory',
+      kicker: 'EPQ with preparation timing',
+      purpose: 'Start preparation while inventory still covers demand during the lead time, then produce a finite-rate batch.',
+      kind: 'epq-timing',
+      fields: [
+        ['demand', 'Annual demand (lambda)', 10400, 'units/year'],
+        ['productionRate', 'Production rate (p)', 52000, 'units/year'],
+        ['setupCost', 'Setup cost (K)', 750, 'EUR/run'],
+        ['holdingCost', 'Holding cost (h)', 6, 'EUR/unit/year'],
+        ['initialInventory', 'Initial inventory (I0)', 1300, 'units'],
+        ['leadTime', 'Preparation lead time', 2, 'weeks'],
+        ['periodsPerYear', 'Weeks per year', 52, 'weeks/year'],
+      ],
+    },
+    'shovel-factory': {
+      title: 'Shovel factory: technology adoption',
+      kicker: 'EPQ inference and investment',
+      purpose: 'Infer demand from the current EPQ geometry, then value faster technology through avoided annual relevant cost.',
+      kind: 'shovel',
+      fields: [
+        ['productionRatePerPeriod', 'Current production rate', 200, 'units/week'],
+        ['maximumInventory', 'Current maximum inventory', 150, 'units'],
+        ['currentBatch', 'Current economic batch', 300, 'units'],
+        ['improvementPercent', 'Production-rate improvement', 50, '%'],
+        ['setupCost', 'New setup cost (K)', 350, 'EUR/run'],
+        ['holdingCost', 'Holding cost (h)', 5, 'EUR/unit/year'],
+        ['previousCost', 'Previous annual relevant cost', 6000, 'EUR/year'],
+        ['periodsPerYear', 'Weeks per year', 52, 'weeks/year'],
+      ],
+    },
+  };
+  /* PRESET_DATA_END */
+
+  (function () {
+    'use strict';
+    const api = globalThis.EOQ_EPQ_CALCULATIONS;
+    const presets = globalThis.EOQ_EPQ_PRESETS;
+    let activeKey = 'free-practice';
+
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+    const fmt = (value, digits = 2) => Number(value).toLocaleString('en-US', { maximumFractionDigits: digits, minimumFractionDigits: digits });
+    const money = (value) => 'EUR ' + fmt(value);
+
+    function getValues() {
+      return Object.fromEntries($$('#input-fields input').map((input) => [input.name, Number(input.value)]));
+    }
+
+    function renderInputs() {
+      const preset = presets[activeKey];
+      $('#input-fields').innerHTML = preset.fields.map(([name, label, value, unit]) => `
+        <div>
+          <div class="input-row">
+            <label for="field-${name}">${label}<input id="field-${name}" name="${name}" type="number" step="any" value="${value}" aria-describedby="error-${name}"></label>
+            <span class="unit">${unit}</span>
+          </div>
+          <div class="field-error" id="error-${name}"></div>
+        </div>`).join('');
+      $$('#input-fields input').forEach((input) => input.addEventListener('input', update));
+    }
+
+    function calculate(key, values) {
+      switch (key) {
+        case 'free-practice': {
+          const result = api.basicEoq(values);
+          const timing = api.eoqTiming({ ...values, initialInventory: result.quantity });
+          return { result, timing };
+        }
+        case 'abi-warehouses': return { result: api.warehousePooling(values) };
+        case 'tek-pak': return { result: api.basicEoq(values), timing: api.eoqTiming(values) };
+        case 'kerosene': return { result: api.finiteHorizonEoq(values) };
+        case 'battery-cell': return { result: api.epq(values) };
+        case 'router-factory': return { result: api.epq(values), timing: api.eoqTiming(values) };
+        case 'shovel-factory': return { result: api.shovelTechnology(values) };
+        default: throw new Error('Unknown workflow.');
+      }
+    }
+
+    function metric(label, value) { return `<div class="metric"><div class="label">${label}</div><div class="value">${value}</div></div>`; }
+    function step(title, formula) { return `<div class="ladder-step"><strong>${title}</strong><div class="formula">${formula}</div></div>`; }
+
+    function workflowView(key, data, values) {
+      const r = data.result;
+      const commonEoqTraps = [
+        ['Model first', 'Use EOQ only for recurring deterministic demand, not a one-time uncertain commitment.'],
+        ['Unit check', 'Demand and holding cost must use the same time basis.'],
+      ];
+      if (key === 'free-practice') return {
+        metrics: metric('Optimal order Q*', fmt(r.quantity) + ' units') + metric('Orders per year', fmt(r.ordersPerPeriod)) + metric('Average inventory', fmt(r.averageInventory) + ' units') + metric('Total annual cost', money(r.totalCost)) + metric('Reorder point', fmt(data.timing.reorderPoint) + ' units'),
+        ladder: step('Choose basic EOQ', 'Known stable demand + recurring instant replenishment -> EOQ.') + step('Substitute', `Q* = sqrt((2 x ${values.setupCost} x ${values.demand}) / ${values.holdingCost})`) + step('Calculate quantity and frequency', `Q* = ${fmt(r.quantity)}; N = ${values.demand} / ${fmt(r.quantity)} = ${fmt(r.ordersPerPeriod)} orders/year`) + step('Interpret', `Order about ${fmt(r.quantity)} units each cycle; average stock is ${fmt(r.averageInventory)} units.`),
+        interpretation: 'A larger order reduces order frequency but increases average stock. At the optimum, annual holding cost and annual ordering cost are equal.',
+        traps: commonEoqTraps.concat([['Lead time', 'Lead time changes the reorder point, not the basic deterministic EOQ quantity.']]),
+        inventory: { type: 'eoq', quantity: r.quantity, average: r.averageInventory, cycle: r.cycleDuration },
+        costs: { labels: ['Holding', 'Ordering'], values: [r.holdingCostTotal, r.setupCostTotal], colors: ['blue', 'amber'] },
+      };
+      if (key === 'abi-warehouses') return {
+        metrics: metric('Q* per warehouse', fmt(r.separate.quantityPerWarehouse) + ' units') + metric('Separate total cost', money(r.separate.totalCost)) + metric('Pooled Q*', fmt(r.pooled.quantity) + ' units') + metric('Pooled total cost', money(r.pooled.totalCost)) + metric('Annual savings', money(r.savings)) + metric('Savings', fmt(r.savingsPercent) + '%'),
+        ladder: step('Optimize each warehouse', `Q* = sqrt((2 x ${values.setupCost} x ${values.demandPerWarehouse}) / ${values.holdingCost}) = ${fmt(r.separate.quantityPerWarehouse)}`) + step('Add separate costs', `${values.warehouseCount} x ${money(r.separate.totalCost / values.warehouseCount)} = ${money(r.separate.totalCost)}`) + step('Pool demand', `lambda pooled = ${values.warehouseCount} x ${values.demandPerWarehouse} = ${values.warehouseCount * values.demandPerWarehouse}`) + step('Compare systems', `${money(r.separate.totalCost)} - ${money(r.pooled.totalCost)} = ${money(r.savings)} saved/year`),
+        interpretation: r.savings >= 0 ? 'Pooling aggregates deterministic demand and avoids duplicating the ordering-system trade-off across locations.' : 'With these edited values, pooling does not reduce relevant cost; report the calculated comparison rather than assuming savings.',
+        traps: commonEoqTraps.concat([['Pooling claim', 'Pooling is a result to calculate, not a universal promise of savings under every cost structure.']]),
+        inventory: { type: 'eoq', quantity: r.pooled.quantity, average: r.pooled.averageInventory, cycle: r.pooled.cycleDuration },
+        costs: { labels: ['Separate', 'Pooled'], values: [r.separate.totalCost, r.pooled.totalCost], colors: ['amber', 'green'] },
+      };
+      if (key === 'tek-pak') return {
+        metrics: metric('EOQ Q*', fmt(r.quantity) + ' crates') + metric('Demand per week', fmt(data.timing.demandPerSubperiod) + ' crates') + metric('Reorder point', fmt(data.timing.reorderPoint) + ' crates') + metric('Place first order', data.timing.orderImmediately ? 'Immediately' : 'After ' + fmt(data.timing.firstOrderPlacement) + ' weeks'),
+        ladder: step('Compute EOQ', `Q* = sqrt((2 x ${values.setupCost} x ${values.demand}) / ${values.holdingCost}) = ${fmt(r.quantity)} crates`) + step('Convert demand', `${values.demand} / ${values.periodsPerYear} = ${fmt(data.timing.demandPerSubperiod)} crates/week`) + step('Compute reorder point', `r = ${fmt(data.timing.demandPerSubperiod)} x ${values.leadTime} = ${fmt(data.timing.reorderPoint)} crates`) + step('Compute first-order timing', `(I0 - r) / weekly demand = (${values.initialInventory} - ${fmt(data.timing.reorderPoint)}) / ${fmt(data.timing.demandPerSubperiod)} = ${fmt(data.timing.firstOrderPlacement)} weeks`),
+        interpretation: 'The EOQ answers how much to order. Initial inventory and lead time answer when to place the first order so arrival matches depletion.',
+        traps: commonEoqTraps.concat([['Quantity versus timing', 'Do not add lead time to the EOQ formula under deterministic no-shortage assumptions.']]),
+        inventory: { type: 'eoq', quantity: r.quantity, average: r.averageInventory, cycle: r.cycleDuration },
+        costs: { labels: ['Holding', 'Ordering'], values: [r.holdingCostTotal, r.setupCostTotal], colors: ['blue', 'amber'] },
+      };
+      if (key === 'kerosene') return {
+        metrics: metric('Infinite EOQ', fmt(r.infinite.quantity) + ' gallons') + metric('Continuous m-hat', fmt(r.continuousOrders) + ' orders') + metric('Best integer m*', String(r.optimal.orders)) + metric('Finite quantity', fmt(r.optimal.quantity) + ' gallons') + metric('Finite annual cost', money(r.optimal.cost)) + metric('Cost increase', fmt(r.costIncreasePercent) + '%'),
+        ladder: step('Compute continuous benchmark', `EOQ = ${fmt(r.infinite.quantity)} and m-hat = ${fmt(r.continuousOrders)}`) + step('Test floor', `TC(${r.floorCandidate.orders}) = ${money(r.floorCandidate.cost)}`) + step('Test ceiling', `TC(${r.ceilCandidate.orders}) = ${money(r.ceilCandidate.cost)}`) + step('Choose feasible count', `m* = ${r.optimal.orders}; Q = t lambda / m* = ${fmt(r.optimal.quantity)} gallons/order`),
+        interpretation: 'The continuous optimum lies between feasible order counts. Integer rounding changes the cost, so compare both neighboring counts before choosing.',
+        traps: commonEoqTraps.concat([['Round m, not Q first', 'Evaluate floor(m-hat) and ceil(m-hat) using unrounded costs.']]),
+        inventory: { type: 'eoq', quantity: r.optimal.quantity, average: r.optimal.quantity / 2, cycle: r.horizon / r.optimal.orders },
+        costs: { type: 'candidates', labels: ['m=' + r.floorCandidate.orders, 'm=' + r.ceilCandidate.orders], values: [r.floorCandidate.cost, r.ceilCandidate.cost] },
+      };
+      if (key === 'battery-cell') return epqView(r, values, 'packs', 'Finite production lowers average inventory because demand consumes output during the production run.', true);
+      if (key === 'router-factory') {
+        const view = epqView(r, values, 'units', 'Preparation starts while remaining stock covers demand during lead time; production begins when initial stock is depleted.', false);
+        view.metrics += metric('Start preparation', data.timing.orderImmediately ? 'Immediately' : fmt(data.timing.firstOrderPlacement) + ' weeks') + metric('Production begins', fmt(data.timing.firstReplenishment) + ' weeks');
+        view.ladder += step('Route preparation timing', `r = ${fmt(data.timing.reorderPoint)} units; preparation starts after ${fmt(data.timing.firstOrderPlacement)} weeks and production begins after ${fmt(data.timing.firstReplenishment)} weeks.`);
+        view.traps.push(['Preparation threshold', 'If inventory is already below the lead-time demand threshold, preparation must start immediately.']);
+        return view;
+      }
+      const n = r.newEpq;
+      return {
+        metrics: metric('Implied weekly demand', fmt(r.demandPerSubperiod) + ' units') + metric('Annual demand', fmt(r.demandAnnual) + ' units') + metric('New production rate', fmt(r.newProductionRatePerSubperiod) + ' units/week') + metric('New EPQ', fmt(n.quantity) + ' units') + metric('New total cost', money(n.totalCost)) + metric('Maximum investment', money(r.maximumInvestment)),
+        ladder: step('Infer demand', `lambda = p x (1 - Imax/Q) = ${values.productionRatePerPeriod} x (1 - ${values.maximumInventory}/${values.currentBatch}) = ${fmt(r.demandPerSubperiod)} units/week`) + step('Annualize rates', `lambda = ${fmt(r.demandAnnual)}; new p = ${fmt(r.newProductionRateAnnual)} units/year`) + step('Compute new EPQ', `Q* = ${fmt(n.quantity)}; Imax = ${fmt(n.maximumInventory)} units`) + step('Value the technology', `${money(values.previousCost)} - ${money(n.totalCost)} = ${money(r.maximumInvestment)} maximum annual willingness to invest`),
+        interpretation: 'The current inventory geometry reveals demand. The technology value is the annual relevant cost avoided, before considering purchase life, discounting, risk, or implementation costs.',
+        traps: [['Inference', 'Use Imax = ((p - lambda)/p)Q to recover demand before applying the new production rate.'], ['Decision limit', 'Annual savings alone do not prove an investment is attractive over multiple years.'], ['EPQ feasibility', 'The new production rate must remain greater than demand.']],
+        inventory: { type: 'epq', quantity: n.quantity, maximum: n.maximumInventory, productionDuration: n.productionDuration, cycle: n.cycleDuration },
+        costs: { labels: ['Previous', 'New'], values: [values.previousCost, n.totalCost], colors: ['amber', 'green'] },
+      };
+    }
+
+    function epqView(r, values, unit, interpretation, benchmark) {
+      return {
+        metrics: metric('EPQ Q*', fmt(r.quantity) + ' ' + unit) + metric('Maximum inventory', fmt(r.maximumInventory) + ' ' + unit) + metric('Average inventory', fmt(r.averageInventory) + ' ' + unit) + metric('Production run', fmt(r.productionDurationSubperiods) + ' weeks') + metric('Cycle length', fmt(r.cycleDurationSubperiods) + ' weeks') + metric('Total annual cost', money(r.totalCost)),
+        ladder: step('Confirm EPQ', `Finite production with p = ${values.productionRate} > lambda = ${values.demand}.`) + step('Compute batch', `Q* = sqrt((2 x ${values.setupCost} x ${values.demand}) / ${values.holdingCost}) x sqrt(${values.productionRate} / (${values.productionRate} - ${values.demand})) = ${fmt(r.quantity)}`) + step('Compute inventory peak', `Imax = ((${values.productionRate} - ${values.demand}) / ${values.productionRate}) x ${fmt(r.quantity)} = ${fmt(r.maximumInventory)}`) + step('Compute timing and cost', `T0 = ${fmt(r.productionDurationSubperiods)} weeks; TC = ${money(r.totalCost)}`),
+        interpretation,
+        traps: [['Average inventory', 'EPQ holding cost uses Imax/2, not Q/2.'], ['Feasibility', 'EPQ requires p > lambda so inventory can build during production.'], ['Batch versus peak', 'The production batch exceeds maximum inventory because demand consumes units during the run.']],
+        inventory: { type: 'epq', quantity: r.quantity, maximum: r.maximumInventory, productionDuration: r.productionDuration, cycle: r.cycleDuration },
+        costs: benchmark ? { labels: ['EOQ benchmark', 'EPQ'], values: [r.eoqBenchmarkCost, r.totalCost], colors: ['amber', 'green'] } : { labels: ['Holding', 'Setup'], values: [r.holdingCostTotal, r.setupCostTotal], colors: ['blue', 'amber'] },
+      };
+    }
+
+    function renderEoqSawtooth(container, model) {
+      const width = 640, height = 300, left = 52, right = 20, top = 26, bottom = 45;
+      const plotW = width - left - right, plotH = height - top - bottom;
+      const points = [[left, top], [left + plotW / 3, height - bottom], [left + plotW / 3, top], [left + 2 * plotW / 3, height - bottom], [left + 2 * plotW / 3, top], [width - right, height - bottom]];
+      const avgY = top + plotH / 2;
+      container.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="EOQ sawtooth inventory diagram">
+        <line class="axis" x1="${left}" y1="${height-bottom}" x2="${width-right}" y2="${height-bottom}"/><line class="axis" x1="${left}" y1="${top}" x2="${left}" y2="${height-bottom}"/>
+        <line class="guide" x1="${left}" y1="${avgY}" x2="${width-right}" y2="${avgY}"/><polyline class="eoq-line" points="${points.map((p) => p.join(',')).join(' ')}"/>
+        <text class="svg-label" x="8" y="${top+4}">Q = ${fmt(model.quantity)}</text><text class="svg-label" x="8" y="${avgY+4}">Q/2</text><text class="svg-label" x="${left+plotW/3-34}" y="${height-15}">cycle</text><text class="svg-label" x="${width-160}" y="${top+20}">slope = -lambda</text>
+      </svg>`;
+    }
+
+    function renderEpqTriangle(container, model) {
+      const width = 640, height = 300, left = 52, right = 20, top = 30, bottom = 45;
+      const plotW = width - left - right, baseY = height - bottom;
+      const peakX = left + Math.max(0.16, Math.min(0.82, model.productionDuration / model.cycle)) * plotW;
+      container.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="EPQ production and depletion inventory diagram">
+        <line class="axis" x1="${left}" y1="${baseY}" x2="${width-right}" y2="${baseY}"/><line class="axis" x1="${left}" y1="${top}" x2="${left}" y2="${baseY}"/>
+        <polygon class="epq-line" points="${left},${baseY} ${peakX},${top} ${width-right},${baseY}"/><line class="guide" x1="${peakX}" y1="${top}" x2="${peakX}" y2="${baseY}"/>
+        <text class="svg-label" x="6" y="${top+4}">Imax = ${fmt(model.maximum)}</text><text class="svg-label" x="${left+20}" y="${top+42}">build: p - lambda</text><text class="svg-label" x="${peakX+18}" y="${top+42}">deplete: -lambda</text><text class="svg-label" x="${peakX-42}" y="${baseY+25}">production stops</text>
+      </svg>`;
+    }
+
+    function renderCostBars(container, model) {
+      const width = 430, height = 300, max = Math.max(...model.values, 1), barH = 42, gap = 38;
+      container.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Cost comparison bars">${model.values.map((value, index) => {
+        const y = 45 + index * (barH + gap); const barW = 300 * value / max; const color = model.colors && model.colors[index] === 'green' ? 'bar-green' : model.colors && model.colors[index] === 'amber' ? 'bar-amber' : 'bar-blue';
+        return `<text class="svg-label" x="15" y="${y-8}">${model.labels[index]}</text><rect class="bar-bg" x="15" y="${y}" width="300" height="${barH}" rx="7"/><rect class="${color}" x="15" y="${y}" width="${barW}" height="${barH}" rx="7"/><text class="svg-label" x="325" y="${y+26}">${money(value)}</text>`;
+      }).join('')}</svg>`;
+    }
+
+    function renderCandidateBars(container, model) { renderCostBars(container, { ...model, colors: ['blue', 'amber'] }); }
+
+    function renderView(view) {
+      $('#metric-grid').innerHTML = view.metrics;
+      $('#ladder-steps').innerHTML = view.ladder;
+      $('#interpretation-text').textContent = view.interpretation;
+      $('#trap-grid').innerHTML = view.traps.map(([title, text]) => `<div class="trap"><strong>${title}</strong>${text}</div>`).join('');
+      if (view.inventory.type === 'epq') {
+        renderEpqTriangle($('#inventory-svg'), view.inventory);
+        $('#inventory-summary').textContent = 'Inventory builds only while production runs, then demand depletes the peak.';
+      } else {
+        renderEoqSawtooth($('#inventory-svg'), view.inventory);
+        $('#inventory-summary').textContent = 'Instant replenishment creates a repeating sawtooth with average inventory Q/2.';
+      }
+      if (view.costs.type === 'candidates') renderCandidateBars($('#cost-svg'), view.costs); else renderCostBars($('#cost-svg'), view.costs);
+      $('#cost-summary').textContent = 'Bars use the current unrounded calculations; labels show rounded display values.';
+    }
+
+    function clearErrors() {
+      $$('.field-error').forEach((node) => { node.textContent = ''; });
+      $$('#input-fields input').forEach((input) => input.removeAttribute('aria-invalid'));
+      $('#validation-summary').innerHTML = '';
+    }
+
+    function showFieldError(error) {
+      const message = error.message || String(error);
+      const routes = [
+        [/warehouse count/i, ['warehouseCount']],
+        [/demand per warehouse/i, ['demandPerWarehouse']],
+        [/production rate/i, ['productionRate', 'productionRatePerPeriod']],
+        [/maximum inventory/i, ['maximumInventory']],
+        [/batch size|current batch/i, ['currentBatch']],
+        [/improvement/i, ['improvementPercent']],
+        [/previous cost/i, ['previousCost']],
+        [/initial inventory/i, ['initialInventory']],
+        [/lead time/i, ['leadTime']],
+        [/horizon/i, ['horizonPeriods']],
+        [/periods per year/i, ['periodsPerYear']],
+        [/setup cost/i, ['setupCost']],
+        [/holding cost/i, ['holdingCost']],
+        [/demand/i, ['demand', 'demandPerWarehouse']],
+      ];
+      const route = routes.find(([pattern]) => pattern.test(message));
+      const fieldName = route && route[1].find((name) => document.querySelector(`[name="${name}"]`));
+      if (!fieldName) return;
+      const input = document.querySelector(`[name="${fieldName}"]`);
+      const errorNode = document.querySelector(`#error-${fieldName}`);
+      input.setAttribute('aria-invalid', 'true');
+      if (errorNode) errorNode.textContent = message;
+    }
+
+    function update() {
+      clearErrors();
+      const preset = presets[activeKey];
+      $('#workflow-kicker').textContent = preset.kicker;
+      $('#result-title').textContent = preset.title;
+      $('#workflow-purpose').textContent = preset.purpose;
+      try {
+        const values = getValues();
+        const data = calculate(activeKey, values);
+        renderView(workflowView(activeKey, data, values));
+      } catch (error) {
+        showFieldError(error);
+        $('#validation-summary').innerHTML = `<p class="status-error">${error.message}</p>`;
+        $('#metric-grid').innerHTML = '';
+        $('#ladder-steps').innerHTML = '';
+        $('#inventory-svg').innerHTML = '';
+        $('#cost-svg').innerHTML = '';
+        $('#interpretation-text').textContent = 'Correct the input before interpreting the workflow.';
+        $('#trap-grid').innerHTML = '';
+      }
+    }
+
+    function selectWorkflow(key) {
+      activeKey = key;
+      $$('.workflow-button').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.workflow === key)));
+      renderInputs();
+      update();
+    }
+
+    function updateRouter() {
+      const demand = $('#router-demand').value;
+      const supply = $('#router-supply').value;
+      const horizon = $('#router-horizon').value;
+      const timing = $('#router-timing').value;
+      let answer;
+      if (demand === 'uncertain') answer = 'Use Newsvendor for a one-time uncertain commitment. EOQ/EPQ is not the right calculation branch.';
+      else if (supply === 'finite') answer = 'Use EPQ. Production is gradual, inventory builds at p - lambda, and holding cost uses Imax/2.';
+      else if (horizon === 'finite') answer = 'Use finite-horizon EOQ. Compute m-hat, test its floor and ceiling, then choose an integer order count.';
+      else if (timing === 'timing') answer = 'Use basic EOQ for Q*, then add initial-inventory and reorder-point timing.';
+      else answer = 'Use basic EOQ: stable recurring demand with instantaneous replenishment.';
+      $('#router-answer').textContent = answer;
+    }
+
+    function runSelfTests() {
+      const checks = [];
+      const close = (a, b) => Math.abs(a - b) < 0.03;
+      try { checks.push(close(api.basicEoq({ demand: 9600, setupCost: 80, holdingCost: 6 }).quantity, 505.9644)); } catch (_) { checks.push(false); }
+      try { checks.push(api.finiteHorizonEoq({ demand: 8000, setupCost: 10, holdingCost: 2, horizonPeriods: 5, periodsPerYear: 52 }).optimal.orders === 3); } catch (_) { checks.push(false); }
+      try { checks.push(close(api.epq({ demand: 12000, productionRate: 60000, setupCost: 500, holdingCost: 4, periodsPerYear: 52 }).quantity, 1936.49)); } catch (_) { checks.push(false); }
+      try { api.epq({ demand: 100, productionRate: 100, setupCost: 10, holdingCost: 2 }); checks.push(false); } catch (_) { checks.push(true); }
+      const passed = checks.filter(Boolean).length;
+      const status = $('#self-test-status');
+      status.textContent = `Internal formula checks passed: ${passed}/${checks.length}`;
+      status.className = 'self-test ' + (passed === checks.length ? 'pass' : 'fail');
+    }
+
+    $$('.workflow-button').forEach((button) => button.addEventListener('click', () => selectWorkflow(button.dataset.workflow)));
+    $('#reset-workflow').addEventListener('click', () => selectWorkflow(activeKey));
+    ['#router-demand', '#router-supply', '#router-horizon', '#router-timing'].forEach((selector) => $(selector).addEventListener('change', updateRouter));
+    updateRouter();
+    selectWorkflow(activeKey);
+    runSelfTests();
+  }());
+  </script>
+</body>
+</html>
