@@ -2,7 +2,7 @@
 
 This file aggregates the Finance and Investment Management concepts learned so far. It is lecture-scoped only.
 
-Last updated: 2026-06-06
+Last updated: 2026-06-24
 
 ## Course-Level Mermaid Graph
 
@@ -48,18 +48,27 @@ graph TD
     PAYBACK -->|ignores| TVM[Time Value Of Money]
 
     IA -->|requires cash-flow construction from| CBUD[Capital Budgeting]
-    CBUD -->|builds| FCF[Free Cash Flow]
-    FCF -->|starts from| EBIT[EBIT]
-    FCF -->|adds back| DEP[Depreciation]
+    CBUD -->|starts from| ASSUMP[Business And Investment Assumptions]
+    ASSUMP -->|forecasts operating profit as| EBIT[EBIT]
+    ASSUMP -->|sets accounting allocation| DEP[Depreciation]
+    ASSUMP -->|sets long-term investment| CAPEX[CapEx]
+    ASSUMP -->|sets operating cash need| DNWC[Delta Net Working Capital]
+    ASSUMP -->|filtered by decision causality| INC[Incremental Cash Flow]
+    INC -->|produces dated| FCF[Free Cash Flow]
+    EBIT -->|feeds| FCF
+    DEP -->|is added back into| FCF
     DEP -->|creates| DTS[Depreciation Tax Shield]
-    FCF -->|subtracts| CAPEX[CapEx]
-    FCF -->|subtracts| DNWC[Delta Net Working Capital]
-    CBUD -->|filters by| INC[Incremental Cash Flow]
+    CAPEX -->|reduces| FCF
+    DNWC -->|adjusts| FCF
     INC -->|includes| OPCOST[Opportunity Cost]
     INC -->|excludes| SUNK[Sunk Cost]
     INC -->|includes| CANN[Cannibalization]
-    CBUD -->|stress-tests with| CRISK[Break-Even Sensitivity Scenario]
-    FCF -->|discounted by| NPV
+    FCF -->|discounted into| NPV
+    NPV -->|stress-tested with| CRISK[Break-Even Sensitivity Scenario]
+    CRISK -->|rebuilds| SFCF[Scenario-Specific FCF]
+    SFCF -->|produces| NMAT[NPV Matrix]
+    NMAT -->|reveals| RANK[Ranking Stability]
+    RANK -->|supports| RDEC[Robust Project Decision]
 
     CBUD -->|needs required return from| COC[Cost Of Capital]
     COC -->|equity estimate| CAPM[CAPM]
@@ -104,6 +113,15 @@ graph TD
     RED -->|constant principal repayment| INST[Installment Repayment]
     RED -->|constant total payment| AREP[Annuity Repayment]
     RED -->|may include| GRACE[Payment-Free Periods]
+    GRACE -->|interest paid keeps| RBASE[Repayment Base]
+    GRACE -->|capitalized interest grows| RBASE
+    RBASE -->|sets payment size in| AREP
+    RED -->|schedules| FINCF[Financing Cash Flows]
+    CBUD -->|values| OPCF[Operating Project FCF]
+    OPCF -->|excludes under WACC| FINCF
+    NPV -->|supports project decision before| FMIX[Financing Mix]
+    FMIX -->|debt terms modeled by| RED
+    FINCF -->|tests| LIQTEST[Debt-Service Liquidity]
 
     TVM -->|prices promised cash flows of| BONDS[Bonds]
     BONDS -->|only face value at maturity| ZB[Zero-Coupon Bond]
@@ -156,13 +174,14 @@ graph LR
 | Financial Analysis | `finance-and-investment-management/wiki/session-01-02-financial-analysis/session-01-02-financial-analysis.md` | Decision questions to statements, ratios, ROIC/ROE, and valuation interpretation | 2026-05-25 |
 | Fundamental Analysis Excursus | `finance-and-investment-management/wiki/session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` | M/B, P/E, and F-Score as value-opportunity vs value-trap signals | 2026-05-25 |
 | Investment Analysis | `finance-and-investment-management/wiki/session-03-04-investment-analysis/session-03-04-investment-analysis.md` | NPV as master rule; IRR/payback/PI as limited alternatives | 2026-05-16 |
-| Capital Budgeting | `finance-and-investment-management/wiki/session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` | FCF construction, incremental-cash-flow filter, and risk analysis behind NPV | 2026-06-06 |
-| Cost Of Capital | `finance-and-investment-management/wiki/session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` | CAPM, beta, project risk matching, debt cost, and WACC | 2026-06-06 |
+| Capital Budgeting | `finance-and-investment-management/wiki/session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` | Slide-backed HomeNet cases: assumptions -> incremental FCF -> corrected NPV -> alternatives and risk analysis | 2026-06-14 |
+| Cost Of Capital | `finance-and-investment-management/wiki/session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` | CAPM, beta, project risk matching, debt cost, WACC, and the bridge from project value to debt-service testing | 2026-06-14 |
 | Capital Structure | `finance-and-investment-management/wiki/session-09-10-capital-structure/session-09-10-capital-structure.md` | MM I/II without taxes, leverage, WACC offset, EPS/dilution fallacies | 2026-06-06 |
 | Capital Structure And Taxes | `finance-and-investment-management/wiki/session-11-12-capital-structure-and-taxes/session-11-12-capital-structure-and-taxes.md` | Interest tax shield, after-tax WACC, distress costs, static trade-off theory | 2026-06-06 |
 | Interest Calculation | `finance-and-investment-management/wiki/exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` | Time value of money and compounding | 2026-05-16 |
-| Annuities | `finance-and-investment-management/wiki/exercise-03-04-annuities/exercise-03-04-annuities.md` | Repeated payments by timing and growth pattern | 2026-05-16 |
-| Redemptions | `finance-and-investment-management/wiki/exercise-05-redemptions/exercise-05-redemptions.md` | Loan payment split into interest and principal | 2026-05-16 |
+| Annuities | `finance-and-investment-management/wiki/exercise-03-04-annuities/exercise-03-04-annuities.md` | Repeated payments by timing, growth pattern, and loan-redemption timing bridge | 2026-06-24 |
+| Redemptions | `finance-and-investment-management/wiki/exercise-05-redemptions/exercise-05-redemptions.md` | Full Exercise 5 solutions: installment, annuity, maturity, grace-period repayment base, annuity timing, and student-loan alternatives | 2026-06-24 |
+| Redemptions-Capital Budgeting Bridge | `finance-and-investment-management/wiki/exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` | Project operating value versus financing cash-flow schedule, annuity timing, and debt-service feasibility | 2026-06-24 |
 | Bonds I | `finance-and-investment-management/wiki/exercise-06-bonds-i/exercise-06-bonds-i.md` | Bond price as discounted promised cash flows, coupon bonds, accrued interest, and YTM | 2026-06-06 |
 
 ## Nodes
@@ -186,6 +205,13 @@ graph LR
 | Incremental cash flow | Cash flow that changes because the project is accepted | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
 | Depreciation tax shield | Tax saving from non-cash depreciation | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
 | Delta NWC | Change in operating working capital used in FCF | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| NPV matrix | Alternative NPVs across coherent downside, base, and upside assumptions | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Ranking stability | Whether the preferred project remains preferred across reasonable assumptions | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Operating project FCF | Incremental cash flow before financing used in WACC-based project valuation | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Financing mix | Proposed combination of debt, equity, and other funding used to implement an accepted project | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
+| Redemption schedule | Period-by-period interest, principal repayment, total payment, and remaining debt | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| Financing cash flow | Borrowing, interest, and principal transfers between firm and capital providers | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
+| Debt-service liquidity | Ability to meet interest and principal payments when due | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
 | Cost of capital | Required return for same-risk investment | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | CAPM | Required-return model based on beta and market risk premium | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | Beta | Market-risk sensitivity priced in CAPM | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
@@ -200,7 +226,11 @@ graph LR
 | Effective annual rate | Actual annual rate after compounding | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Periodic rate | Rate per compounding period, matched to number of periods | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Annuity | Repeated cash-flow stream | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
+| Annuity-immediate | Repeated payments at period end | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
+| Annuity-due | Repeated payments at period beginning | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
 | Redemption | Loan repayment calculation | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| Repayment base | Debt balance used to calculate the post-grace annuity payment | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| Capitalized interest | Unpaid interest added to loan principal during grace | `exercise-05-redemptions/exercise-05-redemptions.md` |
 | Bond | Debt security with promised payments | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Duration | Interest-rate sensitivity measure | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Accrued interest | Pro-rata coupon compensation between coupon dates | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
@@ -225,6 +255,16 @@ graph LR
 | Incremental cash-flow filter | excludes | sunk costs and financing costs | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
 | Depreciation | creates | depreciation tax shield | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
 | Delta NWC | adjusts | free cash flow | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Business and investment assumptions | are filtered into | incremental cash flow | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Incremental cash flow | produces | project free cash flow | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Scenario-specific FCF | produces | NPV matrix | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| NPV matrix | reveals | ranking stability | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Capital budgeting | values | operating project FCF | `session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` |
+| Positive NPV decision | precedes or is finalized alongside | financing mix design | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
+| Financing mix | supplies debt terms to | redemption schedule | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
+| Redemptions | schedules | financing cash flows | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| WACC-based valuation | excludes from project FCF | loan interest and principal | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
+| Redemption schedule | tests | debt-service liquidity | `exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` |
 | Cost of capital | discounts | free cash flow | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | CAPM | estimates | equity cost of capital | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | Beta | measures | systematic market risk | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
@@ -241,6 +281,10 @@ graph LR
 | Periodic rate | must match | number of periods | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Interest calculation | supports | annuities | `exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` |
 | Annuity formulas | support | redemption calculations | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
+| Annuity-due | occurs earlier than | annuity-immediate | `exercise-03-04-annuities/exercise-03-04-annuities.md` |
+| Grace period | determines | repayment base | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| Capitalized interest | increases | repayment base | `exercise-05-redemptions/exercise-05-redemptions.md` |
+| Repayment base | determines | post-grace annuity payment | `exercise-05-redemptions/exercise-05-redemptions.md` |
 | Bond pricing | uses | discounted cash flow | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Higher discount rate | lowers | bond price | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Accrued interest | is added to | clean bond price | `exercise-06-bonds-i/exercise-06-bonds-i.md` |

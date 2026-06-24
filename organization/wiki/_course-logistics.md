@@ -8,6 +8,7 @@ Do not include this logistics content in Organization Mermaid diagrams, subject 
 
 Source: `organization/raw/00_TUM_Organization_Introduction.pdf`
 
+- Exam date: **2026-08-06** (user-provided on 2026-06-13).
 - Exam language: English.
 - Duration: 60 minutes.
 - Scope: everything covered in the course is relevant, including the guest lecture.
@@ -26,6 +27,7 @@ Study implication:
 - Prepare definitions plus application to cases.
 - Build compare/contrast answers, especially for alternative organizational arrangements and contingency logic.
 - Preserve exercise/case logic in topic notes because applied exercises are examinable.
+- Organization is the latest of the five currently dated exams. Maintain prerequisite progress now, but allocate the earliest intensive first-pass capacity to SCM and Marketing.
 
 ## Schedule And Administration
 
@@ -87,3 +89,15 @@ Each listed session includes lecture plus exercise.
 - Hatch, M. J. (2018). *Organization Theory: Modern, Symbolic, and Postmodern Perspectives* (4th ed.). Oxford University Press.
 - Clegg, S. R., Pitsis, T. S., & Mount, M. (2025). *Managing and Organizations: An Introduction to Theory and Practice* (7th ed.). Sage.
 - Schreyögg, G., & Geiger, D. (2024). *Organisation: Grundlagen moderner Organisationsgestaltung* (7th ed.). Springer.
+
+## Moodle Export Update 2026-06-13
+
+The user-provided export was preserved under `organization/raw/moodle-export-organization-950938225-s26-20260613/`.
+
+| Course week | Source files | Wiki handling |
+|---|---|---|
+| 2026-06-01 to 2026-06-07 | `07_TUM_Informal_Organization_Part_1.pdf` | Integrated into Sessions 07-08 Informal Organization |
+| 2026-06-08 to 2026-06-14 | `08_TUM_Informal_Organization_Part_2.pdf`; Motorica culture, knowledge, and conflict case PDFs | Integrated theory and three case lenses into Sessions 07-08 Informal Organization |
+| 2026-06-15 to 2026-06-21 | `09_TUM_Dynamic_Perspectives.pdf` | Created Session 09 Dynamic Perspectives with enriched explanations of the six gallery-walk frameworks |
+
+No new exam-format rule was introduced by these files. The Session 09 deck repeats the guest-lecture announcement already recorded above.

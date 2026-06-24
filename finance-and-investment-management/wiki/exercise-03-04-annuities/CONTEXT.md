@@ -37,6 +37,35 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Growing Annuity** | A payment stream that changes at a constant growth rate for a finite horizon. | arithmetic annuity |
 | **Arithmetic Annuity** | A payment stream that changes by a fixed amount each period. | growing annuity |
 
+## Redemption Bridge Language
+
+| Term | Definition | Aliases to avoid |
+|---|---|---|
+| **Loan Annuity Payment** | Equal periodic payment used to repay debt in a redemption schedule. | project FCF |
+| **Repayment Base** | Debt balance used as the input for the loan annuity formula. | original loan always |
+| **Capitalized Interest** | Unpaid interest added to principal, increasing the repayment base. | interest-free grace |
+
+Key bridge:
+
+```text
+Grace period changes the repayment base.
+Annuity-immediate/due changes payment timing.
+```
+
+For the same payment amount:
+
+```text
+PV_due = PV_immediate x (1 + r)
+```
+
+For the same loan balance:
+
+```text
+A_due = A_immediate / (1 + r)
+```
+
+In Capital Budgeting, loan annuity payments are financing cash flows. Under WACC valuation, they are tested separately in Redemptions rather than inserted into project FCF.
+
 ## Relationships
 
 - **Cash Flow** should be distinguished from **Present Value** when writing exam answers.
@@ -45,6 +74,9 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 - **Discount Rate** should be distinguished from **Compounding** when writing exam answers.
 - **Compounding** should be distinguished from **Net Present Value** when writing exam answers.
 - **Net Present Value** should be distinguished from **Internal Rate of Return** when writing exam answers.
+- **Annuity-Due** has higher **Present Value** than **Annuity-Immediate** for the same payment amount because payments occur earlier.
+- A larger **Repayment Base** causes a higher **Loan Annuity Payment** when rate, maturity, and timing stay unchanged.
+- **Capitalized Interest** increases the **Repayment Base** before annuity repayment begins.
 - A strong answer defines the canonical term, applies the rule or formula, and states the managerial, legal, or analytical implication.
 
 ## Visual Memory Aid
@@ -64,6 +96,11 @@ flowchart TD
     N5 --> N6
     N7[Internal Rate of Return]
     N6 --> N7
+    N8[Annuity-Immediate]
+    N9[Annuity-Due]
+    N8 -->|payments one period later than| N9
+    N10[Repayment Base]
+    N10 -->|sets| N11[Loan Annuity Payment]
 ```
 
 ## Example Dialogue
@@ -91,10 +128,14 @@ flowchart TD
 | Treating examples as definitions. | Use examples only after the canonical definition is clear. |
 | Mixing related terms. | State the boundary between the terms before comparing them. |
 | Copying a formula without variable meaning. | Define each variable and unit before substitution. |
+| Treating annuity-due as only a lower payment. | State that the first payment occurs earlier, so early cash pressure can increase. |
+| Inserting loan annuity payments into WACC project NPV. | Keep them in the redemption schedule and compare separately against project FCF timing. |
 
 ## Cheat-Sheet Language
 
 ```text
 Draw the timeline, identify cash flows, choose the rate convention, compute at one date, then interpret the decision rule.
+Annuity-immediate pays at period end; annuity-due pays at period beginning.
+Grace changes the repayment base; timing changes the annuity factor.
 For every technical term: define it, identify when it applies, and state the common confusion to avoid.
 ```

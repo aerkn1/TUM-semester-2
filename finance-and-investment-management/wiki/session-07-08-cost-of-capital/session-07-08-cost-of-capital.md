@@ -293,6 +293,16 @@ Interpretation:
 - With taxes, WACC is below the expected return on assets because interest is tax deductible.
 - WACC can evaluate a project with the same risk and same financing policy as the firm.
 
+### Bridge From Capital Budgeting To Redemptions
+
+Keep the three roles separate:
+
+1. **Capital Budgeting** forecasts incremental operating FCF and asks whether the project creates value.
+2. **Cost Of Capital** supplies the risk-matched required return, such as WACC, used to discount that FCF.
+3. **Redemptions** uses the contractual loan rate and repayment terms to test whether a proposed debt structure can be serviced.
+
+WACC is therefore not the project's forecast and not the loan installment rate. A positive NPV does not by itself prove that every debt schedule is affordable, while an affordable debt schedule does not prove that the project creates value. Financing feasibility may be tested alongside final project approval, but the two questions must remain analytically separate.
+
 ## Exam Relevance
 
 Likely prompts:

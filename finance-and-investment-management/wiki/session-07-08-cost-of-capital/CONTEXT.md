@@ -52,6 +52,8 @@ Required return = time value baseline + compensation for systematic market risk.
 | **Debt Beta** | Market-risk sensitivity of debt returns. | credit rating |
 | **WACC** | Weighted average cost of equity and after-tax debt, using market-value weights. | average accounting cost |
 | **After-Tax Debt Cost** | Debt cost multiplied by `(1 - corporate tax rate)` because interest is tax deductible. | pre-tax debt cost |
+| **Contractual Loan Rate** | Interest rate specified for a particular loan and used to calculate that loan's interest and redemption payments. | WACC |
+| **Redemption Schedule** | Contractual timing of loan interest and principal repayments used to test debt-service feasibility. | project FCF forecast |
 
 WACC formula:
 
@@ -78,6 +80,8 @@ r_WACC = r_E x E/(E + D) + r_D x D/(E + D) x (1 - tau_c)
 - **CAPM** uses **Beta**, not **Volatility**, because diversified investors are compensated for **Systematic Risk**.
 - **Yield To Maturity** equals expected return only when promised payments are close to expected payments.
 - **WACC** combines **Equity Cost Of Capital** and **Debt Cost Of Capital** with market-value weights.
+- **Capital Budgeting** supplies incremental operating FCF, **WACC** discounts it when appropriate, and a **Redemption Schedule** separately models contractual debt service.
+- A **Contractual Loan Rate** is one financing input; it is not the same as **WACC**, which blends debt and equity required returns.
 - **Equity Beta** must be **Unlevered** to estimate **Asset Beta** for business risk.
 - **Operating Leverage** raises **Project Cost Of Capital** when fixed costs make project cash flows more market-sensitive.
 

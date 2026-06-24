@@ -12,6 +12,7 @@ Course label in source: Production and Logistics (HN), Exam Rules and Informatio
 
 Exam rules:
 
+- Exam date: **2026-07-20** (user-provided on 2026-06-13).
 - Duration: 2 hours.
 - Format: onsite only.
 - Platform: Moodle examination page.
@@ -74,6 +75,7 @@ Study implication:
 - Because Type A includes numerical calculation, formula setup, units, and interpretation must be practiced without Excel.
 - Because one handwritten one-page cheat sheet is allowed, future notes should identify cheat-sheet candidates: formulas, decision rules, process maps, and common traps.
 - Because Type B can have several correct options, practice should include "select all that apply" prompts and trap explanations.
+- SCM is the earliest currently dated exam. After overdue checkpoint repairs, it receives first claim on new-topic and sample-exam practice slots, while preserving the process/inventory/network prerequisite order.
 
 ## Schedule And Administration
 

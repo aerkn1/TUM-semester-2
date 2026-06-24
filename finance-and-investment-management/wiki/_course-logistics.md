@@ -26,6 +26,7 @@ Administrative/logistical content is preserved here and excluded from subject Me
 
 - Grade composition: 100% written final exam.
 - Exam date: 2026-08-03, 08:30-10:30.
+- The exam date was independently confirmed by the user on 2026-06-13.
 - Duration: 120 minutes.
 - Format: multiple choice.
 - Closed-notes.
@@ -104,3 +105,4 @@ The export suggests the live upload order may differ from the earlier schedule t
 - Because the exam is 100% written final exam and all lectures/exercises count, both conceptual interpretation and calculation fluency matter.
 - The formulary reduces formula memorization pressure but does not remove the need to recognize the correct formula, map variables, handle timing, and interpret the result.
 - Highest-value early sequence: financial statement analysis, interest calculation, annuities, investment analysis, redemptions, bonds.
+- Finance is the fourth exam in the current sequence. Keep overdue calculation repairs active, then expand the two independent tracks steadily after SCM, Marketing, and Business Law have received their nearer-exam coverage slots.

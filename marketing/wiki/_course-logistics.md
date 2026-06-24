@@ -8,6 +8,7 @@ Do not include this logistics content in Marketing Mermaid diagrams, subject kno
 
 Source: `marketing/raw/2026_Master Overview.pdf`
 
+- Exam date: **2026-07-22** (user-provided on 2026-06-13).
 - Grading is based on a written examination of 90 minutes.
 - Written exam counts 100% of the grade.
 - A non-programmable calculator is allowed.
@@ -19,6 +20,7 @@ Study implication:
 - Treat lecture slides and in-class discussed papers as examinable.
 - Preserve research-paper prompts inside the relevant topic notes because they may become application or interpretation questions.
 - Build exam answers around definitions, frameworks, examples, and managerial implications.
+- Marketing is the second exam, two days after SCM. Keep Chapter 01 -> 02 -> 03 -> 04 -> 05 prerequisite order and alternate new Marketing coverage with SCM once overdue repairs are controlled.
 
 ## Schedule And Administration
 

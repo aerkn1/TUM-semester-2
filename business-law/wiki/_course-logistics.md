@@ -58,7 +58,7 @@ This file should support legal rule lookup and statutory references in future no
 
 ## Exam Information
 
-No exam date, exam format, grading weight, duration, allowed materials, or retake information was found in the extracted text of `Week 1 and 2 - Introduction.pdf`.
+- Exam date: **2026-07-28** (user-provided on 2026-06-13).
+- Exam format, grading weight, duration, allowed materials, and retake information were not found in the extracted text of `Week 1 and 2 - Introduction.pdf`.
 
-Add those details here when another Moodle document or announcement provides them.
-
+Planning implication: Business Law is the third exam in the current sequence, after Supply Chain Management and Marketing. Preserve legal prerequisite order and overdue repairs, but complete pending doctrine coverage before shifting into full-case integration and statute-routing practice.
