@@ -41,6 +41,38 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Market-to-Book Ratio** | Market value of equity divided by book value of equity; market value relative to accounting equity. | book-to-market, price only |
 | **Enterprise Value** | Market value of equity plus debt minus cash; value of the operating business available to debt and equity providers. | market cap |
 
+## Worked Ratio Calculation Language
+
+Every ratio calculation should show:
+
+```text
+Decision question -> ratio family -> numerator and denominator -> substitution -> ratio -> interpretation -> limitation
+```
+
+Mini anchors:
+
+```text
+Market capitalization = shares outstanding x share price
+= 5,000,000 x EUR 22
+= EUR 110,000,000
+
+Market-to-book = market equity / book equity
+= 110,000,000 / 50,000,000
+= 2.20
+```
+
+```text
+Current ratio = current assets / current liabilities
+= 120,000 / 80,000
+= 1.50
+
+Quick ratio = (cash + receivables) / current liabilities
+= (20,000 + 30,000) / 80,000
+= 0.625
+```
+
+Interpretation: ratios are lenses, not verdicts. Analogy: a dashboard warning light tells where to inspect, not the full repair diagnosis. Trap: calculating a ratio and stopping before naming the decision it supports and what evidence is still missing.
+
 ## Relationships
 
 - **Income Statement** shows performance, **Balance Sheet** shows position, and **Cash Flow Statement** checks cash reality.

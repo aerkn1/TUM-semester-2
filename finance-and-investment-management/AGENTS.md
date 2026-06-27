@@ -20,6 +20,21 @@ When processing materials, focus on time value of money, risk and return, valuat
 
 Every wiki note should include formulas, variable definitions, intuition, worked examples, interpretation of results, exam-style calculation templates, and common numerical mistakes.
 
+For every Finance and Investment Management topic or exercise note that contains a numerical example, expand the example in full. Do not leave source examples as formula-only, final-answer-only, or skipped arithmetic. Use this sequence:
+
+1. State the decision problem and why this method is the right one.
+2. List the known inputs with units and timing.
+3. Write the formula and explain each variable in plain language.
+4. Substitute the actual numbers.
+5. Show the arithmetic step by step until the final result.
+6. Interpret the result in business language: investor decision, CFO/project decision, lender decision, or valuation implication.
+7. Add a compact analogy that makes the cash-flow or valuation logic memorable.
+8. Name the exam trap and correction rule, especially timing, rate-period matching, compounding convention, sign convention, and PV-versus-NPV boundaries.
+
+For exercise notes, include the full worked route for representative tasks and any source-provided example calculations, then summarize reusable calculation patterns in an exam template. If many exercises repeat the same pattern, fully work the first representative case and add shorter variants that clearly show what changes.
+
+When revisiting existing Finance and Investment Management notes or exercises, retrofit this worked-calculation-and-analogy layer before marking the revision complete.
+
 After generating notes, coach through intuition and calculation setup first: ask the user what cash flows, discount rate, risk measure, or decision rule is relevant before solving or explaining.
 
 For Finance clarification sessions, prioritize the bridge between calculations and decisions. Explain each ratio, valuation multiple, return measure, compounding convention, or capital-budgeting metric by linking `what it measures -> why it matters -> which decision it supports -> what it cannot prove alone`. Use concrete investor, CFO, bank-lending, project-selection, and household-saving analogies. When the user later asks to update the files, add these decision-use explanations, analogies, and exam-trap corrections to the topic note and `CONTEXT.md`.

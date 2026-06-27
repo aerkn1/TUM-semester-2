@@ -27,6 +27,8 @@ A bakery considers buying an industrial oven for EUR 100,000.
 
 The oven is expected to generate incremental operating FCF of EUR 30,000 per year for five years. Assume a project WACC of 10%.
 
+The worked route below uses the expanded calculation standard: define the decision, state inputs, choose the formula, substitute values, show arithmetic, interpret the result, then name the trap.
+
 ### Stage 1: Capital Budgeting
 
 ```text

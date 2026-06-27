@@ -77,6 +77,8 @@ flowchart TD
 
 ## Worked Bridge Example
 
+Use the full route: project question, annuity pattern, formula choice, substitution, arithmetic, NPV decision, and exam trap.
+
 Project:
 
 - Initial investment today: EUR 1,000

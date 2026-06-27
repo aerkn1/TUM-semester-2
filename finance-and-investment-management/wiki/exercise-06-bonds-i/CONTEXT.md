@@ -57,6 +57,32 @@ This file is a standalone terminology and formula companion for bond valuation, 
 | `Settlement price = clean price + accrued interest` | Simplified cash paid by buyer | Distinguish quoted price from final payment. |
 | `Delta B_0 / B_0 approx -D_mod x Delta r` | Modified-duration approximation | Estimate small yield-change price effect. |
 
+## Worked Calculation Language
+
+Every bond calculation should show:
+
+```text
+Bond type -> promised cash flows -> discount rate/yield -> PV of each piece -> price or sensitivity -> investor interpretation
+```
+
+Mini anchors:
+
+```text
+Zero-coupon bond: face = EUR 100, N = 20, r = 6.75%.
+B_0 = 100 / 1.0675^20
+1.0675^20 = 3.69282
+B_0 = EUR 27.08
+```
+
+```text
+Coupon bond: face = EUR 100, coupon = EUR 4, N = 3, r = 5%.
+B_0 = 4/1.05 + 4/1.05^2 + 104/1.05^3
+B_0 = 3.81 + 3.63 + 89.84
+B_0 = EUR 97.28
+```
+
+Interpretation: bond price is not "coupon rate times face value"; it is the PV of all promised payments. Analogy: price the bond by pricing each future package on the delivery calendar, then adding the packages. Trap: forgetting the face value in the final-period cash flow.
+
 ## Relationships
 
 - **Bond Price** equals the **Present Value** of promised bond cash flows.

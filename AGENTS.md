@@ -74,6 +74,7 @@ Every generated wiki note should be useful as a standalone study source. Include
 - High-yield 80/20 summary.
 - Core concepts and definitions.
 - Step-by-step explanations of mechanisms, frameworks, formulas, legal tests, or decision rules.
+- For quantitative topics or exercises, full worked example calculations: method choice, known inputs, formula, substitution, arithmetic, units, result interpretation, decision consequence, and a concrete real-world analogy. This is required for Finance and Investment Management topics and exercise notes, matching the expanded calculation style used for SCM.
 - Real-life examples that make abstract ideas memorable.
 - Exam relevance: what is likely to be asked, how it may be framed, and common mistakes.
 - Links to previous or future related wiki notes when available.
@@ -236,6 +237,7 @@ For formula-heavy and metric-heavy topics, wiki refinements after clarification 
 - why a manager, investor, lawyer, marketer, or operations decision-maker would use it
 - what decision it supports
 - what it cannot prove on its own
+- at least one fully worked calculation when the topic is quantitative, including formula choice, substitution, arithmetic, units, and interpretation
 - a compact real-world analogy
 - the common exam trap and correction rule
 

@@ -126,6 +126,32 @@ Include opportunity costs and externalities.
 | Accelerated depreciation | HomeNet NPV approximately USD 5.34m | Earlier tax shields have higher PV |
 | Pricing scenario | Current strategy NPV USD 5.027m is highest | Price and volume must be changed together |
 
+## Worked Calculation Language
+
+Every capital-budgeting calculation should show:
+
+```text
+Business story -> incremental filter -> FCF formula -> yearly arithmetic -> NPV -> managerial decision -> trap
+```
+
+Mini anchor:
+
+```text
+Revenue = 500,000
+Operating cost = 300,000
+Depreciation = 50,000
+Tax rate = 30%
+CapEx = 0 in this year
+Delta NWC = +20,000
+
+EBIT = 500,000 - 300,000 - 50,000 = 150,000
+After-tax EBIT = 150,000 x (1 - 0.30) = 105,000
+FCF = 105,000 + 50,000 - 0 - 20,000
+FCF = EUR 135,000
+```
+
+Interpretation: the project produced EUR 135,000 of operating FCF for valuation before financing payments. Analogy: separate the factory engine from the loan contract that financed the factory. Trap: subtracting interest in FCF and also using WACC.
+
 ## Relationships
 
 - **Capital Budgeting** uses **Free Cash Flow** as the input to **NPV**.

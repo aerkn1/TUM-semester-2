@@ -222,6 +222,146 @@ Interpretation:
 - Longer maturity usually increases duration.
 - Lower coupons usually increase duration because more value is paid later.
 
+## Worked Calculations And Analogies
+
+### Calculation 1: Zero-Coupon Bond Price
+
+Decision problem and method choice:
+
+- A zero-coupon bond has one promised cash flow at maturity.
+- Use single-cash-flow present value.
+
+Known inputs:
+
+```text
+Face value B_N = 100
+Maturity N = 20 years
+Discount rate r = 6.75% = 0.0675
+q = 1.0675
+```
+
+Formula, substitution, and arithmetic:
+
+```text
+B_0 = B_N / q^N
+B_0 = 100 / 1.0675^20
+1.0675^20 = 3.69282
+B_0 = 100 / 3.69282
+B_0 = 27.08
+```
+
+Interpretation: the investor pays 27.08 today for the promise of 100 in 20 years. The return is created by price appreciation toward face value, not by coupon income.
+
+Analogy: a zero bond is a locked box sold at a discount. You buy the box today for 27.08 and it opens at maturity with 100 inside.
+
+Exam trap: do not add coupons to a zero-coupon bond. Its only cash flow is the maturity payment.
+
+### Calculation 2: Coupon Bond Price
+
+Decision problem and method choice:
+
+- A coupon bond is a package of coupon cash flows plus final principal repayment.
+- Value each promised cash flow at the same date and add the PVs.
+
+Known inputs:
+
+```text
+Face value = 100
+Annual coupon = 4
+Maturity = 3 years
+Discount rate = 5%
+q = 1.05
+```
+
+Expanded cash-flow route:
+
+```text
+B_0 = 4/1.05 + 4/1.05^2 + 104/1.05^3
+
+PV coupon year 1 = 4 / 1.05 = 3.81
+PV coupon year 2 = 4 / 1.1025 = 3.63
+PV coupon plus face year 3 = 104 / 1.157625 = 89.84
+
+B_0 = 3.81 + 3.63 + 89.84
+B_0 = 97.28
+```
+
+Interpretation: because the 4% coupon is below the 5% required return, the bond trades below face value.
+
+Analogy: the bond is two products stapled together: a small coupon annuity and a big maturity repayment. Price each piece, then add them.
+
+Exam trap: the final cash flow is not just the coupon. In the final year the investor receives coupon plus face value.
+
+### Calculation 3: Accrued Interest And Settlement Price
+
+Decision problem and method choice:
+
+- A bond sold between coupon dates gives the seller compensation for coupon interest already earned.
+- Add accrued interest to the clean market price to get the simplified settlement price.
+
+Known inputs:
+
+```text
+Annual coupon C = 6
+Days since last coupon = 120
+Day-count convention = 360-day year
+Clean market price = 102
+```
+
+Formula and arithmetic:
+
+```text
+Accrued interest = (120/360) x 6
+Accrued interest = 0.3333 x 6
+Accrued interest = 2.00
+
+Settlement price = clean price + accrued interest
+Settlement price = 102 + 2
+Settlement price = 104
+```
+
+Interpretation: the quoted bond value is 102, but the buyer pays 104 because the seller has earned part of the next coupon.
+
+Analogy: buying a bond between coupon dates is like taking over a rental apartment halfway through the month. The old tenant is compensated for the rent period already earned.
+
+Exam trap: do not confuse clean market price with the cash paid at settlement.
+
+### Calculation 4: Duration Price-Sensitivity Approximation
+
+Decision problem and method choice:
+
+- If the question asks for the approximate price effect of a small yield change, use modified duration.
+
+Known inputs:
+
+```text
+Bond price B_0 = 100
+Macaulay duration D = 4.20
+Yield r = 5%
+Yield change Delta r = +1 percentage point = +0.01
+```
+
+Formula and arithmetic:
+
+```text
+D_mod = D / (1+r)
+D_mod = 4.20 / 1.05
+D_mod = 4.00
+
+Delta B_0 / B_0 approximately = -D_mod x Delta r
+Delta B_0 / B_0 approximately = -4.00 x 0.01
+Delta B_0 / B_0 approximately = -0.04 = -4.00%
+
+Approximate price change = 100 x (-4.00%) = -4.00
+Approximate new price = 96.00
+```
+
+Interpretation: a one percentage point yield increase reduces the bond price by approximately 4%.
+
+Analogy: duration is the bond's interest-rate lever arm. Longer duration gives the rate change more leverage over price.
+
+Exam trap: the sign is negative. Yield up means price down for fixed promised cash flows.
+
 ## Exam Decision Tree
 
 1. Does the bond pay coupons?

@@ -265,11 +265,28 @@ Limitations:
 
 A company with 10 engineers can build either a small software feature with 80% IRR and EUR 100k NPV or a larger platform product with 35% IRR and EUR 2m NPV. IRR sounds better for the small feature, but if the company wants to maximize value and has enough resources, NPV points to the platform.
 
-## Worked Clarification Examples
+## Worked Calculations And Analogies
+
+Each example below follows the full finance calculation route: choose the decision rule, list cash flows and discount rate, substitute values, compute the result, then state the decision and the limitation.
 
 ### Example 1: Normal Stand-Alone Project
 
 Project: buy a machine for EUR 1,000 and receive EUR 450 at the end of each of the next three years. Cost of capital = 10%.
+
+Decision problem and method choice:
+
+- This is a stand-alone accept/reject project.
+- Use NPV as the master rule because it measures euros of value created today.
+
+Known inputs:
+
+```text
+CF_0 = -1,000
+CF_1 = CF_2 = CF_3 = +450
+r = 10% = 0.10
+```
+
+Formula, substitution, and arithmetic:
 
 ```text
 NPV = -1,000 + 450/1.10 + 450/1.10^2 + 450/1.10^3
@@ -281,7 +298,16 @@ Interpretation: after paying investors their required 10% return, the project st
 
 The IRR is about 16.7%. Interpretation: the project can tolerate a discount rate up to about 16.7% before NPV becomes zero. Since `16.7% > 10%`, IRR also says accept.
 
+Analogy: NPV is the leftover value after paying the project's entry ticket and giving capital providers their required return. Here EUR 119.08 is the surplus left on the table today.
+
+Exam trap: do not compare `3 x 450 = 1,350` with `1,000` and call the project good. The three inflows arrive later and must be discounted.
+
 ### Example 2: One-Year IRR Calculation
+
+Decision problem and method choice:
+
+- The question asks for the project's break-even return rate.
+- Because there is one initial outflow and one later inflow, IRR can be solved directly.
 
 ```text
 CF_0 = -100
@@ -294,6 +320,10 @@ IRR = 112/100 - 1 = 12%
 
 Interpretation: positive NPV means value creation. IRR means the project breaks even at 12%. Because the required return is only 10%, the project clears the hurdle.
 
+Analogy: IRR is the hurdle height at which the project just touches the bar. If the market's required hurdle is lower, the project clears it.
+
+Exam trap: IRR is a percentage, not euros of value. For mutually exclusive projects, NPV can still be the better rule.
+
 ### Example 3: Mutually Exclusive Scale Conflict
 
 | Project | Cash Flows | IRR | NPV at 10% |
@@ -302,6 +332,22 @@ Interpretation: positive NPV means value creation. IRR means the project breaks 
 | B | `-1,000, +1,250` | 25% | 136.36 |
 
 IRR favors A because A has the higher percentage return. NPV favors B because B creates more euros of value. If only one can be chosen and the firm can finance either project, choose B.
+
+Expanded arithmetic:
+
+```text
+NPV_A = -100 + 140/1.10
+NPV_A = -100 + 127.27
+NPV_A = 27.27
+
+NPV_B = -1,000 + 1,250/1.10
+NPV_B = -1,000 + 1,136.36
+NPV_B = 136.36
+```
+
+Analogy: Project A is a small snack with a high percentage markup. Project B is a larger meal with a lower percentage markup but more total profit. If the firm can choose only one and capital is available, the bigger euro value matters.
+
+Exam trap: percentage return is not the same as value creation. Scale matters.
 
 ## Exam Decision Tree
 

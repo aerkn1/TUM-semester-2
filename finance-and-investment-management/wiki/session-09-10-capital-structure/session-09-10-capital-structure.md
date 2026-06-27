@@ -260,6 +260,203 @@ Fairly priced equity issuance does not create or destroy value by itself.
 Value changes come from the NPV of what the firm does with the funds.
 ```
 
+## Worked Calculations And Analogies
+
+### Calculation 1: Leveraged Recapitalization Under MM I
+
+Decision problem and method choice:
+
+- The firm changes financing but operating assets do not change.
+- Under MM I without taxes, total firm value stays constant.
+
+Known inputs:
+
+```text
+Initial shares = 50 million
+Initial share price = USD 4
+Debt issued = USD 80 million
+Repurchase price = USD 4 per share
+```
+
+Initial value:
+
+```text
+Unlevered firm value = shares x price
+Unlevered firm value = 50m x 4
+Unlevered firm value = USD 200m
+```
+
+Repurchase:
+
+```text
+Shares repurchased = debt issued / repurchase price
+Shares repurchased = 80m / 4
+Shares repurchased = 20m
+
+Shares remaining = 50m - 20m
+Shares remaining = 30m
+```
+
+Post-recapitalization values under MM I:
+
+```text
+Total firm value = USD 200m
+Debt value = USD 80m
+Equity value = 200m - 80m
+Equity value = USD 120m
+
+Share price = equity value / shares remaining
+Share price = 120m / 30m
+Share price = USD 4
+```
+
+Interpretation: financing changed who has claims on the firm, but it did not make the operating asset pie bigger.
+
+Analogy: the same pizza is cut into debt and equity slices. Changing the slice labels does not enlarge the pizza in a perfect market.
+
+Exam trap: do not treat the debt cash inflow as value creation. It is matched by a debt claim.
+
+### Calculation 2: MM Proposition II And WACC Offset
+
+Decision problem and method choice:
+
+- The firm adds debt, so equity becomes riskier.
+- Use MM II to calculate the levered equity cost and then verify that WACC stays constant in perfect markets.
+
+Known inputs:
+
+```text
+r_U = 10%
+r_D = 5%
+D/E = 1.0
+```
+
+Equity cost:
+
+```text
+r_E = r_U + (D/E) x (r_U - r_D)
+r_E = 10% + 1.0 x (10% - 5%)
+r_E = 15%
+```
+
+If `D/E = 1.0`, then debt and equity each finance half of firm value:
+
+```text
+D/(D+E) = 0.50
+E/(D+E) = 0.50
+```
+
+WACC check:
+
+```text
+r_WACC = r_E x E/(D+E) + r_D x D/(D+E)
+r_WACC = 15% x 0.50 + 5% x 0.50
+r_WACC = 7.5% + 2.5%
+r_WACC = 10%
+```
+
+Interpretation: debt appears cheaper, but equity becomes more expensive. The weighted average remains 10%.
+
+Analogy: adding debt is like putting a spring under the equity claim. Shareholders bounce higher in good states and fall harder in bad states, so they demand a higher expected return.
+
+Exam trap: do not say "debt is cheaper, so WACC must fall" under the no-tax MM benchmark.
+
+### Calculation 3: EPS Fallacy
+
+Decision problem and method choice:
+
+- A debt-financed repurchase raises EPS.
+- Test whether the EPS increase is value creation or just higher equity risk.
+
+Known inputs:
+
+```text
+EBIT = USD 10m
+Initial shares = 10m
+Debt issued = USD 15m
+Interest rate = 8%
+Repurchased shares = 2m
+Shares after repurchase = 8m
+```
+
+Before leverage:
+
+```text
+Earnings = EBIT = USD 10m
+EPS = 10m / 10m
+EPS = USD 1.00
+```
+
+After leverage:
+
+```text
+Interest = 15m x 8%
+Interest = USD 1.2m
+
+Earnings after interest = 10m - 1.2m
+Earnings after interest = USD 8.8m
+
+EPS = 8.8m / 8m
+EPS = USD 1.10
+```
+
+Interpretation: EPS rose from USD 1.00 to USD 1.10, but equity is now riskier because debt holders have a fixed claim. In perfect markets, the higher expected EPS compensates for higher risk and does not automatically raise share price.
+
+Analogy: the remaining shareholders sit in a smaller, riskier boat. They may move faster in calm water, but the boat is more exposed in rough water.
+
+Exam trap: higher EPS is not the same as higher firm value.
+
+### Calculation 4: Fair Equity Issuance
+
+Decision problem and method choice:
+
+- The firm issues shares at fair market value.
+- Check whether value per share changes solely from issuing shares.
+
+Known inputs:
+
+```text
+Initial shares = 500m
+Initial share price = USD 16
+Funds raised = USD 1,000m
+Issue price = USD 16
+```
+
+Before issuance:
+
+```text
+Equity value = 500m x 16
+Equity value = USD 8,000m
+```
+
+New shares:
+
+```text
+New shares = funds raised / issue price
+New shares = 1,000m / 16
+New shares = 62.5m
+```
+
+After issuance:
+
+```text
+New total equity value = old equity value + cash raised
+New total equity value = 8,000m + 1,000m
+New total equity value = USD 9,000m
+
+Total shares = 500m + 62.5m
+Total shares = 562.5m
+
+Share price = 9,000m / 562.5m
+Share price = USD 16
+```
+
+Interpretation: ownership percentage is diluted, but value per share is not diluted if shares are fairly priced and the raised cash is worth exactly what investors paid.
+
+Analogy: the company sells new tickets at the fair price and puts the cash into the company. There are more tickets, but also more cash behind the tickets.
+
+Exam trap: dilution of ownership percentage is not automatically dilution of shareholder value.
+
 ## Conservation Of Value
 
 In perfect capital markets, financial transactions do not add or destroy value. They repackage risk and return.

@@ -40,6 +40,38 @@ Perfect-market WACC:
 r_WACC = r_U = r_A
 ```
 
+## Worked Calculation Language
+
+Every capital-structure calculation should show:
+
+```text
+Perfect-market assumption -> financing transaction -> value of debt and equity -> required-return offset -> value interpretation -> fallacy
+```
+
+Mini anchors:
+
+```text
+MM II without taxes: r_U = 10%, r_D = 5%, D/E = 1.
+r_E = r_U + (D/E) x (r_U - r_D)
+r_E = 10% + 1 x (10% - 5%)
+r_E = 15%
+
+WACC = 0.50 x 15% + 0.50 x 5%
+WACC = 7.50% + 2.50%
+WACC = 10%
+```
+
+```text
+Repurchase under MM I: 50m shares x EUR 4 = EUR 200m firm value.
+Borrow EUR 80m and repurchase shares at EUR 4.
+Shares repurchased = 80m / 4 = 20m.
+Remaining shares = 30m.
+Equity value = 200m - 80m = EUR 120m.
+Price per remaining share = 120m / 30m = EUR 4.
+```
+
+Interpretation: cheap debt does not lower total required return in the perfect-market benchmark because levered equity becomes riskier. Analogy: slicing the same cake into senior and residual claims does not create more cake. Trap: treating higher EPS after leverage as value creation without risk.
+
 ## Risk And Return Language
 
 | Term | Definition | Aliases to avoid |

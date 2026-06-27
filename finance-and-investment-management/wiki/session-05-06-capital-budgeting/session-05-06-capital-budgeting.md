@@ -167,7 +167,19 @@ Example:
 
 Pre-tax illustration:
 WACC = 0.60 x 6% + 0.40 x 16%
-     = 10%
+     = 3.6% + 6.4%
+     = 10.0%
+```
+
+If the same example includes a 25% corporate tax rate, the debt component is after-tax:
+
+```text
+After-tax debt cost = 6% x (1 - 25%)
+                    = 4.5%
+
+After-tax WACC = 0.60 x 4.5% + 0.40 x 16%
+               = 2.7% + 6.4%
+               = 9.1%
 ```
 
 WACC is not the initial project cost and it is not a forecasted cash flow. It is the percentage hurdle used to translate project FCF into present value:
@@ -282,6 +294,18 @@ Assume the factory needs exactly one machine and the first complete base-case fo
 | Annual FCF for three years | EUR 45,000 | EUR 32,000 |
 | NPV at 10% | EUR 11,908 | EUR 9,579 |
 
+Calculation route:
+
+```text
+NPV_A = -100,000 + 45,000/1.10 + 45,000/1.10^2 + 45,000/1.10^3
+NPV_A = -100,000 + 40,909 + 37,190 + 33,809
+NPV_A = EUR 11,908
+
+NPV_B = -70,000 + 32,000/1.10 + 32,000/1.10^2 + 32,000/1.10^3
+NPV_B = -70,000 + 29,091 + 26,446 + 24,042
+NPV_B = EUR 9,579
+```
+
 The base-case rule selects Machine A because it creates EUR 2,329 more value today. The same conclusion can be expressed through incremental comparison:
 
 ```text
@@ -374,6 +398,8 @@ The discount rate can also be stress-tested when project risk or the appropriate
 ## Worked Slide Cases And Answer Guides
 
 The lecture does not have a separate exercise sheet for Capital Budgeting. Its calculation practice is embedded in the 52-slide lecture, mainly through the HomeNet case. Unless stated otherwise, the tables below use USD thousands, so `23,500` means USD 23.5 million.
+
+The cases follow the expanded calculation standard: business story -> incremental-cash-flow decision -> formula/input mapping -> arithmetic -> FCF/NPV result -> managerial interpretation -> exam trap.
 
 ### Case 1: HomeNet From Operating Forecast To Incremental Earnings
 

@@ -66,6 +66,28 @@ A_due = A_immediate / (1 + r)
 
 In Capital Budgeting, loan annuity payments are financing cash flows. Under WACC valuation, they are tested separately in Redemptions rather than inserted into project FCF.
 
+## Worked Calculation Language
+
+Every annuity calculation should show:
+
+```text
+Payment pattern -> timing -> formula -> inputs -> substitution -> arithmetic -> PV/FV result -> decision meaning
+```
+
+Mini anchor:
+
+```text
+EUR 2,500 deposited at each year-end for 30 years, r = 3%.
+FV_immediate = 2,500 x (1.03^30 - 1) / 0.03
+1.03^30 = 2.42726
+FV_immediate = EUR 118,938.54
+
+FV_due = 118,938.54 x 1.03
+FV_due = EUR 122,506.70
+```
+
+Interpretation: the due version is larger because every deposit earns one extra year of interest. Analogy: the same workers arrive one shift earlier, so each has more time to produce output. Trap: treating annuity-due as one extra payment instead of the same number of earlier payments.
+
 ## Relationships
 
 - **Cash Flow** should be distinguished from **Present Value** when writing exam answers.

@@ -45,6 +45,38 @@ WACC formula:
 r_WACC = r_E x E/(D + E) + r_D x D/(D + E) x (1 - tau_c)
 ```
 
+## Worked Calculation Language
+
+Every capital-structure-with-taxes calculation should show:
+
+```text
+Tax rule -> interest amount -> annual tax shield -> PV or WACC effect -> firm-value interpretation -> distress caveat
+```
+
+Mini anchors:
+
+```text
+Interest payment = EUR 400m
+Corporate tax rate = 35%
+Annual interest tax shield = 0.35 x 400m
+Annual interest tax shield = EUR 140m
+```
+
+```text
+Permanent debt: D = EUR 100m, tax rate = 21%, V_U = EUR 300m.
+PV tax shield = tau_c x D = 0.21 x 100m = EUR 21m
+V_L = V_U + PV tax shield = 300m + 21m = EUR 321m
+```
+
+```text
+After-tax WACC: E = 200, D = 100, r_E = 12%, r_D = 6%, tax rate = 21%.
+r_WACC = 12% x 200/300 + 6% x 100/300 x (1 - 0.21)
+r_WACC = 8.00% + 1.58%
+r_WACC = 9.58%
+```
+
+Interpretation: debt creates value through the tax shield on interest, but not through principal repayment. Analogy: the tax authority effectively shares part of the interest bill, but not the borrowed principal. Trap: applying `tax rate x debt` when the permanent-riskless-debt shortcut does not apply.
+
 ## Distress And Trade-Off Language
 
 | Term | Definition | Aliases to avoid |

@@ -22,6 +22,22 @@ For each major concept:
 - What assumptions does it rely on?
 - What changes the answer?
 
+## Worked Calculations And Analogies
+
+For quantitative topics, exercises, or source examples, include full calculation routes rather than final answers only.
+
+For each representative calculation:
+
+- Decision problem and method choice:
+- Known inputs, units, and timing:
+- Formula:
+- Substitution:
+- Step-by-step arithmetic:
+- Final result with units:
+- Business or managerial interpretation:
+- Concrete analogy:
+- Exam trap and correction rule:
+
 ## Diagrams, Tables, And Visuals
 
 Explain any diagram, model, chart, table, or process flow in words. Include what the visual is trying to make the student infer.

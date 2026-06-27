@@ -229,6 +229,8 @@ Alternative repayment plans are compared by present value at the same interest r
 
 ## Exercise Answer Guides
 
+The tasks below follow the expanded calculation standard: model selection, inputs, formula, substitution, arithmetic, interpretation, analogy where useful, and exam trap.
+
 ### Task A.1: Three-Year Installment Repayment Plan
 
 #### Operating Story

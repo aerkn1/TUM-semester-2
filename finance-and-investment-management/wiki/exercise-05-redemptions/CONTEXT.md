@@ -106,6 +106,29 @@ Redemptions       = schedule repayment of the financing liability.
 
 A project can have positive NPV but an unsuitable debt schedule. The correct response is to separate project value from financing feasibility and test whether maturity, grace period, or debt share should change.
 
+## Worked Calculation Language
+
+Every redemption calculation should show:
+
+```text
+Loan structure -> repayment base -> period timing -> interest -> principal repayment -> ending debt -> liquidity interpretation
+```
+
+Mini anchor for annuity repayment:
+
+```text
+D_0 = EUR 100,000, r = 6%, N = 5, q = 1.06.
+A = 100,000 x [1.06^5 x 0.06] / [1.06^5 - 1]
+1.06^5 = 1.33823
+A = EUR 23,739.64
+
+I_1 = 100,000 x 0.06 = EUR 6,000.00
+T_1 = 23,739.64 - 6,000.00 = EUR 17,739.64
+D_1 = 100,000.00 - 17,739.64 = EUR 82,260.36
+```
+
+Interpretation: the payment is constant, but the interest share falls as the debt balance declines. Analogy: the same monthly bill first mostly pays rent for using the bank's money, then increasingly buys back ownership of the debt. Trap: calculating every year's interest on original `D_0`.
+
 ## Relationships
 
 - **Beginning Debt** determines the next **Interest Payment**.

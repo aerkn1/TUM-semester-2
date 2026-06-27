@@ -13,12 +13,16 @@ Definition sources: local lecture deck and generated topic note; enriched with s
 | **Required Return** | Minimum expected return needed to compensate investors for time and risk. | guaranteed return |
 | **Opportunity Cost Of Capital** | Return available from a comparable-risk alternative investment. | accounting expense |
 | **Project Cost Of Capital** | Required return for the project's own cash-flow risk. | firm WACC always |
+| **Equity Cost Of Capital** | Required return shareholders demand for bearing equity risk; commonly estimated with CAPM. | dividend rate, stock-price growth only |
 
 ## CAPM Language
 
 | Term | Definition | Aliases to avoid |
 |---|---|---|
 | **CAPM** | Model estimating required return as risk-free rate plus beta times market risk premium. | general risk model |
+| **Market Portfolio** | The theoretical portfolio of all risky assets used in CAPM logic; not directly observable in practice. | stock index exactly |
+| **Market Proxy** | Observable broad market index used to approximate the market portfolio when estimating beta or market risk premium. | project investment, financing source |
+| **Comparable Market Risk** | Risk reference from traded assets or comparable firms used to estimate what investors require for similar systematic risk. | identical project copy |
 | **Risk-Free Rate** | Return on a default-free investment over the relevant horizon. | average market return |
 | **Market Risk Premium** | Expected market return minus risk-free rate. | stock return |
 | **Equity Risk Premium** | Same practical input as market risk premium in this deck. | beta |
@@ -61,6 +65,35 @@ WACC formula:
 r_WACC = r_E x E/(E + D) + r_D x D/(E + D) x (1 - tau_c)
 ```
 
+## Clarification Bridge Language
+
+Use these boundaries when linking Capital Budgeting, CAPM, WACC, and Redemptions:
+
+| Boundary | Canonical wording | Trap to avoid |
+|---|---|---|
+| **Capital Budgeting vs CAPM** | Capital Budgeting forecasts project operating FCF; CAPM estimates the equity required return for comparable systematic risk. | Saying CAPM forecasts project cash flows. |
+| **Market Proxy vs Financing Source** | The market proxy is a reference for estimating required return; the project is not investing in the index. | Saying the project invests in stocks/bonds to get WACC. |
+| **CAPM vs WACC** | CAPM estimates `r_E`; WACC blends `r_E` with after-tax `r_D`. | Treating CAPM as the full project discount rate when debt also finances the project. |
+| **Debt Cost Of Capital vs Redemption Schedule** | Debt cost is the return lenders require; redemptions calculate contractual interest and principal payments. | Treating the loan annuity payment as the WACC debt term. |
+| **Project Cost Of Capital vs Debt Cost Of Capital** | Project cost prices operating cash-flow risk; debt cost prices lenders' claim risk. | Using the loan rate as the project cost of capital by default. |
+
+Compact route:
+
+```text
+Project operating FCF
+-> risk-matched required return
+-> CAPM for equity cost when needed
+-> WACC if debt and equity finance the project
+-> NPV for project value
+-> redemption schedule for debt-service feasibility
+```
+
+Best exam sentence:
+
+```text
+CAPM uses market data to estimate the opportunity cost of equity for comparable systematic risk; WACC uses that required return with after-tax debt cost to value operating FCF; redemptions separately test whether the chosen debt terms can be serviced.
+```
+
 ## Beta Adjustment Language
 
 | Term | Definition | Aliases to avoid |
@@ -74,14 +107,45 @@ r_WACC = r_E x E/(E + D) + r_D x D/(E + D) x (1 - tau_c)
 | **Enterprise Value** | Equity value plus net debt; value of operating business assets. | market capitalization only |
 | **Operating Leverage** | Fixed-cost intensity; higher fixed costs make cash flows more sensitive to demand shocks. | financial leverage |
 
+## Worked Calculation Language
+
+Every cost-of-capital calculation should show:
+
+```text
+Cash-flow risk -> required-return model -> inputs -> substitution -> rate -> valuation consequence -> trap
+```
+
+Mini anchors:
+
+```text
+CAPM: r_f = 3%, beta = 1.29, market risk premium = 5%.
+r_E = 3% + 1.29 x 5%
+r_E = 3% + 6.45%
+r_E = 9.45%
+```
+
+```text
+WACC: E = 60, D = 40, r_E = 12%, r_D = 5%, tax rate = 30%.
+E/(D+E) = 60/100 = 0.60
+D/(D+E) = 40/100 = 0.40
+r_WACC = 12% x 0.60 + 5% x 0.40 x (1 - 0.30)
+r_WACC = 7.20% + 1.40%
+r_WACC = 8.60%
+```
+
+Interpretation: CAPM prices systematic equity risk; WACC blends equity and after-tax debt required returns for operating FCF of matching risk. Analogy: WACC is the blended hurdle for all capital providers, not the bank's loan invoice. Trap: using the contractual loan rate as the project discount rate.
+
 ## Relationships
 
 - **Cost Of Capital** is the correct **Discount Rate** only when it matches the cash-flow risk.
 - **CAPM** uses **Beta**, not **Volatility**, because diversified investors are compensated for **Systematic Risk**.
+- **Market Proxy** makes **CAPM** estimable, but it is a required-return reference, not the project's investment asset.
 - **Yield To Maturity** equals expected return only when promised payments are close to expected payments.
 - **WACC** combines **Equity Cost Of Capital** and **Debt Cost Of Capital** with market-value weights.
 - **Capital Budgeting** supplies incremental operating FCF, **WACC** discounts it when appropriate, and a **Redemption Schedule** separately models contractual debt service.
 - A **Contractual Loan Rate** is one financing input; it is not the same as **WACC**, which blends debt and equity required returns.
+- **Debt Cost Of Capital** enters WACC; **Redemption Schedule** tests actual debt-service timing.
+- **Project Cost Of Capital** prices operating risk; **Debt Cost Of Capital** prices lender claim risk.
 - **Equity Beta** must be **Unlevered** to estimate **Asset Beta** for business risk.
 - **Operating Leverage** raises **Project Cost Of Capital** when fixed costs make project cash flows more market-sensitive.
 
@@ -92,12 +156,17 @@ flowchart TD
     A[Project FCF] --> B[Choose Discount Rate]
     B --> C[Same Risk Alternative]
     C --> D[CAPM For Equity]
+    C --> MP[Market Proxy]
+    MP --> D
     D --> E[Risk-Free Rate]
     D --> F[Beta]
     D --> G[Market Risk Premium]
     C --> H[Debt Cost]
     D --> I[WACC]
     H --> I
+    I --> NPV[Project NPV]
+    H --> RED[Redemption Schedule]
+    RED --> LIQ[Debt-Service Feasibility]
     J[Comparable Firm] --> K[Unlever Beta]
     K --> L[Asset Beta]
     L --> M[Relever If Needed]
@@ -117,6 +186,14 @@ flowchart TD
 > **Student:** "Domino has higher volatility than Disney, so higher CAPM return?"
 >
 > **Professor:** "Not necessarily. CAPM prices **Beta**, not total volatility."
+>
+> **Student:** "Why do we look at the market if the project is a machine, product, or factory?"
+>
+> **Professor:** "The market is a **Market Proxy** for comparable systematic risk. It helps estimate what equity investors require elsewhere. The project does not buy the market index."
+>
+> **Student:** "Does Redemptions calculate the debt part of WACC?"
+>
+> **Professor:** "No. **Debt Cost Of Capital** enters WACC as lenders' required return. **Redemption Schedule** uses the loan contract to calculate actual interest and principal payments."
 
 ## Flagged Ambiguities
 
@@ -127,6 +204,9 @@ flowchart TD
 | "Beta" | Specify **Equity Beta** or **Asset Beta**. |
 | "Debt" | Specify **Gross Debt**, **Net Debt**, or **Debt Cost Of Capital**. |
 | "Discount rate" | State why the rate matches the project cash-flow risk. |
+| "Market" | Say **Market Proxy** or **Market Portfolio**; do not imply the project invests in that market. |
+| "Cost of debt" | Say **Debt Cost Of Capital** for WACC and **Contractual Loan Rate** for repayment calculations. |
+| "Project cost" | Say upfront investment for cash outlay, **Project Cost Of Capital** for the required return, or **Debt Cost Of Capital** for lender return. |
 
 ## Exam Trap Corrections
 
@@ -134,10 +214,13 @@ flowchart TD
 |---|---|
 | Calling cost of capital the upfront investment. | Cost of capital is a rate; investment is a cash flow. |
 | Using volatility in CAPM. | CAPM uses beta because only systematic risk is priced. |
+| Treating the market proxy as the project's investment asset. | The proxy estimates comparable systematic risk and required return; it is not the project itself. |
 | Treating YTM as expected return for risky debt. | Adjust conceptually for default probability and loss. |
 | Using book-value weights in WACC without instruction. | Use market-value weights when available. |
 | Forgetting `(1 - tau_c)` on debt in WACC. | Interest tax deductibility makes debt cost after-tax. |
 | Applying firm WACC to a different-risk project. | Use comparable asset beta or project-specific required return. |
+| Treating debt cost and redemptions as identical. | Debt cost is a WACC input; redemptions are a contractual cash-flow schedule. |
+| Treating debt cost and project cost of capital as identical. | Debt cost prices lender risk; project cost prices operating FCF risk. |
 
 ## Cheat-Sheet Language
 
@@ -146,4 +229,7 @@ The discount rate must match the risk of the cash flows.
 CAPM: required equity return = risk-free rate + beta x market risk premium.
 Beta measures systematic risk; volatility measures total risk.
 WACC is valid only when project risk and financing match the WACC assumptions.
+Market proxy = reference for comparable systematic risk, not the project investment.
+Debt cost enters WACC; redemption payments test financing feasibility.
+Project cost of capital prices operating FCF risk; debt cost prices lender claim risk.
 ```

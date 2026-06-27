@@ -19,6 +19,27 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Quality Filter** | A second-stage test that checks whether a valuation signal is supported by financial health. In this topic, F-Score is the key quality filter. | guarantee |
 | **Accounting Signal** | A financial-statement indicator used to infer future performance or risk. | stock signal |
 
+## Worked Signal Calculation Language
+
+Every fundamental-analysis calculation should show:
+
+```text
+Valuation signal -> quality filter -> arithmetic -> interpretation -> warning flag
+```
+
+Mini anchor:
+
+```text
+Shares outstanding = 10,000,000
+Share price = EUR 8
+Market equity = 10,000,000 x 8 = EUR 80,000,000
+Book equity = EUR 120,000,000
+Market-to-book = 80,000,000 / 120,000,000 = 0.67
+Piotroski F-Score = 8/9
+```
+
+Interpretation: low M/B says the stock is cheap relative to book equity; high F-Score says the cheapness is less likely to be pure distress. Analogy: a discounted used car is interesting only after the inspection report looks healthy. Trap: saying "low M/B means buy" without the quality filter.
+
 ## Relationships
 
 - **Market-to-Book Ratio** and **P/E Ratio** indicate valuation, while **Piotroski F-Score** indicates financial-health quality.

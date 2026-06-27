@@ -121,6 +121,25 @@ Managerial decision language:
 | NPV and IRR conflict | Trust NPV because it measures value in money today. |
 | Payback is short | Liquidity recovery is fast; value creation still needs NPV. |
 
+## Worked Calculation Language
+
+Worked route for numeric answers:
+
+```text
+Project question -> cash-flow timeline -> discount rate -> PV of each cash flow -> NPV/IRR/payback result -> decision -> limitation
+```
+
+Mini anchor:
+
+```text
+Project A: C_0 = -100, C_1 = 140, r = 10%.
+NPV_A = -100 + 140/1.10
+NPV_A = -100 + 127.27
+NPV_A = 27.27
+```
+
+Interpretation: the project creates EUR 27.27 of value today per EUR 100 invested after meeting the 10% required return. Analogy: NPV is the surplus left after paying the investor's required toll. Trap: accepting the highest IRR when a larger mutually exclusive project creates more euro value.
+
 ## Example Dialogue
 
 > **Student:** "I see **Cash Flow**, **Discount Rate**, and **Cost of Capital**. Are they the same kind of thing?"

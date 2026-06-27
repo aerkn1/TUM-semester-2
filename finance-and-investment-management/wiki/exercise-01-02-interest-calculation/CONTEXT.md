@@ -38,6 +38,25 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Present Value Factor** | The multiplier used to discount one future cash flow to today, such as `1/(1+r)^n` or `1/e^(r x n)`. | interest rate |
 | **Effective Annual Rate** | The comparable annual rate after considering compounding frequency: `(1 + r/m)^m - 1`, or `e^r - 1` for continuous compounding. | nominal annual rate |
 
+## Worked Calculation Language
+
+Every interest calculation should show the full route:
+
+```text
+Decision question -> direction -> rate convention -> matched units -> substitution -> arithmetic -> interpretation
+```
+
+Mini anchor:
+
+```text
+Need EUR 1,000 in 18 months, monthly rate = 0.35%.
+C_0 = 1,000 / 1.0035^18
+1.0035^18 = 1.06491
+C_0 = EUR 939.05
+```
+
+Interpretation: investing EUR 939.05 today is enough if the monthly rate is actually 0.35% for all 18 months. Analogy: choose the correct elevator direction first; only then count floors using the right floor height. Trap: using 18 with an annual rate or 1.0035 as if it were 0.35%.
+
 ## Relationships
 
 - **Present Value** moves money backward; **Future Value** moves money forward.

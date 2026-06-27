@@ -93,17 +93,43 @@ PV_due = C_due x q x (q^N - 1) / (q^N x (q - 1))
 
 A grandmother pays EUR 2,500 at the end of each year for 30 years at 3%.
 
+Decision problem and method choice:
+
+- The question asks how much the repeated savings stream grows to by the end.
+- Payments happen at the end of each year, so use future value of an annuity-immediate.
+
+Known inputs:
+
 ```text
-FV = 2500 x (1.03^30 - 1) / (1.03 - 1) = 118,938.54
+C = EUR 2,500
+r = 3% = 0.03
+q = 1.03
+N = 30 years
+```
+
+Formula, substitution, and arithmetic:
+
+```text
+FV = C x (q^N - 1)/(q - 1)
+FV = 2,500 x (1.03^30 - 1)/(1.03 - 1)
+1.03^30 = 2.42726
+FV = 2,500 x (2.42726 - 1)/0.03
+FV = EUR 118,938.54
 ```
 
 If paid at the beginning of each year:
 
 ```text
-FV_due = 2500 x 1.03 x (1.03^30 - 1) / (1.03 - 1) = 122,506.70
+FV_due = FV_immediate x q
+FV_due = 118,938.54 x 1.03
+FV_due = EUR 122,506.70
 ```
 
 Interpretation: beginning-of-period payments are larger in future value because every payment earns one more period of interest.
+
+Analogy: annuity-immediate is putting each yearly deposit into the account at closing time. Annuity-due is depositing at opening time, so every deposit has one extra year inside the account.
+
+Exam trap: do not add one extra payment for annuity-due. The number of payments stays 30; only the timing shifts one period earlier.
 
 ## Perpetuities
 
@@ -148,25 +174,57 @@ Use when the payment increases by a percentage, e.g. 5% per year.
 
 Special case: many formulas split into `g = q` and `g != q`. Always check this first.
 
-## Worked Exercise Patterns
+## Worked Calculations And Analogies
 
 ### Pattern 1: Solve For Duration
 
 A business is sold for EUR 300,000. The seller receives EUR 20,000 annually, growing 4% per year. Interest rate = 5%.
 
-For annuity-immediate, the solution gives approximately:
+Decision problem and method choice:
+
+- The sale price is today's value of a growing payment stream.
+- The unknown is the number of payments `N`.
+- Payments grow by a fixed percentage, so use the geometric growing annuity formula.
+
+Known inputs:
 
 ```text
+PV = EUR 300,000
+C_1 = EUR 20,000
+r = 5% = 0.05
+w = 4% = 0.04
+g = 1.04
+q = 1.05
+g/q = 1.04/1.05 = 0.990476
+```
+
+For annuity-immediate:
+
+```text
+PV = C_1/(r-w) x [1 - (g/q)^N]
+300,000 = 20,000/(0.05-0.04) x [1 - 0.990476^N]
+300,000 = 2,000,000 x [1 - 0.990476^N]
+0.150000 = 1 - 0.990476^N
+0.990476^N = 0.850000
+N = ln(0.850000) / ln(0.990476)
 N = 16.98 years
 ```
 
-For annuity-due:
+For annuity-due, payments arrive one period earlier, so the PV of the same stream is multiplied by `q`:
 
 ```text
+300,000 = 1.05 x 2,000,000 x [1 - 0.990476^N]
+300,000 / 2,100,000 = 1 - 0.990476^N
+0.857143 = 0.990476^N
+N = ln(0.857143) / ln(0.990476)
 N = 16.11 years
 ```
 
-Why is annuity-due duration shorter? Because payments start earlier, so the present value is consumed faster.
+Interpretation: the annuity-due duration is shorter because payments start earlier, so fewer years are needed to reach the same EUR 300,000 present value.
+
+Analogy: the seller is filling a EUR 300,000 bucket with discounted payments. If the first payment arrives immediately instead of one year later, the bucket fills faster.
+
+Exam trap: do not use the constant annuity formula when payments grow by 4%. The payment pattern is geometric growth.
 
 ### Pattern 2: Compare Arithmetic vs Geometric Growth
 
@@ -175,9 +233,50 @@ A seller can choose:
 - EUR 24,000 with fixed EUR 1,000 annual increase.
 - EUR 24,000 with 6% annual growth.
 
-At 5% and 10 years, the solution shows the geometric-growth option has a higher future value.
+At 5% and 10 years, compare both alternatives at the same future date.
+
+Decision problem and method choice:
+
+- The options have different payment patterns, so compare them at one common date.
+- Here the target date is year 10, so compound each payment forward to year 10.
+
+Arithmetic-growth option:
+
+```text
+Payment pattern = 24,000; 25,000; 26,000; ...; 33,000
+
+FV = 24,000 x 1.05^9
+   + 25,000 x 1.05^8
+   + 26,000 x 1.05^7
+   + ...
+   + 33,000
+FV = EUR 353,427.27
+```
+
+Geometric-growth option:
+
+```text
+Payment pattern = 24,000; 24,000 x 1.06; 24,000 x 1.06^2; ...; 24,000 x 1.06^9
+
+FV = 24,000 x 1.05^9
+   + 24,000 x 1.06 x 1.05^8
+   + 24,000 x 1.06^2 x 1.05^7
+   + ...
+   + 24,000 x 1.06^9
+FV = EUR 388,687.37
+```
+
+Decision: the geometric-growth option has the higher future value by:
+
+```text
+388,687.37 - 353,427.27 = EUR 35,260.10
+```
 
 Decision logic: compare both alternatives at the same date using the same discount/interest rate.
+
+Analogy: arithmetic growth adds the same euro step each year; geometric growth makes each increase build on the previous increase. Over longer horizons, percentage growth can pull away.
+
+Exam trap: do not compare only the first payment or only the final payment. The full stream and timing determine value.
 
 ## Exam Decision Tree
 

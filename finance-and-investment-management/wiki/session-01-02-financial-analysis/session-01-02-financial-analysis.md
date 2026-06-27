@@ -302,6 +302,160 @@ Use **M/B** when asking how the market values equity relative to accounting book
 | Low M/B | Value candidate relative to book equity. | Distress, obsolete assets, weak profitability, or value trap. | Check F-Score, operating cash flow, leverage, and margins. |
 | High M/B | Strong intangibles, growth, brand, technology, or expected profitability. | Overpriced relative to accounting base. | Check whether ROIC and earnings justify market expectations. |
 
+## Worked Calculations And Analogies
+
+### Calculation 1: Market Capitalization And M/B
+
+Decision problem and method choice:
+
+- The question asks how the stock market values equity relative to accounting equity.
+- Use market capitalization first, then divide by book equity.
+
+Known inputs:
+
+```text
+Shares outstanding = 5,000,000
+Share price = USD 22
+Book value of equity = USD 50,000,000
+```
+
+Formula, substitution, and arithmetic:
+
+```text
+Market capitalization = share price x shares outstanding
+Market capitalization = 22 x 5,000,000
+Market capitalization = USD 110,000,000
+
+M/B = market value of equity / book value of equity
+M/B = 110,000,000 / 50,000,000
+M/B = 2.20
+```
+
+Interpretation: the market values equity at 2.2 times accounting book equity. This can reflect expected growth, intangible assets, brand, technology, or simply an expensive valuation.
+
+Analogy: book equity is the accounting floor plan of a house; market value is what buyers are willing to pay for the house, location, future rent, and renovation potential.
+
+Exam trap: do not invert the ratio. `Book/Market = 0.45` is not the M/B ratio requested here.
+
+### Calculation 2: Current Ratio And Quick Ratio
+
+Decision problem and method choice:
+
+- The lender wants to know whether near-term obligations can be met.
+- Use current ratio for broad short-term cover and quick ratio for cash-like cover excluding inventory.
+
+Known inputs:
+
+```text
+Current assets = 120
+Current liabilities = 80
+Cash = 20
+Receivables = 30
+Inventory = 70
+```
+
+Formula, substitution, and arithmetic:
+
+```text
+Current ratio = current assets / current liabilities
+Current ratio = 120 / 80
+Current ratio = 1.50
+
+Quick ratio = (cash + short-term investments + receivables) / current liabilities
+Quick ratio = (20 + 30) / 80
+Quick ratio = 50 / 80
+Quick ratio = 0.625
+```
+
+Interpretation: the firm has EUR 1.50 of current assets per EUR 1 of current liabilities, but only EUR 0.625 of quick assets per EUR 1. Liquidity depends heavily on selling or converting inventory.
+
+Analogy: current ratio counts everything in the emergency drawer; quick ratio counts only the cash and near-cash items you can actually use quickly.
+
+Exam trap: inventory belongs in current assets but not in the quick ratio.
+
+### Calculation 3: DuPont ROE Decomposition
+
+Decision problem and method choice:
+
+- Two firms can have different ROE because of margin, asset turnover, or leverage.
+- Use DuPont to identify the driver instead of stopping at the final ROE.
+
+Slide-style inputs:
+
+```text
+Yahoo!:
+Net profit margin = 21.04% = 0.2104
+Asset turnover = 0.337
+Equity multiplier = 1.18
+
+Google:
+Net profit margin = 25.69% = 0.2569
+Asset turnover = 0.522
+Equity multiplier = 1.25
+```
+
+Formula and arithmetic:
+
+```text
+ROE = net profit margin x asset turnover x equity multiplier
+
+Yahoo! ROE = 0.2104 x 0.337 x 1.18
+Yahoo! ROE = 0.0837 = 8.37% approximately
+
+Google ROE = 0.2569 x 0.522 x 1.25
+Google ROE = 0.1676 = 16.76% approximately
+```
+
+Interpretation: Google has higher ROE because it earns more profit per sales euro, generates more sales per asset euro, and uses slightly more leverage.
+
+Analogy: ROE is like speed. DuPont asks whether the car is fast because of engine power, efficient transmission, or downhill slope from leverage.
+
+Exam trap: do not say "Google has higher ROE" and stop. Identify which component drives the difference.
+
+### Calculation 4: ROIC Versus ROE
+
+Decision problem and method choice:
+
+- The CFO wants to know whether operations create value from all capital invested.
+- The shareholder wants to know the return on book equity.
+- Use ROIC for operating capital productivity and ROE for shareholder return on book equity.
+
+Known inputs:
+
+```text
+EBIT = 120
+Tax rate = 25%
+Book value of equity = 400
+Net debt = 200
+Net income = 72
+```
+
+Formula, substitution, and arithmetic:
+
+```text
+NOPAT = EBIT x (1 - tax rate)
+NOPAT = 120 x (1 - 0.25)
+NOPAT = 90
+
+Invested capital = book value of equity + net debt
+Invested capital = 400 + 200
+Invested capital = 600
+
+ROIC = NOPAT / invested capital
+ROIC = 90 / 600
+ROIC = 15%
+
+ROE = net income / book value of equity
+ROE = 72 / 400
+ROE = 18%
+```
+
+Interpretation: operations earn 15% on capital supplied by debt and equity together, while shareholders earn 18% on book equity. The difference can come from leverage and financing structure, so ROE should not be treated as pure operating quality.
+
+Analogy: ROIC asks how productive the whole factory is with all funding sources. ROE asks how much the owner's slice earns after lenders have their claim.
+
+Exam trap: if the question asks for operating return, use ROIC, not ROE.
+
 ## Compact Company Use Cases
 
 ### Same Sector: Two Apparel Retailers

@@ -203,43 +203,147 @@ Decision use: if two bank offers quote different compounding frequencies, conver
 5. If comparing offers, did we convert to the same effective period?
 ```
 
-## Worked Exercise Patterns
+## Worked Calculations And Analogies
 
 ### Pattern 1: Needed Present Value
 
-Question: You need EUR 1,000 in 18 months. Monthly interest = 0.35%. How much invest now?
+Question: You need EUR 1,000 in 18 months. Monthly interest is 0.35%. How much must be invested today?
+
+Decision problem and method choice:
+
+- The target cash flow is in the future and the unknown amount is today, so this is a present value problem.
+- The rate is monthly, so the period count must also be monthly.
+
+Known inputs:
 
 ```text
-C_0 = 1000 / 1.0035^18 = 939.05
+Future value C_n = EUR 1,000
+Monthly rate r_m = 0.35% = 0.0035
+Time = 18 months
+Growth factor per month q = 1.0035
+```
+
+Formula and substitution:
+
+```text
+C_0 = C_n / q^n
+C_0 = 1,000 / 1.0035^18
+```
+
+Arithmetic:
+
+```text
+1.0035^18 = 1.06491
+C_0 = 1,000 / 1.06491
+C_0 = EUR 939.05
 ```
 
 Alternative using effective annual rate:
 
 ```text
-r_eff = 1.0035^12 - 1 = 4.28%
-C_0 = 1000 / 1.0428^1.5 = 939.05
+r_eff = 1.0035^12 - 1
+r_eff = 1.04280 - 1
+r_eff = 4.28%
+
+C_0 = 1,000 / 1.0428^1.5
+C_0 = EUR 939.05
 ```
+
+Interpretation: investing EUR 939.05 today at 0.35% per month grows to EUR 1,000 in 18 months.
+
+Analogy: this is walking backward down an escalator. You know where you want to stand after 18 monthly steps; discounting tells you where to start today.
+
+Exam trap: do not use `n = 1.5` with the monthly rate. Either use monthly rate with 18 months, or convert to an effective annual rate and use 1.5 years.
 
 ### Pattern 2: Compare Compounding Frequencies
 
-Question: EUR 4,000 invested for 3 years at 6% nominal.
+Question: EUR 4,000 invested for 3 years at a 6% stated annual rate. Compare yearly, six-monthly, and continuous compounding.
+
+Decision problem and method choice:
+
+- The question asks for the ending amount, so use future value.
+- The nominal rate is the same, but the compounding convention changes the effective return.
+
+Known inputs:
 
 ```text
-Yearly: 4000 x 1.06^3 = 4764.06
-Six-monthly: 4000 x (1 + 0.06/2)^(2 x 3) = 4776.21
-Continuous: 4000 x e^(0.06 x 3) = 4788.87
+C_0 = EUR 4,000
+Nominal annual rate r = 6% = 0.06
+n = 3 years
 ```
 
-Higher compounding frequency increases future value.
+Yearly compounding:
+
+```text
+C_3 = 4,000 x 1.06^3
+1.06^3 = 1.191016
+C_3 = EUR 4,764.06
+```
+
+Six-monthly compounding:
+
+```text
+Periodic rate = 0.06 / 2 = 0.03
+Number of periods = 2 x 3 = 6
+C_3 = 4,000 x 1.03^6
+1.03^6 = 1.194052
+C_3 = EUR 4,776.21
+```
+
+Continuous compounding:
+
+```text
+C_3 = 4,000 x e^(0.06 x 3)
+C_3 = 4,000 x e^0.18
+e^0.18 = 1.197217
+C_3 = EUR 4,788.87
+```
+
+Interpretation: higher compounding frequency gives interest more chances to earn interest, so the same nominal rate produces a higher future value.
+
+Analogy: yearly compounding pays rent to the principal once per year; six-monthly compounding lets the new interest start working halfway through the year; continuous compounding keeps putting every tiny bit of interest back to work immediately.
+
+Exam trap: the nominal 6% is not always the effective annual return. Match the compounding frequency before comparing offers.
 
 ### Pattern 3: Infer Continuous Rate From Two Balances
 
-Given `C_1 = 100,000` and `C_2 = 110,000`:
+Question: a continuously compounded account grows from `C_1 = 100,000` to `C_2 = 110,000` over one year. Find the continuous rate and the value one year before `C_1`.
+
+Decision problem and method choice:
+
+- Continuous compounding is stated, so use the exponential/log formula.
+- First solve the rate from the observed growth, then discount one year backward.
+
+Known inputs:
 
 ```text
-r = ln(C_2 / C_1) = ln(1.10) = 9.53%
-C_0 = C_1 / e^r = 90,909.09
+C_1 = EUR 100,000
+C_2 = EUR 110,000
+n = 1 year
 ```
+
+Rate formula and arithmetic:
+
+```text
+C_2 = C_1 x e^r
+e^r = C_2 / C_1 = 110,000 / 100,000 = 1.10
+r = ln(1.10)
+r = 0.09531 = 9.53%
+```
+
+Backward value:
+
+```text
+C_0 = C_1 / e^r
+C_0 = 100,000 / 1.10
+C_0 = EUR 90,909.09
+```
+
+Interpretation: a continuously compounded rate of 9.53% creates exactly 10% effective annual growth over one year.
+
+Analogy: continuous compounding reports the engine's smooth running speed; the effective growth is the total distance covered after one year.
+
+Exam trap: a 9.53% continuous rate is not the same statement as a 9.53% annual effective rate. The effective growth here is 10%.
 
 ## Exam Decision Rules
 

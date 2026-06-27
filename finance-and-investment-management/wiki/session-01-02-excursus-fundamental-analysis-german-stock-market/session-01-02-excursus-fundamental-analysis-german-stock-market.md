@@ -90,6 +90,55 @@ Decision-maker use:
 
 Exam-ready sentence: F-Score does not replace valuation ratios; it filters them. Low P/E or low M/B identifies possible cheapness, while F-Score helps decide whether that cheapness is supported by financial strength or explained by distress.
 
+## Worked Calculations And Analogies
+
+### Calculation: Low M/B Candidate With F-Score Filter
+
+Decision problem and method choice:
+
+- An investor wants to know whether a low-priced stock is a possible value opportunity or a value trap.
+- First calculate M/B to identify the valuation signal, then use F-Score indicators to test financial quality.
+
+Known inputs:
+
+```text
+Shares outstanding = 10,000,000
+Share price = EUR 8
+Book value of equity = EUR 120,000,000
+F-Score positive indicators = 8 out of 9
+```
+
+M/B calculation:
+
+```text
+Market value of equity = share price x shares outstanding
+Market value of equity = 8 x 10,000,000
+Market value of equity = EUR 80,000,000
+
+M/B = market value of equity / book value of equity
+M/B = 80,000,000 / 120,000,000
+M/B = 0.67
+```
+
+F-Score classification:
+
+```text
+F-Score = 8/9
+High F-Score bucket = F-Score >= 8
+```
+
+Interpretation: the stock is cheap relative to book equity and the financial-health filter is strong. This combination supports a possible value-opportunity hypothesis, but it is not proof of mispricing.
+
+If the same low M/B stock had `F-Score = 2/9`, the interpretation would change:
+
+```text
+Low M/B + low F-Score = possible value trap
+```
+
+Analogy: M/B is the price tag on a used car. F-Score is the inspection checklist. A low price plus a strong inspection is interesting; a low price plus a failed inspection is a warning.
+
+Exam trap: do not conclude "buy" from low M/B alone. Pair the valuation signal with profitability, cash-flow, leverage/liquidity, and efficiency evidence.
+
 ## Limitations
 
 The slides list several limitations:
