@@ -65,6 +65,46 @@ Not "How much do I order once?"
 But "What inventory position do I restore to every period?"
 ```
 
+### Model Router: Newsvendor, EOQ/EPQ, And Order-Up-To
+
+Use this router before choosing formulas:
+
+| Situation | Model | Main decision | Demand assumption | Output |
+|---|---|---|---|---|
+| One uncertain selling event | Newsvendor | How much should I commit once? | Random demand for one selling period | One-time order quantity `Q` |
+| Repeated stable replenishment | EOQ/EPQ | How large should each order or production run be? | Constant or predictable demand rate | Economic batch size `Q*` |
+| Repeated uncertain replenishment with lead time | Order-up-to | What inventory position should I restore to every period? | Random demand over the protection period | Target inventory position `S` |
+| Probability/quantile support | Random variables | How do I translate uncertainty into probabilities and quantiles? | Distribution of demand | `F(S)`, `F^-1(SL)`, expected values |
+
+Analogy:
+
+```text
+Newsvendor = buy sandwiches for one festival day.
+EOQ/EPQ = decide the efficient crate size for steady warehouse demand.
+Order-up-to = a hospital pharmacy checks stock repeatedly and restores its system position to a protective target S.
+```
+
+The order-up-to model complements the Newsvendor calculation, but it is not just "Newsvendor repeated." It takes the Newsvendor-style chain:
+
+```text
+shortage cost versus leftover cost -> target service level -> demand quantile
+```
+
+and turns it into a recurring operating policy:
+
+```text
+target service level -> S = quantile of demand over l+1 periods
+each period -> order S - inventory position
+```
+
+The EOQ/EPQ connection is different. EOQ/EPQ answers how large the replenishment batch should be when demand is stable. Order-up-to answers how much inventory-position protection is needed when demand is uncertain and lead time exposes the system to stockout risk.
+
+Exam sentence:
+
+```text
+Newsvendor chooses how much to buy once; EOQ/EPQ chooses the economic batch size; order-up-to chooses the protected inventory-position target S for repeated uncertain replenishment.
+```
+
 ## Why Newsvendor Is Not Enough
 
 The Newsvendor model is useful for one-shot uncertainty, such as one season of newspapers, fashion, or perishables. It is weak for a replenishment system because it ignores:
@@ -250,54 +290,310 @@ For the distribution center, the deck does not provide a clean stockout cost. It
 
 ### Distribution Center
 
+The distribution center example uses normal demand because weekly DC demand is aggregated and relatively high-volume.
+
 Facts:
 
 ```text
+Monthly mean demand = 349 pacemakers
+Monthly standard deviation = 122.38 pacemakers
+Planning period = 1 week
 Lead time l = 3 weeks
 l+1 = 4 weeks
-Mean weekly demand = 80.6
-Standard deviation weekly demand = 58.81
-Mean demand over 4 periods = 322.4
-Standard deviation over 4 periods = 117.62
 ```
 
-For `S = 625`, the slide table gives:
+Step 1: convert monthly mean demand to weekly mean demand.
 
 ```text
-F(S) = 99.5%
-B(625) = 0.19
-I(625) = 625 - 322.4 + 0.19 = 302.79
+mean weekly demand = 349 * 12 / 52
+                   = 80.54
+                   = about 80.6 pacemakers/week
+```
+
+Step 2: convert monthly standard deviation to weekly standard deviation.
+
+For standard deviation, scale with the square root of time:
+
+```text
+sigma_week = 122.38 * sqrt(12 / 52)
+           = 58.81 pacemakers/week
+```
+
+Step 3: aggregate demand over the protection period `l+1 = 4` weeks.
+
+```text
+mu = 80.6 * 4
+   = 322.4 pacemakers
+```
+
+```text
+sigma = 58.81 * sqrt(4)
+      = 58.81 * 2
+      = 117.62 pacemakers
+```
+
+Demand over the protection period:
+
+```text
+D ~ Normal(mu = 322.4, sigma = 117.62)
+```
+
+Step 4: evaluate the example order-up-to level.
+
+```text
+S = 625
+```
+
+Calculate the z-value:
+
+```text
+z = (S - mu) / sigma
+  = (625 - 322.4) / 117.62
+  = 302.6 / 117.62
+  = about 2.57
+```
+
+Step 5: calculate in-stock probability.
+
+```text
+F(S) = Phi(2.57)
+     = about 0.994954
+     = 99.50%
+```
+
+Stockout probability:
+
+```text
+1 - F(S) = 1 - 0.994954
+         = 0.005046
+         = about 0.50%
+```
+
+Step 6: calculate expected backorders.
+
+For normal demand:
+
+```text
+B(S) = sigma * L(z)
+L(z) = phi(z) - z * [1 - Phi(z)]
+```
+
+For `z = about 2.57`, the normal loss value is about:
+
+```text
+L(z) = 0.001596
+```
+
+Therefore:
+
+```text
+B(625) = 117.62 * 0.001596
+       = 0.1878
+       = about 0.19 pacemakers
+```
+
+Step 7: calculate expected leftover inventory.
+
+```text
+I(S) = S - mu + B(S)
+```
+
+Substitute:
+
+```text
+I(625) = 625 - 322.4 + 0.1878
+       = 302.7878
+       = about 302.79 pacemakers
 ```
 
 Managerial interpretation:
 
 ```text
-This level almost eliminates backorders, but it also leaves a very large expected inventory buffer at the DC.
+S = 625 almost eliminates backorders at the DC.
+Expected backorders are only about 0.19 pacemakers.
+But expected leftover inventory is about 302.79 pacemakers, so the service level is bought with a very large inventory buffer.
 ```
 
 ### Sales Representative
 
+The sales representative example uses Poisson demand because an individual representative faces low-count daily demand.
+
 Facts:
 
 ```text
+Monthly mean demand = 6.25 pacemakers
+Assume 5 working days per week
+52 weeks per year
+12 months per year
 Lead time l = 1 day
 l+1 = 2 days
-Mean demand over 2 days = 0.58
-Poisson demand
 ```
 
-For `S = 3`, the slide table gives:
+Step 1: convert monthly demand to daily demand.
 
 ```text
-F(S) = 99.7%
-B(3) = 0.0034
-I(3) = 3 - 0.58 + 0.0034 = 2.42
+mean daily demand = 6.25 * 12 / (52 * 5)
+                  = 75 / 260
+                  = 0.2885
+                  = about 0.29 pacemakers/day
+```
+
+Step 2: aggregate demand over `l+1 = 2` days.
+
+For Poisson demand, means add:
+
+```text
+lambda = 0.29 * 2
+       = 0.58 pacemakers
+```
+
+Demand over the protection period:
+
+```text
+D ~ Poisson(lambda = 0.58)
+```
+
+Step 3: evaluate the example order-up-to level.
+
+```text
+S = 3
+```
+
+Step 4: calculate the in-stock probability.
+
+```text
+F(3) = P(D <= 3)
+     = P(0) + P(1) + P(2) + P(3)
+```
+
+Poisson probability formula:
+
+```text
+P(D = d) = e^(-lambda) * lambda^d / d!
+```
+
+Substitute `lambda = 0.58`:
+
+```text
+P(0) = e^(-0.58)
+     = 0.559898
+```
+
+```text
+P(1) = e^(-0.58) * 0.58
+     = 0.324741
+```
+
+```text
+P(2) = e^(-0.58) * 0.58^2 / 2
+     = 0.094175
+```
+
+```text
+P(3) = e^(-0.58) * 0.58^3 / 6
+     = 0.018207
+```
+
+Add:
+
+```text
+F(3) = 0.559898 + 0.324741 + 0.094175 + 0.018207
+     = 0.997021
+     = 99.70%
+```
+
+Stockout probability:
+
+```text
+1 - F(3) = 1 - 0.997021
+         = 0.002979
+         = about 0.30%
+```
+
+Step 5: calculate expected backorders.
+
+```text
+B(3) = E[max(D - 3, 0)]
+```
+
+Only demand above 3 creates backorders:
+
+```text
+B(3) = 1*P(D=4) + 2*P(D=5) + 3*P(D=6) + ...
+```
+
+The slide table gives:
+
+```text
+B(3) = 0.003352
+     = about 0.0034 pacemakers
+```
+
+Step 6: calculate expected leftover inventory.
+
+For Poisson demand:
+
+```text
+mu = lambda = 0.58
+```
+
+Use:
+
+```text
+I(S) = S - mu + B(S)
+```
+
+Substitute:
+
+```text
+I(3) = 3 - 0.58 + 0.003352
+     = 2.423352
+     = about 2.42 pacemakers
 ```
 
 Managerial interpretation:
 
 ```text
-Even a stock of 3 pacemakers can be enough for a very high service level when individual-representative demand is low and Poisson-distributed.
+S = 3 gives about 99.70% in-stock probability.
+Expected backorders are almost zero.
+Expected leftover inventory is about 2.42 pacemakers.
+Because representative-level demand is low, a small S can still produce a very high service level.
+```
+
+Cost-based service-level nuance:
+
+```text
+annual holding cost = 35% of product price
+daily holding cost h = 35% / 360 * p = 0.000972p
+stockout cost b = 75% margin * 50% lost margin = 0.375p
+```
+
+```text
+SL* = b / (b + h)
+    = 0.375p / (0.375p + 0.000972p)
+    = 0.375 / 0.375972
+    = 0.9974
+    = 99.74%
+```
+
+Exam nuance:
+
+```text
+F(3) = 99.7021%
+Target SL* = 99.74%
+```
+
+So `S = 3` is the slide's example for calculating `F(S)`, `B(S)`, and `I(S)`. If the exam asks for the smallest integer `S` that meets the strict cost-based target, then:
+
+```text
+F(3) = 99.7021% < 99.74%
+F(4) = 99.9662% >= 99.74%
+```
+
+Strict integer target:
+
+```text
+S = 4
 ```
 
 ## Applying The Model
@@ -455,6 +751,153 @@ Using the exact continuous `S = 698.17`:
 I(S) = 698.17 - 720 + 27.83 = about 6.00 laptops
 ```
 
+## Blending EOQ/EPQ, Newsvendor, And Order-Up-To
+
+In real operations, the three models can be layered, but they answer different questions.
+
+```text
+EOQ/EPQ      -> efficient batch size
+Newsvendor   -> economically justified service level
+Order-up-to  -> inventory-position target S under uncertainty and lead time
+```
+
+Constructed hospital-gloves example:
+
+```text
+Annual demand D = 52,000 boxes/year
+Ordering cost K = EUR 100/order
+Annual holding cost h = EUR 2/box/year
+Weekly demand ~ Normal(mu = 1,000, sigma = 200)
+Lead time l = 1 week
+Underage cost c_u = EUR 18/box short
+Overage cost c_o = EUR 2/box extra
+```
+
+Step 1: EOQ decides the efficient replenishment batch.
+
+```text
+Q* = sqrt(2DK / h)
+```
+
+Substitute:
+
+```text
+Q* = sqrt((2 * 52,000 * 100) / 2)
+   = sqrt(5,200,000)
+   = 2,280 boxes
+```
+
+Interpretation:
+
+```text
+Ordering about 2,280 boxes balances fixed ordering cost against holding cost.
+EOQ answers batch-size efficiency, not stockout protection.
+```
+
+Step 2: Newsvendor logic converts shortage and leftover costs into a service level.
+
+```text
+SL* = c_u / (c_u + c_o)
+```
+
+Substitute:
+
+```text
+SL* = 18 / (18 + 2)
+    = 18 / 20
+    = 0.90
+    = 90%
+```
+
+Interpretation:
+
+```text
+Because a shortage is much more painful than one extra box, the system targets a 90% in-stock probability.
+```
+
+Step 3: Order-up-to converts the service level into the target inventory position `S`.
+
+Protection period:
+
+```text
+l + 1 = 1 + 1 = 2 weeks
+```
+
+Aggregate demand:
+
+```text
+mu = 1,000 * 2
+   = 2,000 boxes
+```
+
+```text
+sigma = 200 * sqrt(2)
+      = 282.84 boxes
+```
+
+For 90% service level:
+
+```text
+z_0.90 = 1.282
+```
+
+Order-up-to level:
+
+```text
+S = mu + z * sigma
+  = 2,000 + 1.282 * 282.84
+  = 2,000 + 362.60
+  = about 2,363 boxes
+```
+
+Interpretation:
+
+```text
+To have about 90% probability of not stocking out over the two-week protection period, restore inventory position to about 2,363 boxes.
+```
+
+Step 4: combine batch efficiency with service protection.
+
+A pure order-up-to policy would order:
+
+```text
+order quantity = S - inventory position
+```
+
+If the company wants EOQ-sized batches instead, a practical hybrid is an `(s, Q)` policy:
+
+```text
+Order Q* when inventory position falls to reorder point s.
+```
+
+Set the reorder point so that one EOQ batch brings the system back to `S`:
+
+```text
+s = S - Q*
+```
+
+Substitute:
+
+```text
+s = 2,363 - 2,280
+  = 83 boxes
+```
+
+Hybrid policy:
+
+```text
+When inventory position falls to about 83 boxes, order 2,280 boxes.
+After ordering, inventory position becomes 83 + 2,280 = 2,363 = S.
+```
+
+Managerial interpretation:
+
+```text
+Newsvendor tells the manager how protected the system should be.
+Order-up-to translates that protection into S.
+EOQ/EPQ decides the efficient replenishment batch used to restore the position.
+```
+
 ## Order-Up-To Versus Newsvendor
 
 | Dimension | Newsvendor | Order-Up-To Model |
@@ -476,11 +919,14 @@ Likely exam tasks:
 - Compute a target service level from cost data.
 - Find `S` using a normal z-score or Poisson CDF/approximation.
 - Interpret expected backorders and expected leftover inventory.
-- Compare Newsvendor and order-up-to assumptions.
+- Compare Newsvendor, EOQ/EPQ, and order-up-to assumptions.
+- Explain how Newsvendor's critical-fractile logic can feed an order-up-to service level.
 - Explain why physical on-hand inventory is not enough when orders are outstanding.
 
 Common mistakes:
 
+- Calling service level an inventory quantity. Service level is a probability; `S` is the quantity target.
+- Calling `S` a minimum inventory level. `S` is a target inventory position after ordering; physical on-hand stock can be below `S`.
 - Using demand over `l` periods instead of `l+1`.
 - Treating inventory level as inventory position.
 - Forgetting on-order inventory.
@@ -505,6 +951,9 @@ Common mistakes:
 5. Why can a sales representative need a high service level but only a small `S`?
    - Answer guide: low-volume Poisson demand can make `P(D <= 3)` very high over a short lead-time horizon.
 
+6. Explain how Newsvendor, EOQ, and order-up-to can all appear in one inventory policy.
+   - Answer guide: Newsvendor-style costs choose the service level, order-up-to converts it into `S`, and EOQ chooses an economical batch `Q*`; a hybrid `(s,Q)` policy can order `Q*` when inventory position reaches `s = S - Q*`.
+
 ## Visual Knowledge Map
 
 ```mermaid
@@ -514,6 +963,7 @@ flowchart TD
     Lead --> Horizon[Demand over l+1 periods]
     Horizon --> Dist[Estimate distribution F]
     Dist --> Costs{Cost data available?}
+    Newsvendor[Newsvendor cost logic] --> Costs
     Costs -->|Yes| SL[SL = cu / (cu + co)]
     Costs -->|No| Rule[Managerial service-level rule]
     SL --> Quantile[S = F inverse of SL]
@@ -524,6 +974,9 @@ flowchart TD
     Performance --> InStock[F(S)]
     Performance --> Backorders[B(S)]
     Performance --> Leftover[I(S) = S - mu + B(S)]
+    EOQ[EOQ or EPQ batch Q] --> Hybrid[Hybrid s,Q policy]
+    Quantile --> Hybrid
+    Hybrid --> Reorder[s = S - Q]
 ```
 
 ## Subject Knowledge Graph
@@ -542,6 +995,10 @@ flowchart TD
 | Expected Leftover Inventory `I(S)` | Expected units remaining at period end. | Holding-cost interpretation. |
 | Normal Loss Function `L(z)` | `phi(z) - z(1 - Phi(z))`. | Shortcut for expected backorders under normal demand. |
 | Cost-Based Service Level | `c_u/(c_u+c_o)`. | Links operational costs to `S`. |
+| Newsvendor Logic | Cost-based underage/overage reasoning that can set the target service level. | Explains why Topic 10 uses the same critical-fractile idea. |
+| EOQ/EPQ Batch Size `Q*` | Economical replenishment or production-run quantity under stable recurring demand. | Useful contrast and possible hybrid-policy input. |
+| Hybrid `(s,Q)` Policy | Fixed-batch policy that orders `Q` when inventory position reaches `s`. | Shows how EOQ batch sizing can be combined with order-up-to protection. |
+| Reorder Point `s` | Inventory-position trigger for placing a fixed batch order in a hybrid `(s,Q)` policy. | Optional extension connecting EOQ batch size and order-up-to protection. |
 
 | From | Relationship | To |
 |---|---|---|
@@ -552,6 +1009,8 @@ flowchart TD
 | Inventory Position | determines | Period Order Quantity |
 | Expected Backorders `B(S)` | helps compute | Expected Leftover Inventory `I(S)` |
 | Newsvendor Critical Fractile | generalizes to | Cost-Based Service Level |
+| EOQ/EPQ Batch Size `Q*` | can combine with | Order-Up-To Level `S` |
+| Hybrid `(s,Q)` Policy | uses | Reorder Point `s = S - Q*` |
 
 ## Open Uncertainties
 

@@ -32,6 +32,15 @@ This file is a standalone terminology and formula companion for the order-up-to 
 | **Poisson Demand** | Discrete count-demand model described by mean `lambda`; useful for low-volume counts. | normal by default |
 | **Quantile `F^-1(SL)`** | Smallest demand value/order-up-to level that reaches the target service level. | average demand |
 
+## Model-Selection Language
+
+| Term | Definition | Aliases to avoid |
+|---|---|---|
+| **Newsvendor Logic** | Single-period uncertainty logic that converts underage/overage costs into a service level and then a demand quantile. | EOQ, recurring policy |
+| **Economic Batch Size (`Q*`)** | EOQ/EPQ output: the cost-efficient order or production-run size under stable recurring demand. | service level, safety stock |
+| **Hybrid `(s,Q)` Policy** | Replenishment rule that orders a fixed batch `Q` when inventory position reaches reorder point `s`; can combine EOQ batch sizing with order-up-to protection. | pure order-up-to |
+| **Protection Target** | The role of `S`: inventory-position quantity chosen to cover random demand over the protection period with the desired probability. | minimum inventory floor |
+
 ## Service And Performance Language
 
 | Term | Definition | Aliases to avoid |
@@ -64,6 +73,9 @@ This file is a standalone terminology and formula companion for the order-up-to 
 - **Cost-based service level** determines the target quantile **`F^-1(SL)`**.
 - **Expected backorders `B(S)`** and **expected leftover inventory `I(S)`** are quantity expectations, not probabilities.
 - **Normal loss function `L(z)`** helps convert a normal quantile into **expected backorders**.
+- **Newsvendor logic** can set the **cost-based service level** used by the **order-up-to model**.
+- **EOQ/EPQ** sets an **economic batch size `Q*`**, while **order-up-to** sets a protection target **`S`**.
+- In a hybrid policy, **`s = S - Q*`** can make one economic batch restore **inventory position** back to **`S`**.
 
 ## Visual Memory Aid
 
@@ -73,12 +85,16 @@ flowchart TD
     Position --> Order[Order quantity = S - inventory position]
     Lead[Lead time l] --> Exposure[Demand over l+1 periods]
     Exposure --> Distribution[Distribution F]
+    Newsvendor[Newsvendor cost logic] --> Costs
     Costs[cu and co] --> SL[SL = cu / (cu + co)]
     SL --> SLevel[S = F inverse of SL]
     Distribution --> SLevel
     SLevel --> Service[F(S)]
     SLevel --> Backorder[B(S)]
     Backorder --> Leftover[I(S) = S - mu + B(S)]
+    EOQ[EOQ or EPQ batch Q] --> Hybrid[Hybrid policy]
+    SLevel --> Hybrid
+    Hybrid --> ReorderPoint[s = S - Q]
 ```
 
 ## Formula Cheat Sheet
@@ -116,6 +132,14 @@ S = F^-1(SL*)
 >
 > **Professor:** "Correct. Use **inventory level** to describe physical stock, but use **inventory position** to decide the order."
 
+> **Student:** "So service level is the desired inventory quantity?"
+>
+> **Professor:** "No. **Service level** is the probability target. **S** is the inventory-position quantity chosen from the demand distribution to achieve that probability."
+>
+> **Student:** "Then order-up-to complements Newsvendor?"
+>
+> **Professor:** "Yes. Newsvendor-style costs can choose the service level; order-up-to turns that service level into a repeated replenishment rule with lead time, on-order inventory, and backorders."
+
 ## Flagged Ambiguities
 
 | Ambiguous Phrase | Canonical Recommendation |
@@ -123,20 +147,25 @@ S = F^-1(SL*)
 | "Inventory" | Specify **inventory level**, **on-hand inventory**, or **inventory position**. |
 | "Lead-time demand" | In this topic, use **demand over `l+1` periods** unless the problem explicitly says otherwise. |
 | "Service level" | State whether it means **in-stock probability** `F(S)` or a cost-based target `SL*`. |
+| "Desired inventory quantity" | Use **service level** for the probability target and **S** for the quantity target. |
 | "Expected shortage" | Use **expected backorders `B(S)`** for units, not **stockout probability**. |
 | "Optimal quantity" | In this topic, call it **order-up-to level `S`**, not one-time order quantity `Q`. |
 | "Rounding S" | Use the smallest integer with `F(S) >= SL` when a target service level must be met. |
+| "Recurring replenishment" | Decide whether the problem asks for **economic batch size `Q*`** under EOQ/EPQ or **protection target `S`** under order-up-to. |
 
 ## Exam Trap Corrections
 
 | Trap | Correction |
 |---|---|
+| Saying `S` means inventory always remains at least that quantity. | `S` is the target **inventory position** after ordering; physical on-hand inventory can be below `S`, and stockout can still occur with probability `1-F(S)`. |
+| Calling service level a quantity. | Service level is a probability; `S` is the quantity chosen to reach it. |
 | Ordering to fill on-hand inventory up to `S`. | Order to fill **inventory position** up to `S`. |
 | Forgetting outstanding orders. | Include **on-order inventory** in inventory position. |
 | Using demand over `l` periods. | Use **demand over `l+1` periods** in the deck's order-up-to model. |
 | Treating `B(S)` as a probability. | `B(S)` is expected units backordered; `1-F(S)` is probability. |
 | Using annual holding cost with daily demand. | Convert cost to the model period first. |
 | Choosing the nearest Poisson CDF value below target. | Choose the smallest `S` with `F(S) >= SL`. |
+| Using EOQ/EPQ when the fact pattern asks for a service level under uncertainty. | EOQ/EPQ gives batch size; order-up-to gives the service-level-based target position. |
 
 ## Compact Answer Language
 
@@ -147,4 +176,11 @@ Because lead time is l periods, demand exposure is over l+1 periods.
 The target service level is cu/(cu+co), unless the case gives a managerial target.
 Then S is the corresponding demand quantile.
 Finally, I interpret F(S), B(S), and I(S) as service and inventory consequences.
+```
+
+```text
+Service level is the probability target, not the inventory quantity.
+S is the inventory-position target chosen to achieve that probability.
+Newsvendor provides the cost-to-service-level logic; order-up-to operationalizes it in repeated replenishment.
+EOQ/EPQ can still provide an economical batch size if the policy orders fixed batches.
 ```

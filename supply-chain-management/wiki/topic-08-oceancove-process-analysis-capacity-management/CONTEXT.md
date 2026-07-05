@@ -31,6 +31,9 @@ This file is a standalone terminology and formula companion for process analysis
 | **Parallel Resources** | Multiple identical or substitutable resources performing the same step, increasing capacity. | sequential resources |
 | **System Capacity** | Capacity of the entire process, usually the minimum capacity among required steps. | sum of all capacities |
 | **Mix Constraint** | Product mix relationship that affects effective capacity, such as grilled fish being twice as popular as fried fish. | average demand |
+| **Occupancy Adjustment** | Conversion from theoretical seat-turn capacity to actual customer flow when average table occupancy is below full seating capacity. | utilization automatically |
+| **Bottleneck Utilization** | Flow rate divided by the capacity of the process bottleneck; often used as shorthand for overall process utilization. | average of all utilizations |
+| **Whole-Customer Capacity** | Capacity rounded or constrained to complete customer units when fractional service rates are not meaningful in the answer key. | exact decimal always |
 
 ## Formula Language
 
@@ -41,6 +44,7 @@ This file is a standalone terminology and formula companion for process analysis
 | **Waiting Time From Queue** | `average waiting inventory / average flow rate`. | processing time |
 | **Capacity Utilization** | `flow rate / capacity`, usually reported as a percentage. | total capacity |
 | **Project Duration** | Calendar time from project start to completion, respecting precedence and resource availability. | sum of task durations |
+| **Calculation Ladder** | Exam-answer structure: formula, substitution, arithmetic result, unit, and interpretation. | final answer only |
 
 ## Project Scheduling Language
 
@@ -59,6 +63,49 @@ This file is a standalone terminology and formula companion for process analysis
 - **Lead time** includes **queue** time and processing time.
 - **Gantt chart** uses **predecessor activity** and **resource availability**, not only task duration.
 - **Mix constraint** can turn multiple resource capacities into one effective menu or product capacity.
+- **Occupancy adjustment** explains why 160 seat-turns/hour can become 120 customers/hour when tables average 3 occupied seats out of 4.
+- **Bottleneck utilization** can differ from individual resource utilizations; non-bottlenecks usually have lower utilization at the same demand flow.
+
+## Worked-Calculation Recall Standard
+
+Use this standard for OceanCove, ProfiCutZ, Circored, Gantt scheduling, and similar capacity questions.
+
+```text
+1. Define the flow unit.
+2. State the formula before using numbers.
+3. Convert all time units into the same denominator.
+4. Substitute values visibly.
+5. Compute the result with units.
+6. Interpret the operational meaning.
+7. State the exam trap or boundary condition.
+```
+
+Capacity ladder:
+
+```text
+capacity = number of parallel resources / processing time per flow unit
+capacity = n / (time in hours per unit)
+result = units per hour
+interpretation = compare with other required resources to find the bottleneck
+```
+
+Little's Law ladder:
+
+```text
+I = R x T
+R = I / T
+T = I / R
+```
+
+Use `I` for average inventory or WIP, `R` for flow rate, and `T` for flow time. Always attach the unit, for example customers/hour, orders/minute, tons/hour, or weeks.
+
+Utilization ladder:
+
+```text
+utilization = actual flow rate / capacity
+```
+
+If the answer key reports one utilization number for a whole process, check whether it means bottleneck/overall utilization. If the prompt asks for each resource, compute `demand flow / resource capacity` for every resource.
 
 ## Visual Memory Aid
 
@@ -106,6 +153,9 @@ flowchart TD
 | Using processing time as lead time. | Add waiting time when the case includes a queue. |
 | Ignoring product mix. | Use the mix ratio to compute effective capacity. |
 | Treating non-bottleneck expansion as automatically useful. | Check whether the bottleneck changes. |
+| Reporting only final numbers. | Show formula, substitution, result, unit, and interpretation. |
+| Treating seat capacity as customer flow. | Apply occupancy or table-use assumptions before revenue calculations. |
+| Treating answer-key `75%` utilization as every Circored resource's utilization. | `75%` is overall/bottleneck utilization at demand flow; individual resources have their own utilization rates. |
 
 ## Compact Answer Language
 
@@ -116,4 +166,5 @@ Compute each resource capacity in the same time unit.
 The bottleneck is the minimum required capacity.
 Use Little's Law when inventory, flow time, and flow rate are linked.
 Interpret the result as a customer-service and profitability consequence.
+Never leave a numerical answer as result-only; show formula -> substitution -> result -> unit -> interpretation.
 ```

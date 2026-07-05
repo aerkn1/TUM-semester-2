@@ -352,6 +352,16 @@ Redemptions
 
 The financing source is not "stocks or bonds invested in by the project." Stocks, bonds, and comparable traded securities are reference markets for estimating required returns. The actual financing mix is a separate policy choice: how much debt, how much equity, what maturity, what repayment pattern, and what target leverage.
 
+Use this sequence when a case asks how equity cost, debt cost, WACC, and redemptions fit together:
+
+1. Start with the project's operating risk: forecast operating FCF and identify the business risk, comparable firms, asset beta, operating leverage, and target leverage.
+2. Estimate `r_E` with CAPM: use the project-relevant beta and market risk premium to estimate the equity investors' required return.
+3. Estimate `r_D` from debt-market or lender options: use the required debt amount, maturity, seniority, default risk, and available financing alternatives to identify the debt investors' required return.
+4. Blend `r_E` and after-tax `r_D` with target market-value weights to get WACC, if the project risk and financing policy match those weights.
+5. Build the redemption or annuity schedule after the debt terms are chosen to test contractual debt-service timing.
+
+Important correction: WACC is not "equity return plus debt return plus operational risk" as three separate add-ons. The project's operating risk should already be reflected in the chosen project beta, the project-specific equity cost, the debt risk, and the target capital structure. Add a separate project-risk premium only if the exercise explicitly instructs it.
+
 Debt cost of capital and redemption calculations are connected but not identical:
 
 ```text

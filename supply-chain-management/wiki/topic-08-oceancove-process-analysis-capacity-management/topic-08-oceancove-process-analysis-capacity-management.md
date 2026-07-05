@@ -32,6 +32,12 @@ Utilization = flow rate / capacity
 System capacity = minimum capacity among required resources
 ```
 
+Worked-calculation standard used below:
+
+```text
+define flow unit -> choose formula -> convert time units -> substitute values -> calculate result -> attach unit -> interpret bottleneck/decision
+```
+
 OceanCove's main quantitative conclusions:
 
 - Peak lunch dining flow: `120 customers/hour`.
@@ -143,89 +149,324 @@ Little's Law:
 ```text
 Average inventory = Average flow time * Average flow rate
 I = R * T
+R = I / T
+T = I / R
 ```
 
-At peak lunch:
+### Peak Lunch Customer Flow
+
+Decision problem:
 
 ```text
-Average inventory = 30 tables * 3 customers/table = 90 customers
-Average flow time = 45 minutes = 0.75 hours
-Flow rate = 90 / 0.75 = 120 customers/hour
+Use the observed number of customers in the dining process and the average stay time to infer the peak flow rate.
+```
+
+Known inputs:
+
+```text
+Average occupied tables = 30 tables
+Average customers per table = 3 customers/table
+Average flow time = 45 minutes/customer stay
+```
+
+Unit conversion:
+
+```text
+45 minutes = 45/60 hours = 0.75 hours
+```
+
+Average inventory:
+
+```text
+I = 30 tables x 3 customers/table
+I = 90 customers
+```
+
+Formula:
+
+```text
+R = I / T
+```
+
+Substitution:
+
+```text
+R = 90 customers / 0.75 hours
+R = 120 customers/hour
+```
+
+Equivalent minute rate:
+
+```text
+120 customers/hour / 60 minutes/hour = 2 customers/minute
 ```
 
 Interpretation:
 
 ```text
-OceanCove's observed number of customers in the dining process and their average stay imply the actual peak flow rate.
+OceanCove has about 120 customers per hour flowing through lunch at peak.
+If the kitchen treats one meal order as one customer order, order tickets enter the kitchen at about 120 meal orders/hour, or 2 meal orders/minute.
 ```
+
+Exam trap: do not say "30 tables" is the flow rate. Thirty tables is part of average inventory. Flow rate needs the time denominator.
 
 ## Bottleneck And Capacity Analysis
 
-The restaurant's capacity is the minimum of:
+The restaurant's system capacity is the minimum of all required resource capacities:
 
 ```text
-kitchen capacity, waiter capacity, table capacity
+restaurant capacity = min(kitchen capacity, waiter capacity, table capacity)
 ```
 
-Lunch capacities:
+Use one common unit before comparing steps. The slides compare lunch in `customers/hour` or `meals/hour`; in this case one customer is treated as one meal order for the main flow.
 
-| Step | Capacity |
-|---|---:|
-| Fish menu, using 2:1 grilled-to-fried mix | `270 meals/hour` |
-| French-fry frying | `400 portions/hour` |
-| Expediting | plenty |
-| Assembly | `144 meals/hour` |
-| Order taking, delivery, billing | `180 customers/hour` |
-| Lunch dining area | `160 customers/hour` |
+### Step Capacity Calculations
 
-Lunch bottleneck:
+| Step | Formula | Substitution | Capacity | Interpretation |
+|---|---|---|---:|---|
+| Fish frying | `batch size / batch time` | `6 fish / (4/60 hours)` | `90 fish/hour` | One fryer can complete 6 fried fish every 4 minutes. |
+| Fish grilling | `batch size / batch time` | `20 fish / (4/60 hours)` | `300 fish/hour` | Grill capacity is much larger than fried fish capacity. |
+| French-fry frying | `number of fryers x capacity per fryer` | `2 x 200 portions/hour` | `400 portions/hour` | Not constraining under the main meal flow. |
+| Assembly | `1 / processing time per meal` | `1 / (25/3600 hours/meal)` | `144 meals/hour` | One chef can assemble 144 meals per hour. |
+| Waiters | `number of waiters / time per table` | `6 waiters / (6/60 hours/table)` | `60 tables/hour` | With 3 customers/table, this is `180 customers/hour`. |
+| Lunch dining area | `seats / average stay` | `120 seats / (45/60 hours)` | `160 seat-turns/hour` | At 3 of 4 seats occupied, actual customer flow is `160 x 0.75 = 120 customers/hour`. |
+| Dinner dining area | `seats / average stay` | `120 seats / (82.5/60 hours)` | `87.27 seat-turns/hour` | Rounded to `87 customers/hour` in the slides. |
+
+Assembly detail:
+
+```text
+25 seconds/meal = 25/60 minutes/meal = 0.4167 minutes/meal
+25 seconds/meal = 25/3600 hours/meal = 0.006944 hours/meal
+capacity = 1 meal / 0.006944 hours
+capacity = 144 meals/hour
+```
+
+Waiter detail:
+
+```text
+6 minutes/table = 6/60 hours/table = 0.10 hours/table
+capacity = 6 waiters / 0.10 hours/table
+capacity = 60 tables/hour
+customer capacity = 60 tables/hour x 3 customers/table
+customer capacity = 180 customers/hour
+```
+
+### Effective Fish Menu Capacity With 2:1 Mix
+
+Case statement:
+
+```text
+Grilled seafood is about twice as popular as fried seafood.
+```
+
+Define the mix:
+
+```text
+For every 1 fried fish meal, there are 2 grilled fish meals.
+Let x = fried fish meals/hour.
+Then grilled fish meals/hour = 2x.
+Total fish meals/hour = x + 2x = 3x.
+```
+
+Capacity constraints:
+
+```text
+Fried fish: x <= 90
+Grilled fish: 2x <= 300  ->  x <= 150
+```
+
+Binding constraint:
+
+```text
+x <= min(90, 150)
+x <= 90
+```
+
+Substitution:
+
+```text
+fried meals/hour = x = 90
+grilled meals/hour = 2x = 2 x 90 = 180
+total fish menu capacity = 90 + 180 = 270 fish meals/hour
+```
+
+Interpretation:
+
+```text
+The fried-fish fryer limits the mixed fish menu. The grill has spare capacity at the required 2:1 grilled-to-fried mix.
+```
+
+### Lunch Bottleneck And Utilization
+
+At peak lunch, actual flow is `120 meals/hour`.
+
+Flow split for the fish mix:
+
+```text
+fried demand = 1/3 x 120 = 40 fried meals/hour
+grilled demand = 2/3 x 120 = 80 grilled meals/hour
+```
+
+Utilization formula:
+
+```text
+utilization = actual flow rate / capacity
+```
+
+Lunch utilization table:
+
+| Resource | Actual Flow | Capacity | Utilization Calculation | Utilization |
+|---|---:|---:|---|---:|
+| Fried fish | `40 fried meals/hour` | `90 fried meals/hour` | `40 / 90 = 0.4444` | `44.44%` |
+| Grilled fish | `80 grilled meals/hour` | `300 grilled meals/hour` | `80 / 300 = 0.2667` | `26.67%` |
+| Effective fish menu | `120 fish meals/hour` | `270 fish meals/hour` | `120 / 270 = 0.4444` | `44.44%` |
+| French fries | `120 portions/hour` | `400 portions/hour` | `120 / 400 = 0.3000` | `30.00%` |
+| Assembly | `120 meals/hour` | `144 meals/hour` | `120 / 144 = 0.8333` | `83.33%` |
+| Waiters | `120 customers/hour` | `180 customers/hour` | `120 / 180 = 0.6667` | `66.67%` |
+| Lunch dining area | `120 customers/hour` | `160 seat-turns/hour` | `120 / 160 = 0.7500` | `75.00%` |
+
+Lunch system capacity:
+
+```text
+restaurant capacity = min(270, 400, 144, 180, 160)
+restaurant capacity = 144 meals/hour
+```
+
+Bottleneck:
 
 ```text
 Assembly = 144 meals/hour
 ```
 
-The fish menu itself is not the bottleneck because fried fish capacity is 90 meals/hour and grilled fish is twice as popular:
+Interpretation:
 
 ```text
-90 fried meals + 180 grilled meals = 270 fish meals/hour
+At lunch, adding more grill or dining capacity does not raise total output unless assembly is also improved, because assembly is the lowest required capacity.
 ```
 
-Dinner bottleneck:
+### Dinner Bottleneck
+
+Dinner dining time is longer:
 
 ```text
-Dinner dining area = 87 customers/hour
+Average dinner stay = 82.5 minutes = 82.5/60 hours = 1.375 hours
+dining capacity = 120 seats / 1.375 hours
+dining capacity = 87.27 customers/hour
 ```
 
-At dinner the table-stay time is longer, so seating becomes more constraining.
+Dinner system capacity:
+
+```text
+restaurant capacity = min(270 fish meals/hour, 400 fries/hour, 144 assembly/hour, 180 waiter customers/hour, 87.27 dining customers/hour)
+restaurant capacity = 87.27 customers/hour
+```
+
+Bottleneck:
+
+```text
+Dinner dining area = about 87 customers/hour
+```
+
+Interpretation:
+
+```text
+At dinner, longer stays make seating the bottleneck. The same restaurant can have different bottlenecks at lunch and dinner.
+```
 
 ## Lead-Time Analysis
 
+Lead time includes waiting plus processing. Processing time alone is only the fastest possible case.
+
 ### Fastest Possible Grilled Fish Meal
 
-For a rushed first customer:
+Decision problem:
+
+```text
+Assume the customer is first at lunch or receives a rushed order, so there is no queue waiting.
+```
+
+Known processing times:
 
 | Activity | Duration |
 |---|---:|
-| Order taking | 3 minutes |
-| Grilling, assuming precooked | 4 minutes |
-| Assembly | 25 seconds |
-| Delivery | 3 minutes |
-| Total | 10 minutes 25 seconds |
+| Order taking | `3 minutes` |
+| Grilling | `4 minutes` |
+| Assembly | `25 seconds` |
+| Delivery | `3 minutes` |
+
+Convert seconds:
+
+```text
+25 seconds = 25/60 minutes = 0.4167 minutes
+```
+
+Formula:
+
+```text
+fastest lead time = order taking + grilling + assembly + delivery
+```
+
+Substitution:
+
+```text
+fastest lead time = 3 minutes + 4 minutes + 25 seconds + 3 minutes
+fastest lead time = 10 minutes + 25 seconds
+```
+
+Equivalent decimal form:
+
+```text
+10 minutes + 25 seconds = 10 + 25/60 minutes = 10.4167 minutes
+```
+
+Interpretation:
+
+```text
+If no queue exists, a grilled fish meal can be delivered in 10 minutes 25 seconds.
+```
 
 ### Peak Non-Rushed Order
 
-At peak:
+Decision problem:
+
+```text
+At peak lunch, the customer is not rushed and joins the kitchen queue.
+```
+
+Known inputs from the slides:
 
 ```text
 Average flow rate = 2 meals/minute
-Average orders waiting in kitchen = 26 orders
-Average waiting time = 26 / 2 = 13 minutes
+Average inventory waiting in kitchen = 26 orders
+Fastest processing lead time = 10 minutes 25 seconds
 ```
 
-Customer order lead time:
+Formula from Little's Law:
 
 ```text
-13 minutes waiting + 10 minutes 25 seconds processing = 23 minutes 25 seconds
+I = R x T
+T = I / R
+```
+
+Substitution:
+
+```text
+average waiting time = 26 orders / 2 orders per minute
+average waiting time = 13 minutes
+```
+
+Full lead time:
+
+```text
+customer order lead time = waiting time + processing time
+customer order lead time = 13 minutes + 10 minutes 25 seconds
+customer order lead time = 23 minutes 25 seconds
+```
+
+Interpretation:
+
+```text
+The physical process is only 10 minutes 25 seconds, but the customer experiences 23 minutes 25 seconds because peak congestion adds 13 minutes of queue waiting.
 ```
 
 Exam trap:
@@ -236,52 +477,189 @@ Do not confuse processing time with lead time. Lead time includes waiting.
 
 ## Seat Expansion From 120 To 160
 
+The seat-expansion slides combine three ideas:
+
+1. Dining-area capacity depends on seats and stay time.
+2. Actual meal/customer flow is lower when only 3 of 4 seats are occupied on average.
+3. System capacity still cannot exceed the current bottleneck, especially assembly at lunch.
+
 ### Base Case: 120 Seats
 
-| Measure | Value |
-|---|---:|
-| Lunch capacity | `144 meals/hour` |
-| Lunch flow rate | `120 meals/hour` |
-| Lunch revenue | `$6 * 120 * 3 = $2160` |
-| Dinner capacity | `87 meals/hour` |
-| Dinner flow rate | `65 meals/hour` |
-| Dinner revenue | `$14 * 65 * 4 = $3640` |
-| Daily revenue | `$5800` |
+#### Lunch Revenue
+
+Dining seat-turn capacity:
+
+```text
+seats = 120
+average lunch stay = 45 minutes = 45/60 hours = 0.75 hours
+dining seat-turn capacity = 120 / 0.75
+dining seat-turn capacity = 160 seat-turns/hour
+```
+
+Occupancy adjustment:
+
+```text
+average occupied seats per 4-seat table = 3
+occupancy factor = 3/4 = 0.75
+customer flow = 160 x 0.75 = 120 customers/hour
+```
+
+Lunch revenue:
+
+```text
+revenue = price per meal x customer flow x lunch duration
+revenue = $6/meal x 120 meals/hour x 3 hours
+revenue = $2160
+```
+
+#### Dinner Revenue
+
+Dining seat-turn capacity:
+
+```text
+average dinner stay = 82.5 minutes = 82.5/60 hours = 1.375 hours
+dinner dining capacity = 120 seats / 1.375 hours
+dinner dining capacity = 87.27 seat-turns/hour
+```
+
+Occupancy adjustment:
+
+```text
+dinner flow = 87.27 x 0.75
+dinner flow = 65.45 customers/hour
+dinner flow rounded in slide = 65 customers/hour
+```
+
+Dinner revenue:
+
+```text
+revenue = $14/meal x 65 meals/hour x 4 hours
+revenue = $3640
+```
+
+Daily revenue:
+
+```text
+daily revenue = lunch revenue + dinner revenue
+daily revenue = $2160 + $3640
+daily revenue = $5800
+```
 
 ### New Case: 160 Seats
 
-| Measure | Value |
-|---|---:|
-| Lunch seat capacity | `213 customers/hour` |
-| Lunch actual capacity | `144 meals/hour` because assembly still limits lunch |
-| Lunch revenue | `$6 * 144 * 3 = $2592` |
-| Dinner dining capacity | `116 meals/hour` |
-| Dinner flow rate | `87 meals/hour` |
-| Dinner revenue | `$14 * 87 * 4 = $4872` |
-| Daily revenue | `$7464` |
+#### Lunch Revenue
 
-Assumptions on the later slide:
-
-- capacity utilization: `70%`
-- net profit margin: `15%`
-
-At those assumptions:
-
-| Seats | Daily Contribution |
-|---:|---:|
-| 120 | `$609` |
-| 160 | `$784` |
-
-Incremental daily contribution:
+Dining seat-turn capacity:
 
 ```text
-$784 - $609 = $175/day
+seats = 160
+average lunch stay = 45 minutes = 0.75 hours
+dining seat-turn capacity = 160 / 0.75
+dining seat-turn capacity = 213.33 seat-turns/hour
 ```
 
-Managerial implication:
+Occupancy-adjusted dining flow:
 
 ```text
-Adding seats helps dinner more than lunch. At lunch, assembly remains the bottleneck, so capacity expansion should also consider kitchen/assembly improvement.
+occupancy-adjusted flow = 213.33 x 0.75
+occupancy-adjusted flow = 160 customers/hour
+```
+
+System capacity check:
+
+```text
+assembly capacity = 144 meals/hour
+occupancy-adjusted dining flow = 160 customers/hour
+lunch system flow after expansion = min(144, 160)
+lunch system flow after expansion = 144 meals/hour
+```
+
+Lunch revenue:
+
+```text
+revenue = $6/meal x 144 meals/hour x 3 hours
+revenue = $2592
+```
+
+#### Dinner Revenue
+
+Dining capacity:
+
+```text
+dinner dining capacity = 160 seats / 1.375 hours
+dinner dining capacity = 116.36 seat-turns/hour
+```
+
+Occupancy-adjusted dinner flow:
+
+```text
+dinner flow = 116.36 x 0.75
+dinner flow = 87.27 customers/hour
+dinner flow rounded in slide = 87 customers/hour
+```
+
+Dinner revenue:
+
+```text
+revenue = $14/meal x 87 meals/hour x 4 hours
+revenue = $4872
+```
+
+Daily revenue:
+
+```text
+daily revenue = $2592 + $4872
+daily revenue = $7464
+```
+
+### Contribution With 70% Capacity Utilization And 15% Net Margin
+
+Assumptions:
+
+```text
+capacity utilization = 70% = 0.70
+net profit margin = 15% = 0.15
+contribution = full-capacity revenue x 0.70 x 0.15
+```
+
+Base case, 120 seats:
+
+```text
+lunch revenue at 70% utilization = $2160 x 0.70 = $1512
+lunch contribution = $1512 x 0.15 = $226.80 ~= $227
+
+dinner revenue at 70% utilization = $3640 x 0.70 = $2548
+dinner contribution = $2548 x 0.15 = $382.20 ~= $382
+
+daily contribution = $227 + $382 = $609
+```
+
+New case, 160 seats:
+
+```text
+lunch revenue at 70% utilization = $2592 x 0.70 = $1814.40
+lunch contribution = $1814.40 x 0.15 = $272.16 ~= $272
+
+dinner revenue at 70% utilization = $4872 x 0.70 = $3410.40
+dinner contribution = $3410.40 x 0.15 = $511.56 ~= $512
+
+daily contribution = $272 + $512 = $784
+```
+
+Incremental contribution:
+
+```text
+incremental daily contribution = $784 - $609
+incremental daily contribution = $175/day
+```
+
+Managerial interpretation:
+
+```text
+Adding seats creates about $175 additional daily contribution under the slide assumptions.
+It helps dinner more directly because dinner is seating-constrained.
+It helps lunch only until assembly binds at 144 meals/hour.
+Final investment approval still needs the cost of adding seats, payback, or NPV.
 ```
 
 ## Exercise Answer Guides
@@ -290,62 +668,315 @@ Adding seats helps dinner more than lunch. At lunch, assembly remains the bottle
 
 Key data:
 
-- check-in: 2 minutes
-- wait: 7 minutes
-- hair washing: 10 minutes
-- wait: 3 minutes
-- hairdressing: 30 minutes
-- wait: 5 minutes
-- checkout: 3 minutes
-- resources: 5 hairdressers, 2 hair washers, 1 administrator
+- check-in: `2 minutes/customer`
+- waiting after check-in: `7 minutes`
+- hair washing: `10 minutes/customer`
+- waiting after hair washing: `3 minutes`
+- hairdressing: `30 minutes/customer`
+- waiting after hairdressing: `5 minutes`
+- checkout: `3 minutes/customer`
+- resources: `5` professional hairdressers, `2` hair washers, `1` administrator
 
-Answer key:
+#### Total Flow Time
 
-```text
-Capacity = 10 customers/hour
-Bottleneck = hairdressing
-Customers in steady state over 1 hour = 10 customers
-Maximum possible capacity after hiring 2 bottleneck-capable employees = 13 customers/hour
-```
-
-Method:
+Formula:
 
 ```text
-capacity = number of parallel workers / time per customer
-system capacity = minimum resource capacity
+flow time = processing times + waiting times
 ```
 
-Exam trap: if the bottleneck is relieved, capacity may shift to another resource. Do not stop after increasing only the old bottleneck.
+Substitution:
+
+```text
+flow time = 2 + 7 + 10 + 3 + 30 + 5 + 3
+flow time = 60 minutes
+flow time = 1 hour
+```
+
+Interpretation:
+
+```text
+One customer spends about 1 hour inside the process from check-in to checkout.
+```
+
+#### Capacity Before Hiring
+
+Administration handles both check-in and checkout:
+
+```text
+admin time/customer = check-in + checkout
+admin time/customer = 2 + 3 = 5 minutes/customer
+admin capacity = 1 administrator / (5/60 hours/customer)
+admin capacity = 1 / 0.08333
+admin capacity = 12 customers/hour
+```
+
+Hair washing:
+
+```text
+hair-washing capacity = 2 hair washers / (10/60 hours/customer)
+hair-washing capacity = 2 / 0.1667
+hair-washing capacity = 12 customers/hour
+```
+
+Hairdressing:
+
+```text
+hairdressing capacity = 5 hairdressers / (30/60 hours/customer)
+hairdressing capacity = 5 / 0.50
+hairdressing capacity = 10 customers/hour
+```
+
+System capacity:
+
+```text
+system capacity = min(admin capacity, hair-washing capacity, hairdressing capacity)
+system capacity = min(12, 12, 10)
+system capacity = 10 customers/hour
+```
+
+Bottleneck:
+
+```text
+hairdressing capacity = 10 customers/hour
+```
+
+Interpretation:
+
+```text
+Hairdressing is the bottleneck because it has the smallest capacity.
+```
+
+#### Customers In Steady State
+
+Formula:
+
+```text
+I = R x T
+```
+
+Known inputs:
+
+```text
+R = 10 customers/hour
+T = 1 hour
+```
+
+Substitution:
+
+```text
+I = 10 customers/hour x 1 hour
+I = 10 customers
+```
+
+Interpretation:
+
+```text
+At steady state, about 10 customers are in the system at the same time.
+```
+
+#### Capacity After Hiring 2 Bottleneck-Capable Employees
+
+If the two new employees were used only for hairdressing:
+
+```text
+hairdressers = 5 + 2 = 7
+hairdressing capacity = 7 / (30/60)
+hairdressing capacity = 7 / 0.50
+hairdressing capacity = 14 customers/hour
+```
+
+But the system capacity is not automatically 14:
+
+```text
+admin capacity = 12 customers/hour
+hair-washing capacity = 12 customers/hour
+hairdressing-only capacity = 14 customers/hour
+simple bottleneck shift = min(12, 12, 14) = 12 customers/hour
+```
+
+Why the answer key reports `13 customers/hour`:
+
+```text
+Professional hairdressers can perform any task.
+After hiring 2 more bottleneck-capable employees, there are 7 flexible professional employees.
+Those flexible employees can support hairdressing and small overloads in administration / washing.
+```
+
+Feasibility check at `13 customers/hour`:
+
+```text
+admin workload = 13 customers/hour x 5 minutes/customer = 65 minutes/hour
+admin staff capacity = 1 x 60 = 60 minutes/hour
+admin overload needing flexible help = 65 - 60 = 5 minutes/hour
+
+hair-washing workload = 13 x 10 = 130 minutes/hour
+washer capacity = 2 x 60 = 120 minutes/hour
+washing overload needing flexible help = 130 - 120 = 10 minutes/hour
+
+hairdressing workload = 13 x 30 = 390 minutes/hour
+
+flexible professional workload = hairdressing + admin overload + washing overload
+flexible professional workload = 390 + 5 + 10 = 405 minutes/hour
+flexible professional capacity = 7 x 60 = 420 minutes/hour
+```
+
+Conclusion:
+
+```text
+405 minutes/hour <= 420 minutes/hour
+13 customers/hour is feasible.
+```
+
+Why `14 customers/hour` is not feasible:
+
+```text
+admin workload = 14 x 5 = 70 minutes/hour -> 10 minutes flexible help
+washing workload = 14 x 10 = 140 minutes/hour -> 20 minutes flexible help
+hairdressing workload = 14 x 30 = 420 minutes/hour
+
+flexible professional workload = 420 + 10 + 20 = 450 minutes/hour
+flexible professional capacity = 420 minutes/hour
+```
+
+Conclusion:
+
+```text
+450 minutes/hour > 420 minutes/hour
+14 customers/hour is not feasible.
+Answer-key maximum whole-customer capacity = 13 customers/hour.
+```
+
+Exam trap: when a bottleneck is relieved, recompute the whole system. The bottleneck may shift, and flexible workers may need to cover more than one overloaded step.
 
 ### Task 2: Circored Plant
 
-Process capacities:
-
-| Process | Capacity Logic |
-|---|---:|
-| Preheater | `120 tons/hour` |
-| Lock hoppers | `110 tons/hour` |
-| CFB reactor | `28 tons / 0.25 hour = 112 tons/hour` |
-| SFB reactor | `400 tons / 4 hours = 100 tons/hour` |
-| Flash heater | `135 tons/hour` |
-| Pressure let-down system | `118 tons/hour` |
-| Briquetting | `3 * 55 = 165 tons/hour` |
-
-Answer key:
+Flow unit:
 
 ```text
-Overall capacity = 100 tons/hour
-Time for 25,000 tons at demand flow = 333.33 hours
-Average capacity utilization reported = 75%
+1 ton of iron ore / DRI briquettes moving through the plant
 ```
 
-Important interpretation:
+#### Process Capacities
 
-The system bottleneck is the stationary fluid bed reactor at `100 tons/hour`. The `333.33 hours` result uses the annual demand flow rate:
+| Process | Formula | Substitution | Capacity |
+|---|---|---|---:|
+| Preheater | given | `120 tons/hour` | `120 tons/hour` |
+| Lock hoppers | given | `110 tons/hour` | `110 tons/hour` |
+| CFB reactor | `inventory / flow time` | `28 tons / 0.25 hours` | `112 tons/hour` |
+| SFB reactor | `inventory / flow time` | `400 tons / 4 hours` | `100 tons/hour` |
+| Flash heater | given | `135 tons/hour` | `135 tons/hour` |
+| Pressure let-down system | given | `118 tons/hour` | `118 tons/hour` |
+| Briquetting | `parallel machines x machine capacity` | `3 x 55 tons/hour` | `165 tons/hour` |
+
+CFB unit conversion:
 
 ```text
-657000 tons/year / 8760 hours/year = 75 tons/hour
-25000 / 75 = 333.33 hours
+15 minutes = 15/60 hours = 0.25 hours
+CFB capacity = 28 tons / 0.25 hours
+CFB capacity = 112 tons/hour
+```
+
+SFB calculation:
+
+```text
+SFB capacity = 400 tons / 4 hours
+SFB capacity = 100 tons/hour
+```
+
+Briquetting calculation:
+
+```text
+briquetting capacity = 3 machines x 55 tons/hour per machine
+briquetting capacity = 165 tons/hour
+```
+
+Overall plant capacity:
+
+```text
+overall capacity = min(120, 110, 112, 100, 135, 118, 165)
+overall capacity = 100 tons/hour
+```
+
+Bottleneck:
+
+```text
+stationary fluid bed reactor (SFB) = 100 tons/hour
+```
+
+#### Time To Produce 25,000 Tons
+
+The answer key uses the demand flow rate, not the maximum technical capacity.
+
+Annual demand conversion:
+
+```text
+annual demand = 657000 tons/year
+hours per year = 365 days/year x 24 hours/day = 8760 hours/year
+demand flow rate = 657000 / 8760
+demand flow rate = 75 tons/hour
+```
+
+Formula:
+
+```text
+time = required quantity / flow rate
+```
+
+Substitution:
+
+```text
+time = 25000 tons / 75 tons/hour
+time = 333.33 hours
+```
+
+Interpretation:
+
+```text
+At the demand flow rate of 75 tons/hour, producing 25,000 tons takes 333.33 hours.
+```
+
+Boundary check:
+
+```text
+If the task asked for fastest possible production at maximum capacity:
+time = 25000 tons / 100 tons/hour = 250 hours.
+But the answer key's 333.33 hours uses demand flow, not full capacity.
+```
+
+#### Capacity Utilization
+
+Formula:
+
+```text
+utilization = flow rate / capacity
+```
+
+Using demand flow `75 tons/hour`, the bottleneck / overall capacity utilization is:
+
+```text
+overall utilization = 75 / 100
+overall utilization = 0.75
+overall utilization = 75%
+```
+
+Individual resource utilizations:
+
+| Resource | Demand Flow | Capacity | Calculation | Utilization |
+|---|---:|---:|---|---:|
+| Preheater | `75 tons/hour` | `120 tons/hour` | `75 / 120 = 0.6250` | `62.50%` |
+| Lock hoppers | `75 tons/hour` | `110 tons/hour` | `75 / 110 = 0.6818` | `68.18%` |
+| CFB reactor | `75 tons/hour` | `112 tons/hour` | `75 / 112 = 0.6696` | `66.96%` |
+| SFB reactor | `75 tons/hour` | `100 tons/hour` | `75 / 100 = 0.7500` | `75.00%` |
+| Flash heater | `75 tons/hour` | `135 tons/hour` | `75 / 135 = 0.5556` | `55.56%` |
+| Pressure let-down | `75 tons/hour` | `118 tons/hour` | `75 / 118 = 0.6356` | `63.56%` |
+| Briquetting | `75 tons/hour` | `165 tons/hour` | `75 / 165 = 0.4545` | `45.45%` |
+
+Interpretation:
+
+```text
+The answer-key headline of 75% corresponds to utilization of the bottleneck / overall plant capacity at the demand flow rate.
+Individual non-bottleneck resources have lower utilization because they have spare capacity.
 ```
 
 Exam trap: capacity and demand flow are different. Use capacity for maximum output; use demand flow when the task asks about production under the given demand rate.
@@ -356,29 +987,72 @@ Activities:
 
 | Activity | Predecessor | Duration |
 |---|---|---:|
-| Demolition | none | 1 week |
-| Electricals | Demolition | 2 weeks |
-| Plumbing | Demolition | 2 weeks |
-| Drywall | Electricals and Plumbing | 3 weeks |
-| Painting | Drywall | 1 week |
-| Installing doors/windows | Painting | 1 week |
-| Flooring/tiling | Painting | 2 weeks |
-| Complete cleaning | Flooring/tiling | 1 week |
+| Demolition | none | `1 week` |
+| Electricals | Demolition | `2 weeks` |
+| Plumbing | Demolition | `2 weeks` |
+| Drywall | Electricals and Plumbing | `3 weeks` |
+| Painting | Drywall | `1 week` |
+| Installing doors/windows | Painting | `1 week` |
+| Flooring/tiling | Painting | `2 weeks` |
+| Complete cleaning | Flooring/tiling | `1 week` |
 
 Worker availability:
 
-- Worker 1: Demolition CW1-CW2, Drywall CW5-CW8, doors/windows CW10.
-- Worker 2: Electricals CW1-CW3, flooring/tiling CW7-CW11, doors/windows.
-- Worker 3: Plumbing CW3-CW5, painting CW8-CW12, cleaning.
+| Worker | Can Do | Availability |
+|---|---|---|
+| Worker 1 | Demolition; Drywall; Installing doors/windows | Demolition `CW1-CW2`; Drywall `CW5-CW8`; doors/windows `CW10` |
+| Worker 2 | Electricals; Flooring/tiling; Installing doors/windows | Electricals `CW1-CW3`; flooring/tiling `CW7-CW11` |
+| Worker 3 | Plumbing; Painting; Complete cleaning | Plumbing `CW3-CW5`; painting/cleaning `CW8-CW12` |
 
-Answer key:
+Scheduling rule:
 
 ```text
-Project duration = 11 weeks
-Renovation on hold = No
+start each activity as early as possible,
+but only if all predecessors are finished and a qualified worker is available.
 ```
 
-Exam trap: a Gantt chart must respect both precedence and worker availability.
+Step-by-step schedule:
+
+| Activity | Reasoning | Scheduled Weeks |
+|---|---|---|
+| Demolition | No predecessor; Worker 1 available from CW1. | `CW1` |
+| Electricals | Needs Demolition complete; Worker 2 available through CW3. | `CW2-CW3` |
+| Plumbing | Needs Demolition complete; Worker 3 available from CW3. | `CW3-CW4` |
+| Drywall | Needs Electricals and Plumbing complete; Worker 1 available CW5-CW8. | `CW5-CW7` |
+| Painting | Needs Drywall complete; Worker 3 available CW8-CW12. | `CW8` |
+| Flooring/tiling | Needs Painting complete; Worker 2 available CW7-CW11. | `CW9-CW10` |
+| Installing doors/windows | Needs Painting complete; Worker 1 available CW10. | `CW10` |
+| Complete cleaning | Needs Flooring/tiling complete; Worker 3 available CW8-CW12. | `CW11` |
+
+Compact Gantt view:
+
+| Activity | CW1 | CW2 | CW3 | CW4 | CW5 | CW6 | CW7 | CW8 | CW9 | CW10 | CW11 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Demolition | W1 |  |  |  |  |  |  |  |  |  |  |
+| Electricals |  | W2 | W2 |  |  |  |  |  |  |  |  |
+| Plumbing |  |  | W3 | W3 |  |  |  |  |  |  |  |
+| Drywall |  |  |  |  | W1 | W1 | W1 |  |  |  |  |
+| Painting |  |  |  |  |  |  |  | W3 |  |  |  |
+| Flooring/tiling |  |  |  |  |  |  |  |  | W2 | W2 |  |
+| Installing doors/windows |  |  |  |  |  |  |  |  |  | W1 |  |
+| Complete cleaning |  |  |  |  |  |  |  |  |  |  | W3 |
+
+Project duration:
+
+```text
+project starts = CW1
+project completes = end of CW11
+project duration = 11 weeks
+```
+
+Renovation on hold?
+
+```text
+There is at least one scheduled activity in every week from CW1 through CW11.
+Therefore, renovation on hold = No.
+```
+
+Exam trap: do not sum all activity durations. The project duration is the calendar span after respecting precedence, parallel work, and worker availability.
 
 ## Diagrams, Tables, And Visuals
 

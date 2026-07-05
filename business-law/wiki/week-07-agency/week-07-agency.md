@@ -126,6 +126,57 @@ If the agent acted within authority and disclosed the principal relationship, th
 
 In the furniture case, A is not personally obligated to deliver the furniture or pay damages under the purchase contract merely because A concluded it as agent.
 
+## Clarification Layer: Who Acts, Who Is Bound, And Which Boundary Matters
+
+Agency is easiest to remember as a legal remote control.
+
+```text
+Agent presses the button.
+Principal's legal position moves.
+Third party receives the legal effect.
+```
+
+The agent makes the declaration physically and legally as their own declaration of intent, but the legal consequence is attributed to the principal if Section 164 I BGB is satisfied.
+
+### Internal Versus External Boundary
+
+The most important exam split is:
+
+```text
+External boundary = can do = power to bind the principal toward the third party.
+Internal boundary = may do = permission or duty inside the principal-agent relationship.
+```
+
+Example:
+
+```text
+P tells A internally: "Do not sell below EUR 10,000."
+P presents A externally as sales manager with authority to sell furniture.
+A sells to T for EUR 8,000.
+T does not know the internal minimum price.
+```
+
+Analysis:
+
+1. A made an own declaration of intent to T.
+2. A acted in P's name because T understood A was selling for P.
+3. A may still have external power of representation.
+4. The contract can bind P and T externally.
+5. A violated the internal instruction and may be liable internally to P.
+
+Exam correction: do not call this a "wrong declaration of intent" externally. It is better described as an externally effective declaration that breaches the internal relationship.
+
+### Publicity Versus Authority
+
+Publicity and authority are separate requirements.
+
+| Requirement | Question | Failure consequence |
+|---|---|---|
+| Publicity | Can T recognize that A acts for P rather than personally? | Hidden intent does not bind P; A may be treated as acting personally. |
+| Power of representation | Can A legally bind P? | P is not bound unless P ratifies; A may face Section 179 BGB liability. |
+
+Publicity does not mean T must formally verify A's authority. It means the transaction is visibly for the principal.
+
 ## Missing Requirements
 
 ### No Own Declaration: Messenger Only
@@ -161,6 +212,19 @@ Example: under Section 35 GmbHG, GmbH directors represent the company in and out
 
 This is exam-relevant because legal entities cannot act physically. They need organs or agents to make declarations.
 
+A legal entity, such as a GmbH or AG, can own assets, conclude contracts, sue, be sued, and owe duties. But it cannot speak, sign, negotiate, send an email, or physically hand over goods by itself. A human act must therefore be attributed to the legal entity.
+
+| Route | Meaning | Example |
+|---|---|---|
+| Organ representation | A statutory company organ acts for the legal entity by law. | A GmbH managing director signs a purchase contract for the GmbH. |
+| Agency | A person is authorized to represent the legal entity in a transaction. | A sales employee sells goods in the GmbH's name under granted authority. |
+
+Exam sentence:
+
+```text
+Because a legal entity cannot act physically, the declaration must be made through an organ or agent and then attributed to the legal entity.
+```
+
 ### Authority By Declaration
 
 Under Section 167 I BGB, the principal can grant power of representation by declaration.
@@ -182,6 +246,16 @@ The deck distinguishes two reliance categories:
 - ostensible agency: the principal does not know, but could have known with due diligence because of negligence
 
 The deck's key consequence is that in both cases the agent acts with real power of representation. This protects a third party who reasonably relies on the principal-created appearance.
+
+This differs from regular authorization because regular authorization is based on P's intentional declaration, while reliance-based authority is based on P's responsible creation or toleration of an appearance.
+
+| Type | P's mental state | Legal intuition | Example |
+|---|---|---|---|
+| Regular authorization | P intentionally gives A authority. | Authority comes from P's declaration. | P says, "A may sell furniture for me." |
+| Agency by estoppel | P knows A appears to act as agent and tolerates it. | P cannot silently benefit from or tolerate the appearance and later deny it. | P sees A repeatedly selling to customers in P's name and does nothing. |
+| Ostensible agency | P does not know, but should have known and prevented the appearance. | P negligently failed to control the appearance of authority. | A uses P's email, office, and forms for repeated sales; P would have noticed with proper controls. |
+
+One isolated unauthorized act is usually not enough. The exam facts should show an appearance attributable to P and reasonable good-faith reliance by T.
 
 ## Termination Of Authority
 
@@ -216,12 +290,31 @@ Example: an employee with broad authority grants himself a pay raise.
 
 The concern is conflict of interest. The agent may sacrifice the principal's interest because the agent is also on the other side.
 
+There are two common forms:
+
+| Form | Structure | Example |
+|---|---|---|
+| Self-contracting | A represents P, but A is personally the counterparty. | A sells P's machine to herself. |
+| Multiple representation | A represents both sides of the same transaction. | A represents seller P and buyer T in the same sale. |
+
+This is stronger than a normal internal-instruction violation. In a normal internal-instruction violation, A deals with an outside third party T and may still bind P externally. In contracting with oneself, the conflict of interest can limit A's external power because there is no independent counterparty bargain.
+
 The deck states that the transaction is provisionally invalid unless:
 
 - self-dealing was permitted in advance
 - the principal ratifies later under Section 177 BGB
 - the transaction merely performs an obligation
 - the transaction is legally advantageous only for the principal
+
+Exam route:
+
+```text
+1. A acts as representative.
+2. A contracts with herself or represents both sides.
+3. Section 181 BGB is triggered.
+4. Check prior permission, later ratification, mere performance of an existing obligation, or legal advantage only.
+5. If no exception applies, A cannot bind P through that self-dealing transaction.
+```
 
 ## Advantages And Risks Of Agency
 

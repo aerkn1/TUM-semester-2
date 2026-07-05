@@ -68,6 +68,37 @@ graph LR
     Agency -->|separates| InternalExternal[Can do vs may do]
     Agency -->|creates management risk| PrincipalAgentProblem[Principal-agent problem]
 
+    ContractLaw -->|continues into performance stage| WarrantyRights[Warranty rights]
+    WarrantyRights -->|starts from| PurchaseAgreement[Purchase agreement under Section 433 BGB]
+    WarrantyRights -->|requires| DefectAtRisk[Defect at transfer of risk]
+    DefectAtRisk -->|can be| MaterialDefect[Material defect under Section 434 BGB]
+    DefectAtRisk -->|can be| LegalDefect[Legal defect under Section 435 BGB]
+    DefectAtRisk -->|timed by| RiskTransfer[Transfer of risk under Section 446 BGB]
+    WarrantyRights -->|may be blocked by| WarrantyExclusions[Warranty exclusions]
+    WarrantyExclusions -->|include| BuyerKnowledge[Buyer knowledge]
+    WarrantyExclusions -->|include| CommercialNotice[Commercial inspection and notice under Section 377 HGB]
+    WarrantyRights -->|uses gateway| WarrantyRemedies[Section 437 remedies]
+    WarrantyRemedies -->|first route| Cure[Cure]
+    WarrantyRemedies -->|secondary route| WarrantyRevocation[Revocation]
+    WarrantyRemedies -->|secondary route| Reduction[Reduction]
+    WarrantyRemedies -->|money route| WarrantyDamages[Damages]
+    WarrantyDamages -->|classified by| DamageType[Damages in addition vs instead of performance]
+    WarrantyDamages -->|requires| Responsibility[Responsibility under Sections 276 and 278 BGB]
+    WarrantyRemedies -->|alternative money route| FutileExpenses[Reimbursement of futile expenses]
+
+    PrivateLaw -->|also allocates rights in things through| PropertyLaw[Property law]
+    PropertyLaw -->|separates| OwnershipPossession[Ownership vs possession]
+    PropertyLaw -->|uses| SeparationAbstraction[Separation and abstraction]
+    SeparationAbstraction -->|distinguishes| ObligationDisposition[Obligation contract vs disposition transaction]
+    PropertyLaw -->|transfers movables by| MovableTransfer[Movable transfer under Section 929 BGB]
+    MovableTransfer -->|requires| TransferAgreement[Agreement]
+    MovableTransfer -->|requires| Delivery[Delivery or delivery replacement]
+    MovableTransfer -->|requires| Authorization[Authorization]
+    MovableTransfer -->|if authorization missing may use| GoodFaithAcquisition[Good-faith acquisition]
+    GoodFaithAcquisition -->|blocked by| LostStolenBlock[Section 935 lost/stolen block]
+    PropertyLaw -->|transfers land by| ImmovableTransfer[Conveyance plus land-register entry]
+    PropertyLaw -->|transfers claims by| ClaimsAssignment[Assignment under Section 398 BGB]
+
     PrivateAutonomy -->|allows| FreedomContract[Freedom of conclusion, party, form, content]
     PrivateAutonomy -->|limited by| LimitsAutonomy[Mandatory limits]
     LimitsAutonomy -->|lock sections| ValiditySections[125, 134, 138, 305 ff., 276 III BGB]
@@ -191,6 +222,40 @@ flowchart TD
     Dissolution --> Agreement[Termination agreement through offer and acceptance]
 ```
 
+## Warranty And Property Decision View
+
+```mermaid
+flowchart TD
+    Start[Business transaction facts] --> Issue{What is the legal issue?}
+    Issue -->|Thing delivered but defective| Warranty[Warranty route]
+    Issue -->|Who owns or possesses? | Property[Property route]
+
+    Warranty --> Purchase[Valid Section 433 purchase agreement]
+    Purchase --> Defect{Defect at transfer of risk?}
+    Defect -->|No| NoWarranty[No warranty remedy]
+    Defect -->|Yes| Exclusion{Warranty excluded or time-barred?}
+    Exclusion -->|Yes| Blocked[Remedy blocked]
+    Exclusion -->|No| Remedy[Section 437 BGB gateway]
+    Remedy --> CureRoute[Cure under Section 439]
+    Remedy --> RevokeReduce[Revocation or reduction]
+    Remedy --> Money[Damages or Section 284 reimbursement]
+    Money --> DamageClass{Would proper late performance remove the loss?}
+    DamageClass -->|No| AddPerf[Damages in addition: Section 280 I]
+    DamageClass -->|Yes| InsteadPerf[Damages instead: Section 280 I, III plus 281/282/283/311a]
+
+    Property --> Object{What is transferred?}
+    Object -->|Movable thing| Movable[Section 929 movable route]
+    Movable --> MoveReq[Agreement + delivery + agreement at delivery + authorization]
+    MoveReq --> AuthCheck{Transferor authorized?}
+    AuthCheck -->|Yes| OwnerPasses[Ownership passes]
+    AuthCheck -->|No| GF[Good-faith acquisition under Sections 932 ff.]
+    GF --> Lost{Lost or stolen under Section 935?}
+    Lost -->|Yes| NoAcquire[No good-faith acquisition]
+    Lost -->|No| Acquire[Acquirer becomes owner]
+    Object -->|Land| Land[Sections 873 and 925: conveyance plus register]
+    Object -->|Claim/right| Claim[Section 398 assignment]
+```
+
 ## Subject Graph Index
 
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
@@ -201,6 +266,9 @@ flowchart TD
 | Week 05 Contract Law III | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` | Termination II: withdrawal, cancellation, dissolution, and full termination decision tree | 2026-05-14 |
 | Week 06 Standard Business Terms | `week-06-standard-business-terms/week-06-standard-business-terms.md` | SBT case route: existence, incorporation, interpretation, content control, and Section 306 consequences | 2026-06-04 |
 | Week 07 Agency | `week-07-agency/week-07-agency.md` | Agency triangle: principal, agent, third party, authority, ratification, liability, and principal-agent problem | 2026-06-04 |
+| Week 08 Warranty Rights I | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` | Defective purchase route: defect at transfer of risk, exclusions, cure, revocation, reduction, damages gateway | 2026-06-28 |
+| Week 09 Warranty Rights II | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` | Damages router: damages in addition versus instead of performance, Section 280 routes, Section 284, work contracts | 2026-06-28 |
+| Week 10 Transfer Of Property | `week-10-transfer-of-property/week-10-transfer-of-property.md` | Property transfer router: ownership versus possession, separation/abstraction, movable transfer, good-faith acquisition, land, claims | 2026-06-28 |
 
 ## Supporting Node Reference
 
@@ -251,6 +319,24 @@ flowchart TD
 | Unauthorized Agent | Person acting as agent without power of representation | `week-07-agency/week-07-agency.md` |
 | Ratification | Principal's later approval of an unauthorized transaction | `week-07-agency/week-07-agency.md` |
 | Principal-Agent Problem | Information asymmetry and self-interest risk between principal and agent | `week-07-agency/week-07-agency.md` |
+| Warranty Rights | Buyer remedies for defective purchase performance after defect at transfer of risk | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Material Defect | Deviation between actual and required condition of the thing | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Legal Defect | Third party right burdening the purchased thing | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Transfer of Risk | Timing point for asking whether warranty law applies, usually delivery under Section 446 BGB | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Cure | Primary buyer remedy: repair or replacement under Section 439 BGB | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Reduction | Price adjustment for keeping defective goods under Section 441 BGB | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Damages In Addition To Performance | Loss that remains even if proper performance is later rendered | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Damages Instead Of Performance | Loss replacing the missing/defective performance | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Responsibility | Intent, negligence, guarantee, or attributed helper fault required for damages | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Futile Expenses | Reliance expenses reimbursed under Section 284 BGB instead of damages in lieu | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Work Warranty Rights | Defective-work remedies under Section 634 BGB | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Ownership | Legal right to use, dispose of, and exclude others from a thing | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Possession | Actual control over a thing, independent of ownership | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Separation Principle | Obligation contract and disposition transaction are distinct | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Abstraction Principle | Validity of obligation and disposition transactions is assessed independently | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Movable Transfer | Transfer of movable ownership by agreement, delivery, continuing agreement, and authorization | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Good-Faith Acquisition | Ownership acquisition from non-owner when possession creates legal appearance and Section 935 does not block | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Assignment | Transfer of a claim under Section 398 BGB | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
 
 ## Supporting Edge Reference
 
@@ -298,3 +384,26 @@ flowchart TD
 | Unauthorized Agent | creates | Ratification question | `week-07-agency/week-07-agency.md` |
 | Refused ratification | can trigger | Agent liability | `week-07-agency/week-07-agency.md` |
 | Information asymmetry | creates | Principal-Agent Problem | `week-07-agency/week-07-agency.md` |
+| Purchase Agreement | creates duty to deliver | Defect-free thing | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Defect at Transfer of Risk | triggers | Warranty Rights | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Material Defect | is tested under | Section 434 BGB | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Legal Defect | is tested under | Section 435 BGB | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Warranty Rights | are routed through | Section 437 BGB | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Cure | usually precedes | Revocation / reduction / damages | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Buyer Knowledge | can exclude | Warranty Rights | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Merchant's Late Notice | can deem | Goods approved | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` |
+| Damages Type | determines | Section 280 route | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Damages In Addition To Performance | usually use | Section 280 I BGB | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Damages Instead Of Performance | require | Section 280 III plus 281/282/283/311a BGB | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Responsibility | is presumed by | Section 280 I 2 BGB | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Futile Expenses | are claimed instead of | Damages in lieu | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Work Warranty Rights | add | Self-help under Section 637 BGB | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` |
+| Ownership | differs from | Possession | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Purchase Agreement | does not itself transfer | Ownership | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Separation Principle | distinguishes | Obligation contract and disposition transaction | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Abstraction Principle | separates validity of | Purchase agreement and ownership transfer | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Movable Transfer | requires | Agreement, delivery, agreement at delivery, authorization | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Missing Authorization | can be cured by | Good-faith acquisition | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Section 935 BGB | blocks | Good-faith acquisition of lost/stolen things | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Land Ownership | requires | Conveyance and land-register entry | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Claims | are transferred by | Assignment | `week-10-transfer-of-property/week-10-transfer-of-property.md` |

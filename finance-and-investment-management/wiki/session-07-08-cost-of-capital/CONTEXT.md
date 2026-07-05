@@ -57,7 +57,9 @@ Required return = time value baseline + compensation for systematic market risk.
 | **WACC** | Weighted average cost of equity and after-tax debt, using market-value weights. | average accounting cost |
 | **After-Tax Debt Cost** | Debt cost multiplied by `(1 - corporate tax rate)` because interest is tax deductible. | pre-tax debt cost |
 | **Contractual Loan Rate** | Interest rate specified for a particular loan and used to calculate that loan's interest and redemption payments. | WACC |
+| **Financing Plan** | Proposed debt/equity mix, debt amount, maturity, seniority, and repayment pattern used to implement project funding. | project value calculation |
 | **Redemption Schedule** | Contractual timing of loan interest and principal repayments used to test debt-service feasibility. | project FCF forecast |
+| **Debt-Service Feasibility** | Ability of forecast cash flows and liquidity to cover scheduled interest and principal payments under the chosen financing plan. | positive NPV automatically |
 
 WACC formula:
 
@@ -76,16 +78,19 @@ Use these boundaries when linking Capital Budgeting, CAPM, WACC, and Redemptions
 | **CAPM vs WACC** | CAPM estimates `r_E`; WACC blends `r_E` with after-tax `r_D`. | Treating CAPM as the full project discount rate when debt also finances the project. |
 | **Debt Cost Of Capital vs Redemption Schedule** | Debt cost is the return lenders require; redemptions calculate contractual interest and principal payments. | Treating the loan annuity payment as the WACC debt term. |
 | **Project Cost Of Capital vs Debt Cost Of Capital** | Project cost prices operating cash-flow risk; debt cost prices lenders' claim risk. | Using the loan rate as the project cost of capital by default. |
+| **Financing Plan vs Project Value** | The financing plan sets debt amount, terms, and target leverage; project value still comes from operating FCF discounted at a risk-matched rate. | Letting a feasible loan schedule replace the NPV test. |
+| **Operational Risk vs WACC Add-On** | Project operating risk should be embedded in beta, `r_E`, `r_D`, and weights; it is not normally added as a separate extra WACC component. | Double-counting risk by adding an extra operational-risk premium. |
 
 Compact route:
 
 ```text
-Project operating FCF
--> risk-matched required return
+Project operating FCF + operating risk
+-> project beta / risk class
 -> CAPM for equity cost when needed
+-> debt financing plan and market debt cost
 -> WACC if debt and equity finance the project
 -> NPV for project value
--> redemption schedule for debt-service feasibility
+-> redemption or annuity schedule for debt-service feasibility
 ```
 
 Best exam sentence:
@@ -144,16 +149,19 @@ Interpretation: CAPM prices systematic equity risk; WACC blends equity and after
 - **WACC** combines **Equity Cost Of Capital** and **Debt Cost Of Capital** with market-value weights.
 - **Capital Budgeting** supplies incremental operating FCF, **WACC** discounts it when appropriate, and a **Redemption Schedule** separately models contractual debt service.
 - A **Contractual Loan Rate** is one financing input; it is not the same as **WACC**, which blends debt and equity required returns.
+- A **Financing Plan** determines how much debt and equity will fund the project; it supports WACC weights and the **Redemption Schedule**, but it does not replace project valuation.
 - **Debt Cost Of Capital** enters WACC; **Redemption Schedule** tests actual debt-service timing.
 - **Project Cost Of Capital** prices operating risk; **Debt Cost Of Capital** prices lender claim risk.
 - **Equity Beta** must be **Unlevered** to estimate **Asset Beta** for business risk.
 - **Operating Leverage** raises **Project Cost Of Capital** when fixed costs make project cash flows more market-sensitive.
+- Project operating risk is normally captured through **Asset Beta**, **Equity Cost Of Capital**, **Debt Cost Of Capital**, and target weights; do not add it again as a separate WACC surcharge unless instructed.
 
 ## Visual Memory Aid
 
 ```mermaid
 flowchart TD
-    A[Project FCF] --> B[Choose Discount Rate]
+    A[Project FCF + Operating Risk] --> R[Project Risk Class]
+    R --> B[Choose Discount Rate]
     B --> C[Same Risk Alternative]
     C --> D[CAPM For Equity]
     C --> MP[Market Proxy]
@@ -161,11 +169,11 @@ flowchart TD
     D --> E[Risk-Free Rate]
     D --> F[Beta]
     D --> G[Market Risk Premium]
-    C --> H[Debt Cost]
+    PLAN[Financing Plan: D/E, Amount, Terms] --> H[Debt Cost]
+    PLAN --> RED[Redemption / Annuity Schedule]
     D --> I[WACC]
     H --> I
     I --> NPV[Project NPV]
-    H --> RED[Redemption Schedule]
     RED --> LIQ[Debt-Service Feasibility]
     J[Comparable Firm] --> K[Unlever Beta]
     K --> L[Asset Beta]
@@ -194,6 +202,10 @@ flowchart TD
 > **Student:** "Does Redemptions calculate the debt part of WACC?"
 >
 > **Professor:** "No. **Debt Cost Of Capital** enters WACC as lenders' required return. **Redemption Schedule** uses the loan contract to calculate actual interest and principal payments."
+>
+> **Student:** "So is WACC equity cost plus debt cost plus the project's own operational risk?"
+>
+> **Professor:** "No. **WACC** blends required returns from equity and debt. The project's operating risk should already be reflected in the project beta, equity cost, debt risk, and target weights. Do not add it a second time unless the task explicitly gives an extra adjustment."
 
 ## Flagged Ambiguities
 
@@ -207,6 +219,7 @@ flowchart TD
 | "Market" | Say **Market Proxy** or **Market Portfolio**; do not imply the project invests in that market. |
 | "Cost of debt" | Say **Debt Cost Of Capital** for WACC and **Contractual Loan Rate** for repayment calculations. |
 | "Project cost" | Say upfront investment for cash outlay, **Project Cost Of Capital** for the required return, or **Debt Cost Of Capital** for lender return. |
+| "Operational risk in WACC" | Say operating risk is embedded in the project beta/risk class and therefore in `r_E`, `r_D`, and WACC weights; do not add it separately by default. |
 
 ## Exam Trap Corrections
 
@@ -221,6 +234,7 @@ flowchart TD
 | Applying firm WACC to a different-risk project. | Use comparable asset beta or project-specific required return. |
 | Treating debt cost and redemptions as identical. | Debt cost is a WACC input; redemptions are a contractual cash-flow schedule. |
 | Treating debt cost and project cost of capital as identical. | Debt cost prices lender risk; project cost prices operating FCF risk. |
+| Adding operational risk on top of WACC after already using project beta. | This double counts risk; embed project risk in the chosen beta and required returns. |
 
 ## Cheat-Sheet Language
 
@@ -232,4 +246,6 @@ WACC is valid only when project risk and financing match the WACC assumptions.
 Market proxy = reference for comparable systematic risk, not the project investment.
 Debt cost enters WACC; redemption payments test financing feasibility.
 Project cost of capital prices operating FCF risk; debt cost prices lender claim risk.
+Financing plan sets debt/equity amounts and terms; WACC values operating FCF; redemptions test debt-service timing.
+Operational risk belongs inside beta/project cost of capital, not as a separate WACC add-on by default.
 ```

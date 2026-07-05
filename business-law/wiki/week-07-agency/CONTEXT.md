@@ -16,6 +16,8 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **Agency Triangle** | The principal-agent-third party structure in which the agent's act can bind principal and third party directly. | two-party contract only |
 | **Effective Agency** | Agency where own declaration, publicity, and power of representation are all present. | delegation generally |
 | **Unauthorized Agent** | A person acting as agent without power of representation. | bad agent always |
+| **Legal Entity** | Organization with legal personality that can hold rights and duties but must act through humans. | company body |
+| **Organ** | Human office/body through which a legal entity acts by law, such as a GmbH managing director. | agent automatically |
 
 ## Section 164 Requirement Language
 
@@ -29,6 +31,7 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **Power Of Representation** | External legal authority enabling the agent to bind the principal. Canonical term for the deck's "power of agency." | internal permission only |
 | **Internal Authorization** | Principal grants authority by declaration to the agent. | public notice |
 | **External Authorization** | Principal grants or communicates authority by declaration to the third party. | employment instruction |
+| **Publicity Versus Authority Split** | Publicity identifies whose contract it is; authority decides whether the acting person can bind that person. | same requirement |
 
 ## Relationship Language
 
@@ -40,6 +43,7 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **May Do** | Internal permission or duty owed to the principal. | can do |
 | **Abstraction Of Agency** | External authority and internal permission are separate, so third parties may be protected even if the agent breaches internal instructions. | same thing as employment |
 | **Internal Recourse** | Principal's possible claim or discipline against the agent for violating internal duties. | third-party invalidity automatically |
+| **Externally Effective, Internally Forbidden Declaration** | Agent's declaration binds the principal toward the third party even though it breaches the agent's internal instruction. | wrong declaration externally |
 
 ## Authority Source And Limit Language
 
@@ -47,6 +51,7 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 |---|---|---|
 | **Statutory Authority** | Power of representation granted by law because of an office or role. | contractual authority only |
 | **Authority By Declaration** | Power of representation granted by the principal under Section 167 BGB. | implied job title always |
+| **Regular Authorization** | Authority intentionally granted by the principal through declaration, internally to the agent or externally to the third party. | reliance authority |
 | **Reliance-Based Authority** | Power of representation based on principal-created appearance and good-faith reliance. | fake authority |
 | **Agency By Estoppel** | Reliance authority where the principal knows someone acts like an agent and tolerates it. Deck label. | ostensible agency |
 | **Ostensible Agency** | Reliance authority where the principal negligently does not know but could have known with due diligence. Deck label. | agency by estoppel |
@@ -54,6 +59,9 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **Abuse Of Power Of Representation** | Agent has external authority but uses it contrary to internal limits or principal interest. | lack of authority |
 | **Collusion** | Agent and third party knowingly cooperate to harm the principal. | normal breach of instruction |
 | **Contracting With Oneself** | Agent transacts with themselves or represents both sides, creating conflict-of-interest risk under Section 181 BGB. | ordinary agency |
+| **Self-Contracting** | Agent represents the principal while the agent personally stands on the other side of the transaction. | internal instruction breach only |
+| **Multiple Representation** | Agent represents both parties in the same transaction. | two separate harmless agencies |
+| **Prior Permission For Self-Dealing** | Principal permits the Section 181 conflict situation before the transaction. | later tolerance automatically |
 
 ## Principal-Agent Problem Language
 
@@ -94,7 +102,11 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 - **Own Declaration Of Intent** separates **Agent** from **Messenger**.
 - **Principle Of Publicity** protects the **Third Party** by making the contract partner identifiable.
 - **Power Of Representation** is the external **Can Do**; **Internal Relationship** defines **May Do**.
+- **Publicity** asks whether the third party can see that the transaction is for the principal; **Power Of Representation** asks whether the agent can bind that principal.
+- **Regular Authorization** comes from P's declaration; **Reliance-Based Authority** comes from P-created or P-tolerated appearance plus good-faith reliance by T.
+- **Agency By Estoppel** requires P's knowledge and tolerance; **Ostensible Agency** requires P's negligent failure to know or stop the apparent agency.
 - **Unauthorized Agent** creates a pending situation: **Ratification** can bind the principal; refusal can trigger **Section 179 BGB** liability.
+- **Contracting With Oneself** can convert a normal internal-conflict problem into a Section 181 external-power problem.
 - **Agency Costs** are managerial controls responding to **Information Asymmetry**.
 
 ## Visual Memory Aid
@@ -105,9 +117,12 @@ flowchart LR
     A -->|own declaration in P's name| T[Third party]
     P <-->|contract if Section 164 I met| T
     A -.->|not party if effective agency| Contract[Contract]
+    A -->|violates internal instruction| Internal[Internal recourse possible]
+    Internal -.->|does not automatically defeat| Contract
     A -->|no authority| Pending[Pending ratification]
     Pending -->|principal approves| PT[Principal bound]
     Pending -->|principal refuses| Liability[Agent liability risk]
+    A -->|self-contracting / both sides| S181[Section 181 conflict check]
 ```
 
 ## Example Dialogue
@@ -130,6 +145,9 @@ flowchart LR
 | "Employee" | Employment does not automatically solve authority. Test the source and scope of power of representation. |
 | "Apparent authority" | Use the deck's distinction: **Agency By Estoppel** if principal knows and tolerates; **Ostensible Agency** if principal negligently does not know. |
 | "Bad agent" | Distinguish **Unauthorized Agent** from **Abuse Of Power Of Representation**. |
+| "No publicity" | Do not confuse it with lack of authority. No publicity means T cannot recognize A acts for P. |
+| "Legal entity acts" | Say a legal entity acts through organs or agents; the human declaration is attributed to the entity. |
+| "Contracting with oneself" | Check whether A is personally the counterparty or represents both sides; then test Section 181 exceptions. |
 
 ## Exam Trap Corrections
 
@@ -139,8 +157,11 @@ flowchart LR
 | Skipping publicity. | Hidden intent to act for someone else is not enough under Section 164 II BGB. |
 | Confusing messenger and agent. | Messenger transmits; agent declares. |
 | Treating internal limits as automatic external limits. | Separate **Can Do** and **May Do**. |
+| Calling an internal-instruction breach a wrong declaration externally. | Say the declaration may be externally effective but internally forbidden. |
 | Forgetting ratification. | Unauthorized agency is not always dead; check Section 177 BGB. |
 | Making the agent liable despite effective agency. | If agency is effective, principal and third party are normally bound, not agent. |
+| Treating reliance authority like express permission. | Reliance authority is based on appearance attributable to P and reasonable good-faith reliance by T. |
+| Treating self-contracting as a normal third-party case. | Section 181 exists because the agent sits on both sides and conflict risk is structural. |
 | Using principal-agent economics without legal structure. | First solve legal agency, then discuss information asymmetry if asked. |
 
 ## Cheat-Sheet Language
@@ -155,4 +176,26 @@ If yes: principal and third party are bound directly.
 If no publicity: acting person may bind themselves.
 If no authority: principal can ratify; otherwise Section 179 liability risk.
 Always separate can do from may do.
+```
+
+## Clarification Cheat Sheet From 2026-07-01
+
+```text
+Internal instruction breach:
+A was not allowed to do it internally, but A may still be able to bind P externally.
+
+No publicity:
+T cannot recognize that A acts for P. This is not the same as missing authority.
+
+Reliance-based authority:
+No clear declaration of authority, but P created or tolerated an appearance that T reasonably trusted.
+
+Agency by estoppel:
+P knew and tolerated the appearance.
+
+Ostensible agency:
+P did not know, but should have known and stopped the appearance.
+
+Contracting with oneself:
+A represents P while also being the counterparty, or A represents both sides. Check Section 181 BGB.
 ```
