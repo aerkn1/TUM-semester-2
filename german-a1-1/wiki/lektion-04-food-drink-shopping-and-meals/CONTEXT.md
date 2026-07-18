@@ -1,10 +1,11 @@
 # Context: Lektion 04 Food, Drink, Shopping, And Meals
 
 Source note: `lektion-04-food-drink-shopping-and-meals.md`
+Updated: 2026-07-08 with Lektion 4 classroom export.
 
 ## Source Boundary
 
-The local Moodle-Studio source provides the chapter structure and Quizlet links for `Lebensmittel`, `Beim Einkaufen`, and `Beim Essen`, but not the full card text. Terms below are marked as `local` when directly supported by headings, `enriched A1.1` when added as reliable beginner German needed to make the topic usable, and `verified external` when aligned with official/trusted A1 grammar or exam resources.
+The local Moodle-Studio source provides the chapter structure and Quizlet links for `Lebensmittel`, `Beim Einkaufen`, and `Beim Essen`, but not the full card text. The 2026-07-08 classroom export adds direct course evidence for nominative subject, accusative object, yes/no question order, adjective endings in object noun phrases, `kein`, `nicht gern`, `mögen`, and the "Das Verb ist der Boss" mental model. Terms below are marked as `local` when directly supported by source headings/handouts, `enriched A1.1` when added as reliable beginner German needed to make the topic usable, and `verified external` when aligned with official/trusted A1 grammar or exam resources.
 
 ## Food And Drink Categories
 
@@ -33,10 +34,23 @@ The local Moodle-Studio source provides the chapter structure and Quizlet links 
 
 | Term | Definition | Aliases to avoid |
 |---|---|---|
+| Das Verb ist der Boss | `local`: course mental model: first identify the finite verb, then attach the needed subject and, for many verbs, the object. | memorizing words without sentence role |
+| Nominative subject | `local/verified external`: the person or thing that performs or carries the verb; the source marks subjects as nominative. | object |
 | Direct object | `verified external/enriched`: the thing bought, ordered, needed, taken, liked, or possessed after verbs such as `möchten`, `nehmen`, `brauchen`, `kaufen`, `mögen`, and `haben`. | subject |
 | Accusative | `verified external/enriched`: direct-object case. In A1.1 shopping language, the main visible change is masculine singular: `einen Kaffee`, `keinen Fisch`. | a completely new word |
 | Masculine accusative | `verified external/enriched`: `der/ein/kein` becomes `den/einen/keinen` when the masculine noun is the object. | `ein Kaffee` after `ich möchte` |
 | Neuter/feminine/plural accusative | `verified external/enriched`: forms normally look the same as nominative at this level: `ein Wasser`, `eine Banane`, `keine Eier`. | changing every article |
+| Accusative adjective ending | `local/enriched A1.1`: adjective ending inside an object noun phrase: `einen langen Zug`, `ein gutes Restaurant`, `eine große Stadt`, `gute Restaurants`. | leaving the adjective uninflected |
+
+## Word Order And Negation Control
+
+| Term | Definition | Aliases to avoid |
+|---|---|---|
+| Yes/no question | `local`: question with the finite verb in first position: `Möchtest du eine Cola?`, `Trinkst du Tee?` | English-style `Du möchtest...?` as default exam form |
+| Statement order | `local`: finite verb in second position: `Ich möchte einen Apfelkuchen`; if time comes first, the subject follows the verb: `Am Morgen trinke ich Kaffee`. | treating "second position" as second word only |
+| `kein` | `local/verified external`: negative article for noun phrases; in the lesson handout it means a clear "no/not any" object: `keinen Fisch`, `keine Bananen`. | `nicht gern` |
+| `nicht gern` | `local`: negates liking/preference for the action: `Ich esse nicht gern Fisch`; softer than saying no fish at all. | `kein` for every negative |
+| verb + `gern` | `local`: pattern for liking an activity: `Ich tanze gern`; `Ich esse gern Schokolade`. | `Ich mag tanzen` as the course-local pattern |
 
 ## Quantity And Container Language
 
@@ -68,6 +82,10 @@ The local Moodle-Studio source provides the chapter structure and Quizlet links 
 - **ich möchte** is the safest A1 request frame for both shopping and ordering.
 - **ich möchte**, **ich nehme**, **ich brauche**, **ich kaufe**, **ich mag**, and **ich habe** often create a **direct object**, so masculine nouns need **masculine accusative**.
 - **mögen** means liking generally; **möchten** means wanting or ordering now.
+- **Das Verb ist der Boss** links word order and case: find the verb, then identify the **nominative subject** and possible **accusative object**.
+- **Yes/no questions** move the finite verb to the front; **statements** keep the finite verb in second position.
+- **kein** negates the noun itself; **nicht gern** negates the preference for doing/eating/drinking.
+- **Accusative adjective endings** reuse the article/case decision inside the object noun phrase.
 
 ## Visual Mini-Map
 
@@ -82,8 +100,11 @@ flowchart LR
     C --> H[Check accusative]
     D --> H
     E --> H
-    H --> I[Polite closing]
+    H --> I[Check adjective ending if adjective + noun]
+    I --> K[Polite closing]
     G --> J[Guten Appetit / Es schmeckt gut]
+    L[Yes/no question] --> M[Verb first]
+    N[Statement] --> O[Verb second]
 ```
 
 ## Example Dialogue
@@ -106,6 +127,9 @@ B: Danke.
 | `Ich will ...` is grammatically possible. | Use **ich möchte** as canonical polite A1 customer language. |
 | `mögen` and `möchten` look similar. | Use **mögen** for liking, **möchten** for polite requests. |
 | `ein Kaffee` appears possible from the base article. | In ordering/requesting, use **einen Kaffee** because it is masculine accusative. |
+| `kein` and `nicht gern` both feel like "not". | Use **kein** for "no/not any noun"; use **nicht gern** for "do not like doing/eating/drinking". |
+| `Ich mag tanzen` sounds plausible from English. | In this course layer, use **Ich tanze gern** for liking an activity. |
+| "Verb position 2" can be misread as "second word". | Count sentence fields: `Am Morgen` is one first-position unit, so `trinke` is still position 2. |
 
 ## Exam Traps And Correction Rules
 
@@ -115,6 +139,10 @@ B: Danke.
 | `Ich will ein Kaffee` | Prefer `Ich möchte einen Kaffee.` |
 | `Ich nehme ein Salat` | Masculine object: `Ich nehme einen Salat.` |
 | `Ich möchte keinen Wasser` | Neuter object stays `kein`: `Ich möchte kein Wasser.` |
+| `Ich sehe einen lang Zug` | Add the adjective ending: `Ich sehe einen langen Zug.` |
+| `Du möchtest eine Cola?` as default question | Use verb-first question order: `Möchtest du eine Cola?` |
+| `Ich mag tanzen` | Use verb + `gern`: `Ich tanze gern.` |
+| `Ich esse nicht Fisch` | If you mean no fish as an object, use `Ich esse keinen Fisch.` |
 | `eine Glas Wasser` | `Glas` is neuter: `ein Glas Wasser`. |
 | using `essen` for drinks | Use `trinken`: `Ich trinke Wasser.` |
 | `Wie viel kostet?` | Use `Was kostet das?` or `Was kostet der Käse?` |
@@ -125,7 +153,10 @@ B: Danke.
 - `Ich nehme ...`
 - `Ich mag ...`
 - `Ich mag keinen/kein/keine ...`
+- `Ich esse/trinke nicht gern ...`
 - `einen Kaffee`, `einen Apfel`, `keinen Fisch`
+- `einen langen Zug`, `ein gutes Restaurant`, `eine große Stadt`, `gute Restaurants`
+- `Möchtest du ...?`
 - `Was kostet das?`
 - `Sonst noch etwas?`
 - `Das ist alles, danke.`

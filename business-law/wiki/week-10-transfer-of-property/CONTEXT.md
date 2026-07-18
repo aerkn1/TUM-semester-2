@@ -19,6 +19,25 @@ identify object/right
 
 The core exam move is to stop saying "buyer owns because buyer bought". A purchase contract creates obligations. Ownership changes only through a separate disposition transaction or statutory acquisition.
 
+## Clarification Router Added 2026-07-15
+
+For exam mapping, treat each case as a route choice:
+
+```text
+movable thing -> Section 929 BGB, then Sections 932/935 if authorization is missing
+land -> Sections 873/925 BGB plus land-register logic
+claim/right -> Section 398 BGB assignment
+```
+
+The practical mental model:
+
+```text
+Contract answers: who must do what?
+Property law answers: who owns what?
+```
+
+In good-faith acquisition, the owner can lose ownership without consenting to the second sale because Section 932 BGB is a statutory exception to the authorization requirement. The justification is legal appearance: if the owner voluntarily leaves possession with another person, the owner may bear the risk that an innocent acquirer relies on that possession. Section 935 BGB draws the protection line for the owner: if possession was lost involuntarily, for example through theft or loss, good-faith acquisition is blocked.
+
 ## Ownership, Possession, And Objects
 
 | Term | Definition | Aliases to avoid |
@@ -90,6 +109,7 @@ Exam correction: if the purchase agreement is invalid, do not immediately conclu
 | Gross Negligence | Serious failure to notice ownership doubt that an ordinary careful buyer would notice. | Any negligence |
 | Involuntary Loss | Owner lost possession without consent, such as theft or loss. | Any previous owner's regret |
 | Section 935 Block | No good-faith acquisition of lost, stolen, or otherwise involuntarily lost things. | No good-faith acquisition ever |
+| Voluntary Possession Risk | Owner voluntarily leaves possession with another person and may bear the risk that this possessor appears entitled to sell. | Owner consented to every later sale |
 | Distinct-Party Transaction | Good-faith acquisition requires a legal transaction between different persons. | Self-acquisition |
 
 ### Good-Faith Acquisition Exam Route
@@ -172,6 +192,7 @@ Section 929 sentence 1 requirements except authorization
 - **Delivery** is a real act and publicity act; **Transfer Agreement** is the declaration-of-intent part.
 - **Authorization** is normally supplied by **Ownership**, but **Section 185 BGB** can authorize a non-owner.
 - **Good Faith** can replace missing authorization only if **Section 935 Block** does not apply.
+- **Voluntary Possession Risk** explains why good-faith acquisition can defeat the hidden owner: the owner did not consent to the sale, but did create the legal appearance by leaving possession with the transferor.
 - **Conveyance** and **Land Register Entry** are the real-property equivalent route, while **Assignment** transfers **Claims**.
 
 ## Mermaid Memory Map
@@ -211,6 +232,10 @@ Professor: "The bike was stolen from O before S sold it."
 
 Student: "Section 935 BGB blocks good-faith acquisition because O involuntarily lost possession."
 
+Professor: "L owns a machine as collateral, but S still possesses it and sells it to good-faith B. How can L lose ownership without consenting?"
+
+Student: "L's consent to S's sale is not required if good-faith acquisition succeeds. S lacked authorization, so I test Sections 932 and 935 BGB. B was in good faith, S's possession created legal appearance, and Section 935 does not block acquisition because L voluntarily left possession with S under the security arrangement."
+
 ## Ambiguities And Exam Traps
 
 | Ambiguity / Trap | Canonical Recommendation |
@@ -218,6 +243,8 @@ Student: "Section 935 BGB blocks good-faith acquisition because O involuntarily 
 | Saying purchase equals ownership | Always separate obligation contract and disposition transaction. |
 | Treating possession as proof of ownership | Possession creates appearance/presumption, but not absolute ownership. |
 | Forgetting authorization in Section 929 | Agreement and delivery are not enough if transferor is not owner or otherwise authorized. |
+| Stopping at missing authorization | If the transferor is not authorized, continue to Sections 932 and 935 BGB before concluding. |
+| Thinking the hidden owner must consent to good-faith acquisition | Section 932 BGB is the statutory exception; consent is replaced by legal appearance plus good faith, unless Section 935 blocks it. |
 | Using good faith for stolen goods | Check Section 935 BGB before concluding good-faith acquisition. |
 | Treating delivery as a declaration of intent | Delivery is a real act; agency rules apply differently than for declarations. |
 | Applying movable rules to land or claims | Land needs conveyance/register; claims need assignment. |
@@ -228,4 +255,3 @@ Student: "Section 935 BGB blocks good-faith acquisition because O involuntarily 
 ```text
 The purchase agreement under Section 433 BGB obliges transfer but does not itself transfer ownership. For movable ownership, I test agreement, delivery or delivery replacement, continuing agreement at delivery, and authorization under Section 929 BGB. If authorization is missing, I test Sections 932 and 935 BGB for good-faith acquisition.
 ```
-

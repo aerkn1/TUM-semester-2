@@ -1,6 +1,14 @@
 # Week 06: Standard Business Terms
 
 Source: `business-law/raw/moodle-export-business-law-950848572-s26-20260604/18.05. - Standard Business Terms - Dr. Reger/Standard Business Terms.pdf`
+Exercise/writing-workshop sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/27.5. Standard Business Terms/Standard Business Terms_Case Facts.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/27.5. Standard Business Terms/Standard Business Terms_Slides  Solutions.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/10.6. Writing Workshop/Writing Workshop_Case facts.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/10.6. Writing Workshop/Writing Workshop_Legal opinion.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/10.6. Writing Workshop/Writing Workshop_Correction sheet.pdf`
+
 Course: Business Law
 Processed: 2026-06-04
 Wiki note: `business-law/wiki/week-06-standard-business-terms/week-06-standard-business-terms.md`
@@ -412,6 +420,87 @@ High-scoring answer structure:
 6. Interpret ambiguity under Section 305c II.
 7. Run content control in the correct order.
 8. State Section 306 consequences precisely.
+
+## Official Exercise Case Routes
+
+### Case 1: First-Use Car Sales Form And Liability Exclusion
+
+Question: did dealer D use effective SBT against buyer B?
+
+Route:
+
+1. Existence: the document contains contract terms, was pre-formulated by D, and was presented unilaterally during contract conclusion.
+2. More-than-two requirement: D uses the document for the first time, but B is a consumer and D is a trader, so Section 310 III No. 2 BGB treats the terms as SBT even in this first-use situation.
+3. Incorporation: D explicitly presents the document, B can read it, B signs it, there is no individual agreement, and the liability clause is not surprising merely because it limits delivery-related liability.
+4. Content control: the clause excludes "any liability" except intent. This also excludes liability for injury to life, body, or health and gross negligence.
+5. Section 309 No. 7 BGB is violated; the clause fails content control.
+6. Consequence: the invalid clause is ineffective, the rest of the contract survives under Section 306 I BGB, and statutory liability rules apply under Section 306 II BGB.
+
+Result: the clause is not effective SBT.
+
+Exam trap: in B2C, first use can still be SBT; do not stop at "used for the first time".
+
+### Case 2a: Car-Wash Sign Incorporation
+
+Question: did car-wash operator W use effective SBT?
+
+Route:
+
+1. Works contract under Section 631 BGB can be modified by SBT.
+2. Existence: a pre-written sign in front of the car wash is a contract term used repeatedly.
+3. Incorporation: explicit oral reference is not practical in a self-service car wash, so a clearly visible notice at the place of contract conclusion can satisfy Section 305 II No. 1 Alt. 2 BGB.
+4. O did not read the sign, but had a reasonable opportunity to take notice.
+5. O implicitly agrees by driving through the car wash.
+6. Content control is passed because the clause only excludes liability for paint damage caused by the customer's improper operation, not W's own gross fault or injury to life/body/health.
+
+Result: effective SBT.
+
+Exam trap: actual reading is not required if opportunity to take notice was adequate.
+
+### Case 2b: Car-Wash Paint Damage Claim
+
+Question: can O claim damages when the roller setting was wrong?
+
+Route:
+
+1. Claim basis: Sections 280 I and 241 II BGB.
+2. Contractual obligation: works contract under Section 631 BGB.
+3. Breach: W has an ancillary duty to protect O's property; wrong roller setting damages paintwork.
+4. Responsibility: negligence is presumed under Section 280 I 2 BGB and supported by the improper setting.
+5. Causal damage: paintwork damage.
+6. SBT exclusion does not apply because the damage was not caused by the customer's failure to operate the car wash properly.
+
+Result: O can claim compensation for the paintwork damage.
+
+Exam trap: an effective SBT clause may still be factually outside its own wording.
+
+### Case 3: Conflicting SBT And Payment Timing
+
+Question: can machine builder M demand payment from P on Monday?
+
+Route:
+
+1. Claim basis: Section 433 II BGB.
+2. Statutory default: if no time is agreed, payment is due immediately under Section 271 I BGB, so the claim would be enforceable from Friday.
+3. M's SBT says payment is due the next business day after conclusion; P's SBT says payment is due on arrival.
+4. The terms conflict.
+5. The "last word" theory is rejected because it would imply tacit acceptance against an already expressed contrary intention and reward persistence.
+6. Statutory provisions replace the conflicting terms under the Section 306 logic; the contract survives.
+
+Result: M can demand payment on Monday because the statutory default would already make the payment due.
+
+Exam trap: conflicting SBT do not necessarily destroy the whole contract.
+
+## Writing Workshop Checklist For SBT Legal Opinions
+
+Use this checklist when writing an SBT answer in full legal-opinion style:
+
+1. Start with a hypothesis: "W might have used effective standard business terms according to Sections 305 et seq. BGB."
+2. Existence: define Section 305 I 1 BGB, then test contract term, pre-formulated, intended for more than two contracts or B2C exception, and unilateral presentation.
+3. Incorporation: test reference, opportunity to take notice, agreement, no individual agreement, and no surprising clause.
+4. Content control: test opening under Section 307 III BGB, then Section 309, Section 308, and Section 307 in that order.
+5. Consequence: if a clause fails, state clause ineffectiveness, contract survival, and statutory replacement.
+6. Style: write continuous sentences, use structure levels, cite exact provisions, answer the case question, and keep each IRAC level complete.
 
 ## Retrieval Prompts
 

@@ -14,15 +14,17 @@ Core exam logic:
 1. Match the discount rate to the risk of the cash flows.
 2. Estimate the equity cost of capital with CAPM: `r_i = r_f + beta_i x (E[r_Mkt] - r_f)`.
 3. Estimate debt cost from YTM, debt ratings, or debt beta.
-4. Use comparable companies to estimate project risk when the project is not publicly traded.
-5. Unlever comparable equity beta to asset beta, then relever if needed.
-6. Use WACC only when the project has similar risk and financing to the firm or target financing.
+4. Use bond prices/YTM as debt-market evidence for `r_D`, while remembering that risky promised YTM may overstate expected return.
+5. Use comparable companies to estimate project risk when the project is not publicly traded.
+6. Unlever comparable equity beta to asset beta, then relever if needed.
+7. Use WACC only when the project has similar risk and financing to the firm or target financing.
 
 High-yield interpretation:
 
 ```text
 Cost of capital is not "the amount invested."
 It is the required percentage return for bearing the project's risk.
+Value added means positive NPV after discounting operating FCF at that required return.
 ```
 
 ## The Equity Cost Of Capital
@@ -184,6 +186,16 @@ YTM definition:
 ```text
 YTM = IRR earned by holding the bond to maturity and receiving promised payments
 ```
+
+Bond-pricing bridge:
+
+```text
+Bond price = PV(promised coupons + face value at market-required yield)
+Market-required yield / YTM -> estimate pre-tax r_D for similar debt
+Pre-tax r_D x (1 - tau_c) -> after-tax debt component in WACC
+```
+
+This is why the Bonds exercise track matters here. Bonds do not replace WACC or project NPV. They give market evidence for what debt investors require and train the same discounted-cash-flow logic used in project valuation.
 
 If default is possible, promised YTM is not the same as expected return.
 
@@ -382,6 +394,66 @@ Best exam boundary:
 
 > Debt cost of capital prices financing risk for lenders; project cost of capital prices the operating risk of the project's cash flows.
 
+### Bridge From Bonds To Cost Of Capital
+
+Full bridge note: [Bridge: Bonds To Cost Of Capital](bonds-to-cost-of-capital-bridge.md).
+
+Keep the two course tracks separate:
+
+1. **Bonds** price promised debt cash flows: coupons, face value, maturity, market yield, accrued interest, and duration.
+2. **Cost Of Capital** estimates required returns for debt and equity providers.
+3. **WACC** uses the after-tax debt cost and equity cost to discount operating project FCF.
+4. **NPV** measures value added after compensating capital providers at that required return.
+
+The clean route is:
+
+```text
+Bond cash flows + market price
+-> YTM / comparable bond yield
+-> debt cost of capital r_D
+-> after-tax debt cost r_D x (1 - tau_c)
+-> WACC
+-> project NPV
+-> value added if NPV > 0
+```
+
+When building the bond cash flows, split the bond into `PV(coupon annuity) + PV(face value)`. Face value is the amount repaid at maturity; PV of face value is only today's discounted value of that future repayment. For example, if face value is EUR 1,000 and the coupon rate is 6%, the annual coupon is EUR 60 and the final-year cash flow is `60 + 1,000 = 1,060`.
+
+Worked mini-route:
+
+```text
+Observed comparable bond yield r_D = 7%
+Equity cost r_E = 12%
+Market value weights: E = 60, D = 40
+Tax rate = 30%
+
+r_WACC = 12% x 0.60 + 7% x 0.40 x (1 - 0.30)
+r_WACC = 7.20% + 1.96%
+r_WACC = 9.16%
+```
+
+If a project costs EUR 100,000 and generates EUR 35,000 at the end of each of the next four years:
+
+```text
+PV inflows = 35,000 x [1 - 1/1.0916^4] / 0.0916
+PV inflows = EUR 112,993.12
+
+NPV = -100,000 + 112,993.12
+NPV = EUR 12,993.12
+```
+
+Interpretation: the project creates EUR 12,993.12 of value today after paying the 9.16% required return. That is the "added value against cost of capital." A project with positive raw cash inflows can still destroy value if those inflows do not exceed the required return hurdle.
+
+Exam boundary:
+
+```text
+Bond valuation estimates the debt return input.
+WACC becomes the project hurdle rate.
+NPV measures the surplus after that hurdle.
+```
+
+Bond investor value is related but not identical. If a bond's intrinsic value at the investor's required yield is EUR 95.90 and the market price is EUR 105, the investor's NPV is `95.90 - 105 = -9.10`. For projects, the same DCF logic becomes `PV operating FCF - investment`.
+
 ## Worked Calculations And Analogies
 
 ### Calculation 1: CAPM Required Return
@@ -535,6 +607,8 @@ Likely prompts:
 - "Explain beta versus volatility."
 - "Explain why CAPM uses a market proxy and what the market proxy represents."
 - "Estimate debt cost of capital and explain why YTM can overstate it."
+- "Explain how bond valuation or YTM connects to the debt cost of capital in WACC."
+- "Explain value added against cost of capital using NPV."
 - "Unlever and relever a comparable beta."
 - "Explain when firm WACC is appropriate for a project."
 - "Calculate WACC with tax-deductible debt."
@@ -544,9 +618,12 @@ Common traps:
 
 - Using volatility instead of beta in CAPM.
 - Thinking the project invests in the market index rather than using it as a required-return reference.
+- Treating the bond coupon rate as `r_D`.
+- Treating bond YTM as the whole project discount rate instead of the debt input to WACC.
 - Using one company WACC for every project.
 - Treating project cost of capital and debt cost of capital as the same rate.
 - Treating YTM as expected debt return for distressed debt.
+- Saying positive cash flow means value added without checking NPV against the cost of capital.
 - Forgetting market-value weights.
 - Forgetting the after-tax debt term in WACC.
 - Treating redemption payments as the WACC debt component.
@@ -564,15 +641,18 @@ flowchart TD
     CAPM --> BETA[Beta]
     CAPM --> ERP[Market Risk Premium]
     RATE --> DEBT[Debt Cost Of Capital]
+    DEBT --> BONDVAL[Bond Pricing / Comparable Debt Yield]
     DEBT --> YTM[YTM]
     DEBT --> RATING[Debt Rating]
     DEBT --> DBETA[Debt Beta]
+    BONDVAL --> YTM
     RISK --> COMP[Comparable Firms]
     COMP --> UNLEV[Unlever To Asset Beta]
     UNLEV --> RELEV[Relever For Target Capital Structure]
     EQUITY --> WACC[WACC]
     DEBT --> WACC
     WACC --> NPV[Discount Project FCF]
+    NPV --> VALUE[Value Added If NPV Positive]
 ```
 
 ## Subject Knowledge Graph
@@ -586,8 +666,10 @@ flowchart TD
 | Market proxy | Observable broad market index used to approximate the theoretical market portfolio | Grounding for beta and market risk premium |
 | Market risk premium | Expected market return over risk-free rate | CAPM input |
 | Debt cost of capital | Expected return required by debt investors | WACC input |
+| Bond valuation | Present value of promised debt cash flows at a market-required yield | Market evidence for debt cost of capital |
 | Project cost of capital | Required return for the project's operating cash-flow risk | Correct discount-rate target |
 | Yield to maturity | IRR from promised bond payments | Can overstate risky debt return |
+| Value added against cost of capital | NPV surplus after discounting FCF at the risk-matched required return | Core accept/reject interpretation |
 | Asset beta | Business-risk beta without financial leverage | Comparable-project risk estimate |
 | Net debt | Debt minus excess cash | Enterprise-risk adjustment |
 | Operating leverage | Fixed-cost intensity of the project | Raises project beta |
@@ -600,11 +682,13 @@ flowchart TD
 | CAPM | estimates | equity cost of capital | Main required-return method |
 | Beta | measures | systematic risk | Diversifiable risk is not priced in CAPM |
 | Market proxy | approximates | market portfolio | Makes CAPM estimable in practice |
+| Bond valuation | estimates | debt cost of capital | Market yields on comparable debt can supply `r_D` |
 | YTM | may overstate | debt cost of capital | Default risk means promised return exceeds expected return |
 | Comparable firms | estimate | asset beta | Private projects lack traded beta |
 | Leverage | increases | equity beta | Debt makes equity cash flows riskier |
 | Cash holdings | reduce | observed equity risk | Use net debt/enterprise value logic |
 | WACC | combines | equity and after-tax debt costs | Used for FCF valuation under matching assumptions |
+| NPV | measures | value added against cost of capital | Positive NPV means value remains after compensating capital providers |
 | Redemption schedule | tests | debt-service feasibility | It does not replace WACC or NPV |
 
 ## Retrieval Prompts
@@ -618,6 +702,7 @@ Closed-book questions:
 5. Why can YTM overstate the debt cost of capital?
 6. What is the difference between equity beta and asset beta?
 7. When is WACC an appropriate project discount rate?
+8. How does a bond yield become the debt-cost input in WACC, and why is that still different from project NPV?
 8. What is the difference between debt cost of capital and a redemption schedule?
 
 Application prompts:

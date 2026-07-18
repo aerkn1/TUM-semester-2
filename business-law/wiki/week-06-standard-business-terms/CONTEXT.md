@@ -40,6 +40,7 @@ Bad clause out, contract usually stays.
 | **Contract Term** | A provision intended to shape contractual rights, duties, remedies, risk allocation, timing, or other legal consequences. | information notice |
 | **Pre-Formulated Term** | A clause fixed before the individual contract negotiation and not freshly drafted from equal bargaining. | printed term only |
 | **Multiple-Use Intention** | The user's intention to use the clause in several contracts; the deck uses at least three intended contracts as the normal threshold. | actual repeated use |
+| **First-Use Consumer SBT** | A pre-formulated B2C term can be treated as SBT even if the user deploys it for the first time, under Section 310 III No. 2 BGB. | one-time term never SBT |
 | **Individual Agreement** | A term seriously negotiated in detail so the other party had a real opportunity to influence the content. | accepted term, signed term |
 
 ## Incorporation Language
@@ -48,6 +49,7 @@ Bad clause out, contract usually stays.
 |---|---|---|
 | **Incorporation Control** | The step asking whether SBT became part of the contract at all. | validity control |
 | **Explicit Reference** | The user's clear pointer that SBT are meant to apply. | hidden link |
+| **Clearly Visible Notice** | A visible sign or notice at the place of contract conclusion that can replace explicit reference where explicit individual reference is possible only with disproportionate difficulty. | hidden notice |
 | **Opportunity To Review** | A reasonable chance for the other party to see the SBT content before agreeing. | theoretical access only |
 | **Agreement To SBT** | Consent that the SBT apply, which may occur through contract conclusion if the reference and review chance are adequate. | reading every clause |
 | **Surprising Clause** | A clause so unexpected by placement or content that it is not incorporated under Section 305c I BGB. | merely strict clause |
@@ -55,6 +57,7 @@ Bad clause out, contract usually stays.
 | **Battle Of Forms** | A transaction where both sides send their own SBT and the terms conflict. | no contract automatically |
 | **Last-Shot Theory** | The view that the party sending its SBT last wins if the other party performs. The deck presents this but highlights its arbitrariness. | statutory approach |
 | **Statutory-Provisions Approach** | The view that matching SBT apply, conflicting SBT fall out, and statutory law fills the gap. | last word rule |
+| **Clause Scope** | The factual range covered by the wording of an SBT clause. A valid clause may still not apply if the damage falls outside its wording. | clause validity |
 
 ## Interpretation And Content-Control Language
 
@@ -164,6 +167,7 @@ flowchart TD
 | "A business owner is never a consumer" | Wrong. Classify the purpose of the specific transaction: restaurant equipment may be B2B, while a private bedroom television may be B2C. |
 | "The clause is SBT because the product is defective" | Defect facts may make the clause important, but SBT classification comes from pre-formulated repeated-use wording provided by one party. |
 | "The clause was visible, so it must be valid" | Visibility helps incorporation, but a clear clause can still fail content control if it is too harsh. |
+| "The customer did not read the sign" | Actual reading is not required if there was a reasonable opportunity to take notice before agreeing. |
 
 ## Exam Trap Corrections
 
@@ -178,6 +182,8 @@ flowchart TD
 | Saving overbroad clauses by imagination. | Only use the **Blue-Pencil Test** when wording splits cleanly. |
 | Calling every unfair clause "surprising." | Surprise is about hidden or unexpected incorporation; unfairness is content control. |
 | Calling every clear harsh clause "ambiguous." | Ambiguity needs unclear wording. Clear harsh wording goes to content control. |
+| Stopping after finding an effective SBT clause. | Also test whether the concrete damage or claim falls within the clause's wording. |
+| Treating first use as fatal in every case. | In consumer contracts, Section 310 III No. 2 BGB can bring first-use pre-formulated terms into SBT control. |
 
 ## Cheat-Sheet Language
 

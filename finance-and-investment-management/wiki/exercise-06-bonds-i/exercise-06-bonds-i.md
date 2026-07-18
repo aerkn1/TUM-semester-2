@@ -5,10 +5,12 @@ Source files:
 - `finance-and-investment-management/raw/Exercise_6_Bonds_I_Without_Solutions.pdf`
 - `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514/CW 21  19.05. _ 20.05./Exercise 6 - Solutions.pdf`
 - `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514/CW 23  02.06. _ 03.06./Exercise 7.pdf`
+- `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260709/CW 23  02.06. _ 03.06./Exercise 7 - Solutions.pdf`
+- `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260709/CW 23  02.06. _ 03.06./Video Resource - Excel Sheet.xlsx`
 - `finance-and-investment-management/raw/Formulary.pdf`
 
-Lecture folder: `finance-and-investment-management/`  
-Date processed: 2026-05-16; refreshed with solution and Exercise 7 material on 2026-06-06
+Lecture folder: `finance-and-investment-management/`
+Date processed: 2026-05-16; refreshed with solution and Exercise 7 material on 2026-06-06; refreshed with Exercise 7 solutions and Excel return-resource source on 2026-07-09
 
 ## High-Yield 80/20 Summary
 
@@ -23,6 +25,7 @@ Core logic:
 5. Know that creditworthiness, coupon, rights, liquidity, and interest rates affect bond prices.
 6. For coupon bonds, separate market price, accrued interest, and final settlement price.
 7. Understand that discount bonds move upward toward face value over time, while premium bonds move downward toward face value.
+8. Connect bond yields to Cost of Capital: market YTM on comparable debt can estimate `r_D`, the debt-cost input in WACC.
 
 ## Bond Definition
 
@@ -118,6 +121,36 @@ Bond price = PV(coupon annuity) + PV(face value)
 
 Exam trap: if coupon is given as a percentage of face value, convert it into the coupon cash flow before using the formula.
 
+### Face Value, PV Of Face Value, And Coupon Annuity
+
+Keep three layers separate:
+
+| Concept | Meaning | Example with face value 1,000 and 6% coupon |
+|---|---|---|
+| Face value | Principal amount contractually repaid at maturity | `1,000` repaid at maturity |
+| Coupon cash flow | Periodic promised interest payment | `1,000 x 6% = 60` each year |
+| Coupon annuity | Repeated coupon cash flows valued as an annuity | `60, 60, 60, ...` discounted to today |
+| PV of face value | Today's discounted value of the future principal repayment | `1,000 / (1+r)^N` |
+
+This means the amount repaid at maturity is not the discounted number. If `1,000 / (1+r)^N = 244.35`, then `244.35` is the **present value of the future face-value repayment**, while the contractual maturity repayment remains `1,000`.
+
+For a coupon bond, the final-year cash flow is:
+
+```text
+Final-year CF = coupon + face value
+```
+
+Example:
+
+```text
+Face value = 1,000
+Coupon rate = 6%
+Annual coupon = 60
+Final-year cash flow = 60 + 1,000 = 1,060
+```
+
+Exam trap: do not answer the maturity repayment with the present value of the face value. The PV belongs in the price calculation; the face value is the amount paid at maturity.
+
 ### Par, Discount, And Premium
 
 The refreshed Exercise 7 slides categorize coupon-bond prices relative to face value:
@@ -173,6 +206,47 @@ Bond price = PV(promised coupons and redemption discounted at YTM)
 The Exercise 7 slides add the reinvestment assumption: coupon cash flows are assumed to be reinvested at the market rate used in the YTM logic.
 
 Exam trap: YTM is not the same as coupon rate. YTM is solved from price and cash flows.
+
+## 2026-07-09 Exercise 7 Solution Refresh
+
+The later Moodle export added the official Exercise 7 solution deck and an Excel video resource. These do not create a separate spaced-repetition topic; they confirm and support the existing Bonds I note.
+
+Solution-backed confirmations:
+
+- Coupon-bond price remains `PV(coupons) + PV(redemption value)`.
+- Par, discount, and premium bond categories depend on coupon rate versus market yield.
+- Accrued interest must be separated from the quoted clean market price.
+- Yield to maturity is solved from market price and promised cash flows, not copied from the coupon rate.
+- The price path toward maturity must be interpreted separately from an unexpected market-yield shock.
+
+The Excel video resource contains monthly Daimler return data. Treat it as source support for return-series handling rather than a new examinable formula topic inside Bonds I. If a later exercise asks for return statistics from the file, make the calculation route explicit: identify monthly returns, compute the requested statistic, state the period unit, then interpret the result.
+
+### Bridge To Cost Of Capital
+
+Full bridge note: [Bridge: Bonds To Cost Of Capital](../session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md).
+
+In the Bonds exercise, YTM is solved from a bond's price and promised cash flows. In Cost of Capital, that same market-required yield can help estimate `r_D`, the pre-tax debt cost of capital, when the bond has similar maturity, seniority, liquidity, and credit risk.
+
+Clean route:
+
+```text
+Bond price + promised coupons/principal
+-> YTM / comparable bond yield
+-> debt cost of capital r_D
+-> after-tax r_D inside WACC
+-> project NPV
+```
+
+Important boundary: the bond yield is not the whole project discount rate. It is the debt component. WACC blends after-tax `r_D` with the equity cost of capital when project risk and target financing match.
+
+Value-added language:
+
+```text
+Bond investor value = PV(promised bond cash flows at required yield) - market price.
+Project value added = PV(operating FCF at WACC) - initial investment.
+```
+
+Both use discounted cash flow, but the decision question is different.
 
 ## Interest Rate And Price Relationship
 
@@ -475,3 +549,4 @@ graph TD
 
 - Previous exercise: `finance-and-investment-management/wiki/exercise-05-redemptions/exercise-05-redemptions.md`
 - Related concept: `finance-and-investment-management/wiki/exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md`
+- Bridge to Cost of Capital: `finance-and-investment-management/wiki/session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md`

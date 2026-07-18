@@ -1,6 +1,12 @@
 # Week 04: Contract Law II - Rescission And Revocation
 
 Source: `business-law/raw/Week 4 - Contract Law II.pdf`
+Exercise sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/13.5. Contract Law II/Case Facts_Contract Law II  III.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/13.5. Contract Law II/Contract Law II - Slides  Solutions.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/20.5. Contract Law II + III/Contract Law II + III_slides  solutions.pdf`
+
 Course: Business Law
 Processed: 2026-05-14
 Wiki note: `business-law/wiki/week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md`
@@ -374,6 +380,101 @@ Common traps:
 - Treating revocation as ex tunc like rescission.
 - Forgetting the additional period under Section 323 BGB.
 - Missing that revocation can combine with damages but not double compensation.
+
+## Official Exercise Case Routes
+
+### Case 1a: Hotel Toilet-Paper Mistyping
+
+Question: can H rescind an offer ordering 40,000 rolls instead of 400?
+
+Route:
+
+1. Formation first: H's email objectively offers to buy 40,000 rolls; hidden will is irrelevant at formation.
+2. Rescission ground: not error of content under Section 119 I Alt. 1 BGB, because H knows what "40,000 rolls" means.
+3. Error of declaration under Section 119 I Alt. 2 BGB: H used the wrong explanatory sign by mistyping the quantity.
+4. Causality: without the typing error, H would not have declared an order for 40,000 rolls.
+5. Declaration and time: H calls W immediately after discovering the mistake and explains she does not want 40,000 rolls; this satisfies Sections 143 and 121 BGB.
+
+Result: rescission is effective; the offer is void ex tunc under Section 142 I BGB.
+
+Exam trap: do not collapse formation and rescission. The declaration first works objectively, then can be rescinded.
+
+### Case 1b: Truck-Rent Damages After Rescission
+
+Question: can W claim damages for renting a truck after H rescinds under Section 119 BGB?
+
+Route:
+
+1. Rescission under Section 119 I Alt. 2 BGB is effective.
+2. W is the recipient of the declaration and is within Section 122 I BGB.
+3. No exclusion under Section 122 II BGB because W did not know and had no reason to know about H's typing error when renting the truck.
+4. Damage type: negative interest / reliance damage. W must be put as if W had never trusted the declaration.
+
+Result: W can claim the truck-rental costs under Section 122 I BGB, capped by the positive interest.
+
+### Case 2a: Fake Competitor Offer And Deceit
+
+Question: did R and W conclude a contract at EUR 55 per pair?
+
+Route:
+
+1. R offers EUR 55 per pair by invoking the alleged competitor price.
+2. W accepts by lowering the price.
+3. Deceit under Section 123 I Alt. 1 BGB is present: R intentionally creates an error about an external fact, the alleged lower offer.
+4. Double causality is met: the false competitor offer causes W's error, and the error causes W's acceptance at EUR 55.
+5. W has not yet declared rescission, but can still do so within Section 124 BGB after discovering the deceit.
+
+Result: before rescission, the contract exists. If W declares rescission in time, W's acceptance becomes void and the contract falls away.
+
+### Case 2b: Threat To End Business Relationship
+
+Question: did R and W conclude the later contract at EUR 65 per pair?
+
+Route:
+
+1. W offers EUR 65 per pair; R accepts.
+2. Duress under Section 123 I Alt. 2 BGB requires an unlawful threat.
+3. W threatens to reconsider the business relationship, which is unpleasant but commercially possible.
+4. Purpose is lawful: W wants a better price after R lied.
+5. Threatened evil is not unlawful: trading partners may end future business if conditions are unattractive.
+6. Means-purpose relationship is not unlawful because W is not a dominating indispensable supplier in the facts.
+
+Result: no unlawful duress; no rescission ground; the EUR 65 contract is valid.
+
+Exam trap: pressure is not automatically unlawful duress. Test purpose, threatened evil, and means-purpose relation.
+
+### Case 3: Watch Delivery By Thursday
+
+Question: can J revoke when S cannot deliver the watch by Thursday?
+
+Route:
+
+1. Reciprocal contract: purchase agreement under Section 433 BGB.
+2. Due obligation: S must hand over and transfer ownership; absent other timing, performance is due immediately under Section 271 I BGB.
+3. Breach: S fails to perform because the watch is away in Bavaria, but performance is not excluded under Section 275 BGB because S knows where it is and will get it back soon.
+4. Additional period: J gives S until Thursday; the period is adequate given immediate due date and resale urgency.
+5. Declaration: "no longer interested" is a valid revocation declaration under Section 349 BGB.
+
+Result: revocation under Section 323 I BGB is effective.
+
+Modification: if J did not set a period, revocation depends on an exception under Section 323 II BGB. Serious refusal is absent; a fixed-date transaction is absent unless the facts prove that the date was essential at contract conclusion; special circumstances may be arguable but require weighing.
+
+### Case 4: Craftsman Damages Carpet And Vase
+
+Question: can C still claim EUR 500 for renovation work?
+
+Route:
+
+1. Claim arose from a works contract under Section 631 I BGB.
+2. The claim can be lost if H effectively revokes.
+3. Section 324 BGB applies to breach of ancillary duties under Section 241 II BGB.
+4. C completed the renovation work itself, but carelessly damaged the carpet and then broke a rare vase after H warned him.
+5. Upholding the contract is unreasonable because C ignored a second chance and H's property interests outweigh C's payment interest.
+6. H's statement that she has had enough and wants to "dissolve" the contract can be understood as revocation.
+
+Result: the claim for payment is lost; C cannot claim the EUR 500.
+
+Exam trap: Section 324 BGB is for ancillary-duty breaches even when primary performance is technically proper.
 
 ## Retrieval Prompts
 

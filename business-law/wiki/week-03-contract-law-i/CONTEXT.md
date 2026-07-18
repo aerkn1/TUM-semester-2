@@ -38,6 +38,12 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Will Theory** | The idea that legal obligations arise from the parties intent to create legal consequences. | subjective wish only |
 | **Objective Recipient Horizon** | The interpretation standard asking how a reasonable recipient would understand a declaration. | hidden intent |
 | **Invitatio ad Offerendum** | An invitation for others to make offers, not itself a binding offer. | offer |
+| **Social Courtesy** | A non-commercial favor where the circumstances often show no intention to be legally bound, even if someone promised to help. | free contract |
+| **Essentialia Negotii** | The essential contract elements that must be sufficiently definite; for a purchase agreement, parties, object, and price are the core elements. | nice-to-have terms |
+| **Late Acceptance** | A response that would have accepted the offer but arrives after the offer expired; it is treated as a new offer under Section 150 I BGB. | valid acceptance |
+| **Modified Acceptance** | A response that changes the offer; it rejects the original offer and creates a counteroffer under Section 150 II BGB. | acceptance with details |
+| **Letter Of Intent** | A negotiation document or email showing willingness to continue or summarize talks without final legal-binding intent. | offer |
+| **Receipt Sphere** | The recipient's area of control, such as a mailbox or inbox, where a declaration can be received even before actual reading. | actual knowledge |
 
 ## Statutory Anchors
 
@@ -50,6 +56,8 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Section 147 BGB** | Acceptance period without a fixed deadline. | Offer is made to a present person or absent person without a stated deadline. | Use to decide whether acceptance had to be immediate or within ordinary expected response time. |
 | **Section 148 BGB** | Offeror fixes an acceptance period. | Offer says "valid until Friday", "confirm by 18:00", or similar. | Use before default timing rules; the offeror's deadline controls. |
 | **Section 150 II BGB** | Modified acceptance counts as rejection plus new offer. | Reply says "yes, but..." or changes price, quantity, object, or other terms. | Use for counteroffer analysis; do not treat a changed answer as acceptance. |
+| **Section 150 I BGB** | Late acceptance counts as a new offer. | Acceptance arrives after the offer has expired. | Use in timing cases before asking whether the original offeror accepted the new offer. |
+| **Section 151 BGB** | Acceptance may be effective without declaration to the offeror when declaration is not expected or waived. | Custom or the offeror's waiver makes communicated acceptance unnecessary. | Use narrowly; ordinary silence after a counteroffer is not enough. |
 | **Section 125 BGB** | Invalidity if a required legal form is missing. | Contract type requires text form, written form, electronic form, or notarial recording. | Check after formation; a formed contract can still fail for form. |
 | **Section 134 BGB** | Voidness for violation of a statutory prohibition. | The agreed transaction is prohibited by another statute. | Use only when facts show illegality; do not cite it in every contract formation case. |
 | **Section 138 BGB** | Voidness for public-policy violation or usury. | Exploitative bargain, extreme imbalance plus exploitation, or legally intolerable morality problem. | Use as a validity limit on private autonomy. |
@@ -133,6 +141,9 @@ flowchart TD
 | Copying a formula without variable meaning. | Define each variable and unit before substitution. |
 | Jumping to rescission before formation. | First check Contract Law I: offer, acceptance, effectiveness, and validity. Rescission only matters if there is a declaration to attack. |
 | Treating invalid clause and void contract as identical. | Standard-term or liability clauses may be invalid while the rest of the contract remains valid. |
+| Treating a favor as a contract. | Ask whether both sides objectively intended legal enforceability; neighborly help with no compensation often fails. |
+| Treating price tags and advertisements as offers. | Usually classify them as invitatio ad offerendum unless the facts show final binding intent toward the public. |
+| Equating a letter of intent with an offer. | Check whether unresolved terms and cautious language show that negotiations are deliberately still open. |
 
 ## Cheat-Sheet Language
 

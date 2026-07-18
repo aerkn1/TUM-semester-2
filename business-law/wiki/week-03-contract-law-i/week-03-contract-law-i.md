@@ -1,6 +1,12 @@
 # Week 03: Contract Law I
 
 Source: `business-law/raw/Week 3 - Contract Law I.pdf`
+Exercise sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/6.5. Contract Law I/Contract Law I_Case facts.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/6.5. Contract Law I/Contract Law I_Slides and case facts.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/6.5. Contract Law I/Contract Law I_Slides and solutions.pdf`
+
 Course: Business Law
 Processed: 2026-05-14
 Wiki note: `business-law/wiki/week-03-contract-law-i/week-03-contract-law-i.md`
@@ -396,6 +402,35 @@ Common traps:
 - Ignoring essentialia negotii.
 - Missing that a changed acceptance is a counter-offer.
 - Saying private autonomy means no mandatory limits.
+
+## Official Exercise Case Routes
+
+The exercise deck adds seven official formation cases. Use these as exam templates for spotting which element of contract formation is actually disputed.
+
+| Case | Core issue | Official route | Result / trap |
+|---|---|---|---|
+| **1. Neighbor waters garden** | Intention to be legally bound in a favor situation | G's request can contain service-contract essentials: parties, service for five days, and no compensation. N's agreement refers to those essentials, but the neighborly context and lack of compensation mean N lacks legal-binding intent. | No contract. Trap: do not say "promise = contract"; ask whether social courtesy is meant to be legally enforceable. |
+| **2. Blue chronograph** | Essentialia negotii in a purchase | I wants to buy a watch from C's collection, but "a blue chronograph" is not specific enough and no price is mentioned or determinable. | No offer, therefore no contract. Trap: an "agreement" label does not cure missing essentialia. |
+| **3. Newspaper painting advertisement** | Invitatio ad offerendum vs offer to an uncertain public | Advertisement has object and price but normally lacks legal-binding intent because the seller does not want multiple contracts or unverified buyers. A's letter is the offer; P rejects it. | No contract. Trap: price in an advertisement does not automatically make it an offer. |
+| **4. Supermarket strawberries** | Interpretation of customer offer and cashier acceptance | Display/sign is invitatio. C offers to buy at EUR 2 because a reasonable cashier would understand the checkout conduct against the yellow price sign. S rejects by demanding EUR 3. C's later insistence on EUR 2 is another offer, not accepted. | No purchase agreement at EUR 2. Trap: answer the exact question, not whether any EUR 3 counteroffer might exist. |
+| **5. Sofa Relax** | Expiry, late acceptance, counteroffer, and silence | F's in-store recommendation at EUR 1,100 is an offer to a present person. C leaves to ask G, so no immediate acceptance under Section 147 I BGB; later email is late and counts as a new offer under Section 150 I BGB. F's EUR 1,300 reply is a counteroffer under Section 150 II BGB. C's EUR 1,200 reply is another counteroffer. F's silence is not acceptance and Section 151 BGB does not help. | No contract. Trap: every modified or late response restarts the offer/acceptance analysis. |
+| **6. Cabriolet rental by letter** | Issuing, receipt, and revocation of a declaration to an absent party | Brochure is invitatio; failed phone call is not an offer. E's Monday letter is an offer for a Section 535 BGB rental. It reaches C's sphere Tuesday morning and is deemed received when mailbox checking can reasonably be expected, Tuesday evening. Wednesday email is too late for Section 130 I 2 BGB revocation. C implicitly accepts by demanding rent the next day. | Rental agreement exists; C can claim rent under Section 535 II BGB. Trap: actual reading is not required for receipt. |
+| **7. Machine negotiations and email** | Letter of intent and missing legal-binding intent | Office negotiations are not final. M's email has price and goods, and delivery/spare-part issues are not necessarily essentialia, but the wording "in principle", unresolved details, and request that P come back first point to a letter of intent, not an offer. P's later reply is at most an offer; M never accepts because M bought elsewhere. | No contract. Trap: advanced negotiations plus price are still not enough if the parties intentionally leave the deal open. |
+
+### Formation Mini-Decision Tree From Cases
+
+```mermaid
+flowchart TD
+    A[Possible contract] --> B[Is there a DoI with legal-binding intent?]
+    B -->|No| X[No offer or acceptance]
+    B -->|Yes| C[Are essentialia negotii definite?]
+    C -->|No| X
+    C -->|Yes| D[Was the declaration effective: issued, received, not revoked?]
+    D -->|No| X
+    D -->|Yes| E[Does the response mirror the offer and arrive in time?]
+    E -->|No: late or modified| F[Rejection plus new offer]
+    E -->|Yes| G[Contract concluded]
+```
 
 ## Retrieval Prompts
 

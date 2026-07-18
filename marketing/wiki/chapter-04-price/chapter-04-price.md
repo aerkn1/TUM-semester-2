@@ -156,12 +156,42 @@ A two-part tariff combines an access fee with a per-unit price. In the restauran
 
 The access fee captures consumer surplus while the per-unit price at marginal cost supports efficient consumption.
 
+Clarification bridge:
+
+- **Quantity-based pricing** is the broad family: the price changes with amount bought or used.
+- **Two-part pricing** is a specific quantity-based/self-selection tariff: the customer pays once for access and then pays a usage price for each unit consumed.
+- The lecture's beer example is not mainly about "dynamic consumption over time." The cleaner explanation is **decreasing marginal willingness to pay**: the first beer is worth more than the second, the second more than the third, and so on.
+
+Worked intuition:
+
+| Beer | WTP | Usage price if set at marginal cost | Consumer surplus on that beer |
+|---:|---:|---:|---:|
+| 1 | EUR 2.50 | EUR 1.00 | EUR 1.50 |
+| 2 | EUR 2.00 | EUR 1.00 | EUR 1.00 |
+| 3 | EUR 1.50 | EUR 1.00 | EUR 0.50 |
+| 4 | EUR 1.00 | EUR 1.00 | EUR 0.00 |
+
+If the restaurant charges EUR 1 per beer, the customer buys every beer with WTP at least EUR 1. Total consumer surplus is:
+
+```text
+1.50 + 1.00 + 0.50 + 0.00 = EUR 3.00
+```
+
+The restaurant can then charge a EUR 3 access fee and still leave the customer indifferent to entering. The fee captures the surplus; the usage price keeps consumption efficient because it equals the EUR 1 marginal cost.
+
 ## Skimming Versus Penetration
 
 | Strategy | Initial price | Objective | Best fit | Main danger |
 |---|---:|---|---|---|
 | Skimming | high | capture early high WTP, recover investment, signal quality | differentiated innovation, limited capacity, short life cycle | slow diffusion and competitor entry |
 | Penetration | low | rapid adoption, scale, market share, entry barriers | price-sensitive mass market with scale economies | weak margin and difficult later increases |
+
+Clarification bridge:
+
+- **Skimming** helps recover fixed development, launch, or capacity investment faster from high-WTP early adopters. It is not mainly about covering marginal cost faster; marginal cost is the cost of one additional unit and is usually covered unit by unit.
+- **Penetration** sacrifices early margin to build adoption, awareness, network effects, installed base, or retailer/customer lock-in.
+- A limited-seat executive course, premium workshop, or scarce luxury launch usually fits skimming: the firm is not trying to reach the broadest market immediately. It is screening for customers with high WTP and protecting exclusivity/capacity.
+- A mass-market app, subscription, or platform that becomes more valuable with many users usually fits penetration: adoption itself is part of the strategy.
 
 ## Price Bundling
 
@@ -249,6 +279,24 @@ A decision tree separates the firm's price, competitor response, and conditional
 
 Exam trap: probabilities along a path multiply; mutually exclusive path outcomes then add.
 
+Worked expected-profit example:
+
+Assume a headset has `c_var = EUR 30` and `C_fix = EUR 10,000`. The firm compares a high price of EUR 80 with a low price of EUR 60.
+
+| Firm price | Competitor outcome | Probability | Sales | Profit calculation | Profit |
+|---:|---|---:|---:|---|---:|
+| EUR 80 | competitor stays high | 0.60 | 1,000 | `(80 - 30) * 1,000 - 10,000` | EUR 40,000 |
+| EUR 80 | competitor cuts price | 0.40 | 600 | `(80 - 30) * 600 - 10,000` | EUR 20,000 |
+| EUR 60 | competitor stays high | 0.50 | 1,600 | `(60 - 30) * 1,600 - 10,000` | EUR 38,000 |
+| EUR 60 | competitor cuts price | 0.50 | 1,200 | `(60 - 30) * 1,200 - 10,000` | EUR 26,000 |
+
+```text
+EV_high price = 0.60*40,000 + 0.40*20,000 = EUR 32,000
+EV_low price  = 0.50*38,000 + 0.50*26,000 = EUR 32,000
+```
+
+The expected profits are equal. The decision then depends on risk tolerance, positioning, capacity, fairness, and strategic objectives. The reason is not probability alone: each probability weights a **profit outcome**, and profit depends on contribution margin as well as sales volume.
+
 ## Market Structure And Marginal Analysis
 
 | Structure | Sellers | Pricing implication |
@@ -266,6 +314,38 @@ elasticity epsilon = (dx/dp)*(p/x) = -bp/(a - bp)
 
 Demand is elastic when `|epsilon| > 1` and inelastic when `|epsilon| < 1`.
 
+Variable definitions:
+
+| Variable | Meaning | Managerial use |
+|---|---|---|
+| `p` | unit price | determines revenue per unit and contribution per unit |
+| `x` | quantity sold | captures the demand response to price |
+| `c_var` | variable unit cost | simple proxy for marginal cost |
+| `C_fix` | fixed cost | amount contribution must cover before profit |
+| `epsilon` | percentage quantity response divided by percentage price change | shows how sensitive demand is to a price change |
+| `MR` | marginal revenue | extra revenue from selling one more unit |
+| `MC` | marginal cost | extra cost of producing or serving one more unit |
+
+Elasticity is useful because it converts a price-change idea into a demand-change forecast. But elasticity alone does not decide the price. Profit still requires contribution:
+
+```text
+Current: p = EUR 100, x = 1,000, c_var = EUR 40
+Current contribution = (100 - 40) * 1,000 = EUR 60,000
+
+If epsilon = -2 and price rises by 10%:
+quantity changes by -20%, so x_new = 800
+new contribution = (110 - 40) * 800 = EUR 56,000
+```
+
+In this case, raising price lowers contribution because demand is very elastic. If `epsilon = -0.5`, the same 10% price increase would reduce quantity by only 5%:
+
+```text
+x_new = 950
+new contribution = (110 - 40) * 950 = EUR 66,500
+```
+
+Here the price increase improves contribution. Exam correction: use elasticity to estimate demand response, then calculate contribution or profit.
+
 With constant variable unit cost `c_var`, profit maximization requires marginal revenue equal marginal cost:
 
 ```text
@@ -276,6 +356,18 @@ x* = 0.5 * (a - b*c_var)
 ### PapaTurk Monopoly Exercise
 
 Inverse demand is `p = 5 - x/3000`, variable cost is EUR 0.80 per can, and fixed cost is EUR 3,000.
+
+Why the revenue equation creates `2x` in marginal revenue:
+
+```text
+p = 5 - x/3000
+R = p*x
+R = (5 - x/3000)x
+R = 5x - x^2/3000
+MR = dR/dx = 5 - 2x/3000
+```
+
+The `2x` appears because the derivative of `x^2` is `2x`. The managerial intuition is also important: to sell one more can, PapaTurk must lower the price, and that lower price applies to all units sold, not only the marginal can. Therefore marginal revenue falls faster than price.
 
 ```text
 Prohibitive price: x = 0 -> p = EUR 5

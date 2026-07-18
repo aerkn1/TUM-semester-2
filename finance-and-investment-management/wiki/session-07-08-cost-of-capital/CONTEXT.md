@@ -49,7 +49,13 @@ Required return = time value baseline + compensation for systematic market risk.
 | Term | Definition | Aliases to avoid |
 |---|---|---|
 | **Debt Cost Of Capital** | Expected return required by debt investors for the firm's debt risk. | coupon rate automatically |
+| **Bond Yield Evidence** | Market yield or YTM from the firm's own bonds or comparable bonds used to estimate the pre-tax debt cost for similar debt risk. | project return, equity return |
 | **Yield To Maturity** | IRR from promised bond payments if held to maturity. | expected return always |
+| **Coupon Rate** | Contractual coupon payment as a percentage of face value; it sets promised bond cash flow, not the market-required return by itself. | debt cost automatically |
+| **Bond Price** | Present value of promised bond cash flows discounted at the market-required yield. | face value, project value |
+| **Face Value** | Principal amount repaid at bond maturity. | bond price, PV of face value |
+| **PV Of Face Value** | Today's discounted value of the future face-value repayment; used in bond pricing, not the amount repaid at maturity. | maturity repayment |
+| **Coupon Annuity** | Repeated coupon cash flows valued separately from the final face-value repayment. | whole bond value |
 | **Default Risk** | Risk that promised debt payments are not fully made. | volatility only |
 | **Loss Rate** | Fraction of debt value lost if default occurs. | probability of default |
 | **Debt Rating Approach** | Estimate debt cost from similarly rated debt with similar maturity. | equity beta approach |
@@ -60,6 +66,7 @@ Required return = time value baseline + compensation for systematic market risk.
 | **Financing Plan** | Proposed debt/equity mix, debt amount, maturity, seniority, and repayment pattern used to implement project funding. | project value calculation |
 | **Redemption Schedule** | Contractual timing of loan interest and principal repayments used to test debt-service feasibility. | project FCF forecast |
 | **Debt-Service Feasibility** | Ability of forecast cash flows and liquidity to cover scheduled interest and principal payments under the chosen financing plan. | positive NPV automatically |
+| **Value Added Against Cost Of Capital** | Positive NPV after project FCF has been discounted at the required return. It is the surplus after compensating capital providers. | positive revenue, accounting profit |
 
 WACC formula:
 
@@ -76,6 +83,10 @@ Use these boundaries when linking Capital Budgeting, CAPM, WACC, and Redemptions
 | **Capital Budgeting vs CAPM** | Capital Budgeting forecasts project operating FCF; CAPM estimates the equity required return for comparable systematic risk. | Saying CAPM forecasts project cash flows. |
 | **Market Proxy vs Financing Source** | The market proxy is a reference for estimating required return; the project is not investing in the index. | Saying the project invests in stocks/bonds to get WACC. |
 | **CAPM vs WACC** | CAPM estimates `r_E`; WACC blends `r_E` with after-tax `r_D`. | Treating CAPM as the full project discount rate when debt also finances the project. |
+| **Bonds vs Cost Of Capital** | Bond prices and YTM can estimate the debt required return `r_D`; WACC then uses after-tax `r_D` with `r_E` to discount operating FCF. | Treating bond valuation as the project valuation itself. |
+| **Coupon Rate vs Debt Cost** | Coupon rate sets the promised coupon cash flow; market yield/YTM or comparable debt yield estimates `r_D`. | Using coupon rate automatically as WACC's debt input. |
+| **Face Value vs PV Of Face Value** | Face value is repaid at maturity; PV of face value is today's discounted value used in the bond price equation. | Calling a discounted PV amount the maturity repayment. |
+| **Bond Investor Value vs Project NPV** | Bond investor value is `PV(promised bond cash flows) - market price`; project value is `PV(operating FCF at WACC) - investment`. | Calling every DCF result "project NPV." |
 | **Debt Cost Of Capital vs Redemption Schedule** | Debt cost is the return lenders require; redemptions calculate contractual interest and principal payments. | Treating the loan annuity payment as the WACC debt term. |
 | **Project Cost Of Capital vs Debt Cost Of Capital** | Project cost prices operating cash-flow risk; debt cost prices lenders' claim risk. | Using the loan rate as the project cost of capital by default. |
 | **Financing Plan vs Project Value** | The financing plan sets debt amount, terms, and target leverage; project value still comes from operating FCF discounted at a risk-matched rate. | Letting a feasible loan schedule replace the NPV test. |
@@ -91,6 +102,25 @@ Project operating FCF + operating risk
 -> WACC if debt and equity finance the project
 -> NPV for project value
 -> redemption or annuity schedule for debt-service feasibility
+```
+
+Bonds route:
+
+```text
+Bond cash flows + market price
+-> YTM / comparable bond yield
+-> debt cost of capital r_D
+-> after-tax r_D inside WACC
+-> NPV surplus if project FCF beats the hurdle
+```
+
+Bond cash-flow split:
+
+```text
+Face value = amount repaid at maturity.
+PV of face value = today's discounted value of that maturity repayment.
+Coupon annuity = repeated coupon payments.
+Bond price = PV(coupon annuity) + PV(face value).
 ```
 
 Best exam sentence:
@@ -140,13 +170,31 @@ r_WACC = 8.60%
 
 Interpretation: CAPM prices systematic equity risk; WACC blends equity and after-tax debt required returns for operating FCF of matching risk. Analogy: WACC is the blended hurdle for all capital providers, not the bank's loan invoice. Trap: using the contractual loan rate as the project discount rate.
 
+```text
+Bonds-to-WACC: observed or solved comparable bond yield r_D = 7%.
+E = 60, D = 40, r_E = 12%, tax rate = 30%.
+r_WACC = 12% x 0.60 + 7% x 0.40 x (1 - 0.30)
+r_WACC = 7.20% + 1.96%
+r_WACC = 9.16%
+
+Project: CF_0 = -100,000; FCF_1-4 = 35,000.
+PV inflows = 35,000 x [1 - 1/1.0916^4] / 0.0916
+PV inflows = 112,993.12
+NPV = 12,993.12
+```
+
+Interpretation: the bond yield supplied the debt-return input, WACC became the hurdle rate, and NPV measured value added after the project paid that hurdle. Trap: saying "the project creates value because cash inflows are positive" without discounting at the cost of capital.
+
 ## Relationships
 
 - **Cost Of Capital** is the correct **Discount Rate** only when it matches the cash-flow risk.
 - **CAPM** uses **Beta**, not **Volatility**, because diversified investors are compensated for **Systematic Risk**.
 - **Market Proxy** makes **CAPM** estimable, but it is a required-return reference, not the project's investment asset.
+- **Bond Yield Evidence** helps estimate **Debt Cost Of Capital**, but **Bond Price** is not the same as project value.
+- **Coupon Rate** creates promised bond cash flow; **Yield To Maturity** or comparable market yield estimates required return.
 - **Yield To Maturity** equals expected return only when promised payments are close to expected payments.
 - **WACC** combines **Equity Cost Of Capital** and **Debt Cost Of Capital** with market-value weights.
+- **Value Added Against Cost Of Capital** is measured by **NPV**, not by positive revenue or positive operating cash flow alone.
 - **Capital Budgeting** supplies incremental operating FCF, **WACC** discounts it when appropriate, and a **Redemption Schedule** separately models contractual debt service.
 - A **Contractual Loan Rate** is one financing input; it is not the same as **WACC**, which blends debt and equity required returns.
 - A **Financing Plan** determines how much debt and equity will fund the project; it supports WACC weights and the **Redemption Schedule**, but it does not replace project valuation.
@@ -170,10 +218,13 @@ flowchart TD
     D --> F[Beta]
     D --> G[Market Risk Premium]
     PLAN[Financing Plan: D/E, Amount, Terms] --> H[Debt Cost]
+    BP[Bond Price + Promised Debt CF] --> BY[Bond Yield / YTM]
+    BY --> H
     PLAN --> RED[Redemption / Annuity Schedule]
     D --> I[WACC]
     H --> I
     I --> NPV[Project NPV]
+    NPV --> VA[Value Added Against Cost Of Capital]
     RED --> LIQ[Debt-Service Feasibility]
     J[Comparable Firm] --> K[Unlever Beta]
     K --> L[Asset Beta]
@@ -203,6 +254,14 @@ flowchart TD
 >
 > **Professor:** "No. **Debt Cost Of Capital** enters WACC as lenders' required return. **Redemption Schedule** uses the loan contract to calculate actual interest and principal payments."
 >
+> **Student:** "Where do bonds enter Cost of Capital?"
+>
+> **Professor:** "A comparable **Bond Yield** can estimate **Debt Cost Of Capital**. That `r_D` goes into **WACC** after tax. Then **NPV** tells whether the operating project creates **Value Added Against Cost Of Capital**."
+>
+> **Student:** "So if the bond coupon is 6%, debt cost is 6%?"
+>
+> **Professor:** "Not automatically. The **Coupon Rate** sets promised payments. The market yield or **YTM** reflects the return debt investors currently require."
+>
 > **Student:** "So is WACC equity cost plus debt cost plus the project's own operational risk?"
 >
 > **Professor:** "No. **WACC** blends required returns from equity and debt. The project's operating risk should already be reflected in the project beta, equity cost, debt risk, and target weights. Do not add it a second time unless the task explicitly gives an extra adjustment."
@@ -215,7 +274,11 @@ flowchart TD
 | "Return" | Use **Required Return**, **Expected Return**, or **Yield To Maturity** precisely. |
 | "Beta" | Specify **Equity Beta** or **Asset Beta**. |
 | "Debt" | Specify **Gross Debt**, **Net Debt**, or **Debt Cost Of Capital**. |
+| "Bond yield" | Specify whether it is promised **Yield To Maturity**, expected debt return, or comparable-market debt-cost evidence. |
+| "Coupon" | Say **Coupon Rate** for promised cash-flow size; do not use it as **Debt Cost Of Capital** without market-price evidence. |
+| "Face value" | Say **Face Value** for maturity repayment and **PV Of Face Value** for today's discounted value. |
 | "Discount rate" | State why the rate matches the project cash-flow risk. |
+| "Value added" | Say **NPV after discounting at the cost of capital**, not just positive operating cash flow. |
 | "Market" | Say **Market Proxy** or **Market Portfolio**; do not imply the project invests in that market. |
 | "Cost of debt" | Say **Debt Cost Of Capital** for WACC and **Contractual Loan Rate** for repayment calculations. |
 | "Project cost" | Say upfront investment for cash outlay, **Project Cost Of Capital** for the required return, or **Debt Cost Of Capital** for lender return. |
@@ -228,7 +291,11 @@ flowchart TD
 | Calling cost of capital the upfront investment. | Cost of capital is a rate; investment is a cash flow. |
 | Using volatility in CAPM. | CAPM uses beta because only systematic risk is priced. |
 | Treating the market proxy as the project's investment asset. | The proxy estimates comparable systematic risk and required return; it is not the project itself. |
+| Treating coupon rate as debt cost of capital. | Coupon rate sets promised bond cash flow; YTM/comparable bond yield estimates market-required debt return. |
+| Treating bond YTM as the whole project discount rate. | YTM can estimate `r_D`; WACC blends after-tax `r_D` with `r_E` for project FCF. |
+| Confusing face value with PV of face value. | Face value is the maturity repayment; PV of face value is today's discounted value inside the bond price. |
 | Treating YTM as expected return for risky debt. | Adjust conceptually for default probability and loss. |
+| Calling positive cash inflows value added. | Value added requires positive NPV after discounting at the cost of capital. |
 | Using book-value weights in WACC without instruction. | Use market-value weights when available. |
 | Forgetting `(1 - tau_c)` on debt in WACC. | Interest tax deductibility makes debt cost after-tax. |
 | Applying firm WACC to a different-risk project. | Use comparable asset beta or project-specific required return. |
@@ -244,8 +311,10 @@ CAPM: required equity return = risk-free rate + beta x market risk premium.
 Beta measures systematic risk; volatility measures total risk.
 WACC is valid only when project risk and financing match the WACC assumptions.
 Market proxy = reference for comparable systematic risk, not the project investment.
+Bond yield/YTM = possible evidence for r_D, not the whole project return.
 Debt cost enters WACC; redemption payments test financing feasibility.
 Project cost of capital prices operating FCF risk; debt cost prices lender claim risk.
 Financing plan sets debt/equity amounts and terms; WACC values operating FCF; redemptions test debt-service timing.
+Value added against cost of capital = positive NPV after discounting project FCF at the required return.
 Operational risk belongs inside beta/project cost of capital, not as a separate WACC add-on by default.
 ```

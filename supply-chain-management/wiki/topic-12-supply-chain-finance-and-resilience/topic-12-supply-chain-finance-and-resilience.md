@@ -108,6 +108,32 @@ Why this can create value:
 - Supplier liquidity improves without forcing the buyer to pay immediately from its own cash.
 - Buyer can sometimes extend payment terms while keeping suppliers financially healthier.
 
+Cash-flow clarification:
+
+```text
+The SCF provider pays the supplier early.
+The buyer does not pay the supplier early.
+The buyer pays the SCF provider later.
+```
+
+So the same program can reduce the supplier's collection time while increasing the buyer's effective payment time. This is the core win-win mechanism:
+
+```text
+Supplier DSO decreases.
+Buyer effective DPO increases.
+The SCF provider bridges the timing gap.
+```
+
+If the SCF provider pays at a 5% rate, that 5% is the annualized financing or discount rate, not an extra gift. For an invoice of EUR 100,000 paid 80 days early:
+
+```text
+Financing fee = 100,000 * 5% * 80/360 = EUR 1,111
+Supplier receives early cash = 100,000 - 1,111 = EUR 98,889
+Buyer later pays provider = EUR 100,000
+```
+
+The supplier accepts the discount if this is cheaper or less risky than waiting or borrowing independently at a higher supplier financing rate.
+
 The deck's EUR 500,000 spend example:
 
 | Scenario | Supplier Financing Cost | Buyer Cash Benefit | Interpretation |
@@ -171,6 +197,24 @@ Managerial implications:
 - Do not focus only on buyer benefits at the beginning.
 - Suppliers can use legitimacy arguments to normalize payment-term extensions.
 - SCF providers should consider adoption timing, not only portfolio size.
+
+Broader interpretation:
+
+```text
+Supplier adoption asks: why would the supplier join and actually use the program?
+```
+
+Suppliers adopt faster when the program solves a real financing problem for them. The strongest economic case appears when the supplier's old financing rate is high and the SCF rate based on the buyer-approved invoice is materially lower. A small supplier with weak bank access may adopt quickly; a large supplier with cheap internal financing may see less benefit.
+
+Adoption also has a legitimacy side. Suppliers are more willing to join when SCF already looks normal in their industry or supplier community. They may imitate peers, accept industry practice, or trust the buyer's program because comparable suppliers already use it. Pure pressure from the buyer is weaker as an adoption explanation because a coerced supplier may sign up slowly, resist operationally, or price the pressure back into future bids.
+
+Exam-safe adoption logic:
+
+```text
+Efficiency motive = lower financing cost or earlier cash.
+Legitimacy motive = SCF looks normal, trusted, and accepted.
+Implementation barrier = onboarding effort, platform trust, fees, and process change.
+```
 
 ## Criticism Of SCF
 
@@ -385,12 +429,30 @@ COGS = 90% of revenue
 Assume 360-day year
 ```
 
+Revenue/cash-flow distinction:
+
+```text
+Revenue = sales value earned or invoiced.
+Cash flow = actual cash received or paid.
+Profit = revenue - cost.
+```
+
+The working-capital calculation uses revenue for accounts receivable because customers owe the selling price. It uses COGS for accounts payable because the firm owes suppliers the cost side, not the selling price.
+
 Approximate net working capital:
 
 ```text
 NWC = Accounts receivable - accounts payable
 NWC = R*(60/360) - 0.90R*(30/360)
 NWC = 0.09167R
+```
+
+Narrative interpretation:
+
+```text
+AR = 60 days of customer sales not yet collected.
+AP = 30 days of supplier cost not yet paid.
+NWC = customer cash trapped in AR minus supplier financing through AP.
 ```
 
 Solve for annual revenue:
@@ -419,6 +481,38 @@ Therefore:
 10% NWC reduction needs about 3.3 DSO days or 3.7 DPO days.
 50% NWC reduction needs about 16.5 DSO days or 18.3 DPO days.
 ```
+
+These day counts are alternative levers:
+
+```text
+DSO reduction = customers pay earlier.
+DPO extension = the buyer pays suppliers or the SCF provider later.
+```
+
+They are not free. A customer discount can reduce DSO but may destroy margin. A unilateral DPO extension can reduce buyer NWC but may damage suppliers. SCF is attractive because it can increase the buyer's effective DPO while reducing the supplier's DSO.
+
+Entity-perspective rule:
+
+```text
+DSO and DPO are firm-specific.
+Choose the focal firm first, then use that firm's customers and suppliers.
+```
+
+For Superb Flowers:
+
+```text
+Superb Flowers DSO = how long customers take to pay Superb Flowers.
+Superb Flowers DPO = how long Superb Flowers keeps cash before paying suppliers/provider.
+```
+
+For the supplier:
+
+```text
+Supplier DSO = how long it takes to receive cash from Superb Flowers or the SCF provider.
+Supplier DPO = how long the supplier takes to pay its own upstream suppliers.
+```
+
+Do not mix the supplier's DSO into Superb Flowers' NWC calculation.
 
 ### Option Assessment
 
@@ -452,6 +546,31 @@ Working-capital reduction = COGS * 30/360
 ```
 
 This exceeds the 50% target of USD 1.25M.
+
+Full SCF perspective after implementation:
+
+Assume customers still pay Superb Flowers after 60 days, suppliers receive early cash from the SCF provider after 10 days, and Superb Flowers pays the provider after 60 days.
+
+From Superb Flowers' perspective:
+
+```text
+DSO remains 60.
+Effective DPO becomes 60.
+
+AR = 27.27M * 60/360 = about USD 4.55M
+AP/effective payable = 0.90 * 27.27M * 60/360 = about USD 4.09M
+NWC = 4.55M - 4.09M = about USD 0.46M
+```
+
+From the supplier's perspective:
+
+```text
+Supplier DSO falls to about 10 days.
+Supplier liquidity improves.
+Supplier receives early cash net of the SCF financing fee.
+```
+
+So supplier payment after 10 days does not reduce Superb Flowers' DPO. It reduces the supplier's DSO. Superb Flowers' DPO is measured when Superb Flowers' own cash leaves, which is when it pays the provider.
 
 More conservative target for 50% reduction:
 

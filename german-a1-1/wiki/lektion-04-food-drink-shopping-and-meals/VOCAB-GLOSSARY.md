@@ -4,13 +4,14 @@ Source note: `lektion-04-food-drink-shopping-and-meals.md`
 Context file: `CONTEXT.md`
 Processed: 2026-06-01
 Enriched: 2026-06-04 with official/trusted A1 source alignment for accusative objects, `nehmen`, and `mögen`.
+Updated: 2026-07-08 with Lektion 4 classroom export on nominative/accusative, adjective endings, `kein`, `nicht gern`, and yes/no question order.
 CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings and Quizlet links; detailed entries are enriched A1.1 production vocabulary.
 
 ## Level Summary
 
 - Main output domain: food, drink, grocery shopping, ordering, and meals.
-- Must-produce items: common nouns with articles, `ich möchte`, `ich nehme`, `mögen`, quantity phrases, `Was kostet das?`, `essen`, `trinken`, meal phrases.
-- Main trap: direct translation from English into German customer language; use short A1 patterns and check masculine accusative objects.
+- Must-produce items: common nouns with articles, `ich möchte`, `ich nehme`, `mögen`, quantity phrases, `Was kostet das?`, `essen`, `trinken`, meal phrases, yes/no questions, and direct-object noun phrases.
+- Main trap: direct translation from English into German customer language; use short A1 patterns, check masculine accusative objects, and separate `kein` from `nicht gern`.
 
 ## Food Nouns
 
@@ -218,6 +219,14 @@ CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings 
 - Flashcard prompt: Say the food tastes good.
 - CEFR note: enriched A1.1.
 
+### sehen
+- Meaning: to see.
+- Forms: `ich sehe`, `du siehst`, `er/sie sieht`, `Sie sehen`.
+- Example: `Ich sehe einen langen Zug.`
+- Pitfall: the thing/person seen is an accusative object; masculine article and adjective change.
+- Flashcard prompt: Say "I see a long train."
+- CEFR note: local/enriched A1.1 from the accusative-adjective handout.
+
 ## Quantity And Container Nouns
 
 | Entry | Meaning | Example | Pitfall |
@@ -240,6 +249,26 @@ CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings 
 | `die Banane` | `Ich möchte eine Banane.` | feminine object stays same |
 | `die Eier` | `Ich brauche Eier.` / `Ich brauche keine Eier.` | plural object keeps zero/`keine` |
 
+## Accusative Adjective Mini-Table
+
+| Base Idea | Object Phrase | Flashcard Prompt |
+|---|---|---|
+| `der Zug ist lang` | `Ich sehe einen langen Zug.` | Convert "The train is long" into "I see a long train." |
+| `das Restaurant ist gut` | `Ich sehe ein gutes Restaurant.` | Convert "The restaurant is good" into "I see a good restaurant." |
+| `die Stadt ist groß` | `Ich sehe eine große Stadt.` | Convert "The city is big" into "I see a big city." |
+| `die Restaurants sind gut` | `Ich sehe gute Restaurants.` | Convert plural restaurants into an object phrase. |
+
+## Word-Order And Negation Chunks
+
+| Entry | Meaning / Function | Example | Pitfall |
+|---|---|---|---|
+| `Möchtest du ...?` | yes/no question with `möchten` | `Möchtest du eine Cola?` | finite verb must come first |
+| `Trinkst du ...?` | yes/no question with `trinken` | `Trinkst du einen Tee?` | subject follows the verb |
+| `Am Morgen ...` | time phrase in first position | `Am Morgen trinke ich Kaffee.` | verb still stays in second sentence position |
+| `kein/keinen/keine` | no/not any noun | `Ich esse keinen Fisch.` | choose article by gender/case |
+| `nicht gern` | not gladly / do not like doing | `Ich trinke nicht gern Tee.` | not the same as "no tea at all" |
+| verb + `gern` | liking an activity | `Ich tanze gern.` | avoid `Ich mag tanzen` in this A1 pattern |
+
 ## Meal And Table Phrases
 
 | Entry | Meaning | Example | Pitfall |
@@ -258,6 +287,11 @@ CEFR scope: A1.1 course-local vocabulary. The local source gives topic headings 
 |---|---|
 | Order two bread rolls. | `Ich möchte zwei Brötchen.` |
 | Order one coffee. | `Ich möchte einen Kaffee.` |
+| Ask if someone wants a cola. | `Möchtest du eine Cola?` |
+| Say you do not eat fish at all. | `Ich esse keinen Fisch.` |
+| Say you do not like drinking tea. | `Ich trinke nicht gern Tee.` |
+| Say you like dancing. | `Ich tanze gern.` |
+| Say "I see a good restaurant." | `Ich sehe ein gutes Restaurant.` |
 | Choose soup. | `Ich nehme die Suppe.` |
 | Say you like coffee. | `Ich mag Kaffee.` |
 | Say you do not like fish. | `Ich mag keinen Fisch.` |

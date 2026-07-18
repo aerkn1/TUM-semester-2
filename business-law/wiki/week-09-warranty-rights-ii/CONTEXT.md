@@ -26,6 +26,7 @@ Week 08 answers whether warranty rights exist. Week 09 answers which damages/rei
 | Damages In Addition To Performance | Compensation for loss that would remain even if proper performance were rendered at the latest possible time. | Any extra damage |
 | Damages Instead Of Performance | Compensation that replaces the missing or defective performance because proper performance would have avoided the loss. | General damages |
 | Hypothetical-Performance Test | Ask whether the claimed loss would still exist if proper performance happened at the latest possible time. | But-for causation only |
+| Right To Revoke | The buyer satisfies the substantive revocation requirements, but the contract is not revoked until the buyer declares revocation. | revocation already exercised |
 | Simple Damages | Damages under Section 280 I BGB without the extra requirements for damages instead of performance. | Easy damages |
 | Malperformance | Performance occurs but is defective or not as owed. | Non-performance |
 | Non-Performance | Performance is not rendered at all. | Late or defective performance automatically |
@@ -66,6 +67,7 @@ Week 08 answers whether warranty rights exist. Week 09 answers which damages/rei
 | Immaterial Damage | Non-economic loss, compensable only where statute allows. | Pain always paid |
 | Lost Profit | Profit likely earned without the damaging event, Section 252 BGB. | Speculation |
 | Futile Expense | Voluntary expense made in reliance on performance that becomes wasted because performance fails. | Damage automatically |
+| Personalized Reliance Expense | Expense tied to the expected performance in a way that loses value if performance fails, such as a custom cover for a machine. | general disappointment |
 
 ## Damages Instead Of Performance Terms
 
@@ -79,6 +81,9 @@ Week 08 answers whether warranty rights exist. Week 09 answers which damages/rei
 | Covering Purchase | Buyer obtains replacement goods elsewhere and claims extra cost if requirements are met. | Free upgrade |
 | Insignificant Defect Exclusion | No damages instead of entire performance if the breach is insignificant. | No remedy at all |
 | Partial Performance Still Useful | Entire-performance damages may be excluded if partial performance remains useful. | Buyer must accept everything |
+| Legal Route | The statutory path that decides which requirements must be checked, even when two remedies produce similar money outcomes. | Economic result only |
+| Price Adjustment | Contract price correction because the defective thing is worth less. | Compensation |
+| Non-Fulfilment Loss | Loss caused because the buyer did not receive usable promised performance, such as substitute-purchase extra cost. | Purchase price refund automatically |
 
 ### Small Damages Versus Reduction
 
@@ -89,6 +94,16 @@ Week 08 answers whether warranty rights exist. Week 09 answers which damages/rei
 | Fault/responsibility needed? | Yes | No fault requirement |
 | Deadline/cure logic? | Usually yes | Cure priority/exceptions matter |
 | Economic intuition | Compensate performance deficit | Adjust price to reduced value |
+
+### Big Damages Versus Revocation
+
+| Feature | Big Damages | Revocation |
+|---|---|---|
+| Route | Sections 437 No. 3, 280 I, III, 281 BGB | Sections 437 No. 2, 323, 346 ff. BGB |
+| Buyer gives up performance? | Usually yes | Yes |
+| Fault/responsibility needed? | Yes | No fault requirement |
+| Deadline/cure logic? | Usually yes | Cure priority/exceptions matter |
+| Economic intuition | Compensate non-fulfilment loss, such as substitute-purchase extra cost | Unwind contract and return performances |
 
 ## Reimbursement And Work-Contract Terms
 
@@ -123,6 +138,7 @@ Week 08 answers whether warranty rights exist. Week 09 answers which damages/rei
 | Section 252 BGB | Lost profit | Profit likely earned absent event | Claim lost business profit with sufficient probability. |
 | Section 253 BGB | Immaterial damage | Pain/suffering or non-economic harm | Mention compensation only where statute allows. |
 | Section 284 BGB | Futile expenses | Reliance expenses wasted by failed performance | Use instead of damages in lieu. |
+| Section 441 III BGB | Reduction price formula | Buyer keeps defective thing and reduces price | Compute reduced price proportionally from agreed price, value with defect, and value without defect. |
 | Section 634 BGB | Work-contract warranty gateway | Defective work after acceptance | Route to cure, self-help, revocation/reduction, damages. |
 | Section 635 BGB | Cure in work contract | Client demands defect removal/new production | Work-contract analogue to purchase cure. |
 | Section 637 BGB | Self-help in work contract | Contractor does not cure after period | Distinguish from purchase law. |
@@ -181,10 +197,12 @@ Student: "Those may be futile expenses under Section 284 BGB instead of damages 
 | Assuming fault is never needed in warranty | Cure/reduction can be fault-independent; damages need responsibility unless a strict route applies. |
 | Confusing reduction with small damages | Reduction needs no responsibility; small damages are a damages claim and need the damages route. |
 | Treating work contracts as identical to purchase | Use Section 634 BGB and remember work self-help under Section 637 BGB. |
+| Treating a right to revoke as exercised revocation. | Check the Section 349 declaration separately; demanding cure is not necessarily revocation. |
+| Calculating reduction as a repair-cost refund. | Use the Section 441 III proportional formula unless the exam gives a simplified instruction. |
+| Treating Section 284 as extra damages. | Section 284 substitutes for damages in lieu and requires a reliance expense made in fairness. |
 
 ## Cheat-Sheet Language
 
 ```text
 After establishing a defect and Section 437 No. 3 BGB, I classify the loss. If proper late performance would not remove it, I use damages in addition under Section 280 I BGB. If proper performance would remove it, I use damages instead of performance through Section 280 I, III and the correct route: Section 281, 282, 283, or 311a BGB.
 ```
-

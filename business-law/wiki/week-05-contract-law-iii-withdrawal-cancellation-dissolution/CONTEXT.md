@@ -28,6 +28,7 @@ This file is the terminology and statutory-anchor companion for Contract Law III
 | **Distance Contract** | A consumer-trader contract negotiated and concluded exclusively through distance communication in an organized distance-sales or service scheme. | any online contact |
 | **Off-Premises Contract** | A consumer-trader contract concluded away from the trader's business premises or in a closely related surprise situation. | distance contract |
 | **Withdrawal Declaration** | The consumer's clear statement that they want to withdraw; no legal wording or justification is required. | complaint, warranty claim |
+| **Clear Withdrawal Decision** | The practical standard for Section 355 BGB: the consumer must make clear that they want to undo the contract, but does not need to say "withdrawal" or give reasons. | formal rescission statement |
 | **Withdrawal Period** | The time window for exercising withdrawal, usually 14 days when proper instruction was provided. | limitation period generally |
 | **Withdrawal Exclusion** | A statutory reason why withdrawal is unavailable despite consumer-trader context, such as custom-made or quickly perishable goods. | trader preference |
 
@@ -109,6 +110,7 @@ flowchart TD
 |---|---|
 | Treating withdrawal as a defect remedy. | Withdrawal protects consumers in specific situations; no defect or breach is required. |
 | Treating every online purchase as withdrawable. | Check consumer-trader scope, organized distance scheme, timing, and exclusions. |
+| Rejecting a withdrawal because the consumer used ordinary words. | A phone call or everyday statement can work if the withdrawal decision is clear and timely. |
 | Using cancellation for a one-time defective delivery. | Use revocation or later warranty routes for one-time performance failure. |
 | Unwinding a continuing relationship retrospectively. | Cancellation is normally ex nunc; the past stays legally effective. |
 | Calling dissolution unilateral. | Dissolution requires agreement through offer and acceptance. |

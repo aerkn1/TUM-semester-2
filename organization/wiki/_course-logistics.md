@@ -101,3 +101,16 @@ The user-provided export was preserved under `organization/raw/moodle-export-org
 | 2026-06-15 to 2026-06-21 | `09_TUM_Dynamic_Perspectives.pdf` | Created Session 09 Dynamic Perspectives with enriched explanations of the six gallery-walk frameworks |
 
 No new exam-format rule was introduced by these files. The Session 09 deck repeats the guest-lecture announcement already recorded above.
+
+## Moodle Export Update 2026-07-11
+
+The user-provided export was preserved under `organization/raw/moodle-export-organization-950938225-s26-20260711/`.
+
+| Course week | Source files | Wiki handling |
+|---|---|---|
+| 2026-06-15 to 2026-06-21 | `09_TUM_Dynamic_Perspectives.pdf` | Duplicate of the already ingested Session 09 deck; existing Session 09 note retained. |
+| 2026-06-22 to 2026-06-28 | `10_Mmmake_Guest_Lecture.pdf` | Created Session 10 Skills as the New Currency of Organizations. |
+| 2026-07-06 to 2026-07-12 | `11_TUM_Trends_Part_1.pdf` | Created Session 11 Trends in Organizational Design - New Forms. |
+| 2026-07-13 to 2026-07-19 | `12_TUM_Trends_Part_2.pdf` | Created Session 12 Trends in Organizational Design - Scrum, Design Thinking, and OKR. |
+
+No new exam-format rule was introduced by this export. The guest lecture remains examinable as already noted in the course schedule, and the two Trends sessions complete the late Organization design block before the review/wrap-up meeting.

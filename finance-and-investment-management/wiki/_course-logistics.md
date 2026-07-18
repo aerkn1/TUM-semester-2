@@ -5,6 +5,7 @@ Source files processed:
 - `finance-and-investment-management/raw/IuF_Introduction_SS2026_Master.pdf`
 - `finance-and-investment-management/raw/Formulary.pdf`
 - `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514.zip`
+- `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260709/`
 
 Administrative/logistical content is preserved here and excluded from subject Mermaid diagrams and the course knowledge graph unless it directly affects exam preparation.
 
@@ -99,6 +100,21 @@ The Moodle export `Investment and  950881761 (S26)_2026064_1514` was copied into
 | CW27 30.06 / 01.07 | `Lecture 1112 Capital Structure with Taxes.pdf` | Generated `session-11-12-capital-structure-and-taxes`. |
 
 The export suggests the live upload order may differ from the earlier schedule table for some weeks. For study sequencing, use the generated wiki-note order and prerequisite logic: Investment Analysis -> Capital Budgeting -> Cost of Capital -> Capital Structure -> Capital Structure and Taxes.
+
+## Moodle Export Update 2026-07-09
+
+The Moodle export `Investment and  950881761 (S26)_2026079_1135` was copied into `raw/` on 2026-07-09. It included the remaining exercise solutions after Exercise 7 and the mock exam:
+
+| Export folder | File | Handling |
+|---|---|---|
+| CW23 02.06 / 03.06 | `Exercise 7 - Solutions.pdf` | Used to refresh `exercise-06-bonds-i` with official solution-backed Bonds I confirmations. |
+| CW23 02.06 / 03.06 | `Video Resource - Excel Sheet.xlsx` | Preserved as a return-series source; noted in `exercise-06-bonds-i` without creating a separate spaced-repetition topic. |
+| CW24 09.06 / 10.06 | `Exercise 8.pdf`; `Exercise 8 - Solutions.pdf` | Generated `exercise-08-09-bonds-ii-yield-curves-duration` with spot/forward-rate and yield-curve routes. |
+| CW25 16.06 / 17.06 | `Exercise 9.pdf`; `Exercise 9 - Solutions.pdf` | Integrated into `exercise-08-09-bonds-ii-yield-curves-duration` with duration, modified duration, convexity caveat, and immunization routes. |
+| CW26 23.06 / 24.06 | `Exercise 10.pdf`; `Exercise 10 - Solutions.pdf` | Generated `exercise-10-11-stocks-valuation` with dividend metrics and DDM routes. |
+| CW27 30.06 / 01.07 | `Exercise 11.pdf`; `Exercise 11 - Solutions.pdf` | Integrated into `exercise-10-11-stocks-valuation` with PVGO, retention/ROE logic, and P/E/P/B valuation routes. |
+| CW28 07.07 / 08.07 | `Exercise 12.pdf`; `Exercise 12 - Solutions.pdf` | Generated `exercise-12-options` with payoff/profit, put-call parity, binomial valuation, hedge ratio, and American-put checks. |
+| CW29 14.07 / 15.07 | `Exercise 13 Mock Exam.pdf` | Generated `exercise-13-mock-exam`; the source has no official answer key, so answer routes are marked as inferred. |
 
 ## Study Implications
 

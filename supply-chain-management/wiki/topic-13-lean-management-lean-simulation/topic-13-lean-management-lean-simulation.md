@@ -364,6 +364,134 @@ Connections:
 - Factory layout reduces motion and transport.
 - Work cells and assembly lines support flow and takt.
 
+## Clarification: How The Simulation Concepts Fit Together
+
+The lean simulation is best understood as a controlled end-to-end production experiment. The Lego glider is simple on purpose: it lets the class observe how the full operational pipeline behaves when the process design changes.
+
+The basic logic is:
+
+```text
+observe the full value stream
+-> classify waste with muda
+-> change the operating design
+-> measure whether WIP, waiting, defects, transport, and output improve
+-> decide the next lean improvement
+```
+
+The simulation is required because local station performance can be misleading. A team can look busy and efficient while the whole process creates piles of unfinished work, long waiting times, wrong products, defects, and slow customer delivery. Lean therefore evaluates the whole flow, not just whether one station is occupied.
+
+### What Each Iteration Evaluates
+
+| Iteration | Process Design | What Is Being Evaluated | Main Muda Lens |
+|---|---|---|---|
+| 1. Conventional batch-and-queue | Separated functional teams sort, assemble parts, and pass work forward. | Baseline process behavior: where WIP, waiting, transport, defects, and overproduction appear. | Transport, waiting, excess inventory/WIP, over-processing, overproduction, defects. |
+| 2. Pull with Kanban | Same broad process, but upstream work is triggered by downstream demand signals. | Whether WIP and overproduction fall, and which bottlenecks or shortages become visible. | Reduced overproduction and WIP; exposed waiting, bottlenecks, unclear standards, or starvation. |
+| 3. Manufacturing cells | Work is reorganized around the glider flow instead of separated departments. | Whether physical flow improves through fewer handoffs, shorter movement, less waiting, and clearer ownership. | Less transport, less waiting, less WIP, fewer handoffs; remaining defects or imbalance become next improvement targets. |
+
+Muda is the generic waste-evaluation framework across all iterations. The seven waste categories do not change, but each process design changes which wastes are visible, reduced, or shifted elsewhere.
+
+### Kanban, Muda, And WIP
+
+Kanban is one mechanism for reducing and exposing muda. It is a pull signal and WIP limiter between process steps.
+
+```text
+downstream consumes a part
+-> Kanban signal authorizes replenishment
+-> upstream produces only what was consumed
+```
+
+Kanban mainly reduces:
+
+- overproduction, because upstream cannot produce without a signal
+- excess inventory/WIP, because only limited work is allowed between steps
+- hidden bottlenecks, because low WIP makes shortages and waiting visible
+
+Kanban does not automatically increase capacity or fix a bad layout. If a station is too slow, Kanban reveals the bottleneck. If materials are far apart, transport waste remains. If assembly is inconsistent, defect waste remains. That is why the third iteration adds manufacturing cells and why standardization and Poka-yoke matter.
+
+WIP means work in process: any material or part that has entered the process but has not yet become sold customer value. In the glider simulation, WIP includes sorted bricks, axis sets, chassis sets, finished axes, finished chassis, partly assembled gliders, and finished gliders not yet sold.
+
+### Manufacturing Cells In The Flow
+
+A manufacturing cell is a small, product-flow-oriented work area where the resources needed for a product or product family are grouped together. It is not just a boundary. It is a mini production system organized around flow.
+
+In the glider simulation, the move is from separated functional departments:
+
+```text
+sorting -> axis assembly -> chassis assembly -> final assembly
+```
+
+to a more integrated product flow:
+
+```text
+sort needed sets -> build chassis/axis -> assemble glider
+```
+
+This is related to Topic 08 OceanCove because both use process-flow thinking. OceanCove gives the diagnostic logic: map the process, identify capacity, bottlenecks, queues, lead time, and utilization. Lean uses that diagnosis to redesign the process so the product flows with less waste.
+
+### How The Central Lean Concepts Complement Each Other
+
+The concepts should be used as a system:
+
+```text
+Value
+-> Value stream
+-> Muda diagnosis
+-> Flow redesign
+-> Pull/Kanban control
+-> Kaikaku or Kaizen improvement
+-> Standardization and Poka-yoke
+```
+
+| Concept | Role In The Simulation |
+|---|---|
+| Value | Defines the target: a correct finished glider sold to the customer. |
+| Value stream | Shows the full path from bricks to sold glider. |
+| Muda | Classifies waste inside that path. |
+| Flow | The improvement goal: work moves smoothly without avoidable piles or delays. |
+| Pull | The execution logic: downstream/customer demand triggers work. |
+| Kanban | The practical pull mechanism: signal replenishment and limit WIP. |
+| Manufacturing cells | The layout redesign that reduces handoffs, transport, waiting, and WIP. |
+| Kaikaku | Radical redesign, such as moving from functional layout to cells. |
+| Kaizen | Continuous small improvement after each run or after the new cell works. |
+| Poka-yoke | Error prevention so defects do not travel through the process. |
+| Standardization | Makes work repeatable, measurable, and improvable. |
+
+### Real-Life Parallel: E-Scooter Assembly
+
+Imagine a company assembling e-scooters. Customer value is a finished, tested scooter delivered to the customer. Piles of batteries, wheels, frames, screws, and half-built scooters are not value by themselves.
+
+Iteration 1 would be a functional batch-and-queue factory:
+
+```text
+battery station -> wheel station -> frame station -> wiring station -> final assembly -> testing -> shipping
+```
+
+Each station produces batches to stay busy. The battery team makes 100 battery modules although final assembly needs only 30 today. Wheels pile up, frames wait, and testing waits because wiring is late. The main muda are overproduction, excess WIP, waiting, transport, motion, defects, and over-processing.
+
+Iteration 2 adds Kanban. Final assembly has space for only 10 battery modules. When one battery is used, a signal tells the battery station to replenish one battery. This reduces overproduction and WIP, but if wiring is still slow, final assembly still waits. Kanban reveals the bottleneck; it does not solve every root cause.
+
+Iteration 3 reorganizes into scooter manufacturing cells:
+
+```text
+scooter cell: frame + wheels + battery + wiring + final assembly + quick test
+```
+
+This reduces handoffs, transport, WIP, and waiting. The redesign is Kaikaku. Afterward, Kaizen improves daily work, standardization fixes the assembly sequence, Poka-yoke prevents wrong battery connection, takt time paces output to demand, and visual control makes shortages visible.
+
+The bonus-round improvements extend this logic beyond the workstation:
+
+- product redesign/standardization reduces part variety, sorting, defects, and wrong assembly
+- S&OP aligns demand, capacity, and product mix
+- postponement keeps products generic longer and customizes late
+- factory layout reduces transport and motion
+- work cells or assembly lines strengthen flow and takt
+
+Exam-safe summary:
+
+```text
+The lean simulation compares process designs over repeated runs. Muda diagnoses waste, Kanban controls pull and limits WIP, manufacturing cells redesign physical flow, Poka-yoke prevents defects, Kaikaku creates major redesign, and Kaizen continuously improves the system. The goal is to see which wastes decrease, remain, or become visible, then choose the next process improvement.
+```
+
 ## Lean And Other SCM Topics
 
 | Lean Concept | Connection |

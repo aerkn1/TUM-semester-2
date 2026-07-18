@@ -1,6 +1,12 @@
 # Week 07: Agency
 
 Source: `business-law/raw/moodle-export-business-law-950848572-s26-20260604/01.06. - Agency - Haag/Agency.pdf`
+Exercise/writing-workshop sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/3.6. Agency/Agency_Case facts.pptx`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/3.6. Agency/Agency_Slides and solutions.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/10.6. Writing Workshop/Practice Case_Agency.pptx`
+
 Course: Business Law
 Processed: 2026-06-04
 Wiki note: `business-law/wiki/week-07-agency/week-07-agency.md`
@@ -454,6 +460,91 @@ High-scoring answer structure:
 4. If one element is missing, name the specific consequence.
 5. Check special issues: reliance authority, termination, abuse, Section 181.
 6. If asked for managerial implications, explain information asymmetry and agency costs.
+
+## Official Exercise Case Routes
+
+### Case 1a: Fuel Purchase And Publicity
+
+Question: did F effectively represent D when buying fuel?
+
+Route:
+
+1. Own declaration: F forms and expresses his own will to buy fuel.
+2. Publicity: F does not explicitly say he acts for D. Implicit publicity is doubtful because although A sees F filling D's car, A does not necessarily know who is the buyer.
+3. Exception: for immediate everyday cash transactions where the identity of the contracting party is irrelevant, the "transaction for whom it concerns" exception may substitute for publicity.
+4. The exercise leaves the result arguable because fuel is paid immediately and the buyer identity may be irrelevant, but tank filling can be expensive and hard to unwind.
+
+Result: effective agency is arguable. If publicity fails, Section 164 II BGB binds F personally, not D.
+
+Exam trap: hidden intent to act for someone else is irrelevant unless the representative capacity is evident or an exception applies.
+
+### Case 1b: Unauthorized Fuel Purchase
+
+Question: can attendant A demand the fuel price from F?
+
+Route:
+
+1. No ordinary Section 433 II BGB claim against F as buyer because F did not intend to contract for himself.
+2. Section 179 I BGB applies if F acted as agent but without power of representation and D refuses ratification.
+3. Own declaration and publicity are present because F explicitly says he refuels in D's name.
+4. Power of representation is missing because D only authorized snacks, not fuel.
+5. D refuses ratification because fuel is cheaper after the border.
+6. A chooses performance under Section 179 I BGB, meaning payment of the purchase price rather than damages.
+
+Result: A can demand performance/payment from F under Section 179 I BGB.
+
+Exam trap: Section 179 is not a normal contract claim; it is liability of the unauthorized agent after the principal refuses ratification.
+
+### Case 2: Laptop Purchase Through Girlfriend And Store Manager
+
+Questions: did G represent S, did M represent E-oHG, and did S and E-oHG conclude a purchase agreement?
+
+Route:
+
+1. G represents S under Section 164 I BGB: G chooses and buys the laptop, refers to S's letter, and acts within S's internal and external authorization under Section 167 I BGB.
+2. M represents E-oHG: M processes the sale as store manager, the enterprise-related context satisfies publicity, and Section 56 HGB supports store authority for customary sales.
+3. Contract formation: G's offer by taking the laptop to payment is attributed to S; M's acceptance by processing payment is attributed to E-oHG.
+
+Result: S and E-oHG conclude a purchase agreement.
+
+Exam trap: when both sides act through people, solve agency on both sides before concluding the contract.
+
+### Case 3: Paradise-GmbH Apple Order
+
+Question: did farmer F and P-GmbH conclude a contract when only director E ordered apples?
+
+Route:
+
+1. P-GmbH cannot make declarations itself; it acts through organs/representatives.
+2. E makes an own declaration and acts in P-GmbH's name.
+3. Power of representation depends on Section 35 GmbHG. With several directors, joint representation is the default unless articles provide otherwise.
+4. A and E never agreed that one director can act alone, and only E ordered.
+5. Ratification under Section 177 I BGB is refused because A is not convinced and does not approve.
+
+Result: no effective agency by E and no contract with P-GmbH.
+
+Exam trap: director status alone is not always sole authority when joint representation applies.
+
+### Writing Workshop: Dog Sculpture Ratification
+
+Question: did art dealer D effectively represent collector C when buying a dog sculpture instead of the instructed wolf sculpture?
+
+Route:
+
+1. Own declaration: D decides to buy the dog sculpture.
+2. Publicity: D explains the situation to artist A, so A knows D acts for C's collection.
+3. Authority: C internally authorized D to buy the wolf sculpture, not a substitute dog sculpture. The clear instruction and availability of later approval mean D acted outside authority.
+4. Pending invalidity: without authority, the declaration is pending invalid under Section 177 I BGB.
+5. Ratification: C raises no objections and sets up the dog sculpture; this is implicit ratification.
+
+Result: effective agency in the end because C ratified D's unauthorized declaration.
+
+Legal-opinion template:
+
+1. "D could have effectively represented C when concluding the purchase agreement with A under Section 164 I BGB."
+2. Test own declaration, publicity, and power of representation.
+3. If authority scope fails, immediately check Section 177 I BGB ratification.
+4. Conclude whether the declaration is effective for the principal.
 
 ## Retrieval Prompts
 

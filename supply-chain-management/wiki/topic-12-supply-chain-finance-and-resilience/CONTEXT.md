@@ -18,6 +18,8 @@ This file is a standalone terminology companion for supply chain finance, revers
 | **Reverse Factoring** | Buyer-led financing where approved supplier invoices are paid early by a funder and the buyer pays later. | simply paying suppliers late |
 | **Approved Invoice** | Invoice confirmed by the buyer as valid, reducing funder risk. | purchase order |
 | **SCF Provider** | Bank or platform/funder that pays suppliers early and collects from buyers later. | supplier |
+| **SCF Discount Rate** | Annualized financing rate used to calculate the fee deducted when the supplier receives early payment from the SCF provider. | extra bank payment, supplier profit |
+| **Effective Buyer DPO Under SCF** | The buyer's payment timing measured by when the buyer pays the SCF provider, not when the provider pays the supplier. | supplier DSO |
 | **Trade Credit** | Payment delay granted by one firm to another, such as supplier payment terms. | bank loan |
 | **Trade Credit Risk** | Risk that the buyer delays or fails to pay. | inventory risk |
 | **Supplier Default Risk** | Risk that a supplier fails financially or operationally. | buyer default risk |
@@ -31,6 +33,7 @@ This file is a standalone terminology companion for supply chain finance, revers
 | **Accounts Payable (AP)** | Money the firm owes suppliers for purchases already received. | supplier cost |
 | **Days Sales Outstanding (DSO)** | Average number of days customers take to pay. | payment term only |
 | **Days Payable Outstanding (DPO)** | Average number of days the firm takes to pay suppliers. | supplier lead time |
+| **Focal Firm Perspective** | Rule that DSO, DPO, AR, AP, and NWC must be calculated for one chosen firm at a time. | mixing buyer and supplier metrics |
 | **Cost Of Goods Sold (COGS)** | Cost base associated with the goods sold; in the Superb Flowers case, inferred as 90% of revenue. | revenue |
 | **Cash Conversion Gap** | Timing gap between paying suppliers and collecting from customers. | profit margin |
 | **Drop Shipping** | Fulfillment model where suppliers ship directly to end customers. | zero working capital |
@@ -46,12 +49,20 @@ NWC = AR + inventory - AP
 If inventory = 0:
 NWC = AR - AP
 
+Revenue = sales value earned or invoiced
+Cash flow = actual cash received or paid
+Profit = revenue - cost
+
 One DSO day impact = revenue / 360
 One DPO day impact = COGS / 360
 
 Superb Flowers inferred revenue:
 2.5M = R*(60/360) - 0.90R*(30/360)
 R = about 27.27M
+
+Under SCF:
+Buyer DPO = when buyer pays the SCF provider
+Supplier DSO = when supplier receives cash from the SCF provider
 ```
 
 ## SCF Adoption Language
@@ -103,6 +114,8 @@ R = about 27.27M
 
 - **SCF** uses **reverse factoring** when the buyer initiates early supplier financing through approved invoices.
 - **Reverse factoring** can improve **supplier liquidity** while extending buyer **DPO**.
+- Under **reverse factoring**, supplier early payment reduces **supplier DSO**, while buyer later payment increases **effective buyer DPO**.
+- **Focal firm perspective** prevents mixing the supplier's receivable timing into the buyer's **NWC** calculation.
 - **Working capital** can remain high under **drop shipping** because **AR** and **AP** still create a **cash conversion gap**.
 - **Supplier adoption speed** depends on **efficiency motives** and **legitimacy motives**.
 - **Lean-resilience tradeoff** explains why very low buffers can increase vulnerability.
@@ -122,6 +135,8 @@ flowchart TD
     SCF --> RF[Reverse factoring]
     RF --> SupplierPay[Supplier paid early]
     RF --> BuyerDPO[Buyer pays later]
+    SupplierPay --> SupplierDSO[Supplier DSO decreases]
+    BuyerDPO --> BuyerNWC[Buyer NWC decreases]
     RF --> Onboarding[Supplier onboarding]
     Onboarding --> Efficiency[Efficiency motive]
     Onboarding --> Legitimacy[Legitimacy motive]
@@ -154,6 +169,9 @@ flowchart TD
 | "Pay later" | State whether it is a unilateral **DPO extension** or an SCF-supported reverse factoring program. |
 | "Supplier benefit" | Quantify lower financing cost, earlier cash, or lower default risk. |
 | "Working capital" | Break into **AR**, **inventory**, and **AP**. |
+| "Supplier is paid in 10 days, so buyer DPO is 10" | Keep the **focal firm perspective**: supplier DSO is 10, while buyer DPO is when buyer pays the provider. |
+| "5% SCF rate" | Treat it as an annualized **SCF discount rate** used to compute the early-payment fee. |
+| "Revenue is cash flow" | Use revenue for customer receivables; use cash flow for payment timing. |
 | "Zero inventory" | Do not infer zero working capital; check **DSO** and **DPO**. |
 | "Resilience" | Say whether the response uses **redundancy**, **flexibility**, **reconfiguration**, or a specific triple-p strategy. |
 | "Bottleneck" | Check hidden upstream, downstream, packaging, and distribution constraints. |
@@ -165,6 +183,8 @@ flowchart TD
 | Treating SCF as a free lunch for the buyer. | Ask who pays, who waits, whose credit rate applies, and who bears risk. |
 | Recommending longer supplier terms without supplier perspective. | Consider supplier cost of capital and bid-price reaction. |
 | Offering a large customer discount without margin check. | Annualize the discount and compare it to financing cost and profit margin. |
+| Mixing buyer DPO with supplier DSO. | Calculate NWC for one focal firm at a time; the same invoice is AP for the buyer and AR for the supplier. |
+| Thinking supplier early payment reduces buyer DPO. | In SCF, buyer DPO is measured when buyer pays the provider; supplier early payment lowers supplier DSO. |
 | Equating drop shipping with zero working capital. | Compute AR minus AP. |
 | Saying lean always improves performance. | Extreme leanness can increase disruption vulnerability. |
 | Choosing redundancy for every resilience case. | Match strategy to process, partnership, or product complexity. |
@@ -177,6 +197,8 @@ For SCF:
 Identify the cash-flow gap first: AR, inventory, AP, DSO, and DPO.
 Then decide whether the problem is buyer liquidity, supplier liquidity, or both.
 Reverse factoring is buyer-led: supplier gets early payment from a funder after buyer approval; buyer pays later.
+For NWC, use one focal firm: buyer DSO/DPO for buyer NWC, supplier DSO/DPO for supplier NWC.
+The SCF rate is the early-payment discount rate, not a free direct transfer.
 Evaluate benefits and risks from both buyer and supplier perspectives.
 
 For resilience:

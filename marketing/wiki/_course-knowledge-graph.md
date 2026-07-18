@@ -130,6 +130,26 @@ graph LR
     WOM --> Credibility[Credibility and helpfulness]
     Communication --> Influencer[Influencer marketing]
     Influencer --> PKM[Persuasion Knowledge Model]
+
+    PlaceP --> Distribution[Distribution policy]
+    Distribution --> Channels[Distribution channel system]
+    Channels --> Intermediaries[Merchants agents facilitators]
+    Channels --> DirectIndirect[Direct versus indirect distribution]
+    Channels --> Coverage[Intensive selective exclusive selling]
+    Distribution --> Conflict[Manufacturer-retailer conflict]
+    Distribution --> RetailTech[Retail technology and personalization]
+    RetailTech --> StorePersonalization[Human and technology-enabled personalization]
+    RetailTech --> StoreTracking[In-store tracking methods]
+    RetailTech --> Metaverse[Metaverse retail self-expansion]
+    RetailTech --> Haptics[Consumer touch and haptics]
+
+    Marketing -->|adapts to| B2B[B2B marketing]
+    B2B --> BuyingGroup[Buying group]
+    B2B --> ICP[Ideal customer profile]
+    B2B --> ABM[Account-based marketing]
+    B2B --> Confidence[Decision confidence]
+    B2B --> LearningSystem[Marketing learning system]
+    B2B --> PartnerEcosystem[Partner ecosystem]
 ```
 
 ## Decision Flow View
@@ -180,6 +200,17 @@ flowchart TD
     Channel --> Metric[Measure reach fit memory attitude behavior]
     PromotionDecision --> WOMRoute[Assess WOM eWOM influencer persuasion]
 
+    Mix --> PlaceDecision{Place question?}
+    PlaceDecision --> ChannelRoute[Choose direct or indirect channel]
+    ChannelRoute --> CoverageRoute[Choose intensive selective or exclusive coverage]
+    CoverageRoute --> ControlRoute[Balance control coverage margin image and data]
+    PlaceDecision --> RetailRoute[Evaluate retail format technology and customer friction]
+
+    Mix --> B2BDecision{B2B software question?}
+    B2BDecision --> ICPRoute[Define ICP and target accounts]
+    ICPRoute --> BuyingRoute[Map buying group roles and proof]
+    BuyingRoute --> ABMRoute[Coordinate ABM content sales partners and learning]
+
     Mix --> Control[Implementation and marketing controlling]
 ```
 
@@ -192,6 +223,8 @@ flowchart TD
 | Chapter 03 Product | `chapter-03-product/chapter-03-product.md` | Product levels -> digitalization/packaging/assortment -> innovation/co-creation/agile -> conjoint | 2026-05-14 |
 | Chapter 04 Price | `chapter-04-price/chapter-04-price.md` | Behavioral evaluation -> differentiation/bundling -> break-even/elasticity -> profit decision | 2026-06-12 |
 | Chapter 05 Promotion And Communication | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` | 5Ms -> media planning/measurement -> WOM/eWOM -> influencer persuasion knowledge | 2026-06-12 |
+| Chapter 06 Place And Distribution | `chapter-06-place-distribution/chapter-06-place-distribution.md` | Channel actors -> direct/indirect routes -> coverage/control -> retail technology and touch | 2026-07-11 |
+| Guest Lecture Modern B2B Marketing | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` | Buying group -> ICP/ABM -> confidence proof -> data/partner learning system | 2026-07-11 |
 
 ## Supporting Node Reference
 
@@ -223,6 +256,19 @@ flowchart TD
 | Weighted CPT | Contact cost adjusted for target-group fit | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
 | eWOM | Online consumer communication available to broad audiences | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
 | Persuasion Knowledge | Consumer knowledge of persuasion goals and tactics | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Distribution Channel System | Organizations involved in making the offer available | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Merchant | Intermediary that takes title and resells | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Agent | Intermediary that searches or negotiates without taking title | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Facilitator | Distribution support actor without title or negotiation role | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Intensive/Selective/Exclusive Selling | Alternative market-coverage choices with different control and reach | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Retail Personalization | Human or technology-enabled tailoring of physical-store experiences | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Self-Expansion | Metaverse mechanism linking playfulness/connectedness to virtual purchase intention | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Haptics | Consumer touch experience across actual, device-mediated, imaginal, and language-based cues | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Buying Group | Multi-role organizational decision unit in B2B purchases | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Ideal Customer Profile | Account-level description of best-fit companies | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Account-Based Marketing | Coordinated operating model for selected target accounts | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Decision Confidence | Confidence that a B2B solution is useful, credible, and low-risk | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Marketing Learning System | Signals -> models -> decisions -> activation -> learning loop | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
 
 ## Supporting Edge Reference
 
@@ -250,3 +296,17 @@ flowchart TD
 | Target-Group Fit | corrects | CPT | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
 | Satisfaction And Trust | generate | eWOM | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
 | Persuasion Recognition | activates | Coping Response | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` |
+| Distribution Policy | designs | Channel System | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Direct Distribution | increases | Manufacturer Control And Customer Data | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Indirect Distribution | increases | Reach Through Intermediaries | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Coverage Choice | balances | Reach And Control | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Manufacturer Goals | can conflict with | Retailer Goals | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Retail Personalization | depends on | Human Service And Data Technology | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Playfulness And Connectedness | increase | Self-Expansion | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Haptic Cues | influence | Product Experience | `chapter-06-place-distribution/chapter-06-place-distribution.md` |
+| Ideal Customer Profile | selects | Target Accounts | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Buying Group | requires | Role-Specific Proof | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Account-Based Marketing | coordinates | Marketing Sales Partners And Learning | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| B2B Marketing | reduces | Decision Risk | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| AI And Analytics | scale | Insight And Personalization | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Partner Ecosystem | enables | Adoption And Value Realization | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |

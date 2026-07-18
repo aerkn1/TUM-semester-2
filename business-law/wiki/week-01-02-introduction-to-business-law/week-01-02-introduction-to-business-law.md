@@ -1,6 +1,12 @@
 # Week 01-02: Introduction To Business Law
 
 Source: `business-law/raw/Week 1 and 2 - Introduction.pdf`
+Additional exercise/method sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/15.4. Introduction I/Introduction I_Slides.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/22.4. Introduction II/Introduction II_Slides.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/1.7. QA_Repetition/Repetition_Slides.pdf`
+
 Course: Business Law
 Processed: 2026-05-14
 Wiki note: `business-law/wiki/week-01-02-introduction-to-business-law/week-01-02-introduction-to-business-law.md`
@@ -410,6 +416,51 @@ How to structure a high-scoring answer:
 - For hierarchy questions, draw the levels and explain priority.
 - For BGB questions, move from general to specific rules and mention lex specialis.
 
+## Exercise Method Additions: Legal-Opinion And Time Strategy
+
+The exercise introduction and repetition slides add exam-method guidance that is not just administrative. Use it as the default writing workflow for Business Law cases.
+
+### Case-Solving Workflow
+
+1. Read the case facts twice and extract the legally relevant facts.
+2. Identify what the question asks for: a claim, a contract conclusion result, a remedy, or a validity issue.
+3. Find the legal basis: the provision or provision chain that can answer that question.
+4. Apply each statutory condition to the facts. Do not challenge neutral narrative facts, but do test party assertions.
+5. End with a result sentence that directly answers the case question.
+
+Practical sketch tools:
+
+- Multi-person cases: draw a triangle or chain showing who acts, who is represented, and who claims against whom.
+- Multi-event cases: draw a timeline with offer, receipt, deadline, notice, delivery, complaint, or revocation dates.
+- Argument-heavy cases: use a pro/con table before writing, then convert only the relevant arguments into legal-opinion prose.
+
+### Legal-Opinion Style
+
+Legal-opinion style is objective and open until the conclusion. Do not start with the final result. Write in continuous sentences, use structure levels, cite the exact law, and move through IRAC on every meaningful level.
+
+Useful sentence patterns:
+
+- Claim issue: "A could have a claim against B for X pursuant to Section Y BGB."
+- Condition issue: "Questionable is whether X is given."
+- Rule: "X requires Y."
+- Application: apply the concrete facts without generic filler such as "in this case" unless it clarifies the sentence.
+- Interim conclusion: "Consequently, this condition is met / not met."
+- Final conclusion: answer the exact question asked.
+
+### Citation Rules
+
+- Cite a provision whenever possible and integrate it into the sentence with "according to" or "pursuant to".
+- Know the citation units: section, subsection, sentence, number, and alternative.
+- Examples to memorize:
+  - Section 433 I 1 BGB: seller must deliver the thing and procure ownership.
+  - Section 119 I Alt. 1 BGB: error of content.
+  - Section 119 I Alt. 2 BGB: error of declaration.
+  - Section 434 II 1 No. 2 BGB: subjective suitability for contractually intended use.
+
+### Time Strategy
+
+The repetition slides recommend not getting stuck in a perfect legal opinion. If time runs short, finish the current case in shortened form, switch to the theory questions after about one hour, and return if time remains.
+
 ## Retrieval Prompts
 
 Closed-book questions:
@@ -490,6 +541,5 @@ Use this section after coaching sessions to track what needs another retrieval p
 
 ## Open Uncertainties
 
-- The deck does not provide exam date, duration, grading, or allowed materials; these remain in `business-law/wiki/_course-logistics.md` as pending logistics.
+- The exercise-introduction slides provide open-book format and 120-minute duration, but the exact final number of cases/questions is phrased probabilistically. Keep checking later exam notices for final confirmation.
 - The introduction references extra Moodle material for an in-depth civil-law/common-law comparison. That extra material has not been processed yet.
-

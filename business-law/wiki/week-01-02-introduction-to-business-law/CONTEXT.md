@@ -28,6 +28,19 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Legal Transaction** | An act, especially a declaration of intent, that creates, changes, or ends legal rights by party autonomy. | business transaction |
 | **Condition and Consequence** | The statutory structure where facts satisfy legal requirements and trigger a legal result. | cause and effect only |
 
+## Legal-Opinion Method Language
+
+| Term | Definition | Aliases to avoid |
+|---|---|---|
+| **Legal-Opinion Style** | Objective exam-writing style that starts with an open hypothesis, tests statutory conditions, applies facts, and concludes only after the examination. | judgment style, personal opinion |
+| **Judgment Style** | Result-first writing style used for court decisions; generally not the desired exam style for Business Law cases. | legal-opinion style |
+| **IRAC** | Case-writing structure: Issue, Relevant Law, Application, Conclusion. Each meaningful condition can have its own mini-IRAC. | loose essay, bullet dump |
+| **Issue Sentence** | Opening hypothesis that states the possible legal result and the relevant legal basis without phrasing it as a question. | question heading |
+| **Application** | The step where concrete case facts are tested against each abstract legal condition. | repeating the facts |
+| **Interim Result** | A short conclusion after a subcondition or condition before moving to the next test level. | final answer |
+| **Structure Level** | Formal legal-opinion hierarchy such as A., I., 1., a), aa), used to keep nested statutory tests clear. | random heading |
+| **Exact Citation** | Citation that identifies the relevant section, subsection, sentence, number, or alternative precisely enough to locate the rule. | statute name only |
+
 ## EU and German Law
 
 | Term | Definition | Aliases to avoid |
@@ -56,6 +69,7 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 - **Common Law System** should be distinguished from **Hierarchy of Norms** when writing exam answers.
 - **Hierarchy of Norms** should be distinguished from **Lex Specialis** when writing exam answers.
 - A strong answer defines the canonical term, applies the rule or formula, and states the managerial, legal, or analytical implication.
+- **Legal-Opinion Style** uses **IRAC**; each **Issue Sentence** is followed by **Relevant Law**, **Application**, and an **Interim Result** or final conclusion.
 
 ## Visual Memory Aid
 

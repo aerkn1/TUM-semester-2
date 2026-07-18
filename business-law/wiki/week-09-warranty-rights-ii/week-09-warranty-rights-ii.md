@@ -1,6 +1,11 @@
 # Week 09: Warranty Rights II
 
 Source: `business-law/raw/moodle-export-business-law-950848572-s26-20260628/15.06. - Warranty Rights II - Haag/Warranty Rights II.pdf`
+Exercise sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/24.6. Warranty Rights II/Warranty Rights II_Case facts.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/24.6. Warranty Rights II/Warranty Rights II_Slides and solutions.pdf`
+
 Course: Business Law
 Processed: 2026-06-28
 Wiki note: `business-law/wiki/week-09-warranty-rights-ii/week-09-warranty-rights-ii.md`
@@ -199,6 +204,83 @@ Example of big claim:
 ```text
 Buyer urgently obtains substitute goods from another supplier.
 Buyer may claim covering-purchase-related damages if requirements are met.
+```
+
+### Small Damages Versus Reduction
+
+Small damages and reduction can look economically similar because the buyer keeps the defective item and receives money. The legal route is different.
+
+| Question | Small damages | Reduction |
+|---|---|---|
+| Statutory route | Sections 437 No. 3, 280 I, III, 281 BGB | Sections 437 No. 2, 441 BGB |
+| Buyer keeps item? | Yes | Yes |
+| Seller responsibility needed? | Yes, under Section 280 I 2 BGB | No fault requirement |
+| Core function | Compensation for the performance deficit | Price adjustment to the lower value |
+| Exam signal | Buyer claims loss/value deficit as damages | Buyer declares reduction or asks for refund of overpaid price |
+
+Example:
+
+```text
+agreed price = EUR 10,000
+defect-free value = EUR 10,000
+defective value = EUR 7,000
+value deficit = EUR 3,000
+```
+
+If the buyer says "I keep the machine but want compensation for the EUR 3,000 loss", route as small damages. If the buyer says "I reduce the price because the machine is worth less", route as reduction. The same value gap may appear, but damages require responsibility and the damages route.
+
+Reusable exam sentence:
+
+```text
+Although the economic result resembles reduction, the buyer is claiming compensation for the value deficit. This is small damages instead of performance under Sections 437 No. 3, 280 I, III, and 281 BGB, so responsibility and the damages requirements must be checked.
+```
+
+Reduction sentence:
+
+```text
+The buyer does not claim damages but adjusts the purchase price because the defective item is worth less. This is reduction under Sections 437 No. 2 and 441 BGB, which does not require seller responsibility.
+```
+
+### Big Damages Versus Revocation
+
+Big damages and revocation can also look similar because the buyer gives up the defective performance. Again, the legal route is different.
+
+| Question | Big damages | Revocation |
+|---|---|---|
+| Statutory route | Sections 437 No. 3, 280 I, III, 281 BGB | Sections 437 No. 2, 323, 346 ff. BGB |
+| Buyer gives up performance? | Usually yes | Yes |
+| Seller responsibility needed? | Yes, under Section 280 I 2 BGB | No fault requirement |
+| Core function | Compensation for non-fulfilment loss | Unwind the contract and return performances |
+| Money focus | Loss such as extra cost of substitute purchase | Return of purchase price / restitution |
+
+Example:
+
+```text
+original price = EUR 10,000
+seller fails to cure
+buyer buys substitute machine = EUR 12,000
+extra cost = EUR 2,000
+```
+
+If the buyer claims the EUR 2,000 extra cost of substitute performance, route as big damages. If the buyer only wants to return the defective machine and get the purchase price back, route as revocation.
+
+Reusable exam sentence:
+
+```text
+The buyer does not merely want to unwind the contract; she claims the loss caused by having to obtain substitute performance. This is big damages instead of performance under Sections 437 No. 3, 280 I, III, and 281 BGB.
+```
+
+Revocation sentence:
+
+```text
+The buyer wants to undo the contract and return the defective item against repayment of the purchase price. This is revocation under Sections 437 No. 2 and 323 BGB, with restitution under Sections 346 ff. BGB.
+```
+
+Memory rule:
+
+```text
+Reduction/revocation = price adjustment or unwinding.
+Small/big damages = compensation for loss, therefore responsibility required.
 ```
 
 ## Damages Due To Impossibility
@@ -409,6 +491,82 @@ High-scoring answer structure:
 4. Check Section 280 I elements.
 5. Add route-specific requirements, especially additional period or impossibility.
 6. State the legal consequence and business meaning.
+
+## Official Exercise Case Routes
+
+The exercise deck uses one kitchen-machine fact pattern to train remedy selection across four subquestions.
+
+### Case 1a: Revocation For Missing Professional Equipment
+
+Question: did C revoke the purchase contract?
+
+Route:
+
+1. Legal basis: Sections 437 No. 2 Alt. 1, 323, and 346 BGB because the facts point to a defect.
+2. Purchase agreement: C and T agree on the kitchen machine "Helping Elf" with additional integrated professional equipment for EUR 1,000.
+3. Defect: the integrated professional equipment is part of the machine's agreed quality under Section 434 II 1 No. 1 BGB, not merely an accessory.
+4. Transfer of risk: the equipment had to be built in from the beginning, so the defect existed at delivery.
+5. Additional period: C did not set one, but it is dispensable under Section 440 BGB because T refused both kinds of cure by saying retrofitting is impossible and he will do nothing.
+6. Declaration: C demanded cure, not revocation. No revocation declaration under Section 349 BGB has yet been made.
+7. Exclusions: not trivial under Section 323 V 2 BGB because the professional equipment was specially agreed and necessary for C's demanding baking use; no responsibility of buyer under Section 323 VI BGB.
+
+Result: C has a right to revoke, but still needs a revocation declaration.
+
+Exam trap: a right to revoke and an exercised revocation are different.
+
+### Case 1b: Reduction Calculation
+
+Question: did C reduce the purchase price and how much can she demand back?
+
+Route:
+
+1. Reduction under Sections 437 No. 2 Alt. 2 and 441 BGB requires a right to revoke; Case 1a supplies it.
+2. Declaration: C demands a refund for the money paid too much, which can be a reduction declaration under Section 441 I BGB.
+3. Formula under Section 441 III BGB:
+
+```text
+reduced price = value with defect * agreed price / value without defect
+reduced price = EUR 600 * EUR 1,000 / EUR 800 = EUR 750
+refund = EUR 1,000 - EUR 750 = EUR 250
+```
+
+Result: C effectively reduces the price to EUR 750 and can demand EUR 250 back under Section 441 IV BGB.
+
+Exam trap: reduction is proportional value math, not automatically the repair cost or the subjective disappointment.
+
+### Case 1c: Fire Damage To Kitchen Cabinets
+
+Question: can C demand EUR 20,000 for the burned cabinets?
+
+Route:
+
+1. Legal basis: Sections 437 No. 3 Alt. 1 and 280 I BGB. The damage to cabinets would remain even if T later delivered a proper machine, so it is damages in addition to performance.
+2. Contractual obligation: purchase agreement.
+3. Breach: T had to deliver a defect-free machine and had to perform cure properly; the replacement machine had a dangerous electronics defect.
+4. Defect at transfer of risk: the electronics problem existed at delivery of the replacement machine.
+5. Responsibility: presumed under Section 280 I 2 BGB; negligence is clear because T knew of the recall campaign and mixed up the machines.
+6. Causal damage: the electronics defect caused the fire and destroyed cabinets worth EUR 20,000.
+7. Legal consequence: restitution in kind or money compensation under Section 249 BGB; C wants the value.
+
+Result: C can claim EUR 20,000 as damages in addition to performance.
+
+Exam trap: damage to other property caused by the defective thing is not cured by later proper performance, so route it as damages in addition.
+
+### Case 1d: Personalized Cover As Futile Expense
+
+Question: can C claim EUR 30 for the personalized cover?
+
+Route:
+
+1. Legal basis: Sections 437 No. 3 Alt. 2 and 284 BGB, in place of damages in lieu of performance.
+2. Damages-instead route must be available: purchase agreement, defective second machine, reasonable two-week period for new cure, no response by T, and responsibility.
+3. Futile expense: C voluntarily spent EUR 30 on a personalized cover in reliance on receiving usable performance.
+4. Fairness: the expense was reasonable for a EUR 1,000 kitchen machine.
+5. No exception: the purpose of the expense would have been achieved if T had performed properly.
+
+Result: C can claim reimbursement of EUR 30 under Sections 437 No. 3 Alt. 2 and 284 BGB.
+
+Exam trap: Section 284 is not "any cost refund"; it substitutes for damages in lieu and requires reliance on proper performance.
 
 ## Retrieval Prompts
 

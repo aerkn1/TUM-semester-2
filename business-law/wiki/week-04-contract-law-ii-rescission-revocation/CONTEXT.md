@@ -40,6 +40,10 @@ This file is a standalone terminology and formula companion. It follows Matt Poc
 | **Material Error** | A mistake relevant enough under the statute to justify rescission. | any regret |
 | **Deceit** | Intentional misleading behavior that induces a declaration of intent. | mistake |
 | **Duress** | Unlawful pressure that induces a declaration of intent. | hard bargaining |
+| **Double Causality** | In deceit cases, the misleading act must cause the error and that error must cause the declaration of intent. | simple causality |
+| **Unlawful Duress** | Pressure that is unlawful because of the purpose, the threatened evil, or the means-purpose relationship. | commercial pressure |
+| **Negative Interest** | Reliance damage that puts the injured party as if they had never trusted the declaration. | lost profit |
+| **Ancillary-Duty Revocation** | Revocation under Section 324 BGB because protective or loyalty duties were breached so seriously that holding the contract is unreasonable. | defective performance under Section 323 only |
 | **Restitution** | The return or reversal of benefits received after a contract is undone. | damages |
 
 ## Statutory Anchors
@@ -80,7 +84,7 @@ Return desk = Contract Law II revocation.
 | **Lock: validity** | 125, 134, 138, 305 ff., 276 III BGB | Missing form, legal prohibition, public policy/usury, invalid standard terms, intentional-liability exclusion. | Transaction void or clause invalid/ineffective. |
 | **Emergency exit: rescission** | 119, 120, 123, 143, 121/124, 144, 142, 122 BGB | Mistake, transmission error, deceit, duress, declaration, time limit, confirmation, effects. | Declaration/transaction void ex tunc; possible reliance damages in error cases. |
 | **Return desk: revocation** | 323, 324, 326 V, 349, 346-348, 325 BGB | Valid reciprocal contract plus performance problem. | Restitution duties; damages may remain. |
- 
+
 Cheat sentences:
 
 ```text
@@ -139,6 +143,9 @@ flowchart TD
 | Mixing rescission and revocation. | Rescission = flawed declaration at formation; revocation = valid contract plus performance problem. |
 | Forgetting exercise declarations. | Rescission requires Section 143 BGB declaration; revocation requires Section 349 BGB declaration. |
 | Treating revocation as ex tunc. | Ex tunc is rescission under Section 142 I BGB; revocation creates restitution under Sections 346-348 BGB. |
+| Assuming every threat is unlawful duress. | Test purpose, threatened evil, and means-purpose relation; ordinary commercial pressure may be lawful. |
+| Forgetting Section 122 after error rescission. | In Section 119/120 cases, check reliance damages for the other party even though the declaration is void. |
+| Treating proper main performance as the end of revocation. | Section 324 can still allow revocation when ancillary duties make holding the contract unreasonable. |
 
 ## Cheat-Sheet Language
 

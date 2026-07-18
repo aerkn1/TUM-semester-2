@@ -52,6 +52,7 @@ Use this route whenever the facts say that a sold thing is broken, unsuitable, d
 | Customary Use | Ordinary use for goods of the same kind. | Buyer's special purpose |
 | Usual Quality | Quality a buyer can normally expect from goods of the same type. | Perfect quality |
 | Public Statement | Seller or supply-chain statement that can shape objective expectations if legally relevant. | Every advertisement automatically |
+| Public-Advertising Defect | Objective-requirement defect where advertising or labeling creates expected quality and no statutory seller exception applies. | subjective agreement |
 | Assembly Defect | Defect caused by owed assembly, defective assembly instructions, or faulty integration where assembly is legally relevant. | Any installation problem |
 | Aliud Delivery | Delivery of a different thing, treated as a material defect. | Wrong performance outside warranty |
 
@@ -72,11 +73,14 @@ Exam correction: start with the strongest subjective requirement if the facts co
 |---|---|---|
 | Section 437 Gateway | Referral provision listing buyer remedies after a defect. It points into cure, revocation, reduction, damages, and reimbursement rules. | Remedy itself |
 | Cure | Primary remedy under Section 439 BGB: repair or replacement. | Compensation |
+| Cure Stage | Mandatory second-chance phase in which the buyer asks the seller to repair or replace the defective item before stronger secondary remedies are normally available. | Negotiation |
+| Cure Deadline | Reasonable period given to the seller to complete cure; if it expires without proper cure, secondary remedies may open. | Transfer of risk |
 | Repair | Cure by removing the defect from the delivered thing. | Reduction |
 | Replacement Delivery | Cure by delivering a defect-free substitute thing. | New purchase |
 | Second Chance Principle | Seller normally receives an opportunity to cure before stronger secondary remedies are used. | Seller always wins |
 | Disproportionate Cure | Seller may refuse the buyer's selected cure type if it is possible only at disproportionate expense. | Seller inconvenience |
-| Revocation | Buyer unwinds the contract and returns performances if requirements are met. | Rescission |
+| Warranty Revocation | Purchase-defect version of revocation: buyer unwinds a valid purchase contract after cure priority is respected or excused. | Rescission |
+| General Contract Revocation | General Section 323 BGB route for unwinding a reciprocal contract after non-performance or improper performance. | Rescission |
 | Reduction | Buyer keeps the defective thing and lowers the price proportionally. | Discount by repair cost automatically |
 | Damages | Monetary compensation routed through Section 437 No. 3 and Sections 280 et seq. BGB. | Price reduction |
 | Reimbursement Of Futile Expenses | Recovery of reliance expenses under Section 284 BGB instead of damages in lieu. | Any cost refund |
@@ -140,8 +144,11 @@ Interpretation: reduction preserves the contract but adjusts the price to match 
 
 - **Purchase Agreement** creates the seller's duty to deliver a thing free from **Material Defects** and **Legal Defects**.
 - **Defect At Transfer Of Risk** is the gateway into **Warranty Rights**.
-- **Section 437 Gateway** does not replace remedy requirements; it points to **Cure**, **Revocation**, **Reduction**, **Damages**, and **Reimbursement Of Futile Expenses**.
-- **Cure** usually comes before **Revocation**, **Reduction**, and many damages routes because of the **Second Chance Principle**.
+- **Section 437 Gateway** does not replace remedy requirements; it points to **Cure**, **Warranty Revocation**, **Reduction**, **Damages**, and **Reimbursement Of Futile Expenses**.
+- **Transfer Of Risk** is the defect-timing checkpoint; **Cure Deadline** is the later remedy-escalation checkpoint.
+- **Cure** usually comes before **Warranty Revocation**, **Reduction**, and many damages routes because of the **Second Chance Principle**.
+- **Disproportionate Cure** limits the buyer's selected cure type, but it does not by itself open **Warranty Revocation** if the alternative cure type remains reasonable.
+- **Warranty Revocation** is a special purchase-law route back into general revocation logic; it is different from rescission because the contract is valid until unwound.
 - **Consumer Purchase Contract** can neutralize a **Contractual Warranty Exclusion** and strengthen proof through Section 477 BGB.
 - **Commercial Inspection Duty** is the merchant-side counterweight: a B2B buyer can lose warranty rights by late inspection/notice.
 
@@ -179,20 +186,35 @@ Professor: "The buyer wants the purchase price lowered but keeps the machine."
 
 Student: "That is reduction under Section 441 BGB, not revocation. I use the proportional formula."
 
+Professor: "The buyer wants replacement, but the seller offers a quick, flawless repair. Does disagreement itself mean revocation?"
+
+Student: "No. First I test Section 439 IV BGB. If replacement is disproportionate and repair has no substantial disadvantage, the buyer is restricted to repair. Revocation opens only if cure as such fails, is refused, is impossible, unreasonable, or the cure period expires."
+
+Professor: "Is transfer of risk the same as the repair deadline?"
+
+Student: "No. Transfer of risk, usually handover under Section 446 BGB, asks whether the defect already existed at the relevant delivery moment. The cure deadline comes later and asks whether the seller's second chance has failed."
+
 ## Ambiguities And Exam Traps
 
 | Ambiguity / Trap | Canonical Recommendation |
 |---|---|
 | Treating discovery date as defect date | Always ask whether the defect existed at transfer of risk. |
+| Treating transfer of risk as the cure deadline | Separate timing checkpoint from remedy checkpoint: transfer of risk tests defect existence; cure deadline tests escalation to secondary remedies. |
 | Calling every exit "rescission" | Use revocation for unwinding a valid contract due to defective performance; reserve rescission for flawed declarations of intent. |
 | Skipping cure | Test cure priority unless facts clearly show refusal, failure, impossibility, or unreasonable cure. |
+| Treating cure disagreement as automatic revocation | Test whether one cure type is validly refused as disproportionate; use the other cure type if it remains reasonable. |
 | Equating reduction with repair cost | Use the Section 441 III proportional value formula unless the deck/exam gives a simplified instruction. |
 | Ignoring B2C/B2B status | Consumer purchases protect buyers; merchant purchases can trigger Section 377 HGB duties. |
 | Using Section 437 as if it contains all requirements | Say Section 437 is the gateway, then cite the specific remedy rule. |
+| Treating public advertising as irrelevant because it was not individually agreed. | Check objective requirements under Section 434 III, especially public statements by the seller or supply chain. |
+| Rejecting a consumer claim because the defect was discovered months later. | If within one year in a consumer-goods sale, check Section 477 BGB burden-of-proof presumption. |
+| Treating buyer's cure choice as unlimited. | The buyer chooses repair or replacement, but the seller can refuse a disproportionate cure type under Section 439 IV BGB. |
 
 ## Cheat-Sheet Language
 
 ```text
 The buyer may rely on warranty rights only if a valid purchase agreement exists, the item was defective at transfer of risk, no exclusion applies, and the chosen remedy satisfies the requirements of Section 437 BGB and the referred remedy provision.
-```
 
+Cure route:
+defect at transfer of risk -> buyer chooses repair or replacement -> seller may refuse a disproportionate cure type -> use the alternative cure type if reasonable -> revocation/reduction/damages only after cure fails, is refused, is impossible, unreasonable, or the period expires.
+```

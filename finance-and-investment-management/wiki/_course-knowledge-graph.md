@@ -2,7 +2,7 @@
 
 This file aggregates the Finance and Investment Management concepts learned so far. It is lecture-scoped only.
 
-Last updated: 2026-06-24
+Last updated: 2026-07-09
 
 ## Course-Level Mermaid Graph
 
@@ -78,6 +78,8 @@ graph TD
     COC -->|project risk proxy| ABETA[Asset Beta]
     ABETA -->|estimated via| COMPARS[Comparable Firms]
     WACC -->|discounts| FCF
+    WACC -->|hurdle for| VADD[Value Added Against Cost Of Capital]
+    NPV -->|measures| VADD
 
     COC -->|leads to financing choice| CSTRUCT[Capital Structure]
     CSTRUCT -->|perfect-market benchmark| MM1[MM I Without Taxes]
@@ -128,8 +130,33 @@ graph TD
     BONDS -->|coupons plus face value| CBOND[Coupon Bond]
     CBOND -->|may require| ACCRUED[Accrued Interest]
     CBOND -->|priced relative to| YTM[Yield To Maturity]
+    YTM -->|can estimate| DCOST
     BONDS -->|risk measured by| DUR[Duration]
     DUR -->|approximates| RISK[Interest-Rate Sensitivity]
+    BONDS -->|term structure through| YCURVE[Yield Curve]
+    YCURVE -->|contains| SPOT[Spot Rates]
+    YCURVE -->|implies| FWD[Forward Rates]
+    FWD -->|compound into| SPOT
+    DUR -->|converted into| DMOD[Modified Duration]
+    DUR -->|used for| IMMUN[Immunization]
+
+    MATH -->|values equity cash flows of| STOCKS[Stocks]
+    STOCKS -->|starts with| DPS[Dividend Metrics]
+    STOCKS -->|valued by| DDM[Dividend Discount Model]
+    DDM -->|constant growth| GORDON[Gordon Growth Model]
+    DDM -->|finite high growth| TWOSTAGE[Two-Phase Growth]
+    STOCKS -->|growth value| PVGO[PVGO]
+    STOCKS -->|relative valuation| MULT[PE And PB Multiples]
+
+    MATH -->|prices derivative rights through| OPT[Options]
+    OPT -->|right to buy| CALL[Call]
+    OPT -->|right to sell| PUT[Put]
+    OPT -->|arbitrage relation| PCP[Put-Call Parity]
+    OPT -->|state model| BINOM[Binomial Model]
+
+    FIN -->|practiced by| MOCKF[Finance Mock Exam]
+    MOCKF -->|integrates| CORP
+    MOCKF -->|integrates| MATH
 
     TVM -->|discounts project cash flows for| NPV
     INT -->|enables| ANN
@@ -175,14 +202,18 @@ graph LR
 | Fundamental Analysis Excursus | `finance-and-investment-management/wiki/session-01-02-excursus-fundamental-analysis-german-stock-market/session-01-02-excursus-fundamental-analysis-german-stock-market.md` | M/B, P/E, and F-Score as value-opportunity vs value-trap signals | 2026-05-25 |
 | Investment Analysis | `finance-and-investment-management/wiki/session-03-04-investment-analysis/session-03-04-investment-analysis.md` | NPV as master rule; IRR/payback/PI as limited alternatives | 2026-05-16 |
 | Capital Budgeting | `finance-and-investment-management/wiki/session-05-06-capital-budgeting/session-05-06-capital-budgeting.md` | Slide-backed HomeNet cases: assumptions -> incremental FCF -> corrected NPV -> alternatives and risk analysis | 2026-06-14 |
-| Cost Of Capital | `finance-and-investment-management/wiki/session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` | CAPM, beta, project risk matching, debt cost, WACC, and the bridge from project value to debt-service testing | 2026-06-14 |
+| Cost Of Capital | `finance-and-investment-management/wiki/session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` | CAPM, beta, project risk matching, bond-yield evidence for debt cost, WACC, project value added, and the bridge from project value to debt-service testing | 2026-07-06 |
 | Capital Structure | `finance-and-investment-management/wiki/session-09-10-capital-structure/session-09-10-capital-structure.md` | MM I/II without taxes, leverage, WACC offset, EPS/dilution fallacies | 2026-06-06 |
 | Capital Structure And Taxes | `finance-and-investment-management/wiki/session-11-12-capital-structure-and-taxes/session-11-12-capital-structure-and-taxes.md` | Interest tax shield, after-tax WACC, distress costs, static trade-off theory | 2026-06-06 |
 | Interest Calculation | `finance-and-investment-management/wiki/exercise-01-02-interest-calculation/exercise-01-02-interest-calculation.md` | Time value of money and compounding | 2026-05-16 |
 | Annuities | `finance-and-investment-management/wiki/exercise-03-04-annuities/exercise-03-04-annuities.md` | Repeated payments by timing, growth pattern, and loan-redemption timing bridge | 2026-06-24 |
 | Redemptions | `finance-and-investment-management/wiki/exercise-05-redemptions/exercise-05-redemptions.md` | Full Exercise 5 solutions: installment, annuity, maturity, grace-period repayment base, annuity timing, and student-loan alternatives | 2026-06-24 |
 | Redemptions-Capital Budgeting Bridge | `finance-and-investment-management/wiki/exercise-05-redemptions/redemptions-to-capital-budgeting-bridge.md` | Project operating value versus financing cash-flow schedule, annuity timing, and debt-service feasibility | 2026-06-24 |
-| Bonds I | `finance-and-investment-management/wiki/exercise-06-bonds-i/exercise-06-bonds-i.md` | Bond price as discounted promised cash flows, coupon bonds, accrued interest, and YTM | 2026-06-06 |
+| Bonds I | `finance-and-investment-management/wiki/exercise-06-bonds-i/exercise-06-bonds-i.md` | Bond price as discounted promised cash flows, coupon bonds, accrued interest, YTM, and the bridge to debt cost of capital | 2026-07-09 |
+| Bonds II: Yield Curves And Duration | `finance-and-investment-management/wiki/exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` | Spot/forward-rate equivalence, term-structure pricing, duration, modified duration, convexity caveat, and immunization | 2026-07-09 |
+| Stocks And Equity Valuation | `finance-and-investment-management/wiki/exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` | Dividend metrics, DDM, Gordon growth, two-phase growth, PVGO, and P/E/P/B valuation shortcuts | 2026-07-09 |
+| Options | `finance-and-investment-management/wiki/exercise-12-options/exercise-12-options.md` | Payoff/profit logic, put-call parity, binomial valuation, hedge ratio, and American early-exercise check | 2026-07-09 |
+| Mock Exam | `finance-and-investment-management/wiki/exercise-13-mock-exam/exercise-13-mock-exam.md` | Integrated lecture/exercise MCQ practice with inferred answer routes because no official key was provided | 2026-07-09 |
 
 ## Nodes
 
@@ -216,6 +247,8 @@ graph LR
 | CAPM | Required-return model based on beta and market risk premium | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | Beta | Market-risk sensitivity priced in CAPM | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | WACC | Weighted average after-tax financing cost | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
+| Debt cost of capital | Required return demanded by debt investors for the firm's debt risk | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
+| Value added against cost of capital | Positive NPV after operating FCF is discounted at the required return | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | Capital structure | Mix of debt, equity, and other securities | `session-09-10-capital-structure/session-09-10-capital-structure.md` |
 | MM Proposition I | Firm value independent of capital structure in perfect markets without taxes | `session-09-10-capital-structure/session-09-10-capital-structure.md` |
 | MM Proposition II | Levered equity cost rises with debt-to-equity ratio | `session-09-10-capital-structure/session-09-10-capital-structure.md` |
@@ -235,6 +268,24 @@ graph LR
 | Duration | Interest-rate sensitivity measure | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Accrued interest | Pro-rata coupon compensation between coupon dates | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Yield to maturity | Discount rate equating bond price to promised cash flows | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
+| Bond yield evidence | YTM or comparable bond yield used to estimate debt cost of capital `r_D` | `session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md` |
+| Yield curve | Set of spot rates by maturity | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Spot rate | Rate from today to a future maturity | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Forward rate | Implied future one-period rate | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Modified duration | Duration divided by `1+r` for price-change approximation | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Immunization | Portfolio-duration matching to a planning horizon | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Stock valuation | Equity pricing through expected dividends, growth, and required return | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| Dividend discount model | Values stock as present value of expected future dividends | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| Gordon growth model | Constant-growth dividend discount model | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| PVGO | Present value of growth opportunities | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| P/E valuation multiple | Peer or implied price relative to expected EPS | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| P/B valuation multiple | Peer or implied price relative to book value per share | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| Options | Derivative rights to buy or sell an underlying at a strike price | `exercise-12-options/exercise-12-options.md` |
+| Call option | Right to buy the underlying at strike `K` | `exercise-12-options/exercise-12-options.md` |
+| Put option | Right to sell the underlying at strike `K` | `exercise-12-options/exercise-12-options.md` |
+| Put-call parity | Arbitrage relation among stock, put, call, and discounted strike | `exercise-12-options/exercise-12-options.md` |
+| Binomial model | Option valuation by up/down states and backward induction | `exercise-12-options/exercise-12-options.md` |
+| Finance mock exam | Integrated MCQ practice across lecture and exercise tracks | `exercise-13-mock-exam/exercise-13-mock-exam.md` |
 
 ## Edges
 
@@ -269,6 +320,9 @@ graph LR
 | CAPM | estimates | equity cost of capital | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | Beta | measures | systematic market risk | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
 | WACC | combines | equity and after-tax debt costs | `session-07-08-cost-of-capital/session-07-08-cost-of-capital.md` |
+| Bond yield evidence | estimates | debt cost of capital | `session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md` |
+| WACC | acts as hurdle for | project value added | `session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md` |
+| NPV | measures | value added against cost of capital | `session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md` |
 | MM Proposition I | makes independent | firm value and capital structure | `session-09-10-capital-structure/session-09-10-capital-structure.md` |
 | MM Proposition II | links | leverage and equity cost | `session-09-10-capital-structure/session-09-10-capital-structure.md` |
 | Homemade leverage | supports | MM Proposition I | `session-09-10-capital-structure/session-09-10-capital-structure.md` |
@@ -289,4 +343,19 @@ graph LR
 | Higher discount rate | lowers | bond price | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Accrued interest | is added to | clean bond price | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
 | Yield to maturity | solves | bond price equation | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
+| Yield to maturity | can supply | bond yield evidence | `session-07-08-cost-of-capital/bonds-to-cost-of-capital-bridge.md` |
 | Duration | approximates | bond price sensitivity | `exercise-06-bonds-i/exercise-06-bonds-i.md` |
+| Forward rates | compound into | spot rates | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Spot rates | discount | maturity-specific cash flows | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Modified duration | approximates | percentage bond price change | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Immunization | matches | portfolio duration and planning horizon | `exercise-08-09-bonds-ii-yield-curves-duration/exercise-08-09-bonds-ii-yield-curves-duration.md` |
+| Dividend discount model | values | stock price | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| Retention ratio | drives | dividend growth when ROE supports reinvestment | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| ROE above cost of equity | creates | positive PVGO | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| P/E valuation multiple | reflects | growth, risk, and peer comparability | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| P/B valuation multiple | reflects | ROE relative to cost of equity | `exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` |
+| Long call | profits from | large price increase | `exercise-12-options/exercise-12-options.md` |
+| Long put | profits from | large price decrease | `exercise-12-options/exercise-12-options.md` |
+| Put-call parity | replicates | risk-free strike payoff | `exercise-12-options/exercise-12-options.md` |
+| Binomial model | discounts | risk-neutral expected payoff | `exercise-12-options/exercise-12-options.md` |
+| Finance mock exam | integrates | corporate-finance lecture and mathematical-basics exercise tracks | `exercise-13-mock-exam/exercise-13-mock-exam.md` |

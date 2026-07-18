@@ -17,6 +17,40 @@ graph LR
     Fields -->|includes| Company[Company law]
     Fields -->|also touches| PublicCommercial[Public and international commercial law]
 
+    Commercial -->|uses special private-law layer| TradeLaw[Trade law / HGB layer]
+    TradeLaw -->|triggered by| MerchantStatus[Merchant status]
+    TradeLaw -->|relies on| CommercialRegister[Commercial register]
+    TradeLaw -->|adds| CommercialAgency[Commercial agency powers]
+    TradeLaw -->|modifies| CommercialContracts[Commercial contract rules]
+    TradeLaw -->|can exclude| TradeWarrantyNotice[Section 377 HGB notice]
+    MerchantStatus -->|classified by| HGBMerchantSections[Sections 1, 2, 5, 6 HGB]
+    CommercialRegister -->|creates reliance through| Publicity15[Section 15 HGB publicity]
+    CommercialAgency -->|includes| Prokura[Prokura]
+    CommercialAgency -->|includes| Handlungsvollmacht[Limited commercial authority]
+    CommercialAgency -->|includes| ShopAuthority[Section 56 shop authority]
+    Prokura -->|scope fixed by| ProkuraScope[Sections 49-50 HGB]
+    CommercialContracts -->|exception to BGB silence baseline| CommercialSilence[Commercial silence / confirmation]
+    TradeWarrantyNotice -->|cuts off if late| WarrantyRights
+
+    Company -->|answers| LegalFormChoice[Choice of legal form]
+    LegalFormChoice -->|splits into| CompanyPartnerships[Partnerships]
+    LegalFormChoice -->|splits into| CompanyCorporations[Corporations]
+    CompanyPartnerships -->|base form| GbR[GbR]
+    CompanyPartnerships -->|commercial general partnership| OHG[oHG]
+    CompanyPartnerships -->|limited partnership| KG[KG]
+    KG -->|can be structured as| GmbHCoKG[GmbH & Co. KG]
+    CompanyCorporations -->|main SME form| GmbH[GmbH]
+    CompanyCorporations -->|low-capital variant| UG[UG]
+    CompanyCorporations -->|stock corporation| AG[AG]
+    GmbH -->|acts through| GmbHDirector[Managing director]
+    GmbH -->|controlled by| GmbHMeeting[Shareholder meeting]
+    AG -->|uses| DualisticSystem[Dualistic corporate system]
+    DualisticSystem -->|owners| GeneralAssembly[General assembly]
+    DualisticSystem -->|control| SupervisoryBoard[Supervisory board]
+    DualisticSystem -->|management| ManagementBoard[Management board]
+    Company -->|monitors| CorporateGovernance[Corporate governance]
+    CorporateGovernance -->|responds to| PrincipalAgentProblem
+
     LegalSystem -->|uses sources| Sources[Sources of law]
     Sources -->|primary in Germany| Statutes[Statutes: BGB, HGB, AktG, GmbHG]
     Sources -->|interprets and stabilizes| CaseLaw[Case law]
@@ -98,6 +132,25 @@ graph LR
     GoodFaithAcquisition -->|blocked by| LostStolenBlock[Section 935 lost/stolen block]
     PropertyLaw -->|transfers land by| ImmovableTransfer[Conveyance plus land-register entry]
     PropertyLaw -->|transfers claims by| ClaimsAssignment[Assignment under Section 398 BGB]
+
+    ExamPractice[Example Exam I practice] -->|integrates| CompanyLawCase[Company representation]
+    ExamPractice -->|integrates| TradeLawCase[Prokura and internal limits]
+    ExamPractice -->|integrates| FormationRescissionCase[Formation and deceit rescission]
+    CompanyLawCase -->|uses| GmbHDirector
+    TradeLawCase -->|uses| Prokura
+    FormationRescissionCase -->|uses| Formation
+    FormationRescissionCase -->|uses| Rescission
+
+    ExamPracticeII[Example Exam II practice] -->|integrates| WarrantyDamageCase[Defective printer damages]
+    ExamPracticeII -->|integrates| SBTReferralCase[SBT referral clause]
+    ExamPracticeII -->|integrates| TheoryIntegration[Theory routing questions]
+    WarrantyDamageCase -->|uses| WarrantyDamages
+    WarrantyDamageCase -->|filtered by| TradeWarrantyNotice
+    SBTReferralCase -->|uses| SBTExam
+    SBTReferralCase -->|invalidated by| SBTContentControl
+    TheoryIntegration -->|uses| Formation
+    TheoryIntegration -->|compares| Rescission
+    TheoryIntegration -->|compares| Revocation
 
     PrivateAutonomy -->|allows| FreedomContract[Freedom of conclusion, party, form, content]
     PrivateAutonomy -->|limited by| LimitsAutonomy[Mandatory limits]
@@ -256,19 +309,59 @@ flowchart TD
     Object -->|Claim/right| Claim[Section 398 assignment]
 ```
 
+## Trade And Company Law Decision View
+
+```mermaid
+flowchart TD
+    Facts[Business actor facts] --> HGB{Merchant or commercial transaction?}
+    HGB -->|No| BGBOnly[BGB baseline only]
+    HGB -->|Yes| Trade[Trade-law layer]
+
+    Trade --> Register{Register/publicity issue?}
+    Register --> S15I[Section 15 I: unregistered true fact]
+    Register --> S15II[Section 15 II: registered true fact]
+    Register --> S15III[Section 15 III: wrong registered content]
+
+    Trade --> Authority{Commercial authority issue?}
+    Authority --> ProkuraRoute[Prokura: Sections 48-50 HGB]
+    Authority --> HVMRoute[Handlungsvollmacht: Section 54 HGB]
+    Authority --> ShopRoute[Shop authority: Section 56 HGB]
+
+    Trade --> Defect{Mutual commercial purchase defect?}
+    Defect --> S377[Section 377 HGB inspection and notice]
+    S377 --> Timely{Timely notice?}
+    Timely -->|Yes| WarrantyBGB[Continue Section 437 BGB]
+    Timely -->|No| Approved[Goods deemed approved, warranty rights excluded]
+
+    Facts --> Form{Legal-form choice?}
+    Form --> Partnership[Partnership route]
+    Form --> Corporation[Corporation route]
+    Partnership --> GbRRoute[GbR: small civil partnership]
+    Partnership --> OHGRoute[oHG: commercial partnership, personal liability]
+    Partnership --> KGRoute[KG: general partner + limited partner]
+    Corporation --> GmbHRoute[GmbH: flexible limited liability]
+    Corporation --> UGRoute[UG: low-capital GmbH variant]
+    Corporation --> AGRoute[AG: stock corporation]
+    AGRoute --> Dual[General assembly + supervisory board + management board]
+```
+
 ## Subject Graph Index
 
 | Subject / Deck | Wiki Note | Main Visual Logic | Last Updated |
 |---|---|---|---|
-| Week 01-02 Introduction To Business Law | `week-01-02-introduction-to-business-law/week-01-02-introduction-to-business-law.md` | Legal system map: sources, hierarchy, public/private classification, BGB method | 2026-05-14 |
-| Week 03 Contract Law I | `week-03-contract-law-i/week-03-contract-law-i.md` | Contract formation and validity sections: door and lock memory map | 2026-05-25 |
-| Week 04 Contract Law II | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` | Exit routes: emergency exit for rescission and return desk for revocation | 2026-05-25 |
-| Week 05 Contract Law III | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` | Termination II: withdrawal, cancellation, dissolution, and full termination decision tree | 2026-05-14 |
-| Week 06 Standard Business Terms | `week-06-standard-business-terms/week-06-standard-business-terms.md` | SBT case route: existence, incorporation, interpretation, content control, and Section 306 consequences | 2026-06-04 |
-| Week 07 Agency | `week-07-agency/week-07-agency.md` | Agency triangle: principal, agent, third party, authority, ratification, liability, and principal-agent problem | 2026-06-04 |
-| Week 08 Warranty Rights I | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` | Defective purchase route: defect at transfer of risk, exclusions, cure, revocation, reduction, damages gateway | 2026-06-28 |
-| Week 09 Warranty Rights II | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` | Damages router: damages in addition versus instead of performance, Section 280 routes, Section 284, work contracts | 2026-06-28 |
+| Week 01-02 Introduction To Business Law | `week-01-02-introduction-to-business-law/week-01-02-introduction-to-business-law.md` | Legal system map: sources, hierarchy, public/private classification, BGB method | 2026-07-09 |
+| Week 03 Contract Law I | `week-03-contract-law-i/week-03-contract-law-i.md` | Contract formation and validity sections: door and lock memory map | 2026-07-09 |
+| Week 04 Contract Law II | `week-04-contract-law-ii-rescission-revocation/week-04-contract-law-ii-rescission-revocation.md` | Exit routes: emergency exit for rescission and return desk for revocation | 2026-07-09 |
+| Week 05 Contract Law III | `week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md` | Termination II: withdrawal, cancellation, dissolution, and full termination decision tree | 2026-07-09 |
+| Week 06 Standard Business Terms | `week-06-standard-business-terms/week-06-standard-business-terms.md` | SBT case route: existence, incorporation, interpretation, content control, and Section 306 consequences | 2026-07-09 |
+| Week 07 Agency | `week-07-agency/week-07-agency.md` | Agency triangle: principal, agent, third party, authority, ratification, liability, and principal-agent problem | 2026-07-09 |
+| Week 08 Warranty Rights I | `week-08-warranty-rights-i/week-08-warranty-rights-i.md` | Defective purchase route: defect at transfer of risk, exclusions, cure, revocation, reduction, damages gateway | 2026-07-09 |
+| Week 09 Warranty Rights II | `week-09-warranty-rights-ii/week-09-warranty-rights-ii.md` | Damages router: damages in addition versus instead of performance, Section 280 routes, Section 284, work contracts | 2026-07-09 |
 | Week 10 Transfer Of Property | `week-10-transfer-of-property/week-10-transfer-of-property.md` | Property transfer router: ownership versus possession, separation/abstraction, movable transfer, good-faith acquisition, land, claims | 2026-06-28 |
+| Week 11 Trade Law | `week-11-trade-law/week-11-trade-law.md` | HGB layer router: merchant status, commercial register publicity, Prokura/Handlungsvollmacht, commercial silence, Section 377 notice | 2026-07-09 |
+| Week 12-13 Company Law I And II | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` | Legal-form router: partnerships, corporations, GmbH, UG, AG, corporate governance | 2026-07-08 |
+| Example Exam I Case Facts | `example-exam-i-case-facts/example-exam-i-case-facts.md` | Exam integration router: GmbH representation, Prokura internal limits, formation, deceit rescission, theory checks | 2026-07-08 |
+| Example Exam II Case Facts | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` | Exam integration router: warranty damages, Section 377 HGB, SBT referral clause, amended acceptance, rescission versus revocation | 2026-07-09 |
 
 ## Supporting Node Reference
 
@@ -337,6 +430,29 @@ flowchart TD
 | Movable Transfer | Transfer of movable ownership by agreement, delivery, continuing agreement, and authorization | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
 | Good-Faith Acquisition | Ownership acquisition from non-owner when possession creates legal appearance and Section 935 does not block | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
 | Assignment | Transfer of a claim under Section 398 BGB | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Trade Law | HGB special private-law layer for merchants | `week-11-trade-law/week-11-trade-law.md` |
+| Merchant Status | Gateway for applying HGB rules | `week-11-trade-law/week-11-trade-law.md` |
+| Commercial Register | Public register for commerce-relevant facts | `week-11-trade-law/week-11-trade-law.md` |
+| Section 15 HGB Publicity | Good-faith reliance rules around registered, unregistered, or wrongly registered facts | `week-11-trade-law/week-11-trade-law.md` |
+| Prokura | Broad legally regulated commercial power of representation | `week-11-trade-law/week-11-trade-law.md` |
+| Limited Commercial Authority | Handlungsvollmacht; non-Prokura commercial authority for usual business transactions | `week-11-trade-law/week-11-trade-law.md` |
+| Shop Assistant Authority | Section 56 HGB appearance-based authority for customary public-store transactions | `week-11-trade-law/week-11-trade-law.md` |
+| Commercial Silence | HGB exception where silence can accept or confirm contract content | `week-11-trade-law/week-11-trade-law.md` |
+| Section 377 HGB Notice | Mutual-commercial-purchase inspection and notification duty | `week-11-trade-law/week-11-trade-law.md` |
+| Choice Of Legal Form | Decision matching liability, capital, governance, tax, financing, disclosure, and reputation | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Partnership | Person-centered business association such as GbR, oHG, or KG | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Corporation | Entity-centered legal form such as GmbH, UG, or AG | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| GbR | Basic civil-law partnership for small joint endeavors | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| oHG | Commercial general partnership with personal partner liability | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| KG | Limited partnership with general partner and limited partner | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| GmbH | Limited liability company and main SME corporation form | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| UG | Low-capital entrepreneurial company, a mini-GmbH variant | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| AG | Stock corporation with dualistic governance | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Corporate Governance | Management and supervision system responding to principal-agent risks | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Example Exam I | Integrated practice source for representation, Prokura, rescission, and theory routing | `example-exam-i-case-facts/example-exam-i-case-facts.md` |
+| Example Exam II | Integrated practice source for warranty damages, SBT, Section 377 HGB, and theory routing | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
+| Defective printer damages | Example Exam II case route for damage to table, laptop, and carpet | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
+| SBT referral clause | Example Exam II clause routing defect claims to a third-party software manufacturer | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
 
 ## Supporting Edge Reference
 
@@ -407,3 +523,30 @@ flowchart TD
 | Section 935 BGB | blocks | Good-faith acquisition of lost/stolen things | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
 | Land Ownership | requires | Conveyance and land-register entry | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
 | Claims | are transferred by | Assignment | `week-10-transfer-of-property/week-10-transfer-of-property.md` |
+| Trade Law | modifies | BGB baseline for merchants | `week-11-trade-law/week-11-trade-law.md` |
+| Merchant Status | triggers | HGB special layer | `week-11-trade-law/week-11-trade-law.md` |
+| Commercial Register | creates | Section 15 HGB publicity effects | `week-11-trade-law/week-11-trade-law.md` |
+| Section 15 I HGB | protects reliance on | Register silence | `week-11-trade-law/week-11-trade-law.md` |
+| Section 15 II HGB | allows assertion of | Registered and published true facts | `week-11-trade-law/week-11-trade-law.md` |
+| Section 15 III HGB | protects reliance on | Wrong positive register content | `week-11-trade-law/week-11-trade-law.md` |
+| Prokura | gives | Broad external authority | `week-11-trade-law/week-11-trade-law.md` |
+| Internal Prokura Limit | usually does not defeat | Third-party reliance | `week-11-trade-law/week-11-trade-law.md` |
+| Limited Commercial Authority | is narrower than | Prokura | `week-11-trade-law/week-11-trade-law.md` |
+| Commercial Silence | creates exceptions to | BGB silence baseline | `week-11-trade-law/week-11-trade-law.md` |
+| Section 377 HGB Notice | can exclude | Warranty rights | `week-11-trade-law/week-11-trade-law.md` |
+| Choice Of Legal Form | depends on | Liability, governance, capital, tax, disclosure, reputation | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Partnership | includes | GbR, oHG, KG | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Corporation | includes | GmbH, UG, AG | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| KG | separates | General partner and limited partner | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| GmbH & Co. KG | uses | GmbH as general partner | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| GmbH | acts through | Managing director | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| GmbH | is controlled internally by | Shareholder meeting | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| AG | uses | Dualistic system | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Supervisory Board | appoints and supervises | Management board | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Corporate Governance | responds to | Principal-agent problem | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` |
+| Example Exam I | integrates | GmbH representation and Prokura | `example-exam-i-case-facts/example-exam-i-case-facts.md` |
+| Example Exam I | integrates | Contract formation and deceit rescission | `example-exam-i-case-facts/example-exam-i-case-facts.md` |
+| Example Exam I | tests | Legal-form suitability and Section 280 damages | `example-exam-i-case-facts/example-exam-i-case-facts.md` |
+| Example Exam II | integrates | Warranty damages and Section 377 HGB notice | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
+| Example Exam II | integrates | SBT content control and Section 309 No. 8 b aa BGB | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
+| Example Exam II | tests | Works contract, culpa in contrahendo, Section 150 II, Section 145, rescission versus revocation | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |

@@ -154,6 +154,47 @@ graph LR
     ChangeModels --> Bridges[Bridges transition]
     ChangeModels --> Appreciative[Appreciative Inquiry]
     ChangeModels --> SCARF[SCARF]
+
+    Org -->|increasingly uses| SkillsOrg[Skills-powered organization]
+    SkillsOrg --> JobArchitecture[Job architecture]
+    SkillsOrg --> SkillArchitecture[Skill architecture]
+    JobArchitecture --> JobFamilies[Job families]
+    JobArchitecture --> JobLevels[Job levels]
+    JobArchitecture --> JobGrades[Job grades]
+    SkillArchitecture --> CoreCompetencies[Core competencies]
+    SkillArchitecture --> FunctionalCompetencies[Functional/job-family competencies]
+    SkillArchitecture --> RoleSpecificSkills[Role-specific skills]
+    SkillArchitecture --> Proficiency[Observable proficiency levels]
+    SkillsOrg -->|affects| RoleIdentity[Role identity]
+    SkillsOrg -->|affects| MotivationNeeds[Autonomy/competence/relatedness]
+    SkillsOrg -->|requires| SkillFairness[Fairness and contestability]
+    AI -->|can enable| SkillArchitecture
+
+    Org -->|evolves through| Trends[Trends in organizational design]
+    Trends --> NewForms[New organizational forms]
+    NewForms --> FourProblems[Four-problem novelty canvas]
+    FourProblems --> FTaskDivision[Task division]
+    FourProblems --> FTaskAllocation[Task allocation]
+    FourProblems --> FReward[Reward provision]
+    FourProblems --> FInformation[Information provision]
+    Trends --> Agile[Agile]
+    Trends --> SelfManagement[Self-management]
+    Trends --> NetworkOrg[Network organization]
+    NetworkOrg --> ComplementaryCapabilities[Complementary capabilities]
+    NetworkOrg --> Ecosystem[Ecosystem value creation]
+    SelfManagement --> Holacracy[Holacracy]
+    Holacracy --> HolacracyRoles[Roles]
+    Holacracy --> Circles[Circles]
+    Holacracy --> GovernanceMeetings[Governance meetings]
+    Agile --> Scrum[Scrum]
+    Scrum --> ScrumRoles[Scrum roles/events/artifacts]
+    Scrum --> ScalingScrum[Scaling Scrum]
+    Trends --> DesignThinking[Design thinking]
+    Trends --> OKR[OKR]
+    DesignThinking --> UserNeeds[User needs/prototypes/testing]
+    OKR --> Objectives[Objectives]
+    OKR --> KeyResults[Key results]
+    OKR --> RoofMoon[Roofshots/moonshots]
 ```
 
 ## Decision Flow View
@@ -215,6 +256,23 @@ flowchart TD
     FrameworkQ --> OrganizationQ[Kotter/Lewin]
     FrameworkQ --> IndividualQ[ADKAR/Bridges/SCARF]
     FrameworkQ --> StrengthQ[Appreciative Inquiry]
+
+    Define -->|Skills-powered organization| SkillsQ[Analyze skill-based work design]
+    SkillsQ --> JobQ[Job architecture: families/levels/grades/streams]
+    SkillsQ --> SkillQ[Skill architecture: core/functional/role-specific]
+    SkillsQ --> ProfQ[Proficiency: observable behavior]
+    SkillsQ --> PeopleQ[People impact: identity/motivation/fairness]
+
+    Define -->|New form or trend| TrendQ[Apply four-problem novelty canvas]
+    TrendQ --> TDQ[Task division]
+    TrendQ --> TAQ[Task allocation]
+    TrendQ --> RPQ[Reward provision]
+    TrendQ --> IPQ[Information provision]
+    TrendQ --> NetworkQ[Network/ecosystem]
+    TrendQ --> HolacracyQ[Holacracy/self-management]
+    TrendQ --> ScrumQ[Scrum/scaling]
+    TrendQ --> DTQ[Design thinking]
+    TrendQ --> OKRQ[OKR]
 ```
 
 ## Subject Graph Index
@@ -229,6 +287,9 @@ flowchart TD
 | Session 06 AI And Organization | `session-06-ai-and-organization/session-06-ai-and-organization.md` | AI no determinism -> task division/expertise/stability/ethics -> Aurelia operating concepts | 2026-05-16 |
 | Sessions 07-08 Informal Organization | `session-07-08-informal-organization/session-07-08-informal-organization.md` | Formal design -> structuration -> culture/knowledge/power/conflict -> Motorica process redesign | 2026-06-13 |
 | Session 09 Dynamic Perspectives On Organizing | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` | Change states/process -> Iceberg perspectives -> six framework comparison -> AI-tool implementation | 2026-06-13 |
+| Session 10 Skills As The New Currency Of Organizations | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` | Business strategy -> job architecture + skill architecture -> HR decisions -> people and governance effects | 2026-07-11 |
+| Session 11 Trends In Organizational Design - New Forms | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` | Four-problem novelty canvas -> agile/self-management -> network organization -> holacracy | 2026-07-11 |
+| Session 12 Trends In Organizational Design - Scrum, Design Thinking, And OKR | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` | Scrum roles/events/artifacts + scaling -> design thinking -> OKR roofshots/moonshots | 2026-07-11 |
 
 ## Supporting Node Reference
 
@@ -262,6 +323,16 @@ flowchart TD
 | Iceberg Model Of Change | Objectification, distinction, and unfolding perspectives | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` |
 | ADKAR | Awareness, desire, knowledge, ability, and reinforcement | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` |
 | SCARF | Status, certainty, autonomy, relatedness, and fairness | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` |
+| Skills-Powered Organization | Organization that uses skill visibility to guide work, careers, talent allocation, and people decisions | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Job Architecture | Framework for classifying roles, job families, levels, grades, career streams, and pay-related role value | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Skill Architecture | Framework for classifying competencies, skills, and proficiency levels required for work | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Proficiency Level | Observable behavioral depth of a skill | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Four-Problem Canvas | Novelty test based on task division, task allocation, reward provision, and information provision | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` |
+| Network Organization | Relationship-based coordination among legally independent actors with complementary capabilities | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` |
+| Holacracy | Self-management framework using roles, circles, governance meetings, tactical meetings, and formal distributed authority | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` |
+| Scrum | Agile framework using roles, events, artifacts, and sprints to structure team execution | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |
+| Design Thinking | User-centered iterative problem-solving method using prototypes and testing | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |
+| OKR | Objectives and Key Results method for short-cycle strategy implementation | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |
 
 ## Supporting Edge Reference
 
@@ -292,3 +363,13 @@ flowchart TD
 | Unfolding analysis | explains | How change emerged | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` |
 | Restraining forces | preserve | Current equilibrium | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` |
 | Reinforcement | stabilizes | Adopted behavior | `session-09-dynamic-perspectives-on-organizing/session-09-dynamic-perspectives-on-organizing.md` |
+| Business strategy | is translated into | Job architecture and skill architecture | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Skill architecture | supports | Learning, performance, compensation, and talent deployment | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Skill transparency | can become | Employability or surveillance | `session-10-skills-as-new-currency-of-organizations/session-10-skills-as-new-currency-of-organizations.md` |
+| Four-problem canvas | tests | Novelty of organizational forms | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` |
+| Network organization | coordinates through | Relationships and mutual adjustment | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` |
+| Holacracy | distributes authority through | Roles, circles, and governance meetings | `session-11-trends-in-organizational-design-new-forms/session-11-trends-in-organizational-design-new-forms.md` |
+| Scrum | structures | Short-cycle team execution | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |
+| Scaling Scrum | requires | Interdependency analysis and schedule/resource reconfiguration | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |
+| Design thinking | tests | User-centered problem-solution assumptions | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |
+| OKR | translates | Strategic intent into objectives and key results | `session-12-trends-scrum-design-thinking-okr/session-12-trends-scrum-design-thinking-okr.md` |

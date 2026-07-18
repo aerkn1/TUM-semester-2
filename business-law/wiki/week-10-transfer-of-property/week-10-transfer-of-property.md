@@ -36,6 +36,252 @@ Transfer of ownership = separate disposition transaction.
 
 This matters because a valid purchase contract alone does not make the buyer owner.
 
+## Clarification Router: Use Cases And Conclusions
+
+Use transfer of property as a router. The first question is not "was there a sale?" but "what kind of right or object is moving?"
+
+```text
+1. What is transferred?
+   movable thing / land / claim?
+
+2. Is this only the obligation contract, or also the disposition transaction?
+   The purchase contract creates duties; it does not itself transfer ownership.
+
+3. If movable:
+   test Section 929 BGB:
+   agreement
+   + delivery or delivery replacement
+   + agreement still exists at delivery
+   + transferor is owner or authorized
+
+4. If authorization is missing:
+   test good-faith acquisition under Sections 932, 935 BGB.
+
+5. Conclude:
+   ownership passed / ownership did not pass / acquirer obtained ownership in good faith.
+```
+
+### Case 1: Normal Sale Of A Movable
+
+Facts:
+
+```text
+S owns a laptop. S sells it to B and hands it over.
+```
+
+Check:
+
+```text
+Object: movable thing.
+Transfer agreement: S and B agree ownership should pass.
+Delivery: S hands the laptop to B.
+Agreement at delivery: yes.
+Authorization: S is owner.
+```
+
+Conclusion:
+
+```text
+B becomes owner under Section 929 sentence 1 BGB.
+```
+
+Do not write "B owns because B bought it." Write that the Section 929 requirements are met.
+
+### Case 2: Purchase Contract But No Delivery Yet
+
+Facts:
+
+```text
+S owns a bike. S and B sign a purchase contract today. Delivery is planned for Friday.
+```
+
+Check:
+
+```text
+Purchase contract: yes.
+Delivery: no.
+Property transfer: not complete.
+```
+
+Conclusion:
+
+```text
+B is not owner yet. B only has a claim against S to deliver and transfer ownership.
+```
+
+This is the cleanest separation-principle case: contract answers "who must do what?", property law answers "who owns what?"
+
+### Case 3: Buyer Already Possesses The Thing
+
+Facts:
+
+```text
+S owns a camera. B borrowed it last week. Today S sells the camera to B and says, "It is yours now."
+```
+
+Check:
+
+```text
+Object: movable thing.
+Transfer agreement: yes.
+Physical delivery: unnecessary because B already possesses the camera.
+Special route: Section 929 sentence 2 BGB.
+Authorization: S is owner.
+```
+
+Conclusion:
+
+```text
+B becomes owner under Section 929 sentence 2 BGB.
+```
+
+### Case 4: Chattel Mortgage / Security Transfer
+
+Facts:
+
+```text
+S owns a production machine.
+L lends S money.
+S transfers ownership of the machine to L as collateral.
+S keeps using the machine in the factory.
+```
+
+Check:
+
+```text
+Object: movable thing.
+Transfer agreement: S and L agree ownership should pass to L.
+Physical delivery: no.
+Delivery replacement: constructive delivery under Section 930 BGB.
+Possession relationship: S keeps direct possession for L under the security arrangement.
+Authorization: S is owner.
+```
+
+Conclusion:
+
+```text
+L becomes owner, even though S still physically possesses the machine.
+```
+
+Mental model:
+
+```text
+S has possession.
+L has ownership.
+```
+
+This split creates the good-faith purchase risk.
+
+### Case 5: Good-Faith Purchase From A Non-Owner
+
+Facts:
+
+```text
+After the chattel mortgage, S sells the same machine to B.
+B has no reason to know that L owns it.
+S hands the machine to B.
+```
+
+Check Section 929 first:
+
+```text
+Transfer agreement: S and B agree ownership should pass.
+Delivery: S hands the machine to B.
+Agreement at delivery: yes.
+Authorization: no, because L is owner and L did not consent.
+```
+
+Then check good-faith acquisition:
+
+```text
+Good faith: B did not know and was not grossly negligently unaware.
+Legal appearance: S possessed the machine.
+Section 935 block: no, because L voluntarily let S keep possession.
+Distinct-party transaction: yes, S and B.
+```
+
+Conclusion:
+
+```text
+B acquires ownership in good faith under Sections 929, 932 BGB.
+L loses ownership.
+```
+
+The result does not depend on L consenting to the sale. Good-faith acquisition is a statutory exception. If L voluntarily created the risk by leaving possession with S, the law can protect B's reliance on S's possession.
+
+### Case 6: Stolen Thing
+
+Facts:
+
+```text
+T steals O's watch and sells it to B.
+B honestly believes T is owner.
+```
+
+Check:
+
+```text
+Transfer agreement and delivery: yes.
+Authorization: no, T is not owner.
+Good faith: maybe yes.
+Legal appearance: T possesses the watch.
+Section 935 block: yes, O lost possession involuntarily.
+```
+
+Conclusion:
+
+```text
+B does not become owner. O remains owner.
+```
+
+Section 935 BGB is the owner-protection limit to good-faith acquisition.
+
+### Case 7: Land
+
+Facts:
+
+```text
+S sells land to B.
+```
+
+Do not use Section 929 BGB. Land follows the immovable route:
+
+```text
+Purchase contract: notarial form, Section 311b BGB.
+Ownership transfer: conveyance plus land-register entry, Sections 873 and 925 BGB.
+```
+
+Conclusion:
+
+```text
+B becomes owner only after the real-property transfer requirements are met, especially land-register entry.
+```
+
+### Case 8: Claim
+
+Facts:
+
+```text
+A is owed EUR 5,000 by D. A transfers this claim to C.
+```
+
+Claims are not physical things, so there is no delivery under Section 929 BGB.
+
+Check:
+
+```text
+Object: claim/right.
+Transfer route: assignment under Section 398 BGB.
+Agreement: assignor A and assignee C agree to transfer the claim.
+Debtor participation: D does not need to consent in the basic assignment case.
+```
+
+Conclusion:
+
+```text
+C becomes the new creditor of D.
+```
+
 ## Ownership Versus Possession
 
 | Concept | Meaning | Example | Exam use |
@@ -473,6 +719,15 @@ High-scoring answer structure for movables:
 6. Check authorization.
 7. If authorization fails, test good-faith acquisition under Section 932 and Section 935.
 8. State who owns the thing.
+
+Clarification checkpoint:
+
+```text
+Contract answers: who must do what?
+Property law answers: who owns what?
+```
+
+If the transferor is a non-owner, do not stop at "no authorization." Continue into the statutory exception: good-faith acquisition under Sections 932 and 935 BGB.
 
 ## Retrieval Prompts
 

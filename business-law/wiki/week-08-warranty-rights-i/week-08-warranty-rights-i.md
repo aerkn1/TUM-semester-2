@@ -1,6 +1,11 @@
 # Week 08: Warranty Rights I
 
 Source: `business-law/raw/moodle-export-business-law-950848572-s26-20260628/08.06. - Warranty Rights I - Haag/Warranty Rights I.pdf`
+Exercise sources processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/17.6. Warranty Rights I/Warranty Rights I Case facts.pdf`
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/17.6. Warranty Rights I/Warranty Rights I_Slides and Solutions.pdf`
+
 Course: Business Law
 Processed: 2026-06-28
 Wiki note: `business-law/wiki/week-08-warranty-rights-i/week-08-warranty-rights-i.md`
@@ -162,6 +167,24 @@ transfer of risk = handing over / delivery of the thing under Section 446 senten
 
 Why this matters: after transfer of risk, the buyer generally bears accidental destruction/deterioration and must pay the purchase price even if the thing later deteriorates accidentally. Therefore, the buyer must show the defect existed at transfer of risk, not merely later.
 
+Clarification: transfer of risk is not the cure deadline.
+
+```text
+contract concluded
+-> delivery / handover = transfer of risk
+-> defect must already exist here
+-> buyer discovers defect later
+-> buyer demands cure / sets cure period
+```
+
+Example: if a laptop is handed over on Monday and an internal battery defect is discovered on Wednesday, warranty law can still apply if the battery problem already existed at handover. If the buyer spills coffee on the laptop after handover, that later damage is not a seller warranty defect.
+
+Exam wording:
+
+```text
+Transfer of risk decides whether the defect belongs to the seller's warranty responsibility. The cure deadline decides whether the buyer may move from cure to secondary remedies.
+```
+
 ## Exclusions Of Warranty Rights
 
 Warranty rights can fail even if there is a defect.
@@ -264,6 +287,29 @@ Costs:
 - seller can bear removal/installation-related cure costs under Section 439 III BGB;
 - if replacement is delivered, seller has a restitution claim for the defective thing under Section 439 V BGB.
 
+### Cure Priority, Not Negotiation
+
+Warranty law does not require a commercial negotiation in the everyday sense. It requires a cure stage:
+
+```text
+defect at transfer of risk
+-> buyer demands cure
+-> buyer chooses repair or replacement
+-> seller must cure unless a valid refusal reason applies
+```
+
+If buyer and seller disagree about the type of cure, do not jump straight to revocation. First ask whether the seller can validly refuse the buyer's chosen cure type under Section 439 IV BGB. If replacement is disproportionate but repair is reasonable, the buyer is usually limited to repair.
+
+Example: a EUR 100 pair of headphones has a small button defect. A one-day repair costs EUR 20 and makes the headphones flawless. Replacement costs EUR 100 plus return and handling costs. The buyer initially may choose replacement, but the seller can likely refuse replacement as disproportionate. The buyer can still demand repair.
+
+Opposite example: a new phone overheats unpredictably. Repair would require opening the device, replacing major components, and waiting weeks. Replacement is available quickly. Replacement is less likely to be disproportionate because the defect is serious and repair creates a substantial disadvantage for the buyer.
+
+Exam wording:
+
+```text
+The buyer may choose repair or replacement under Section 439 I BGB, but the seller may refuse the chosen type under Section 439 IV BGB if it is possible only at disproportionate expense. In that case, the buyer is restricted to the alternative cure type unless that too can be refused.
+```
+
 ## Revocation
 
 Revocation is a secondary remedy.
@@ -301,6 +347,20 @@ performances are returned under Sections 346-348 BGB
 claim for cure and right to reduction are extinguished
 damages/reimbursement may remain in principle
 ```
+
+Warranty revocation is the purchase-defect version of general contract-law revocation. It is not rescission of a declaration of intent. The contract remains valid until it is unwound because defective performance has not been cured.
+
+```text
+General Section 323 route:
+breach -> reasonable deadline to perform -> no proper performance -> revocation
+
+Warranty route:
+defect at transfer of risk -> Section 437 gateway -> cure under Section 439
+-> cure fails/refused/unreasonable or deadline expires
+-> revocation via Sections 437 No. 2, 440, 323 BGB
+```
+
+Exam correction: mere disagreement about the preferred cure type is not enough for revocation. Revocation becomes available only if cure as such fails, is refused, is impossible, unreasonable, or the required period expires.
 
 ## Reduction
 
@@ -428,6 +488,60 @@ High-scoring answer structure:
 4. "The buyer's remedy is routed through Section 437 BGB."
 5. "Cure has priority unless an exception applies."
 6. "If the requested remedy is revocation/reduction/damages, add the specific requirements."
+
+## Official Exercise Case Routes
+
+### Case 1a: Headphones, Broken Active Noise Cancelling
+
+Question: can C demand cure by replacement delivery?
+
+Route:
+
+1. Purchase agreement: C buys headphones from O's electronics store; employee E's declaration is attributed to O through agency.
+2. Material defect: no special subjective agreement exists, but comparable high-priced headphones normally have working active noise cancelling. The headphones fail objective requirements under Section 434 III 1 No. 2 BGB.
+3. Transfer of risk: E handed over the headphones ten months earlier. It is unclear whether the defect existed then.
+4. Burden of proof: this is a consumer-goods sale under Section 474 I BGB: C is a consumer, O is a trader, and headphones are movable goods. Because the defect appears within one year, Section 477 BGB presumes it already existed at transfer of risk.
+5. No contractual or statutory exclusion appears.
+6. Cure: C chooses replacement delivery under Section 439 I Alt. 2 BGB.
+
+Result: C can demand replacement headphones, against return of the old headphones under Sections 439 VI and 346 I BGB.
+
+Exam trap: late discovery is not automatically fatal in a consumer-goods sale; check Section 477 BGB.
+
+### Case 1b: Advertising Claims About Active Noise Cancelling
+
+Question: can C demand replacement when the normal function works but the advertised "twice as good" function does not?
+
+Route:
+
+1. Purchase agreement exists.
+2. Subjective requirements are not breached because C and O made no specific individual agreement on the stronger function.
+3. Objective requirements are breached because public manufacturer advertising can shape usual quality under Section 434 III 1 No. 2 b BGB.
+4. The seller is not released under Section 434 III 3 BGB: O knew or had reason to know of the advertisement because it was displayed in O's store; it had not been corrected; and it influenced C's purchase.
+5. Defect existed at transfer of risk because the production defect was built in from the beginning.
+6. Cure and return route are the same as Case 1a.
+
+Result: C can demand replacement delivery.
+
+Exam trap: public advertising can create an objective-quality defect even without an individual agreement.
+
+### Case 1c: Replacement Delivery Versus Cheap Repair
+
+Source status: the extracted case-facts PDF contains this subcase, but the extracted solution deck ends before an official solution. The following is an inferred answer route from the lecture framework.
+
+Question: can C insist on replacement delivery when repair is quick, flawless, and much cheaper?
+
+Route:
+
+1. C initially has the buyer's choice under Section 439 I BGB: repair or replacement.
+2. O may refuse the selected cure type under Section 439 IV BGB if replacement is possible only at disproportionate cost.
+3. Factors favoring O: replacement creates extra return/manufacturer handling costs of EUR 60, repair costs EUR 20, repair is easy, flawless, and takes one day.
+4. Factors favoring C: C bought a new product and prefers not to receive a repaired one.
+5. Likely weighing: a one-day flawless repair creates no significant disadvantage for C compared with the disproportionate extra burden of replacement.
+
+Likely result: C cannot insist on replacement delivery, but can still demand repair.
+
+Exam trap: buyer's cure choice is strong but not absolute.
 
 ## Retrieval Prompts
 

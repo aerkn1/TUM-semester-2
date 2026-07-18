@@ -1,6 +1,10 @@
 # Week 05: Contract Law III - Withdrawal, Cancellation, And Dissolution
 
 Source: `business-law/raw/Week 5 - Contract Law III.pdf`
+Exercise source processed 2026-07-09:
+
+- `business-law/raw/moodle-export-business-law-950848573-s26-20260709/20.5. Contract Law II + III/Contract Law II + III_slides  solutions.pdf`
+
 Course: Business Law
 Processed: 2026-05-14
 Wiki note: `business-law/wiki/week-05-contract-law-iii-withdrawal-cancellation-dissolution/week-05-contract-law-iii-withdrawal-cancellation-dissolution.md`
@@ -345,6 +349,31 @@ Common traps:
 - Applying retrospective restitution logic to cancellation.
 - Forgetting that Section 314 BGB is often subordinate to special provisions.
 - Treating dissolution as unilateral.
+
+## Official Exercise Case Route
+
+### Online Laptop Withdrawal
+
+Facts in short: student S buys a laptop from electronics retailer E's online shop on 1 May, receives it a few days later, realizes it does not meet his needs, and calls E on 11 May saying he wants to return it. E properly informed S of the withdrawal right.
+
+Question: did S effectively withdraw his declaration of intent?
+
+Route:
+
+1. Contract conclusion: purchase agreement under Section 433 BGB.
+2. Personal scope: consumer contract. S is a consumer under Section 13 BGB because the laptop is for studying/private use; E is a trader under Section 14 BGB because selling electronics is E's business.
+3. Material scope: not an off-premises contract under Section 312b BGB because the parties were not physically present together outside business premises. It is a distance contract under Section 312c BGB because the online shop uses distance communication within an organized distance-sales scheme.
+4. No exclusion under Section 312g II BGB is indicated.
+5. Declaration: no special form or magic word is required. A phone call can work if the decision to withdraw is clear; "I want to return the laptop" is enough.
+6. Time: with proper instruction, the period is 14 days. The period begins after receipt of the goods under Sections 355 II and 356 II No. 1 BGB. A call on 11 May is within the period after a purchase on 1 May and delivery a few days later.
+
+Result: S effectively withdrew.
+
+Exam traps:
+
+- Do not require a defect. Withdrawal is a consumer cooling-off right.
+- Do not require the word "withdrawal"; the substance of the declaration matters.
+- Do not treat every online purchase as automatically valid withdrawal. Still check consumer/trader status, distance-contract requirements, exclusions, declaration, and time.
 
 ## Retrieval Prompts
 

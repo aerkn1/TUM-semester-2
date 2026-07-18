@@ -66,6 +66,19 @@ graph LR
     OUTPerformance -->|includes| ExpectedBackorders[Expected backorders B(S)]
     OUTPerformance -->|includes| ExpectedInventory[Expected leftover inventory I(S)]
 
+    SCM -->|applies inventory and postponement logic in| HPDeskJetCase[HP DeskJet case]
+    HPDeskJetCase -->|starts from| LocalizedDemandMismatch[Localized SKU mismatch]
+    LocalizedDemandMismatch -->|causes| StockoutsDespiteInventory[Stockouts despite inventory]
+    HPDeskJetCase -->|uses| HPLIFR[Line item fill rate]
+    HPDeskJetCase -->|compares| HPAirShipment[Air shipment]
+    HPDeskJetCase -->|compares| HPPooling[Pooling / postponement]
+    HPDeskJetCase -->|recommends| HPProductRedesign[Product redesign postponement]
+    OrderUpTo -->|calculates safety stock for| HPDeskJetCase
+    DemandLPlusOne -->|sets protection period in| HPDeskJetCase
+    Normal -->|approximates SKU demand in| HPDeskJetCase
+    HPPooling -->|uses| RiskPooling[Risk pooling]
+    HPProductRedesign -->|should preserve| LeanFlow
+
     EOQ -->|assumes| DeterministicDemand[Deterministic constant demand]
     EOQ -->|balances| SetupCost[Setup/order cost]
     EOQ -->|balances| HoldingCost[Holding cost]
@@ -177,6 +190,7 @@ graph LR
     SampleExamPractice -->|routes to| FacilityLocation
     SampleExamPractice -->|routes to| SupplyChainFinance
     SampleExamPractice -->|routes to| LeanManagement
+    SampleExamPractice -->|routes to| HPDeskJetCase
 ```
 
 ## Decision Flow View
@@ -208,6 +222,10 @@ flowchart TD
     OUTSL --> OUTS[S=F^-1(SL)]
     OUTS --> OUTState[Use inventory position to order]
     OUTS --> OUTMeasures[Compute F(S), B(S), and I(S)]
+    OUTMeasures --> HPCaseDecision{Is this the HP DeskJet case?}
+    HPCaseDecision -->|Yes| HPDemand[Convert option demand to weekly mean and variance]
+    HPDemand --> HPScenarios[Compare baseline ship, air, and pooling]
+    HPScenarios --> HPRecommend[Recommend air only if freight premium is below savings; prefer lean postponement/product redesign if feasible]
 
     DemandKnown -->|Yes| DeterministicInv[Deterministic inventory planning]
     DeterministicInv --> EOQDecision{Instant replenishment?}
@@ -294,6 +312,7 @@ flowchart TD
 | Topic 10 Multi-Period Inventory Management And Order-Up-To Model | `topic-10-multi-period-inventory-management-order-up-to-model/topic-10-multi-period-inventory-management-order-up-to-model.md` | Demand over l+1 periods -> service level -> order-up-to level S -> inventory position and performance measures | 2026-06-04 |
 | Topic 12 Supply Chain Finance And Resilience | `topic-12-supply-chain-finance-and-resilience/topic-12-supply-chain-finance-and-resilience.md` | Working-capital gap -> SCF/reverse factoring -> supplier adoption; disruption risk -> redundancy/flexibility/triple-p/hidden bottlenecks | 2026-06-04 |
 | Topic 13 Lean Management And Lean Simulation | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` | Value -> value stream -> muda -> flow -> pull/Kanban -> Kaizen/Kaikaku/Poka-yoke | 2026-06-04 |
+| Topic 14 HP DeskJet Printer Case Study | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` | Localized SKU mismatch -> demand conversion -> service level/LIFR -> order-up-to scenarios -> air/postponement recommendation | 2026-07-14 |
 | Sample Examinations Exam Practice | `sample-examinations-exam-practice/sample-examinations-exam-practice.md` | Exam routing -> MCQ traps -> numerical methods -> case recommendations | 2026-06-04 |
 
 ## Supporting Node Reference
@@ -357,6 +376,12 @@ flowchart TD
 | Kaikaku | Radical process or layout change | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` |
 | Poka-yoke | Mistake-proofing to prevent defects | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` |
 | Manufacturing Cells | Product-flow-oriented production layout | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` |
+| HP DeskJet Case | Case combining order-up-to inventory, localized SKU demand, LIFR, air shipment, pooling, and postponement | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Localized SKU Mismatch | High inventory can coexist with stockouts because the demanded option is not the option in stock | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Line Item Fill Rate | Fraction of demanded units filled from stock | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Air Shipment | HP alternative that shortens lead time and reduces inventory but adds freight cost | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Pooling / Postponement | Delaying localization so aggregate inventory can serve multiple option demands | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Product Redesign Postponement | Standard printer package with all European manuals/plugs to reduce localization complexity | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
 | Sample Exam Practice | Routing skill for MCQ traps, numerical methods, and case recommendations | `sample-examinations-exam-practice/sample-examinations-exam-practice.md` |
 
 ## Supporting Edge Reference
@@ -417,5 +442,11 @@ flowchart TD
 | Poka-yoke | prevents | Defect waste | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` |
 | Kaikaku | creates | Radical process redesign | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` |
 | Kaizen | sustains | Continuous improvement | `topic-13-lean-management-lean-simulation/topic-13-lean-management-lean-simulation.md` |
+| HP DeskJet Case | applies | Order-up-to service-level logic | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Localized SKU Mismatch | causes | Stockouts despite inventory | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Weekly demand conversion | feeds | Protection-period mean and standard deviation | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Air Shipment | reduces | Protection period and pipeline inventory | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Pooling / Postponement | improves | LIFR through risk pooling | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
+| Product Redesign Postponement | reduces | Process complexity versus local integration | `topic-14-hp-deskjet-case-study/topic-14-hp-deskjet-case-study.md` |
 | Sample Exam Practice | requires | Model routing before formulas | `sample-examinations-exam-practice/sample-examinations-exam-practice.md` |
 | Sample Exam Practice | combines | MCQ traps, numerical methods, and case recommendations | `sample-examinations-exam-practice/sample-examinations-exam-practice.md` |

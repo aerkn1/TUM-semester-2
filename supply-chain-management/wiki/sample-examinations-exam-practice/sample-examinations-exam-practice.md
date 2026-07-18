@@ -7,6 +7,13 @@ Source files:
 - `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/Sample Examinations/Sample Examination from SS23.pdf`
 - `supply-chain-management/raw/moodle-export-operations-950888956-s26-20260604/Sample Examinations/Sample Examination from WS2223.pdf`
 
+Solution files:
+
+- [Sample Examination SS20: Thorough Solutions](../sample-examination-ss20-solutions/sample-examination-ss20-solutions.md)
+- [Sample Examination SS21: Thorough Solutions](../sample-examination-ss21-solutions/sample-examination-ss21-solutions.md)
+- [Sample Examination WS22/23: Thorough Solutions](../sample-examination-ws2223-solutions/sample-examination-ws2223-solutions.md)
+- [Sample Examination SS23: Thorough Solutions](../sample-examination-ss23-solutions/sample-examination-ss23-solutions.md)
+
 Course: Supply Chain Management
 Processed: 2026-06-04
 Wiki note: `supply-chain-management/wiki/sample-examinations-exam-practice/sample-examinations-exam-practice.md`

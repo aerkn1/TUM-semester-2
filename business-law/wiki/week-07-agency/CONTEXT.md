@@ -27,6 +27,7 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **Messenger** | Person who only transmits another person's already fixed declaration. | agent |
 | **Principle Of Publicity** | The third party can see that the acting person acts in another's name. | private intention |
 | **Enterprise-Related Transaction** | Circumstances show the transaction relates to a business, so acting for the enterprise can be inferred. | explicit name always required |
+| **Transaction For Whom It Concerns** | Narrow publicity exception for immediate everyday cash transactions where the third party normally does not care who the principal is. | undisclosed agency always valid |
 | **Undisclosed Agency** | The acting person privately intends to act for someone else but does not make this externally recognizable. | effective agency |
 | **Power Of Representation** | External legal authority enabling the agent to bind the principal. Canonical term for the deck's "power of agency." | internal permission only |
 | **Internal Authorization** | Principal grants authority by declaration to the agent. | public notice |
@@ -56,6 +57,7 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **Agency By Estoppel** | Reliance authority where the principal knows someone acts like an agent and tolerates it. Deck label. | ostensible agency |
 | **Ostensible Agency** | Reliance authority where the principal negligently does not know but could have known with due diligence. Deck label. | agency by estoppel |
 | **Ratification** | Principal's later approval of an unauthorized transaction, making it effective for the principal. | initial authority |
+| **Implicit Ratification** | Ratification shown by conduct, such as keeping and using the item without objection after learning of the unauthorized purchase. | silence always |
 | **Abuse Of Power Of Representation** | Agent has external authority but uses it contrary to internal limits or principal interest. | lack of authority |
 | **Collusion** | Agent and third party knowingly cooperate to harm the principal. | normal breach of instruction |
 | **Contracting With Oneself** | Agent transacts with themselves or represents both sides, creating conflict-of-interest risk under Section 181 BGB. | ordinary agency |
@@ -91,10 +93,12 @@ This file is the terminology and statutory-anchor companion for Agency. Use it t
 | **Sections 170-173 BGB** | Third-party protection after external authority or appearance continues. | Authority was communicated or documented; third party may be in good faith. | Use when authority was withdrawn but third party was not informed. |
 | **Section 177 I BGB** | Contract by unauthorized agent depends on principal ratification. | Agent lacked authority but contracted for principal. | Principal can approve or reject. |
 | **Section 179 BGB** | Liability of representative without power of agency if principal refuses ratification. | Unauthorized agent cannot prove authority and principal refuses. | State third party's possible claim against agent. |
+| **Section 56 HGB** | Store or warehouse employee authority for customary sales or receipts in a public shop/warehouse. | Employee in a public store concludes a normal transaction for that store. | Use for store managers or showroom employees when explicit authority is not stated. |
 | **Section 181 BGB** | Restricts self-dealing and acting on both sides. | Agent contracts with self or represents both sides. | Conflict-of-interest check. |
 | **Section 242 BGB** | Good faith principle. | Principal-created reliance or abuse questions. | Background for reliance-based authority in the deck. |
 | **Section 138 BGB** | Public-policy invalidity. | Collusion or abusive transaction against the principal. | Use for serious collusion between agent and third party. |
 | **Section 35 GmbHG** | GmbH represented by its directors. | GmbH director concludes legal transactions. | Example of statutory authority for a legal entity. |
+| **Section 35 II GmbHG** | Default joint representation when several GmbH directors are appointed, unless articles provide otherwise. | Only one of several directors acts and facts do not show sole authority. | Check before assuming one director can bind the GmbH alone. |
 
 ## Relationships
 
@@ -159,6 +163,9 @@ flowchart LR
 | Treating internal limits as automatic external limits. | Separate **Can Do** and **May Do**. |
 | Calling an internal-instruction breach a wrong declaration externally. | Say the declaration may be externally effective but internally forbidden. |
 | Forgetting ratification. | Unauthorized agency is not always dead; check Section 177 BGB. |
+| Forgetting ratification by conduct. | Approval can be implicit when the principal knowingly keeps or uses the transaction result without objection. |
+| Treating every cash purchase as hidden effective agency. | The "transaction for whom it concerns" exception is narrow; ask whether identity truly does not matter. |
+| Assuming every GmbH director acts alone. | With several directors, check Section 35 II GmbHG and the articles of association facts. |
 | Making the agent liable despite effective agency. | If agency is effective, principal and third party are normally bound, not agent. |
 | Treating reliance authority like express permission. | Reliance authority is based on appearance attributable to P and reasonable good-faith reliance by T. |
 | Treating self-contracting as a normal third-party case. | Section 181 exists because the agent sits on both sides and conflict risk is structural. |
