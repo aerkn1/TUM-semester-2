@@ -4,6 +4,8 @@ Source note: [chapter-03-product.md](chapter-03-product.md)
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with mock/example exam product, AI, co-creation, and innovation-management traps.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam. Product questions can be conceptual, applied, or research-method oriented. This sheet does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -137,6 +139,39 @@ Recommendation logic -> customer value -> FATE/privacy concern
 -> trust safeguard -> managerial decision.
 ```
 
+## Mock And Example Exam Upgrade
+
+Product MCQs often ask which statement is **incorrect**. Start by deciding whether the statement is about the benefit, the physical object, the product line, or the innovation process.
+
+Option-elimination table:
+
+| Exam signal | Correct answer logic | Reject options that say |
+|---|---|---|
+| Core product | Fundamental benefit or problem solution. | The core product is the physical object. |
+| Expected product | Must-have baseline standards. | Augmentation can compensate for missing basics. |
+| Product mix breadth/depth | Breadth = number of product lines; depth = variants inside a line. | Breadth and depth are interchangeable. |
+| Product elimination | Consider contribution, fixed-cost coverage, brand image, know-how, suppliers, customers, and strategic role. | Eliminate based only on current unit sales. |
+| Packaging | Protects, communicates, sells, supports logistics/use, and signals sustainability. | Packaging is only protection or independent of environmental expectations. |
+| Recommenders | Collaborative = similar users/user-item patterns; content-based = item attributes. | Accuracy alone is enough for a good recommender decision. |
+| Co-creation | Useful input, but must be selected, filtered, tested, and implemented. | Customer ideas are automatically successful or final design. |
+| Lead users | Users who experience future mainstream needs early. | Every average customer is a lead user. |
+| Conjoint | Estimates attribute tradeoffs; too many attributes overload respondents. | Conjoint directly proves total market success. |
+
+Innovation-management bridge from the example exam:
+
+| Concept | Fast distinction | Exam trap |
+|---|---|---|
+| Technology push | Starts from R&D or technical possibilities. | Ignoring real customer need. |
+| Market pull | Starts from expressed market need. | Can become incremental. |
+| Agile | Iterative, feedback-driven, useful under uncertain requirements. | Agile means no planning/documentation. |
+| Waterfall | Linear, upfront-planned, useful when requirements are stable. | Waterfall is best when needs and technology are unclear. |
+| Product innovation | Changes the customer-facing offering, such as new recipes. | Calling every new recipe a paradigm innovation. |
+| Process innovation | Changes how the offering is produced or delivered, such as backend logistics. | Reversing product and process innovation. |
+| Delphi | Anonymous, multi-round expert forecasting. | One expert or dominant-personality panel. |
+| Trend extrapolation | Projects stable past trends into the future. | Reliable under discontinuity. |
+| Tacit knowledge | Transferred through mentorship, shadowing, and informal networks. | Fully captured by manuals or dashboards. |
+| Innovation leadership | Enables experimentation, curiosity, psychological safety, and exploration/exploitation. | Hero leader solves every technical problem or tight top-down control is best. |
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -153,4 +188,3 @@ Recommendation logic -> customer value -> FATE/privacy concern
 ```text
 Product policy is the design of a customer problem solution, not just management of a physical object.
 ```
-

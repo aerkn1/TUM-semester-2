@@ -152,6 +152,44 @@ graph LR
     TheoryIntegration -->|compares| Rescission
     TheoryIntegration -->|compares| Revocation
 
+    AdditionalExamPractice[Additional mock exam resources] -->|integrates| WS2425[WS24/25 mock]
+    AdditionalExamPractice -->|signals gaps through| SS22[SS22 historical exam]
+    AdditionalExamPractice -->|compresses routes through| ExternalCheatSheet[External intro cheat sheet]
+    WS2425 -->|tests| Avoidance
+    WS2425 -->|tests| Agency
+    WS2425 -->|tests| SBTExam
+    WS2425 -->|tests| LegalFormChoice
+    WS2425 -->|case route| WineLabelCase[Bistro wine-label case]
+    WineLabelCase -->|splits by| ConsumerTrader
+    WineLabelCase -->|uses| WarrantyRights
+    WineLabelCase -->|GmbH variation triggers| TradeWarrantyNotice
+    SS22 -->|tests| MinorCapacity[Minor capacity route]
+    MinorCapacity -->|filters| Formation
+    SS22 -->|tests| IPLData[IPL and personal data]
+    SS22 -->|tests| TortDamages[Tort damages]
+    TortDamages -->|non-contractual liability| ProtectedRights[Protected rights]
+    ExternalCheatSheet -->|verify against| ContractLaw
+    ExternalCheatSheet -->|verify against| WarrantyRights
+
+    ExamStrategyPack[Exam strategy and answer schemas] -->|guides| LegalOpinionSchema[Legal-opinion schema]
+    ExamStrategyPack -->|guides| TheoryAnswerSchema[Theory-answer schema]
+    ExamStrategyPack -->|orders| SixDayPlan[Six-day operating plan]
+    ExamStrategyPack -->|organizes| OpenBookPack[Open-book paper pack]
+    MockSchemaAnswers[Schema-tailored mock answers] -->|apply| LegalOpinionSchema
+    MockSchemaAnswers -->|apply| TheoryAnswerSchema
+    MockSchemaAnswers -->|revise| ExamPractice
+    MockSchemaAnswers -->|revise| ExamPracticeII
+    MockSchemaAnswers -->|revise| AdditionalExamPractice
+    LegalOpinionSchema -->|uses| Method
+    LegalOpinionSchema -->|starts from| ClaimBasis[Claim basis]
+    ClaimBasis -->|requires| Conditions
+    Conditions -->|applied to| Facts[Case facts]
+    TheoryAnswerSchema -->|uses| LegalNorm
+    SixDayPlan -->|prioritizes| WarrantyRights
+    SixDayPlan -->|prioritizes| TradeLaw
+    SixDayPlan -->|prioritizes| Company
+    OpenBookPack -->|indexes| Statutes
+
     PrivateAutonomy -->|allows| FreedomContract[Freedom of conclusion, party, form, content]
     PrivateAutonomy -->|limited by| LimitsAutonomy[Mandatory limits]
     LimitsAutonomy -->|lock sections| ValiditySections[125, 134, 138, 305 ff., 276 III BGB]
@@ -362,6 +400,9 @@ flowchart TD
 | Week 12-13 Company Law I And II | `week-12-13-company-law-i-ii/week-12-13-company-law-i-ii.md` | Legal-form router: partnerships, corporations, GmbH, UG, AG, corporate governance | 2026-07-08 |
 | Example Exam I Case Facts | `example-exam-i-case-facts/example-exam-i-case-facts.md` | Exam integration router: GmbH representation, Prokura internal limits, formation, deceit rescission, theory checks | 2026-07-08 |
 | Example Exam II Case Facts | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` | Exam integration router: warranty damages, Section 377 HGB, SBT referral clause, amended acceptance, rescission versus revocation | 2026-07-09 |
+| Additional Mock Exams And External Cheat Sheet | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` | Added exam-practice router: WS24/25 wine-label case, SS22 minor/IPL/GDPR/tort coverage gaps, external cheat-sheet route compression | 2026-07-22 |
+| Exam Strategy And Answer Schemas 2026-07-28 | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` | Six-day exam operating plan, legal-opinion schema, theory-answer schema, route checklist, open-book paper setup | 2026-07-22 |
+| Mock And Example Exam Schema Answers | `example-exam-i-case-facts/example-exam-i-case-facts.md`; `example-exam-ii-case-facts/example-exam-ii-case-facts.md`; `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` | Schema-tailored model answers for official example exams, WS24/25 mock, and SS22 historical exam, with grading nuances and route traps | 2026-07-22 |
 
 ## Supporting Node Reference
 
@@ -453,6 +494,17 @@ flowchart TD
 | Example Exam II | Integrated practice source for warranty damages, SBT, Section 377 HGB, and theory routing | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
 | Defective printer damages | Example Exam II case route for damage to table, laptop, and carpet | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
 | SBT referral clause | Example Exam II clause routing defect claims to a third-party software manufacturer | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
+| Additional Mock Exams | Added exam-practice source combining WS24/25 mock, SS22 historical exam, and external cheat sheet | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| WS24/25 Mock | Near-current mock with avoidance, agency, SBT, company law, and bistro wine-label warranty routes | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| SS22 Historical Exam | Historical coverage signal for minors, IPL, GDPR personal data, business associations, and tort damages | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| Minor capacity route | Limited-capacity contract analysis using consent, Section 110, approval, and restitution | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| IPL and personal data | Historical theory cluster covering Rome I, Rome II, overriding mandatory provisions, and GDPR personal data | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| Tort damages | Non-contractual protected-right injury route for assault and medical costs | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| Exam strategy pack | Printable schema and six-day plan for the 2026-07-28 Business Law exam | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Legal-opinion schema | Case-writing form: issue sentence, requirements, application, interim result, final answer | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Theory-answer schema | Short-answer form: definition, anchor, features, example, consequence or trap | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Open-book paper pack | Selected printed schemas, statute index, tabs, and mock issue maps for fast navigation | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Schema-tailored mock answers | Revised example/mock answer blocks using legal-opinion and theory schemas | `example-exam-i-case-facts/example-exam-i-case-facts.md`; `example-exam-ii-case-facts/example-exam-ii-case-facts.md`; `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
 
 ## Supporting Edge Reference
 
@@ -550,3 +602,13 @@ flowchart TD
 | Example Exam II | integrates | Warranty damages and Section 377 HGB notice | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
 | Example Exam II | integrates | SBT content control and Section 309 No. 8 b aa BGB | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
 | Example Exam II | tests | Works contract, culpa in contrahendo, Section 150 II, Section 145, rescission versus revocation | `example-exam-ii-case-facts/example-exam-ii-case-facts.md` |
+| Additional Mock Exams | integrate | WS24/25 mock and SS22 historical exam | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| WS24/25 Mock | tests | Avoidance, agency, SBT, company law, and warranty/merchant routing | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| Bistro wine-label case | splits by | Consumer/trader purpose | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| Bistro GmbH modification | triggers | Section 377 HGB notice filter | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| SS22 Historical Exam | tests | Minor capacity, IPL, GDPR personal data, and tort damages | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| External cheat sheet | compresses | Week 01-10 Business Law routes | `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |
+| Exam strategy pack | contains | Legal-opinion schema and theory-answer schema | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Six-day operating plan | sequences | Router repairs, doctrine first passes, and timed mocks | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Open-book paper pack | supports | Fast statutory citation and route checking | `exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md` |
+| Schema-tailored mock answers | apply | Legal-opinion schema and theory-answer schema | `example-exam-i-case-facts/example-exam-i-case-facts.md`; `example-exam-ii-case-facts/example-exam-ii-case-facts.md`; `additional-mock-exams-and-external-cheatsheet/additional-mock-exams-and-external-cheatsheet.md` |

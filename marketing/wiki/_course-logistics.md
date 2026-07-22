@@ -22,6 +22,24 @@ Study implication:
 - Build exam answers around definitions, frameworks, examples, and managerial implications.
 - Marketing is the second exam, two days after SCM. Keep Chapter 01 -> 02 -> 03 -> 04 -> 05 prerequisite order and alternate new Marketing coverage with SCM once overdue repairs are controlled.
 
+## Historical / Example Exam Sources
+
+Source: `marketing/raw/Marketing.pdf`
+
+- Example exam title: Marketing and Innovation Management BMT (`WIHN0820`).
+- Example exam date on scan: **2025-08-11**.
+- Source format: 15 scanned pages, OCR required.
+- Example exam structure: 35 equally weighted multiple-choice tasks, 35 total points.
+- Example exam duration stated in source: 120 minutes.
+- A dictionary from English to the student's native language and a non-programmable calculator were stated as permitted aids in the historical scan.
+- The answer sheet in the scan is blank; no official answer key is provided.
+
+Study implication:
+
+- Treat this as a historical practice source and diagnostic for topic coverage.
+- Do **not** let the 120-minute duration or dictionary rule override the current 2026 course logistics above unless the lecturer explicitly updates the current exam guidance.
+- Use the generated answer guide as inferred, not official.
+
 ## Schedule And Administration
 
 Source: `marketing/raw/2026_Master Overview.pdf`

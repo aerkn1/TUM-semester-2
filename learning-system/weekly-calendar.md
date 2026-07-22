@@ -1,85 +1,82 @@
 # Weekly Study Calendar
 
-Generated: 2026-07-15
-Coverage window: 2026-07-15 to 2026-07-21
+Generated: 2026-07-22
+Coverage window: 2026-07-22 to 2026-07-28
 Source of truth: `learning-system/review-dashboard.md`
 Schedule semantics: chained model per `Spaced Repetition Schedule Semantics` in root `AGENTS.md`. `First Pass` = first active-recall completion date. Each `D+n` chains off the prior actual completion date (`D+1 = First Pass + 1`, `D+3 = D+1 completion + 3`, ...). Items with no `First Pass` are pending-first-pass candidates, not overdue repairs.
 
 ## Priority Warning
 
-Today is 2026-07-15. The dashboard still has multiple missed/unrecorded repair placements from 2026-07-03 through 2026-07-13. Treat them as unfinished unless the user reports they were completed outside the saved record.
+Today is 2026-07-22. Marketing is the immediate exam-day priority because the Marketing exam is today. Use the updated topic cheatsheets only for compact final repair before the exam; after the exam, shift attention to Business Law unless the user explicitly requests Marketing post-exam cleanup.
+
+The dashboard still contains multiple missed/unrecorded repair placements from earlier July. Treat them as unfinished unless the user reports they were completed outside the saved record, but do not let lower-priority backlog displace the Marketing final diagnostic today.
 
 Dashboard-first refresh completed:
 
 ```text
-2026-07-03 Contract Law III + Standard Business Terms repair -> missed/unrecorded -> carry forward before new legal doctrine
-2026-07-03 Agency D+1 repair -> missed/unrecorded -> carry forward before Warranty Rights
-2026-07-04 SCM demand/inventory/Bullwhip repair -> missed/unrecorded -> carry forward before SCM new first pass
-2026-07-05 Finance Interest/Financial/Fundamental repair -> missed/unrecorded -> carry forward before Annuities, Redemptions, Bonds, and Cost of Capital
-2026-07-06 Business Law Intro/Contract I/II repair placement -> missed/unrecorded unless user reports completion
-2026-07-07 Marketing Chapter 01 D+1 repair placement -> missed/unrecorded unless user reports completion
-2026-07-08 to 2026-07-10 German, Business Law, SCM, Finance, and Marketing queues -> not closed in dashboard unless user reports completion
-2026-07-11 Business Law Warranty Rights I clarification -> cure/disproportion/revocation/timing weak spots saved; no spaced checkpoint advanced
-2026-07-11 Marketing Chapter 06 Place and Modern B2B guest lecture ingestion -> notes and graph updated; no spaced checkpoint advanced
-2026-07-11 Organization guest lecture and Trends ingestion -> Session 10-12 notes and graph updated; no spaced checkpoint advanced
-2026-07-12 Business Law Warranty Rights II clarification -> damages/reimbursement and big/small damages distinction saved; no spaced checkpoint advanced
-2026-07-14 SCM HP DeskJet case ingestion -> Topic 14 note, CONTEXT, A4 cheat sheet, graph, dashboard, and calendar updated; no spaced checkpoint advanced
-2026-07-15 Business Law Transfer of Property clarification -> property-law router, movable/land/claim route choice, good-faith acquisition without owner consent, and Section 935 block saved; no spaced checkpoint advanced
+2026-07-22 Business Law mock/example answer-schema refinement -> Example Exam I, Example Exam II, WS24/25, and SS22 answers revised into legal-opinion/theory schemas with nuance flags, no spaced checkpoint advanced
+2026-07-22 Marketing all-topic cheatsheet upgrade -> Chapter 01-06 plus B2B cheatsheets updated from mock/example exam trap patterns, no spaced checkpoint advanced
+2026-07-22 Business Law exam strategy/schema pack -> six-day plan, legal-opinion schema, theory schema, lifecycle router, topic schemas, statutory index, and open-book paper setup generated; Business Law graph/dashboard updated, no spaced checkpoint advanced
+2026-07-22 Business Law additional mock resources -> WS24/25 mock, SS22 historical exam, and external cheat sheet copied to raw; practice/reference note and CONTEXT generated; Business Law logistics/graph updated, no spaced checkpoint advanced
+2026-07-21 Marketing Mock exam questions -> copied to raw, answer-guide note and CONTEXT generated, Marketing graph updated, no spaced checkpoint advanced
+2026-07-21 Marketing 30-question all-chapter mock -> generated from local Chapter 01-06 notes, answer key and CONTEXT created, Marketing graph updated, no spaced checkpoint advanced
+2026-07-21 Marketing 2025 example exam -> copied to raw, scanned pages OCRed, inferred 35-answer guide and CONTEXT created, Marketing logistics/graph updated, no spaced checkpoint advanced
+2026-07-21 Marketing mock-exam rationale expansion -> expanded 9-question, generated 30-question, and 2025 example answer guides with option-level reasons, no spaced checkpoint advanced
+2026-07-15 Business Law Transfer of Property clarification -> saved, no spaced checkpoint advanced
+2026-07-14 SCM HP DeskJet case ingestion -> saved, no spaced checkpoint advanced
+2026-07-11 Marketing Chapter 06 Place and Modern B2B guest lecture ingestion -> saved, no spaced checkpoint advanced
+2026-07-07 and earlier repair placements -> still missed/unrecorded unless user reports completion
 ```
-
-Do not start Marketing Chapter 06, the B2B guest lecture, Business Law mock exams, SCM sample exams, SCM HP final-case drill, late Finance exercise chains, or Organization Sessions 10-12 before the carried-forward repair backlog and the prerequisite first-pass sequence unless deliberately choosing an intensive day.
 
 ## Exam Countdown And Allocation
 
 | Priority | Course | Exam Date | Days From Today | Current Allocation Rule |
 |---:|---|---:|---:|---|
-| 1 | Supply Chain Management | 2026-07-20 | 5 | Earliest exam; gets first claim on new first-pass coverage after due/overdue repairs. |
-| 2 | Marketing | 2026-07-22 | 7 | Core sequence now extends through Chapter 06 Place plus B2B guest lecture; preserve Chapter 01 -> 02 -> 03 -> 04 -> 05 -> 06 order. |
-| 3 | Business Law | 2026-07-28 | 13 | Repair Contract/SBT/Agency first, then Warranty/Property/Trade/Company before mock integration. |
-| 4 | Finance and Investment Management | 2026-08-03 | 19 | Keep time-value, annuity, redemption, capital-budgeting, bonds, stocks, options, and mock-exam routers current. |
-| 5 | Organization | 2026-08-06 | 22 | Preserve Session 01 -> 06 prerequisites; defer later sessions behind nearer exams. |
+| 0 | SCM | 2026-07-20 | past | Post-exam only unless the user asks. |
+| 1 | Marketing | 2026-07-22 | today | Before the exam, use only compact cheatsheet/mistake repair; after the exam, switch to Business Law. |
+| 2 | Business Law | 2026-07-28 | 6 | Resume legal repair block after Marketing exam unless doing only a short decompression review. |
+| 3 | Finance and Investment Management | 2026-08-03 | 12 | Keep formula repairs behind Marketing and Business Law this week. |
+| 4 | Organization | 2026-08-06 | 15 | Preserve prerequisite order, but keep behind nearer exams. |
 
-German A1.1 has no exam date recorded. Keep it as a compact continuation/maintenance track.
+German A1.1 has no exam date recorded. Keep it as optional maintenance.
 
 ## Today Plan
 
 | Order | Course | Item | Type | Target | Notes |
 |---:|---|---|---|---|---|
-| 1 | All courses | Confirm whether 2026-07-03 to 2026-07-13 repairs were completed outside the saved record | Audit | 5 min | If yes, update dashboard before repeating. If not, continue below. |
-| 2 | SCM | Forecasting + Random Variables + Newsvendor + EOQ/EPQ + Bullwhip | Carried-forward missed repair | 40-50 min | Earliest exam; use one demand/inventory case and full calculation ladders. |
-| 3 | Business Law | Contract Law III + Standard Business Terms + Agency | Carried-forward missed legal repairs | 45-60 min | Oldest legal repair block; supports Warranty and Trade Law. |
-| 4 | Marketing | Chapter 01 Basic Concepts | Overdue `D+1` repair | 25-35 min | Repair customer value, market orientation, satisfaction/retention, and framework application before Branding. |
-| 5 | Finance | Interest Calculation + Financial Analysis + Fundamental Analysis | Carried-forward missed repairs | 30-40 min | Restore formula/rate conventions and ratio-to-decision wiring before Annuities/Bonds. |
-
-If only one new first-pass topic is started today after repairs, SCM Kristen Cookie or Marketing Chapter 02 are more prerequisite-sensible than Marketing Chapter 06 or the B2B guest lecture.
+| 1 | Marketing | Updated topic cheatsheets | Exam-day final repair | 45-60 min before exam | Read the new `Mock And Example Exam Upgrade` section in each Chapter 01-06 plus B2B cheatsheet. |
+| 2 | Marketing | Pricing / Promotion / Place trap sprint | Targeted repair | 20-30 min before exam | Recompute price-cut, break-even, CMR, expected-profit, bundling, CPT/GRP, push/pull, PKM, and channel-conflict traps. |
+| 3 | Marketing | Mock misses only | Optional final diagnostic repair | 20-30 min before exam | Do not run a full new mock unless there is enough time; repair missed options using the option-level rationales. |
+| 4 | Business Law | Exam strategy pack + Contract/SBT/Agency repair block | After Marketing exam | 45-60 min | Use the new schema pack first; then write one mini legal opinion from the older legal-router repair block. |
+| 5 | Finance/German/Organization | Maintenance only | Optional | 15-25 min | Use only if tired after the exam and not ready for Business Law. |
 
 ## Due And Rescheduled Queue
 
 | Date | Course | Item | Checkpoint | Current Handling |
 |---|---|---|---|---|
-| 2026-07-15 | SCM | Forecasting + Random Variables + Newsvendor + EOQ/EPQ + Bullwhip | Carried-forward missed repair from 2026-07-04 and later placements | Repair before Kristen Cookie, Topic 08, HP DeskJet, or sample-exam sprint. |
-| 2026-07-15 | Business Law | Contract Law III + Standard Business Terms + Agency | Carried-forward missed repairs from 2026-07-03 onward | Repair before Warranty Rights, Transfer of Property first pass, Trade Law, Company Law, or mock exams. |
-| 2026-07-15 | Business Law | Week 01-02 Introduction + Contract Law I + Contract Law II | Intro `D+3` plus Contract I/II `D+1` repairs | Follow the older legal repair block if both are unfinished. |
-| 2026-07-15 | Marketing | Chapter 01 Basic Concepts | Overdue `D+1` repair | Repair before Chapter 02 Branding first pass. |
-| 2026-07-15 | Finance | Interest Calculation + Financial Analysis + Fundamental Analysis | Carried-forward missed repairs | Repair before Annuities, Redemptions, Bonds, Stocks, Options, and Mock Exam. |
-| 2026-07-15 | Finance | Investment Analysis + Capital Budgeting bridge | Investment `D+3` plus bridge repair | Check NPV/IRR hierarchy, incremental FCF, WACC versus loan rate, and project value versus financing feasibility. |
-| 2026-07-15 | German A1.1 | Lektion 2/3 continuation + Lektion 4 D+1 + Portfolio 01 weak-spot mini-repair | In-progress continuation plus repair | Optional maintenance only after nearer-exam priorities unless intentionally doing German. |
+| 2026-07-22 | Marketing | Chapter 01 Basic Concepts | Overdue `D+1` repair from 2026-07-07 placement | Use only as compact exam-day repair through the updated cheatsheets; no new checkpoint unless an actual coached recall closes. |
+| 2026-07-22 | Marketing | Chapters 02-06 plus B2B | Pending first pass sequence | Exam day: use updated cheatsheets for final coverage rather than full first-pass depth. |
+| 2026-07-22 | Marketing | Mock Exam Questions / 30-Question Mock / Example Exam 2025 | Exam practice pending | Use missed questions and rationale sections only; full mocks are optional if time remains before the exam. |
+| 2026-07-22 | Business Law | Exam strategy pack plus Contract Law III + SBT + Agency | Custom schema refinement plus carried-forward missed repairs | Use the schema pack for route recall, then resume the older legal-router repair after Marketing exam or as a short evening block. |
+| 2026-07-22 | Business Law | Warranty Rights I-II, Transfer, Trade, Company, Example Exams I-II, additional WS24/25/SS22 mock resources | Pending first pass / exam practice | Keep behind older legal repair and doctrine sequence; revised model answers are now available for schema-checking, but they do not create a D+ checkpoint. |
+| 2026-07-22 | Finance | Interest/Financial/Fundamental plus Investment/Capital Budgeting repairs | Carried-forward missed repairs | Resume after Marketing and Business Law priority unless explicitly choosing Finance. |
+| 2026-07-22 | German A1.1 | Lektion 2/3 active recall continuation and Lektion 4 D+1 repair | In-progress plus overdue repair | Optional maintenance only. |
 
 ## Completed Recently
 
 | Date | Course | Item | Type | Result | Next Planned Review |
 |---|---|---|---|---|---|
-| 2026-07-15 | Business Law | Transfer of Property | Clarification and wiki refinement | Saved the property-law router, eight use cases, Section 929 movable-transfer checks, land/claim route distinction, good-faith acquisition without hidden-owner consent, and Section 935 stolen/lost block into the topic note, `CONTEXT.md`, and a dated clarification file. | No spaced checkpoint advanced; Transfer of Property remains pending first pass after Warranty Rights I-II or a compact sales-to-property bridge. |
-| 2026-07-14 | SCM | HP DeskJet Printer Case Study | Material ingestion and A4 cheat sheet | Copied `Slides HP.pdf` and `HP case data.xlsx` into SCM raw; generated Topic 14 wiki note, `CONTEXT.md`, HP A4 cheat sheet, and SCM graph links for localized SKU mismatch, service level/LIFR, order-up-to safety stock, air, pooling, and postponement. | No spaced checkpoint advanced; HP remains pending first pass and should follow Topic 10/order-up-to and Topic 13/postponement logic unless used as a final SCM case sprint. |
-| 2026-07-12 | Business Law | Warranty Rights II damages/reimbursement clarification | Clarification and wiki refinement | Saved Warranty II as the money-claim extension of Warranty I, with damages in addition versus instead of performance, Section 284 reimbursement, small damages versus reduction, big damages versus revocation, and reusable exam sentences. | No spaced checkpoint advanced; Warranty Rights II remains pending first pass after Warranty Rights I and older legal repairs, with these weak spots targeted. |
-| 2026-07-11 | Business Law | Warranty Rights I cure/disproportion/transfer-of-risk clarification | Clarification and wiki refinement | Saved cure as repair/replacement rather than negotiation, Section 439 IV disproportion cases, cure disagreement versus revocation, warranty revocation versus Contract Law II rescission/revocation, and transfer of risk as the defect-timing checkpoint. | No spaced checkpoint advanced; Warranty Rights I remains pending first pass after older legal repairs, with these weak spots targeted. |
-| 2026-07-11 | Organization | Session 10 Skills as the New Currency, Session 11 Trends Part 1, Session 12 Trends Part 2 | Material ingestion | Copied the new Moodle export into `organization/raw/`; generated three notes and `CONTEXT.md` companions; updated Organization course graph and dashboard. | No spaced checkpoint advanced; Sessions 10-12 remain pending first pass behind Sessions 01-09 unless intentionally using the guest lecture as an applied bridge. |
-| 2026-07-11 | Marketing | Chapter 06 Place/Distribution and Modern B2B guest lecture | Material ingestion | Copied both PDFs into `marketing/raw/`; generated notes and `CONTEXT.md` companions; updated Marketing course graph and dashboard. | No spaced checkpoint advanced; both remain pending first pass behind the existing Marketing sequence. |
-| 2026-07-09 | SCM | Topic 13 Lean Management / Lean Simulation | Clarification and wiki refinement | Saved lean simulation as an end-to-end process experiment with muda, WIP, push/pull, Kanban, cells, and system-design links. | No spaced checkpoint advanced; Topic 13 first pass remains pending after Topic 12 unless using a compact lean-flow bridge. |
-| 2026-07-09 | Finance | Remaining exercises and mock exam | Material ingestion | Generated Bonds II, Stocks, Options, and Mock Exam notes with `CONTEXT.md` companions; refreshed Bonds I with official Exercise 7 solutions. | No spaced checkpoint advanced; new Finance notes remain pending behind existing Finance repairs. |
-| 2026-07-09 | Business Law | Weekly exercise cases and Example Exam II | Material ingestion and wiki refinement | Integrated official case facts/solutions into existing topics and generated Example Exam II note and `CONTEXT.md`. | No spaced checkpoint advanced; Example Exam II remains pending behind older legal repairs and prerequisite doctrine. |
-| 2026-07-08 | German A1.1 | Lektion 4-6 corrected Moodle export | Material ingestion | Enriched Lektion 4 and generated Lektion 5/6 notes, contexts, glossaries, and graph updates. | No spaced checkpoint advanced; Lektion 5/6 remain pending first pass. |
-| 2026-07-06 | Marketing | Chapter 04 Price | Clarification and wiki refinement | Saved two-part tariff, skimming/penetration, expected-profit pricing, elasticity contribution test, and PapaTurk `MR` derivation. | No spaced checkpoint advanced; Chapter 04 first pass remains pending after Chapters 01-03. |
+| 2026-07-22 | Marketing | All Topic Exam Cheatsheets | Wiki refinement | Updated Chapter 01-06 and Modern B2B cheatsheets with mock/example-exam inspired statement-count rules, option-elimination traps, calculation routes, and MCQ repair cues. | No spaced checkpoint advanced; same-day exam repair material only. |
+| 2026-07-22 | Business Law | Mock And Example Exam Answer Schemas | Wiki refinement | Revised Example Exam I, Example Exam II, WS24/25 mock, and SS22 historical exam answers into the expected legal-opinion and theory schemas; added nuance flags for Prokura, rescission, damages, SBT validity, consumer/trader splits, Section 377 HGB, minors, and historical coverage gaps. | No spaced checkpoint advanced; use as schema-check material before timed mock attempts. |
+| 2026-07-22 | Business Law | Exam Strategy And Answer Schemas | Custom exam-method artifact | Generated the six-day plan, legal-opinion schema, short-answer/theory schema, lifecycle router, core topic schemas, statutory quick index, and open-book paper-material setup; updated Business Law graph and dashboard log. | No spaced checkpoint advanced; use as the daily route-recall and paper-navigation layer before full mock attempts. |
+| 2026-07-22 | Business Law | Additional Mock Exams And External Cheat Sheet | Material ingestion | Copied WS24/25 mock, SS22 historical exam, and external cheat sheet into Business Law raw; generated combined practice/reference note and `CONTEXT.md`; updated Business Law logistics and course graph. | No spaced checkpoint advanced; use after older legal repairs and current doctrine first passes, or as a timed coverage-gap scan before the 2026-07-28 exam. |
+| 2026-07-21 | Marketing | Mock Exam Rationale Expansion | Wiki refinement | Expanded the uploaded 9-question mock, the generated 30-question mock answer key, and the 2025 example exam companion with option-level explanations. | No spaced checkpoint advanced; use after closed-book attempts for fast correction. |
+| 2026-07-21 | Marketing | Mock Exam Questions | Material ingestion | Copied `Mock exam questions.pdf` into Marketing raw; generated answer-guide note, `CONTEXT.md`, and Marketing graph entries for the 9-question MCQ diagnostic. | No spaced checkpoint advanced; use as final diagnostic before 2026-07-22 exam. |
+| 2026-07-21 | Marketing | 30-Question All-Chapter Mock | Exam-practice generation | Generated a question-only mock, answer key, and `CONTEXT.md` with 5 MCQs per Chapter 01-06; answer key now includes option-level rationales. | No spaced checkpoint advanced; use for broad core-chapter scoring before the exam. |
+| 2026-07-21 | Marketing | Example Exam Marketing 2025 | OCR material ingestion | Copied `Marketing.pdf` into raw; OCRed 15 scanned pages; generated inferred 35-answer guide and `CONTEXT.md`; preserved historical exam logistics; added expanded all-question rationales. | No spaced checkpoint advanced; use selected blocks after shorter mocks if time remains. |
+| 2026-07-15 | Business Law | Transfer of Property | Clarification and wiki refinement | Saved property-law router, Section 929 checks, land/claim route distinction, good-faith acquisition, and Section 935 block. | No spaced checkpoint advanced; pending first pass after legal prerequisites. |
+| 2026-07-14 | SCM | HP DeskJet Printer Case Study | Material ingestion and A4 cheat sheet | Generated HP case note, `CONTEXT.md`, A4 cheat sheet, graph, dashboard, and calendar entries. | No spaced checkpoint advanced; SCM exam date has passed. |
+| 2026-07-11 | Marketing | Chapter 06 Place/Distribution and Modern B2B guest lecture | Material ingestion | Generated notes, `CONTEXT.md` companions, graph entries, and dashboard rows. | No spaced checkpoint advanced; use compactly for exam-day coverage. |
 
 ## Active First-Pass Sessions In Progress
 
@@ -94,61 +91,45 @@ Topics with a wiki note but no completed first active-recall session. They are c
 
 | Candidate Priority | Course | Item | Earliest Sensible Slot | Prerequisite / Warning |
 |---:|---|---|---|---|
-| 1 | SCM | Kristen Cookie Case | 2026-07-11 | Do after the carried-forward SCM repair. Foundation for process/capacity cases. |
-| 2 | Marketing | Chapter 02 Branding | 2026-07-11 | Do after Chapter 01 D+1 repair; preserve Chapter 01 -> 02 order. |
-| 3 | Business Law | Warranty Rights I | 2026-07-11 | Do after Agency D+1 and older legal-router repairs; official exercise routes are integrated and the 2026-07-11 clarification targets cure/disproportion, revocation routing, and transfer-of-risk timing. |
-| 4 | Finance | Exercise 03-04 Annuities | 2026-07-12 | Required before formal Redemptions first pass; do after Finance repair. |
-| 5 | SCM | Topic 08 OceanCove Process Analysis and Capacity Management | 2026-07-12 | Start after Kristen Cookie or Topic 05 process-capacity bridge. |
-| 6 | Marketing | Chapter 03 Product | 2026-07-12 | Do after Chapter 02 first pass. |
-| 7 | Business Law | Warranty Rights II | 2026-07-12 | Do after Warranty Rights I first pass; the 2026-07-12 clarification targets damages/reimbursement routing and big/small damages versus revocation/reduction. |
-| 8 | Marketing | Chapter 04 Price | 2026-07-13 | Do after Chapters 01-03 first pass; 2026-07-06 clarification will help. |
-| 9 | Marketing | Chapter 05 Promotion And Communication | 2026-07-14 | Do after Chapter 04 first pass. |
-| 10 | Marketing | Chapter 06 Place And Distribution | 2026-07-15 | Newly generated 2026-07-11; do after Chapter 05 first pass unless deliberately using a 4Ps overview bridge. |
-| 11 | Marketing | Guest Lecture Modern B2B Marketing | 2026-07-16 | Newly generated 2026-07-11; best after core Marketing chapters or as an applied B2B bridge with Chapter 06 Place. |
-| 12 | SCM | Topic 09 Facility Location / Transportation / Shipping | 2026-07-13 | Do after OceanCove or a compact capacity-to-network bridge. |
-| 13 | SCM | Topic 10 Multi-Period Inventory Management / Order-Up-To | 2026-07-14 | Do after Topic 09; start with Newsvendor -> service level, order-up-to -> `S`, EOQ/EPQ -> batch size. |
-| 14 | SCM | Topic 12 Supply Chain Finance / Resilience | 2026-07-15 | Do after Topic 10; start with focal-firm NWC, DSO/DPO, reverse factoring, supplier adoption. |
-| 15 | SCM | Topic 13 Lean Management / Lean Simulation | 2026-07-16 | Do after Topic 12 unless deliberately running a compact lean-flow bridge. |
-| 16 | SCM | Topic 14 HP DeskJet Printer Case Study | 2026-07-17 | Newly generated 2026-07-14; do after Topic 10/order-up-to and Topic 13 lean/postponement, or use as a final SCM case drill with explicit prerequisite awareness. |
-| 17 | Finance | Exercise 05 Redemptions | 2026-07-13 | Do after Annuities first pass. |
-| 18 | Finance | Session 05-06 Capital Budgeting | 2026-07-13 | Formal first pass still pending before Cost of Capital. |
-| 19 | Finance | Session 07-08 Cost of Capital | 2026-07-14 | Do after formal Capital Budgeting first pass; use the Bonds-to-WACC bridge. |
-| 20 | Finance | Bonds I -> Bonds II -> Stocks -> Options -> Mock Exam | 2026-07-14 onward | Keep sequence unless deliberately doing a timed diagnostic. |
-| 21 | Business Law | Transfer -> Trade -> Company -> Example Exam I-II | 2026-07-15 onward | Do after Warranty gateway and older legal repairs; Transfer of Property clarification saved 2026-07-15, so use the router and good-faith acquisition examples during first pass. |
-| 22 | Organization | Session 01 - Definitional Basics | 2026-07-15 | Required foundation, but lower priority than nearer exams. |
-| 23 | Organization | Sessions 02 -> 06 Formal Design, Environment, Strategy, Technology, AI | 2026-07-16 onward | Keep the prerequisite order after Session 01; these are required before the later informal/change/trends sessions. |
-| 24 | Organization | Sessions 07-08 -> 09 Informal Organization and Dynamic Perspectives | 2026-07-17 onward | Start only after Sessions 01-06 first pass unless deliberately doing a compact Organization overview. |
-| 25 | Organization | Session 10 Skills guest lecture -> Session 11 Trends Part 1 -> Session 12 Trends Part 2 | After Sessions 07-09 | Newly generated 2026-07-11; guest lecture is examinable, but late Organization content should not jump ahead of prerequisites while nearer exams remain open. |
-| 26 | German A1.1 | Lektion 5 -> Lektion 6 | Maintenance | Do after Lektion 2/3 in-progress prompts and Lektion 4 repair if choosing German. |
+| 1 | Marketing | Updated Chapter 01-06 + B2B cheatsheets | 2026-07-22 | Exam-day compact repair only; read the new mock/example-exam upgrade sections before opening more source notes. |
+| 2 | Marketing | Mock Exam Questions | 2026-07-22 | Use missed options only unless time permits a fast 12-minute rerun; answer routes are inferred because no official key was included. |
+| 3 | Marketing | 30-Question All-Chapter Mock | 2026-07-22 | Use for targeted chapter scoring if time remains; generated answer key has option-level rationales. |
+| 4 | Marketing | Example Exam Marketing 2025 | 2026-07-22 | Use only selected blocks if time remains, especially pricing Q11/Q16/Q22 and innovation Q29-Q35; includes innovation-management bridge. |
+| 5 | Marketing | Chapters 02-06 plus B2B first-pass sequence | after exam or post-exam cleanup | Do not advance `First Pass` from same-day cheatsheet reading; a real coached recall is required. |
+| 6 | Business Law | Warranty Rights I-II, Transfer, Trade, Company, Example Exams I-II | 2026-07-23 onward | Resume after Marketing exam and older legal repair block. |
+| 7 | Business Law | Exam strategy and answer schemas | 2026-07-22 onward | Use daily as the route-recall and writing layer; it does not replace doctrine first passes. |
+| 8 | Business Law | Additional WS24/25/SS22 mock resources and external cheat sheet | 2026-07-24 onward | Use after core doctrine/official example-exam routing, or as a short coverage-gap scan; schema-tailored model answers are now available for correction after closed-book issue spotting. |
+| 9 | Finance | Annuities -> Redemptions -> Capital Budgeting -> Bonds/Stocks/Options/Mock | 2026-07-29 onward | Resume after Business Law priority unless choosing Finance earlier. |
+| 10 | Organization | Session 01 -> 12 sequence | After nearer July exams | Keep prerequisite order. |
 
 ## Recommended Next Starts
 
 | Priority | Course | Subject | Why |
 |---:|---|---|---|
-| 1 | SCM | Carried-forward demand/inventory/Bullwhip repair | Earliest exam; repairs quantitative foundations before new SCM topics or sample exams. |
-| 2 | Business Law | Carried-forward legal repair block | Oldest active legal repair; directly supports Agency, Warranty, Trade, and mock-exam routing. |
-| 3 | Marketing | Chapter 01 D+1 repair, then Chapter 02 Branding first pass | Marketing exam is 11 days away; Chapter 06 and B2B are now ready but must not jump ahead of prerequisites. |
-| 4 | Finance | Interest/Financial/Fundamental repair | Restores formula and ratio routers before the newly generated late exercise chain. |
-| 5 | SCM | Kristen Cookie Case first pass | Best SCM new-start after repair because it anchors process/capacity thinking. |
-| 6 | SCM | Topic 10 -> Topic 13 -> HP DeskJet final case bridge | HP is now ready as a high-yield final SCM case, but it should be routed through order-up-to formulas and lean/postponement reasoning rather than treated as isolated memorization. |
-| 7 | Marketing | Chapter 03 -> 04 -> 05 -> 06 -> B2B sequence | Use this order to complete Marketing coverage quickly without losing conceptual build-up. |
-| 8 | Organization | Session 01 first pass, then Session 02 -> 12 sequence | Organization now has late guest/trends materials ready, but prerequisite flow still starts with definitional basics and is lower priority than the July exams. |
+| 1 | Marketing | Updated topic cheatsheet sprint | Exam-day use only: fastest way to repair the exact MCQ traps from the mocks without rereading full notes. |
+| 2 | Marketing | Mock misses and calculation reruns | Best final check if there is still time before the exam. |
+| 3 | Business Law | Exam strategy pack + carried-forward Contract/SBT/Agency repair block | Next exam after Marketing; schema first, then route repair to unlock Warranty/Trade/mock routing. |
+| 4 | Business Law | Warranty Rights I-II gateway | Next doctrine block after older legal repairs. |
+| 5 | Business Law | Additional mock coverage diagnostic | Use after the core legal repair/doctrine order to check WS24/25 wine-label routing and SS22 historical gaps. |
+| 6 | Finance | Interest/Financial/Fundamental repair | Restores formula and ratio routers after July exams. |
 
 ## Weekly Mixed Practice Suggestions
 
 | Block | Courses | Task | Hint |
 |---|---|---|---|
-| A | Marketing Chapter 01 + Branding | Explain customer value, then define one brand association and how it affects retention or willingness to pay. | Customer value first; brand meaning second. |
-| B | Marketing Product + Price | Use one product-benefit case to choose two-part tariff, skimming, penetration, expected-value pricing, or elasticity/marginal-analysis calculation. | Product creates WTP; price captures value. |
-| C | Marketing Promotion + Place | Design a launch using push/pull communication, then choose intensive/selective/exclusive distribution. | Promotion creates demand pressure; Place decides availability and control. |
-| D | Marketing Place + B2B Guest Lecture | For enterprise software, map direct sales, partners, marketplace, and customer success to buying-group confidence. | In B2B, Place includes buying and adoption routes. |
-| E | SCM Forecasting + Random Variables + Newsvendor + EOQ/EPQ + Topic 10 Order-Up-To | Route one demand case from forecast error to uncertainty model to order quantity and service level. | One-shot uncertain commitment = Newsvendor; recurring batching = EOQ/EPQ; recurring lead-time uncertainty = order-up-to. |
-| F | Business Law Agency + Warranty + Trade Law | One sale case: who is bound, was there a defect, who owns the goods, and what commercial-law rule changes the result? | Representative first, then contract, then property/defect, then HGB layer. |
-| G | Finance Bonds + Cost of Capital + Capital Budgeting | Solve or observe bond YTM, use it as `r_D`, compute WACC, then calculate NPV. | Bond yield supplies debt input; WACC is the hurdle; NPV is surplus. |
-| H | German A1.1 Lektion 4 + Lektion 5 | Buy party food, then schedule the meeting: `Ich möchte einen Kuchen`; `Wir treffen uns um 15 Uhr`; `Ich muss/kann ...`. | Accusative objects first, then time/modal language. |
-| I | Organization AI + Skills-Powered Organization | Compare algorithmic control in AI work systems with AI-supported skill extraction and matching. | Ask who benefits, who can contest the data, and whether transparency empowers or surveils. |
-| J | Organization Trends + Marketing B2B Guest Lecture | Use the four-problem canvas on a partner ecosystem: task division, task allocation, rewards, and information. | Networks/ecosystems organize value across independent actors; B2B channels show the market-facing version. |
-| K | SCM Topic 10 + Topic 13 + HP DeskJet | Solve the HP case from `SL*` to `S`, LIFR, air threshold, and postponement recommendation. | Inventory math gives the numbers; lean/postponement logic gives the recommendation. |
+| A | Marketing Cheatsheets + Mock Exam | Read the new mock/example-exam upgrade sections, then answer only previously missed 9-question mock items. | Recall != relationship; psychographic != demographic; delighter can become basic. |
+| B | Marketing 30-Question Mock | Score or revisit six blocks of five questions and repair the weakest two chapters. | Treat below 4/5 in a chapter as a repair signal; use the A/B/C/D rationales after scoring. |
+| C | Marketing Example Exam 2025 | Do pricing Q11/Q16/Q22 and innovation Q29-Q35, then repair the weakest route. | Contribution, expected value, bundling, tacit knowledge, agile, Delphi; use the expanded rationales and cheatsheets for missed options. |
+| D | Marketing Product + Price + Place | Explain one new-product case from feature satisfaction to behavioral pricing and channel choice. | Product creates value, price frames/captures value, place controls access. |
+| E | Marketing Promotion + Branding | Pick one desired brand association and choose a 5M communication plan. | Positioning is the promise; communication is the signal. |
+| F | Marketing Place + B2B Guest Lecture | Map direct sales, partners, marketplace, and customer success to buying-group confidence. | In B2B, Place includes buying and adoption routes. |
+| G | Business Law Agency + Warranty + Trade Law | One sale case: who is bound, was there a defect, who owns the goods, and what commercial-law rule changes the result? | Representative first, then contract, then property/defect, then HGB layer. |
+| H | Business Law Answer Schema Sprint | Write one issue sentence, one SBT paragraph, one warranty damages paragraph, and one theory answer from the new schema pack. | Issue sentence -> requirements -> application -> consequence; theory = definition -> anchor -> example -> trap. |
+| I | Business Law Mock Answer Upgrade Drill | Cover the revised model answers and reproduce headings, statutory anchors, and final conclusions for one Example Exam I, one Example Exam II, and one WS24/25 route. | Format first; then compare nuance: Prokura internal limit, no grace period for consequential damage, signed SBT still needs validity control. |
+| J | Business Law Additional Mock Exams | Run WS24/25 wine-label issue spotting, then one SS22 historical gap mini-drill. | Consumer/trader before withdrawal; merchant status before Section 377; historical gap topics stay behind current doctrine. |
+| K | Finance Bonds + Cost of Capital + Capital Budgeting | Solve or observe bond YTM, use it as `r_D`, compute WACC, then calculate NPV. | Bond yield supplies debt input; WACC is the hurdle; NPV is surplus. |
+| L | Organization Trends + Marketing B2B Guest Lecture | Use the four-problem canvas on a partner ecosystem. | Networks organize value; B2B channels show the market-facing version. |
+| M | German A1.1 Lektion 4 + Lektion 5 | Buy party food, then schedule the meeting. | Accusative objects first, then time/modal language. |
 
 ## End-Of-Session Update Checklist
 

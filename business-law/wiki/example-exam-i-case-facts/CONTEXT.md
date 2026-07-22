@@ -12,6 +12,7 @@ Statutory anchors were cross-checked against the official Gesetze-im-Internet BG
 read facts once for actors and transaction
 -> mark legal form of each actor
 -> identify claim/question type
+-> choose legal-opinion schema for cases or theory schema for short questions
 -> route representation before contract validity
 -> route formation before rescission
 -> write statutory anchors before long explanation
@@ -23,6 +24,7 @@ This exam source mixes legal-opinion cases with short theory questions. Use full
 
 | Term | Definition | Aliases to avoid |
 |---|---|---|
+| Schema-Tailored Model Answer | Exam-practice answer block that follows issue sentence, requirements, application, interim result, and final answer for cases. | loose explanation |
 | Claim Basis | Legal norm or contract route that could give the claimant the requested performance. | General fairness |
 | Hardware Provision Claim | Claim that R-oHG must provide the rented IT systems to S-GmbH. | Ownership claim |
 | Rental Agreement | Contract for temporary use of an object against payment. | Purchase agreement |
@@ -44,6 +46,7 @@ This exam source mixes legal-opinion cases with short theory questions. Use full
 | False Statement | Incorrect representation of a fact, here newest-model status. | Opinion only |
 | Deceit | Intentional misleading that causes another party's declaration of intent. | Mistake without fault |
 | Rescission Declaration | Statement that the party avoids the declaration of intent because of a rescission ground. | Revocation |
+| Initial Formation Then Avoidance | Answer pattern where the contract first arises, but is later treated as void from the beginning after effective rescission. | no contract from the start |
 | Ex Tunc Voidness | Legal effect that the declaration is void from the beginning after effective rescission. | Termination from now |
 | Restitution Consequence | Return of performances after voidness or unjust enrichment route. | Damages automatically |
 
@@ -89,10 +92,11 @@ This exam source mixes legal-opinion cases with short theory questions. Use full
 ## Relationships Between Canonical Terms
 
 - **Claim Basis** comes before discussing fairness or business expectations.
+- **Schema-Tailored Model Answer** is used for the two case sections; short theory questions use concise bullet schemas.
 - **GmbH Managing Director** authority and **Prokura** are separate representation questions in Case 1.
 - **Internal Prokura Limit** usually does not defeat **Prokura** externally unless **Abuse Of Authority** is visible or known.
 - **Invitatio Ad Offerendum** prevents treating the shop-window display as the binding offer.
-- **Deceit** supports **Rescission Declaration**, which leads to **Ex Tunc Voidness** under Section 142 I BGB.
+- **Deceit** supports **Rescission Declaration**, which leads to **Initial Formation Then Avoidance** and **Ex Tunc Voidness** under Section 142 I BGB.
 - **Legal-Form Suitability** uses **GbR** as small-business baseline and rejects **oHG** if no commercial-business scale exists.
 - **Warranty Exclusion** is different from "no defect"; it can block remedies even if a defect exists.
 
@@ -150,6 +154,7 @@ Student: "No. This is rescission of the declaration of intent under Section 123 
 | Shop-window display called offer | Use invitatio ad offerendum unless facts show binding intent. |
 | E's false statement called harmless puffery | It concerns a concrete model-generation fact and caused purchase. |
 | "Valid contract yes" without rescission effect | Say initially concluded, then void ex tunc if rescission effective. |
+| "No contract" without formation analysis | Say the purchase agreement was initially concluded, then eliminated by effective rescission. |
 | Theory answers written like full cases | Use concise structured bullet points for theory section. |
 
 ## Cheat-Sheet Language

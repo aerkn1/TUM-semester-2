@@ -11,12 +11,15 @@ This context file captures the mock-exam issue language. The source provides cas
 
 | Term | Definition | Aliases to avoid |
 |---|---|---|
+| **Schema-Tailored Model Answer** | Case or theory answer written in the expected exam schema rather than as a loose route list. | notes summary |
 | **Case Basic Constellation** | First case section in Example Exam II: B2B sale of a defective 3D printer causing table/laptop damage. | theory question |
 | **Case Modification** | Second case section: consumer hobby printer plus SBT exclusion clause and carpet damage. | same case only |
 | **Damages In Addition To Performance** | Damages for loss that remains even if proper performance later occurs, such as property damage caused by the defective item. | reduction, cure |
+| **No Grace-Period Damage** | Damage type where setting a later cure deadline is unnecessary because later proper performance cannot remove the loss. | damages instead of performance |
 | **Mutual Commercial Purchase** | Sale of goods that is commercial for both parties, triggering Section 377 HGB duties. | any company sale |
 | **Timely Commercial Complaint** | Inspection/notice in due course under Section 377 HGB, here supported by immediate test and same-day complaint. | ordinary customer complaint |
 | **SBT Referral Clause** | Pre-formulated clause trying to redirect defect claims from the seller to a third party, such as a software manufacturer. | valid warranty routing |
+| **Incorporation Versus Validity** | SBT distinction: a clause may become part of the contract but still fail content control. | signed means valid |
 | **Consumer Modification Route** | Path where Section 377 HGB drops out and B2C SBT control becomes central. | B2B route |
 | **Culpa In Contrahendo** | Pre-contractual liability route based on Sections 311 II, 241 II, and 280 I BGB. | failed contract only |
 | **Amended Acceptance** | A reply changing an offer; rejection plus new offer under Section 150 II BGB. | acceptance with changes |
@@ -43,8 +46,10 @@ This context file captures the mock-exam issue language. The source provides cas
 
 - **Case Basic Constellation** uses **Mutual Commercial Purchase** and **Timely Commercial Complaint** before damages.
 - **Case Modification** uses **Consumer Modification Route** and **SBT Referral Clause** before damages.
-- **Damages In Addition To Performance** is the shared damages type in both case sections.
+- **Schema-Tailored Model Answer** is used for both case sections; theory questions use compact definition/anchor/consequence answers.
+- **Damages In Addition To Performance** is the shared damages type in both case sections and often creates **No Grace-Period Damage**.
 - **SBT Referral Clause** fails if **Section 309 No. 8 b aa BGB** applies.
+- **Incorporation Versus Validity** prevents the shortcut "T signed, therefore the clause is enforceable."
 - **Culpa In Contrahendo** belongs to pre-contractual duties, not ordinary warranty.
 
 ## Mermaid Memory Aid
@@ -86,6 +91,7 @@ Professor: "Signing may help incorporation, but **SBT Referral Clause** still ne
 | "Effectively represented" | Do not waste time on agency where the exam states effective representation. |
 | "Damage to other property" | Route as damages in addition, not reduction of purchase price. |
 | "Standard purchase agreement" | Use SBT analysis; signed form does not automatically validate the clause. |
+| "Signed clause" | First acknowledge incorporation, then run content control. |
 | "Theory question" | Use short structured answer, not full legal opinion. |
 
 ## Exam Trap Corrections
@@ -95,6 +101,7 @@ Professor: "Signing may help incorporation, but **SBT Referral Clause** still ne
 | Skipping Section 377 in the business case. | Check it and explain why same-day complaint saves warranty rights. |
 | Applying Section 377 to the consumer modification. | T is a hobby consumer; use SBT control instead. |
 | Treating an incorporated clause as valid. | Incorporation and content control are separate. |
+| Requiring a grace period for table/laptop/carpet damage. | Later cure cannot undo already-caused property damage, so use damages in addition. |
 | Calling amended acceptance a valid acceptance. | Section 150 II BGB: rejection plus new offer. |
 | Mixing rescission and revocation. | Rescission attacks defective declarations; revocation responds to performance problems in valid contracts. |
 

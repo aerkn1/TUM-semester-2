@@ -4,6 +4,8 @@ Source note: [guest-lecture-modern-b2b-marketing.md](guest-lecture-modern-b2b-ma
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with mock/example exam option-elimination style and final Marketing chapter integration.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam. This guest lecture is likely most useful as an applied bridge across segmentation, 4Ps, promotion, place, AI, and customer value. This sheet does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -174,6 +176,42 @@ B2B software optimizes organizational confidence, role-specific proof,
 risk reduction, implementation, and value realization.
 ```
 
+## Mock And Example Exam Upgrade
+
+The mock exams did not ask a dedicated B2B block, but their answer shape still applies: reject overclaims, classify the object first, and connect the concept to a managerial decision.
+
+B2B option-elimination table:
+
+| Exam signal | Correct rule | Reject options that say |
+|---|---|---|
+| ICP | Best-fit account/company profile. | ICP is an individual buyer persona. |
+| Persona | Role/person inside the target account. | Persona should come before account fit. |
+| Buying group | Multiple stakeholders with different risks and proof needs. | The user or signer alone is "the customer." |
+| ABM | Coordinated account-focused marketing, sales, partner, and learning orchestration. | ABM is just personalized ads. |
+| Intent data | Research/interest signal, useful for prioritization. | Intent signal proves purchase. |
+| Lead volume | Useful only if account fit and quality are strong. | More leads is automatically better. |
+| Partner ecosystem | Helps buying, implementation, integration, adoption, and value realization. | Partner means reseller only. |
+| AI/martech | Scales signals, scoring, personalization, and next-best action. | AI replaces segmentation, positioning, proof standards, or ethics. |
+| Customer success | Adoption and outcome realization after sale. | Purchase equals success. |
+
+Bridge to the 4Ps:
+
+```text
+Product = business capability + implementation/adoption.
+Price = value capture + risk sharing.
+Place = buying/deployment route through sales, partners, marketplace, and customer success.
+Promotion = confidence-building proof for the buying group.
+```
+
+How to answer if B2B appears inside a general Marketing MCQ:
+
+```text
+Start with account fit, not generic awareness.
+Then identify the buying roles and their risks.
+Then choose proof, channel, and partner/customer-success route.
+End with realized value, not just conversion.
+```
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -192,4 +230,3 @@ risk reduction, implementation, and value realization.
 ```text
 B2B marketing answer = target account + buying group + proof + orchestration + value realization.
 ```
-

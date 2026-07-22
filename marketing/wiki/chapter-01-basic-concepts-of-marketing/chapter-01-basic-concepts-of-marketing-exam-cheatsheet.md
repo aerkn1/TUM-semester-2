@@ -4,6 +4,8 @@ Source note: [chapter-01-basic-concepts-of-marketing.md](chapter-01-basic-concep
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with the uploaded mock exam, generated 30-question mock, and 2025 example exam option-rationale patterns.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam. Prepare short applied answers, not only recognition. This sheet does not replace the full note and does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -114,6 +116,34 @@ Segment basis -> identifiable? -> profitable? -> reachable?
 -> suitable target? -> matching 4P decision.
 ```
 
+## Mock And Example Exam Upgrade
+
+High-yield MCQ shape:
+
+```text
+For count questions, mark each statement T/F first.
+Then map the count to A/B/C/D.
+Most wrong options are undercounts or overcounts, not entirely different concepts.
+```
+
+Statement-count traps from the practice exams:
+
+| Topic | True exam-safe rule | Reject options that say |
+|---|---|---|
+| Segmentation | Geographic = region/climate; demographic = age, income, education, marital status; psychographic = lifestyle/values/personality; behavioral = usage. | Age or marital status are psychographic. |
+| 3Rs | Recruitment acquires, retention keeps, recovery repairs after failure. | Recovery always creates stronger loyalty than no failure. |
+| Satisfaction | Satisfaction supports retention but does not guarantee loyalty. | A satisfied customer must stay loyal. |
+| Disconfirmation | Expectations above performance create dissatisfaction; failed recovery after failure creates double deviation. | Recovery failure is just a normal complaint. |
+| Consumer properties | Search before purchase, experience after use, trust hard to verify even after use, specialty high commitment/identity. | Trust properties are easy to verify after using once. |
+| Kano | Must-be failures punish; performance scales; excitement delights; delighters can become basics over time. | Delighters stay delighters forever. |
+
+Option-elimination cue:
+
+```text
+If an option uses "always", "automatically", or "guarantees" for customer behavior, treat it as suspicious.
+Marketing effects are probabilistic and moderated by alternatives, price, convenience, trust, and switching costs.
+```
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -130,4 +160,3 @@ Segment basis -> identifiable? -> profitable? -> reachable?
 ```text
 Marketing answer = customer need + target choice + value creation + 4P execution + relationship outcome.
 ```
-

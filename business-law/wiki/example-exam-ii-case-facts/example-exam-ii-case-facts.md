@@ -29,6 +29,228 @@ High-yield moves:
 | Case modification | 40 | Full legal-opinion style |
 | Theory question section | 30 | Bullet points or short sentences allowed |
 
+## Schema-Tailored Model Answers
+
+Use these model blocks after a closed-book outline. They are not official model solutions; they convert the inferred routes into the answer schema from `business-law/wiki/exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md`.
+
+### Case 1 Model Answer: Table And Laptop Damage
+
+#### I. Claim Or Issue Sentence
+
+```text
+M-GmbH could have a claim against P-oHG for EUR 1,300 damages for the destroyed table and laptop under Sections 437 No. 3, 280 I, and 249 BGB if P-oHG delivered a defective printer and the warranty damages requirements are met.
+```
+
+#### II. Purchase Agreement
+
+P-oHG and M-GmbH concluded a purchase agreement under Section 433 BGB for the 3D printer at a price of EUR 25,000. The facts state that both sides were effectively represented, so representation should not become the main issue.
+
+Interim result:
+
+```text
+A valid purchase agreement exists.
+```
+
+#### III. Material Defect At Transfer Of Risk
+
+A material defect exists if the purchased thing does not have the agreed or usual quality or is not suitable for its intended use. A 3D printer that overheats filament so severely that employees cannot stop the leaking filament is not suitable for ordinary printer use and lacks usual safety and functionality.
+
+The malfunction appears during an immediate test run after delivery. The software problem is therefore best treated as already present at transfer of risk.
+
+Interim result:
+
+```text
+The printer was defective at transfer of risk.
+```
+
+#### IV. Section 377 HGB Filter
+
+Because P-oHG and M-GmbH are commercial actors and the printer purchase belongs to their business, the sale is a mutual commercial transaction. Section 377 HGB therefore requires prompt inspection and notice of defects.
+
+M-GmbH tested the printer immediately after delivery and complained to P-oHG the same day. This satisfies the inspection and notice requirement. The goods are not deemed approved, and warranty rights are not excluded.
+
+Nuance:
+
+```text
+Section 377 HGB is not a reason to deny the claim here. It is the filter that M-GmbH survives because the facts emphasize immediate testing and same-day complaint.
+```
+
+#### V. Damages Route
+
+The table and laptop damage is not damage to the value of the printer itself. A later repair or replacement of the printer would not undo the destroyed table and laptop. The correct category is therefore damages in addition to performance, not cure, reduction, or damages instead of performance.
+
+Under Section 280 I BGB, there is an obligation from the purchase contract, P-oHG breached the duty to deliver a defect-free printer, and the defect caused EUR 1,300 damage. Responsibility is presumed under Section 280 I sentence 2 BGB. No facts show that P-oHG can exculpate itself.
+
+Interim result:
+
+```text
+The requirements for damages in addition to performance are met.
+```
+
+#### VI. Final Answer
+
+```text
+M-GmbH can claim EUR 1,300 from P-oHG for the destroyed table and laptop under Sections 437 No. 3, 280 I, and 249 BGB.
+```
+
+High-yield nuance:
+
+```text
+Do not demand a grace period for this damage. The destroyed table and laptop would remain lost even if P-oHG later supplied a perfect printer.
+```
+
+### Case 2 Model Answer: Carpet Damage And SBT Clause
+
+#### I. Claim Or Issue Sentence
+
+```text
+T could have a claim against P-oHG for EUR 200 carpet-cleaning costs under Sections 437 No. 3, 280 I, and 249 BGB if the hobby printer was defective and P-oHG cannot rely on Clause 1.3.
+```
+
+#### II. Purchase Agreement And Defect
+
+T bought a hobby 3D printer from P-oHG for EUR 5,000. This is a purchase agreement under Section 433 BGB. The same software problem caused the filament to overheat and spread onto T's carpet. As in the basic constellation, this makes the printer defective under Section 434 BGB. Because the same recurring software issue appears immediately in use, the defect likely existed at transfer of risk.
+
+Interim result:
+
+```text
+The warranty gateway under Section 437 BGB is opened.
+```
+
+#### III. No Section 377 HGB Filter
+
+T buys the printer for his hobby. He is therefore a consumer, not a merchant buyer. Section 377 HGB does not apply because this is not a mutual commercial purchase.
+
+#### IV. Damages In Addition To Performance
+
+The EUR 200 carpet-cleaning cost is consequential property damage caused by the defective printer. A later cure of the printer would not remove the carpet damage. The route is therefore damages in addition to performance under Sections 437 No. 3 and 280 I BGB.
+
+P-oHG owed delivery of a defect-free printer, breached that duty, caused EUR 200 damage, and is presumed responsible unless it proves lack of responsibility.
+
+Interim result:
+
+```text
+T has a statutory damages route unless Clause 1.3 validly excludes or redirects it.
+```
+
+#### V. SBT Classification And Incorporation
+
+Clause 1.3 is part of a standard 3D-printer purchase agreement prepared by P-oHG. It is pre-formulated, intended to set terms for the transaction, and presented by the seller. In a consumer contract, terms are deemed presented by the trader unless introduced by the consumer, and one-time use can still be controlled if the consumer could not influence the content.
+
+T read and signed the document. Incorporation is therefore likely satisfied. But incorporation only means the clause enters the contract; it does not mean the clause is valid.
+
+Nuance:
+
+```text
+Signing helps incorporation, not content validity. This is the main SBT trap.
+```
+
+#### VI. Content Control
+
+Clause 1.3 excludes damages claims for harm connected with a software problem and refers the customer to the software manufacturer. In a consumer contract for a newly produced thing, Section 309 No. 8 b aa BGB invalidates clauses that exclude, limit, or make defect claims dependent on claims against third parties.
+
+The clause does exactly that: it removes P-oHG as the contractual seller from the defect-damages route and forces T toward an unknown third-party manufacturer. It is therefore ineffective.
+
+Under Section 306 BGB, the ineffective clause drops out while the rest of the contract remains valid. Statutory warranty law fills the gap.
+
+#### VII. Final Answer
+
+```text
+T can claim EUR 200 from P-oHG. Clause 1.3 was likely incorporated, but it is ineffective under SBT content control, especially Section 309 No. 8 b aa BGB; the statutory damages route remains available.
+```
+
+High-yield nuance:
+
+```text
+Do not write "T signed, so no claim." The expected route is: signed -> incorporated -> content control -> clause invalid -> statutory claim survives.
+```
+
+### Theory Question 3 Model Answer: Renovation Contract Type
+
+Schema:
+
+```text
+definition -> anchor -> alternatives -> conclusion
+```
+
+Model answer:
+
+- The contract is best classified as a works contract under Section 631 BGB because C owes a concrete success: replacing two windows.
+- A service contract under Section 611 BGB is weaker because C is not merely promising effort or time; the expected result is completed window replacement.
+- A purchase contract under Section 433 BGB is also weaker because the center of gravity is not simply transfer of pre-existing goods, but installation/renovation work.
+- If the windows themselves are supplied by C, the contract can have mixed elements, but the success-oriented renovation result keeps the works-contract classification strongest.
+
+### Theory Question 4 Model Answer: Culpa In Contrahendo
+
+Schema:
+
+```text
+definition -> statutory route -> examples -> limit
+```
+
+Model answer:
+
+- Culpa in contrahendo covers liability for breaches of duties during contract initiation, negotiation, or similar pre-contractual contact.
+- Statutory route: Section 311 II BGB creates the pre-contractual obligation relationship; Section 241 II BGB supplies duties to protect rights, legal interests, and trust; Section 280 I BGB gives damages for breach.
+- Examples include misleading information during negotiations, unsafe premises during contract initiation, or creating reliance and then breaching protective duties.
+- Limit: it is not compensation for every disappointed negotiation. There must be a legally relevant duty breach, damage, causation, and responsibility.
+
+### Theory Question 5 Model Answer: Amended Acceptance
+
+Schema:
+
+```text
+offer -> non-matching answer -> statutory consequence -> new contract only after acceptance
+```
+
+Model answer:
+
+- Acceptance must match the offer.
+- If the recipient answers with changes, additions, or restrictions, the answer is not an acceptance.
+- Under Section 150 II BGB, the amended acceptance counts as rejection of the original offer combined with a new offer.
+- The original offer expires under Section 146 BGB.
+- A contract forms only if the original offeror accepts the new counteroffer.
+
+### Theory Question 6 Model Answer: Section 145 BGB
+
+Schema:
+
+```text
+condition -> consequence -> particularities -> relationship
+```
+
+Model answer:
+
+- Section 145 BGB applies where a person makes an offer to another person to enter into a contract.
+- The consequence is that the offeror is bound by the offer.
+- The offeror can exclude being bound by clear wording, for example "without engagement" or "subject to confirmation."
+- Particularity: Section 145 BGB only applies after the declaration is classified as an offer. A shop display or advertisement is usually only an invitatio ad offerendum.
+- The binding effect ends through rejection, late acceptance, expiry of the acceptance period, or other rules in Sections 146-149 BGB.
+
+### Theory Question 7 Model Answer: Rescission Versus Revocation
+
+Schema:
+
+```text
+define both -> trigger -> anchor -> consequence -> trap
+```
+
+Model answer:
+
+| Dimension | Rescission | Revocation |
+|---|---|---|
+| Legal problem | Defective declaration at formation. | Valid reciprocal contract, but later performance problem. |
+| Typical anchors | Sections 119, 120, 123, 143, 121/124, 142 BGB. | Sections 323, 324, 326 V, 346-349 BGB. |
+| Trigger facts | Mistake, incorrect transmission, deceit, duress. | Non-performance, defective performance, ancillary-duty breach, impossibility. |
+| Legal effect | Declaration is void from the beginning under Section 142 I BGB. | Restitution relationship; received performances are returned. |
+| Exam warning | Do not use rescission just because the object later proves defective. | Do not use revocation to attack manipulated consent. |
+
+Short answer:
+
+```text
+Rescission attacks consent at formation; revocation reacts to a performance failure in a valid contract.
+```
+
 ## Case 1: Defective 3D Printer Damages Table And Laptop
 
 ### Paraphrased Facts

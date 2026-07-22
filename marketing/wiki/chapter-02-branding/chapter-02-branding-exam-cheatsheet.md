@@ -4,6 +4,8 @@ Source note: [chapter-02-branding.md](chapter-02-branding.md)
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with mock/example exam branding traps and option-level rationale patterns.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam with special focus on discussed research papers. This sheet is for rapid applied recall and does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -112,6 +114,37 @@ approach used in the lecture/paper.
 
 Open caution: the exact mechanism and method should be taken from the paper/class discussion if the lecturer provided details.
 
+## Mock And Example Exam Upgrade
+
+Branding questions in the practice exams mostly test boundary control, not memorized definitions. Use this router:
+
+```text
+brand label -> customer mind effect -> POP/POD or CBBE level
+-> association quality -> risk of wrong extension/leverage.
+```
+
+MCQ traps to reject:
+
+| Trap statement | Why it is wrong | Correct wording |
+|---|---|---|
+| Brand is mainly logo or legal trademark value. | This ignores customer knowledge and response. | CBBE is the differential consumer response caused by brand knowledge. |
+| Identity and image are the same. | One is intended, the other is perceived. | Identity = firm intent; image = consumer perception. |
+| High recall proves emotional relationship. | Recall is salience, not resonance. | Relationship needs loyalty, attachment, community, or engagement. |
+| A brand can ignore points of parity if it has a strong point of difference. | Category legitimacy comes before differentiation. | POP first, then POD. |
+| Prestige is a point of parity for Rolex. | Prestige is closer to a differentiating luxury association. | A Rolex still needs watch-category basics as POP. |
+| Line extension means any adjacent category. | Adjacent category usually becomes brand extension. | Line extension stays inside the existing product line. |
+| Celebrity fame eliminates spillover risk. | Endorsers can create poor-fit, scandal, dilution, or overexposure risk. | Fit and association transfer matter more than fame alone. |
+
+Brand architecture count logic:
+
+```text
+House of brands -> risk isolation.
+Branded house -> master-brand consistency.
+Ingredient branding -> component quality signal, but can overshadow the host brand.
+Line extension -> existing brand, existing line.
+Brand extension -> existing brand, new line/category.
+```
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -128,4 +161,3 @@ Open caution: the exact mechanism and method should be taken from the paper/clas
 ```text
 Brand equity exists when brand knowledge changes how customers perceive, feel, choose, pay, and stay.
 ```
-

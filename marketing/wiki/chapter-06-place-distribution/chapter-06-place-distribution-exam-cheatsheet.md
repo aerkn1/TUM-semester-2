@@ -4,6 +4,8 @@ Source note: [chapter-06-place-distribution.md](chapter-06-place-distribution.md
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with mock/example exam distribution, channel-conflict, coverage, and retail-technology traps.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam and may test research-paper slides. This sheet does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -124,6 +126,44 @@ Technology -> friction reduction/personalization/data
 -> safeguard or hybrid human-tech design.
 ```
 
+## Mock And Example Exam Upgrade
+
+Place questions in the mock/example exams repeatedly test route classification and overclaim detection.
+
+Option-elimination table:
+
+| Exam signal | Correct rule | Reject options that say |
+|---|---|---|
+| Merchant | Buys and resells; takes title. | Every intermediary is a retailer. |
+| Agent | Searches, negotiates, or represents without taking title. | Agent owns and resells inventory. |
+| Facilitator | Supports distribution without buying or negotiating sales. | Facilitator is always a merchant. |
+| Direct distribution | Manufacturer reaches customer without marketing intermediary; more control/data but higher capability burden. | Direct is always cheaper or conflict-free. |
+| Indirect distribution | Uses intermediaries; more reach/specialization but less control/data and possible dependency. | Indirect always gives better economics. |
+| Omnichannel | Integrates online and offline channels into one customer journey. | Omnichannel intentionally separates channels. |
+| Intensive coverage | Broad availability for convenience/FMCG goods. | Best for luxury or high-service scarcity products. |
+| Selective coverage | Chosen partners for service, expertise, image, or balanced control. | Same as maximum coverage. |
+| Exclusive coverage | Very limited partners for luxury, scarcity, high service, or control. | Automatically eliminates channel conflict. |
+
+Channel-conflict MCQ pattern:
+
+```text
+DTC entry can anger retailers.
+Retailer private labels can compete with manufacturer brands.
+Retailers care about shelf space, margins, category control, and shopper data.
+Manufacturer results are affected by retailer price/promotion choices.
+Conflict can be domestic or international.
+Joint objectives and aligned incentives can reduce conflict, not erase it automatically.
+```
+
+Retail-research option traps:
+
+```text
+Eye tracking = visual attention, not purchase causality alone.
+AI personalization can scale relevance, but it can also create privacy, trust, creepiness, and service-quality issues.
+Metaverse retail is not just an online shelf; it can create playfulness, connectedness, and self-expansion.
+Haptics can be actual, device-mediated, imaginal, or language-evoked.
+```
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -141,4 +181,3 @@ Technology -> friction reduction/personalization/data
 ```text
 Place answer = access + channel structure + actor roles + coverage + control/conflict + customer experience.
 ```
-

@@ -150,6 +150,36 @@ graph LR
     B2B --> Confidence[Decision confidence]
     B2B --> LearningSystem[Marketing learning system]
     B2B --> PartnerEcosystem[Partner ecosystem]
+
+    Marketing -->|tests through| MockExam[Mock exam practice]
+    MockExam -->|checks| Kano[Kano model]
+    MockExam -->|checks| BrandAssociations
+    MockExam -->|checks| Segmentation
+    MockExam -->|checks| Conjoint
+    MockExam -->|checks| Behavioral
+    MockExam -->|checks| Conflict
+    MockExam -->|checks| DirectIndirect
+    MockExam -->|checks| Innovation
+    MockExam -->|checks| Agile
+    Marketing -->|integrates through| Mock30[30-question all-chapter mock]
+    Mock30 -->|samples| ManagementProcess
+    Mock30 -->|samples| Branding
+    Mock30 -->|samples| ProductPolicy
+    Mock30 -->|samples| Pricing
+    Mock30 -->|samples| Communication
+    Mock30 -->|samples| Distribution
+    Marketing -->|diagnoses through| Example2025[Example exam 2025]
+    Example2025 -->|tests| Branding
+    Example2025 -->|tests| SuccessChain
+    Example2025 -->|tests| ProductPolicy
+    Example2025 -->|tests| Pricing
+    Example2025 -->|tests| Communication
+    Example2025 -->|tests| Distribution
+    Example2025 -->|bridges to| InnovationMgmt[Innovation management]
+    InnovationMgmt --> Tacit[Tacit knowledge]
+    InnovationMgmt --> Leadership[Innovation leadership]
+    InnovationMgmt --> Agile
+    InnovationMgmt --> Delphi[Delphi and trend extrapolation]
 ```
 
 ## Decision Flow View
@@ -225,6 +255,9 @@ flowchart TD
 | Chapter 05 Promotion And Communication | `chapter-05-promotion-communication/chapter-05-promotion-communication.md` | 5Ms -> media planning/measurement -> WOM/eWOM -> influencer persuasion knowledge | 2026-06-12 |
 | Chapter 06 Place And Distribution | `chapter-06-place-distribution/chapter-06-place-distribution.md` | Channel actors -> direct/indirect routes -> coverage/control -> retail technology and touch | 2026-07-11 |
 | Guest Lecture Modern B2B Marketing | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` | Buying group -> ICP/ABM -> confidence proof -> data/partner learning system | 2026-07-11 |
+| Mock Exam Questions | `mock-exam-questions/mock-exam-questions.md` | Statement-count MCQ discipline -> Kano/brand/segmentation/research/pricing/channel/innovation traps | 2026-07-21 |
+| Mock Exam 30 Questions - All Marketing Chapters | `mock-exam-30-all-chapters/mock-exam-30-all-chapters.md` | 5 questions per Chapter 01-06 -> value/brand/product/price/promotion/place trap repair | 2026-07-21 |
+| Example Exam Marketing 2025 | `example-exam-marketing-2025/example-exam-marketing-2025.md` | 35-question historical exam -> branding/customer-success/product/price/promotion/place/innovation-management diagnostic | 2026-07-21 |
 
 ## Supporting Node Reference
 
@@ -269,6 +302,13 @@ flowchart TD
 | Account-Based Marketing | Coordinated operating model for selected target accounts | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
 | Decision Confidence | Confidence that a B2B solution is useful, credible, and low-risk | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
 | Marketing Learning System | Signals -> models -> decisions -> activation -> learning loop | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Mock Exam Practice | Timed multiple-choice diagnostic across the Marketing chapters | `mock-exam-questions/mock-exam-questions.md` |
+| Statement-Count MCQ | Question type where every statement must be classified before choosing the count option | `mock-exam-questions/mock-exam-questions.md` |
+| Innovation Forecasting | Scenario, Delphi, and trend-extrapolation logic for uncertain product futures | `mock-exam-questions/mock-exam-questions.md` |
+| All-Chapter Mock Exam | Generated 30-question diagnostic with 5 MCQs per core Marketing chapter | `mock-exam-30-all-chapters/mock-exam-30-all-chapters.md` |
+| Example Exam 2025 | Historical scanned 35-question Marketing and Innovation Management exam | `example-exam-marketing-2025/example-exam-marketing-2025.md` |
+| Tacit Knowledge | Difficult-to-articulate know-how transferred through observation and participation | `example-exam-marketing-2025/example-exam-marketing-2025.md` |
+| Innovation Leadership | Leadership enabling experimentation, curiosity, learning, and exploration/exploitation balance | `example-exam-marketing-2025/example-exam-marketing-2025.md` |
 
 ## Supporting Edge Reference
 
@@ -310,3 +350,14 @@ flowchart TD
 | B2B Marketing | reduces | Decision Risk | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
 | AI And Analytics | scale | Insight And Personalization | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
 | Partner Ecosystem | enables | Adoption And Value Realization | `guest-lecture-modern-b2b-marketing/guest-lecture-modern-b2b-marketing.md` |
+| Mock Exam Practice | tests | Kano, Brand Associations, Segmentation, Research Methods, Behavioral Pricing, Distribution, Innovation, Agile/Waterfall | `mock-exam-questions/mock-exam-questions.md` |
+| Statement-Count MCQ | requires | True/False Classification Per Statement | `mock-exam-questions/mock-exam-questions.md` |
+| Brand Recall | is not sufficient for | Brand Relationship | `mock-exam-questions/mock-exam-questions.md` |
+| Omnichannel Strategy | integrates | Online And Offline Channels | `mock-exam-questions/mock-exam-questions.md` |
+| Requirement Uncertainty | favors | Agile Mindset | `mock-exam-questions/mock-exam-questions.md` |
+| All-Chapter Mock Exam | samples | Chapter 01, Chapter 02, Chapter 03, Chapter 04, Chapter 05, Chapter 06 | `mock-exam-30-all-chapters/mock-exam-30-all-chapters.md` |
+| All-Chapter Mock Exam | reinforces | Marketing Boundary Traps | `mock-exam-30-all-chapters/mock-exam-30-all-chapters.md` |
+| Example Exam 2025 | tests | Marketing And Innovation Management Integration | `example-exam-marketing-2025/example-exam-marketing-2025.md` |
+| Example Exam 2025 | requires | Calculation And Statement-Count Discipline | `example-exam-marketing-2025/example-exam-marketing-2025.md` |
+| Tacit Knowledge | transfers through | Mentorship And Informal Networks | `example-exam-marketing-2025/example-exam-marketing-2025.md` |
+| Delphi Method | reduces | Dominant-Personality Bias | `example-exam-marketing-2025/example-exam-marketing-2025.md` |

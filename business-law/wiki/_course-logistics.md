@@ -11,6 +11,9 @@ Source files:
 - `business-law/raw/moodle-export-business-law-950848573-s26-20260709/22.4. Introduction II/Introduction II_Slides.pdf`
 - `business-law/raw/moodle-export-business-law-950848573-s26-20260709/1.7. QA_Repetition/Repetition_Slides.pdf`
 - `business-law/raw/moodle-export-business-law-950848573-s26-20260709/15.7. Example Exam/Example Exam_Case facts.pdf`
+- `business-law/raw/mock-exam-ibl-this-is-the-mock-exam-for-the-winter-2425-semster.pdf`
+- `business-law/raw/exam-ss22.pdf`
+- `business-law/raw/introduction-to-business-law.pdf`
 
 Do not include this logistics content in Business Law Mermaid diagrams, subject knowledge graphs, or `business-law/wiki/_course-knowledge-graph.md`.
 
@@ -43,6 +46,9 @@ This file should support legal rule lookup and statutory references in future no
 - Commercial Code: https://www.gesetze-im-internet.de/englisch_hgb/index.html
 - Stock Corporation Act: https://www.gesetze-im-internet.de/englisch_aktg/index.html
 - Limited Liability Companies Act: https://www.gesetze-im-internet.de/englisch_gmbhg/index.html
+- GDPR: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32016R0679
+- Rome I Regulation: https://eur-lex.europa.eu/eli/reg/2008/593
+- Rome II Regulation: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32007R0864
 
 ## Teaching Outline
 
@@ -80,7 +86,11 @@ This file should support legal rule lookup and statutory references in future no
   - Modification: 40 points, legal-opinion style required.
   - Theory question section: 30 points total, 5 questions at 6 points each.
   - Theory questions can be answered in conclusive bullet points and/or short sentences; a legal opinion is not required.
+- Additional external/historical resources added 2026-07-22:
+  - `mock-exam-ibl-this-is-the-mock-exam-for-the-winter-2425-semster.pdf` states 60 points total and 120 minutes. It mixes short-answer theory on avoidance, agency, SBT, and company law with a fully formulated bistro/wine-label case.
+  - `exam-ss22.pdf` is a historical exam source with contracts, International Private Law/data protection, business associations, a minor fan-store case, and a tort-damages case. Treat it as coverage-gap radar, not proof that those topics outrank current 2026 materials.
+  - `introduction-to-business-law.pdf` is an external/unofficial 31-page cheat-sheet-style resource. Use it for route compression only after checking current course notes and statutory anchors.
 
 Use the exercise-introduction and mock-exam structures for practice routing. The wording remains probabilistic for the final exam where the source uses "probably"; do not treat the exact number of cases/questions as guaranteed unless a later final-exam notice confirms it.
 
-Planning implication: Business Law is the third exam in the current sequence, after Supply Chain Management and Marketing. Preserve legal prerequisite order and overdue repairs, but complete pending doctrine coverage before shifting into full-case integration and statute-routing practice.
+Planning implication: Business Law is the third exam in the current sequence, after Supply Chain Management and Marketing. Preserve legal prerequisite order and overdue repairs, complete pending doctrine coverage before shifting into full-case integration and statute-routing practice, then use the additional external/historical resources as timed diagnostics and coverage-gap checks.

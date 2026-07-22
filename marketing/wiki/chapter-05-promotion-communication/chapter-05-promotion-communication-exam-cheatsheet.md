@@ -4,6 +4,8 @@ Source note: [chapter-05-promotion-communication.md](chapter-05-promotion-commun
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with mock/example exam promotion, media-metric, PKM, and eWOM traps.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam. Promotion questions can ask for campaign design, media calculations, WOM/eWOM reasoning, or persuasion-knowledge interpretation. This sheet does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -125,6 +127,43 @@ Agent -> target -> persuasion attempt -> disclosure
 -> credibility/helpfulness/brand fit.
 ```
 
+## Mock And Example Exam Upgrade
+
+Promotion MCQs often test whether you classify the communication target and response layer correctly.
+
+Option-elimination table:
+
+| Exam signal | Correct rule | Reject options that say |
+|---|---|---|
+| Push | Targets intermediaries such as retailers or wholesalers. | Push means aggressive tone or final-customer advertising. |
+| Pull | Creates final-customer demand that pressures the channel. | Pull is passive or intermediary-only. |
+| Cognitive goal | Awareness, attention, perception, knowledge. | Purchase or sharing is cognitive. |
+| Affective goal | Liking, feelings, attitude, preference, image. | Emotion is irrelevant to communication objectives. |
+| Conative/behavioral goal | Search, trial, purchase, repeat, WOM/sharing. | Attention alone proves behavioral change. |
+| Measurement | Includes pre-tests, post-tests, recall, recognition, attitudes, behavior, target fit, and KPI layers. | Measurement means only final sales revenue. |
+| Reach | Opportunity for exposure. | Reach proves attention, comprehension, attitude change, or purchase. |
+| CPT/weighted CPT | Raw CPT is cost per thousand contacts; weighted CPT corrects for target-group share. | Cheapest raw CPT is automatically best. |
+| GRPs | Reach percentage times average frequency. | GRPs equal unique reach. |
+
+PKM and influencer trap pattern:
+
+```text
+Paid influencer content can look native and activate persuasion knowledge.
+PKM = recognition and coping with persuasion.
+PKM does not always mean rejection, distrust, or disengagement.
+Disclosure can reduce deception risk but may also trigger coping.
+```
+
+Owned, paid, earned, WOM, eWOM:
+
+| Label | Exam-safe wording | Common wrong option |
+|---|---|---|
+| Owned media | Brand-controlled channels such as website, app, email list, or owned social pages. | Independent consumer review. |
+| Paid media | Brand-paid placement or sponsored exposure. | Voluntary customer post. |
+| Earned media | Voluntary independent consumer/third-party exposure. | Bought ad placement. |
+| WOM | Person-to-person commercial-topic communication perceived as non-commercial. | Paid influencer post as independent WOM. |
+| eWOM | Online WOM that is persistent, searchable, scalable, and often source-dependent. | Ordinary brand ad. |
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -142,4 +181,3 @@ Agent -> target -> persuasion attempt -> disclosure
 ```text
 Campaign answer = audience + objective + 5Ms + media metrics + effect measurement + persuasion-risk check.
 ```
-

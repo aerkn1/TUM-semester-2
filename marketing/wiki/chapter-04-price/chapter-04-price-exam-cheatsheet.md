@@ -4,6 +4,8 @@ Source note: [chapter-04-price.md](chapter-04-price.md)
 
 Created: 2026-07-15
 
+Updated: 2026-07-22 - aligned with mock/example exam calculation routes and behavioral-pricing option traps.
+
 Exam context: Marketing exam on 2026-07-22 is a 90-minute written exam with a non-programmable calculator allowed. Price is the most calculation-heavy Marketing topic. This sheet does not mark `First Pass` as completed.
 
 ## Core Exam Move
@@ -135,6 +137,41 @@ Use elasticity to forecast quantity response, then calculate contribution or pro
 Elasticity alone does not decide the price.
 ```
 
+## Mock And Example Exam Upgrade
+
+Price questions are easiest if you compute before looking at answer choices.
+
+Practice-exam routines:
+
+| Exam pattern | Fast solution | Reject options that |
+|---|---|---|
+| 10% price cut from `EUR 200`, `c_var = EUR 100` | Old contribution `100`; new contribution `80`; required multiplier `100/80 = 1.25`; volume increase `25%`. | Say a 10% price cut needs only 10% more volume. |
+| Break-even with `p = 80`, `c_var = 30`, `C_fix = 40,000` | Contribution `50`; `x_crit = 40,000 / 50 = 800 units`. | Divide fixed cost by variable cost or report revenue as units. |
+| CMR with `p = 80`, `c_var = 30` | `CMR = 50/80 = 62.5%`. | Use variable-cost ratio `30/80 = 37.5%`. |
+| Expected-profit pricing | Compute branch profit first, then probability-weight. | Choose higher price just because unit margin is higher. |
+| Bundling WTP table | For each option, count actual buyers and revenue. | Assume mixed bundling automatically wins. |
+| Monopoly inverse demand | Build `R = p(x)*x`, derive `MR`, set `MR = MC`. | Treat the `2x` in marginal revenue as arbitrary. |
+
+Behavioral-pricing statement traps:
+
+```text
+Compromise effect = middle option becomes attractive.
+Decoy effect = asymmetrically dominated option shifts preference.
+Reference price = internal or external benchmark.
+Relative savings = same euro discount feels different by base price.
+Dynamic/surge pricing can be efficient and still feel unfair.
+High-stakes urgency may reduce price sensitivity, even while fairness risk rises.
+```
+
+Price strategy count logic:
+
+```text
+Price differentiation needs heterogeneous WTP, identifiable/self-selecting segments,
+limited arbitrage/resale, and fairness/complexity control.
+Penetration = low initial price for adoption/scale/share/network effects.
+Skimming = high initial price to harvest high-WTP early buyers.
+```
+
 ## Traps And Corrections
 
 | Trap | Correction |
@@ -153,4 +190,3 @@ Elasticity alone does not decide the price.
 ```text
 Price decision = contribution economics + demand response + competitor response + fairness.
 ```
-

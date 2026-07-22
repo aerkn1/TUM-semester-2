@@ -37,6 +37,224 @@ facts -> legal layer -> statutory anchor -> requirements -> application -> concl
 | Case modification | 35 | Legal opinion style; formation and rescission routing. |
 | Theory questions | 30 | Short structured answers; no full legal opinion required. |
 
+## Schema-Tailored Model Answers
+
+Use these model blocks after a closed-book outline. They are not official model solutions; they convert the inferred routes into the answer schema from `business-law/wiki/exam-strategy-answer-schemas-2026-07-28/exam-strategy-answer-schemas-2026-07-28.md`.
+
+### Case 1 Model Answer: Hardware Claim
+
+#### I. Claim Or Issue Sentence
+
+```text
+S-GmbH could have a claim against R-oHG to be provided with 100 IT systems for three months under a rental agreement pursuant to Section 535 I BGB if a valid contract was concluded between S-GmbH and R-oHG.
+```
+
+#### II. Contract Type And Formation
+
+The parties agreed on temporary use of IT systems against payment of EUR 100,000. This points to a rental/lease-type contract rather than a purchase contract, because ownership of the hardware is not to pass permanently. A contract requires two matching declarations of intent, offer and acceptance.
+
+D2's email requesting 100 IT systems for three months in the name of S-GmbH can be treated as an offer. P's reply, "Your order is hereby confirmed", is the matching acceptance. The decisive issue is therefore not basic offer and acceptance, but whether the declarations bind the companies through valid representation.
+
+#### III. Representation Of S-GmbH By D2
+
+D2's declaration binds S-GmbH if she made an own declaration of intent, acted in the name of S-GmbH, and had power of representation. D2 sent the email herself and expressly acted in S-GmbH's name.
+
+S-GmbH is a GmbH and acts through its managing directors. The articles require joint representation in principle, but allow one managing director to act alone if the transaction is necessary and urgent. Here, D1 is unreachable due to illness, the software order is short-term and lucrative, and S-GmbH cannot perform without additional hardware capacity. The transaction is therefore necessary for the business opportunity and urgent because delay would likely lose the order.
+
+Interim result:
+
+```text
+D2 validly represented S-GmbH alone under the urgent-and-necessary exception.
+```
+
+Nuance for grading:
+
+```text
+Do not treat every internal company rule as irrelevant. First decide whether the articles define the external representation mode. Here the exception itself gives D2 single representation if necessity and urgency are met.
+```
+
+#### IV. Representation Of R-oHG By P
+
+P's declaration binds R-oHG if P made an own declaration of intent, acted in R-oHG's name, and had authority. P personally confirmed the order while handling R-oHG's business communication, so the declaration and publicity requirements are met.
+
+P has Prokura. Under Sections 48 and 49 HGB, Prokura gives broad authority for transactions involved in operating a commercial business. Confirming a hardware rental transaction for R-oHG falls within this broad commercial scope. The internal instruction limiting P to private-customer transactions is a restriction in the internal relationship. Under Section 50 HGB, such internal restrictions generally do not limit Prokura externally.
+
+No facts show that D2 knew the internal restriction, colluded with P, or abused obvious lack of authority. Therefore, R-oHG cannot rely on the B2C-only internal limit against S-GmbH.
+
+Interim result:
+
+```text
+P's confirmation externally binds R-oHG despite the internal B2C restriction.
+```
+
+#### V. Final Answer
+
+```text
+A valid rental agreement was concluded between S-GmbH and R-oHG. S-GmbH can claim provision of the 100 IT systems for three months from R-oHG under the rental agreement.
+```
+
+High-yield nuance:
+
+```text
+Separate the two representation problems. D2 is an organ/managing-director question; P is a Prokura/internal-limit question. Mixing them loses structure.
+```
+
+### Case 2 Model Answer: Tablet Purchase And Deceit
+
+#### I. Issue Sentence
+
+```text
+D2 and E concluded a valid purchase agreement under Section 433 BGB if there were two matching declarations of intent and if the agreement was not later eliminated by effective rescission.
+```
+
+#### II. Formation
+
+The tablet in the shop window is generally only an invitatio ad offerendum. A retailer normally does not intend to be bound to every passer-by merely by displaying goods.
+
+D2 then stated that she wanted the tablet if it was the newest model, and E asked whether that meant she would buy it for EUR 1,000. D2 agreed. At this point, the parties agreed on the object and price. A purchase agreement was therefore initially concluded.
+
+Interim result:
+
+```text
+D2 and E initially concluded a purchase agreement for the tablet at EUR 1,000.
+```
+
+#### III. Rescission For Deceit
+
+The agreement may be treated as void from the beginning if D2 effectively rescinded her declaration for deceit under Section 123 I Alt. 1 BGB.
+
+This requires a false representation, intent to deceive, causality for the declaration, a declaration of rescission under Section 143 BGB, and compliance with the time limit under Section 124 BGB.
+
+E stated that the tablet was the newest model. That statement was false. E was not merely making a neutral mistake; he was unsure and nevertheless claimed certainty because he did not want D2 to change her mind. This supports at least intentional misleading. The newest-model quality was decisive for D2, because she expressly wanted to impress colleagues with an up-to-date tablet. The false statement therefore caused her purchase decision.
+
+D2 returned immediately after discovering the truth, accused E of lying, returned the tablet, and demanded her money back. This is sufficient as a rescission declaration, because it clearly shows that she no longer wants to be bound due to the deception. The declaration was made well within the Section 124 BGB period.
+
+Interim result:
+
+```text
+D2 effectively rescinded her declaration under Section 123 I Alt. 1 BGB.
+```
+
+#### IV. Legal Consequence
+
+Under Section 142 I BGB, effective rescission makes the declaration void from the beginning. Therefore, the purchase agreement was initially formed, but it is treated as void ex tunc after rescission.
+
+Final answer:
+
+```text
+D2 and E initially concluded a purchase agreement, but after D2's effective deceit-based rescission there is no valid purchase agreement remaining.
+```
+
+High-yield nuance:
+
+```text
+Answer both layers. "No contract" is wrong if it ignores initial formation. "Valid contract" is incomplete if it ignores rescission.
+```
+
+### Theory Question 3 Model Answer: Suitable Company Form
+
+Schema:
+
+```text
+business scale/risk -> default form -> alternatives -> recommendation
+```
+
+Model answer:
+
+- Albert and Berta run a small, person-centered gardening service for private customers with annual revenue of EUR 60,000.
+- A GbR under Section 705 BGB is suitable because it is simple, flexible, inexpensive to form, and fits a small non-commercial service business run by two persons.
+- An oHG is less suitable unless the business is operated as a commercial enterprise requiring a commercially organized business operation. The facts point to small-scale services, not a larger commercial business.
+- A GmbH or UG is legally possible, but may be disproportionate because it creates formation, register, accounting, and governance costs. It becomes attractive only if liability limitation, external financing, or professional reputation outweigh those burdens.
+
+Conclusion:
+
+```text
+The best fit is a GbR. oHG, GmbH, UG, and AG are either not triggered by the facts or disproportionate for this small gardening service.
+```
+
+### Theory Question 4 Model Answer: Section 280 BGB
+
+Schema:
+
+```text
+definition -> requirements -> consequence -> nuance
+```
+
+Model answer:
+
+- Section 280 I BGB is the general damages claim for breach of a duty arising from an obligation.
+- Requirements: an obligation, breach of duty, damage, causation, and responsibility for the breach.
+- The creditor must show the obligation, breach, damage, and causal link. Responsibility is presumed; the debtor avoids liability only by showing lack of responsibility.
+- Consequence: the creditor may claim compensation for the damage caused by the breach.
+- Nuance: damages for delay and damages instead of performance need additional requirements under Section 280 II or III BGB.
+
+### Theory Question 5 Model Answer: Federal Legislative Process
+
+Schema:
+
+```text
+initiative -> Bundestag -> Bundesrat -> execution/promulgation -> entry into force
+```
+
+Model answer:
+
+- A federal bill may be introduced by the Federal Government, the Bundesrat, or members of the Bundestag.
+- The Bundestag deliberates, usually through readings and committee work, and votes on the bill.
+- The Bundesrat participates. Depending on the type of law, its consent may be required or it may object.
+- If Bundestag and Bundesrat disagree, the mediation committee may become relevant.
+- After adoption, the law is executed/signed according to constitutional requirements, promulgated in the Federal Law Gazette, and enters into force according to its commencement rule.
+
+Nuance:
+
+```text
+Do not write only "Bundestag passes the law." The Bundesrat and promulgation steps are part of the exam-safe route.
+```
+
+### Theory Question 6 Model Answer: Impossibility
+
+Schema:
+
+```text
+definition -> types -> consequence -> secondary remedies
+```
+
+Model answer:
+
+- Impossibility exists when the owed performance cannot be rendered according to the obligation's content.
+- It can be objective, where nobody can perform, or subjective, where this debtor cannot perform.
+- It can be initial, already existing at contract conclusion, or subsequent, arising later.
+- Under Section 275 BGB, the primary duty to perform is excluded if performance is impossible.
+- Secondary consequences must be examined separately: the counter-performance may be excluded, and damages or revocation may be possible if the debtor is responsible.
+
+Nuance:
+
+```text
+Impossibility answers the performance claim first. It does not automatically answer damages; responsibility and the correct damages route still matter.
+```
+
+### Theory Question 7 Model Answer: Warranty Rights Exclusions
+
+Schema:
+
+```text
+definition -> exclusion routes -> limits -> consequence
+```
+
+Model answer:
+
+- Warranty rights under Section 437 BGB can be excluded by legal rules, valid agreement, commercial notice failures, or limitation.
+- The buyer's knowledge of the defect can exclude rights under Section 442 BGB.
+- A contractual exclusion may work, but only if it survives mandatory law and SBT control under Sections 305 et seq. BGB.
+- In mutual commercial purchases, Section 377 HGB can exclude warranty rights if the buyer fails to inspect and notify defects promptly.
+- Limitation periods can make warranty claims unenforceable.
+- Limits: the seller cannot freely rely on exclusions in cases such as fraudulent concealment or invalid consumer/SBT clauses.
+
+Exam trap:
+
+```text
+Signed exclusion clause != valid exclusion. Always test statutory and SBT limits.
+```
+
 ## Case 1: Hardware Rental For S-GmbH
 
 ### Paraphrased Facts
