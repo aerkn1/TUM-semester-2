@@ -2,7 +2,7 @@
 
 This file aggregates the Finance and Investment Management concepts learned so far. It is lecture-scoped only.
 
-Last updated: 2026-07-09
+Last updated: 2026-07-29
 
 ## Course-Level Mermaid Graph
 
@@ -157,6 +157,11 @@ graph TD
     FIN -->|practiced by| MOCKF[Finance Mock Exam]
     MOCKF -->|integrates| CORP
     MOCKF -->|integrates| MATH
+    FIN -->|practiced by| EXAMPACK[External IFM Exam Papers]
+    EXAMPACK -->|diagnoses| CORP
+    EXAMPACK -->|diagnoses| MATH
+    EXAMPACK -->|requires| AMBIG[Source Ambiguity Discipline]
+    AMBIG -->|protects| T[Answer Option Matching]
 
     TVM -->|discounts project cash flows for| NPV
     INT -->|enables| ANN
@@ -214,6 +219,7 @@ graph LR
 | Stocks And Equity Valuation | `finance-and-investment-management/wiki/exercise-10-11-stocks-valuation/exercise-10-11-stocks-valuation.md` | Dividend metrics, DDM, Gordon growth, two-phase growth, PVGO, and P/E/P/B valuation shortcuts | 2026-07-09 |
 | Options | `finance-and-investment-management/wiki/exercise-12-options/exercise-12-options.md` | Payoff/profit logic, put-call parity, binomial valuation, hedge ratio, and American early-exercise check | 2026-07-09 |
 | Mock Exam | `finance-and-investment-management/wiki/exercise-13-mock-exam/exercise-13-mock-exam.md` | Integrated lecture/exercise MCQ practice with inferred answer routes because no official key was provided | 2026-07-09 |
+| IFM Exam Papers Practice Pack | `finance-and-investment-management/wiki/ifm-exam-papers/ifm-exam-papers.md` | Three-paper final diagnostic across lecture and exercise tracks with annotated/inferred answer routes and source-ambiguity flags | 2026-07-29 |
 
 ## Nodes
 
@@ -286,6 +292,8 @@ graph LR
 | Put-call parity | Arbitrage relation among stock, put, call, and discounted strike | `exercise-12-options/exercise-12-options.md` |
 | Binomial model | Option valuation by up/down states and backward induction | `exercise-12-options/exercise-12-options.md` |
 | Finance mock exam | Integrated MCQ practice across lecture and exercise tracks | `exercise-13-mock-exam/exercise-13-mock-exam.md` |
+| IFM exam papers practice pack | Three-paper diagnostic across lecture and exercise tracks with explicit ambiguity handling | `ifm-exam-papers/ifm-exam-papers.md` |
+| Source ambiguity discipline | Habit of trusting formula/course logic over inconsistent printed options or handwritten marks | `ifm-exam-papers/CONTEXT.md` |
 
 ## Edges
 
@@ -359,3 +367,6 @@ graph LR
 | Put-call parity | replicates | risk-free strike payoff | `exercise-12-options/exercise-12-options.md` |
 | Binomial model | discounts | risk-neutral expected payoff | `exercise-12-options/exercise-12-options.md` |
 | Finance mock exam | integrates | corporate-finance lecture and mathematical-basics exercise tracks | `exercise-13-mock-exam/exercise-13-mock-exam.md` |
+| IFM exam papers practice pack | diagnoses | corporate-finance lecture and mathematical-basics exercise tracks | `ifm-exam-papers/ifm-exam-papers.md` |
+| IFM exam papers practice pack | requires | source ambiguity discipline | `ifm-exam-papers/CONTEXT.md` |
+| Source ambiguity discipline | protects | answer option matching | `ifm-exam-papers/CONTEXT.md` |

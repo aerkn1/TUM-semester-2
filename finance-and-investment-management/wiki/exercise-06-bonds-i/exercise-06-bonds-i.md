@@ -296,145 +296,448 @@ Interpretation:
 - Longer maturity usually increases duration.
 - Lower coupons usually increase duration because more value is paid later.
 
-## Worked Calculations And Analogies
+## Full Source Worked Solution Bank
 
-### Calculation 1: Zero-Coupon Bond Price
+Source basis:
 
-Decision problem and method choice:
+- Exercise 6 introduction concept question on bond definitions and market role.
+- Exercise 6 official solutions: zero-coupon bond tasks A.1-A.2.
+- Exercise 7 official solutions: coupon-bond tasks A.3-A.8.
+- Formulary section `2.2 Bond Valuation`.
 
-- A zero-coupon bond has one promised cash flow at maturity.
-- Use single-cash-flow present value.
+Source-label note: the official Exercise 7 deck labels two consecutive coupon-bond examples as `A.3`, and the available official decks do not contain a separate numeric `A.6` question. This note preserves the source sequence by calling them `A.3.1`, `A.3.2`, and `A.6 source gap`.
 
-Known inputs:
+### Source Formula Router
 
 ```text
-Face value B_N = 100
-Maturity N = 20 years
-Discount rate r = 6.75% = 0.0675
+Zero-coupon bond:
+B_0^ZB = B_N / (1+r)^N
+
+Coupon bond, cash-flow form:
+B_0 = sum from k=1 to N of C/(1+r)^k + B_N/(1+r)^N
+
+Coupon bond, annuity form:
+B_0 = C x [1 - 1/(1+r)^N]/r + B_N/(1+r)^N
+
+Holding-period annual return:
+r_HPR = (terminal wealth / initial price)^(1/holding years) - 1
+
+Accrued interest:
+I_0 = days/360 x C
+settlement price = clean market price + accrued interest
+```
+
+The repeated bond-price pattern is:
+
+```text
+Bond type -> promised cash flows -> market-required rate -> discount to one date -> interpret price, return, or risk.
+```
+
+### Task Intro.1: Which Statement About Bonds Is Correct?
+
+#### Problem
+
+The source asks which statement is correct:
+
+```text
+A: Whereas some types of bonds are debt instruments, others can also be described as hybrid instruments - a combination of securitized debt and equity claims.
+B: Compared to the overall market value of stocks, bonds do not seem to play a major role in financial markets.
+C: Due to the fact that future cash flows of bonds are in general very hard to predict, e.g. compared to stocks, applying the basic pricing principle is much more complicated.
+D: While the creditworthiness of the issuer counts as one of the major factors influencing the bond price for private corporations, this does not hold for countries or states when issuing bonds.
+```
+
+#### Answer
+
+Correct answer: **A**.
+
+Route:
+
+- Bonds are debt instruments because the issuer borrows money and promises repayment.
+- Some bonds have equity-like or option-like features, especially convertible bonds, option/warrant bonds, and reverse convertibles.
+- That makes statement A the only exam-safe statement: some bond types are hybrid instruments combining debt with equity-linked claims or option rights.
+
+Why the others are wrong:
+
+| Option | Verdict | Reason |
+|---|---|---|
+| B | Wrong | Bonds are a major part of financial markets; the source market table shows bond markets are economically large, not minor. |
+| C | Wrong | Bond cash flows are usually easier to forecast than stock cash flows, except for variable coupons, default risk, or embedded rights. That is why discounted cash-flow pricing is often more direct for plain bonds. |
+| D | Wrong | Creditworthiness matters for sovereign issuers too. Countries can have different default risk, credit spreads, and required yields. |
+
+Interpretation: the introduction question is not a calculation; it checks whether you know the bond-category router before pricing. First classify the instrument, then choose the cash-flow model.
+
+Exam trap: do not say "all bonds are simple debt only." Plain bonds are debt, but some bond types add conversion, warrant, or issuer-choice features.
+
+### Task A.1: Wailua/Bamboo Cars Zero Bond
+
+#### Problem
+
+A firm issues a zero-coupon bond with face value `B_N = EUR 100`, maturity `N = 25`, and effective risk-adjusted interest rate `r = 8%`. The unsolved deck names Wailua AG and the solution deck names Bamboo Cars AG; the numerical task is identical.
+
+#### Part A: Issue Price Today
+
+Model selection: a zero bond has no coupons, so discount the face value once.
+
+```text
+B_0^ZB = B_N / q^N
+q = 1.08
+
+B_0^ZB = 100 / 1.08^25
+1.08^25 = 6.84848
+B_0^ZB = EUR 14.60
+```
+
+Interpretation: the investor pays EUR 14.60 today for a promise of EUR 100 in 25 years. The low price is not a mistake; all return is packed into price appreciation.
+
+Exam trap: do not add coupon payments to a zero-coupon bond.
+
+#### Part B: Market Value After Ten Years If The Rate Drops To 6%
+
+At year 10, only `15` years remain until maturity.
+
+```text
+B_10^ZB(6%) = 100 / 1.06^15
+1.06^15 = 2.39656
+B_10^ZB(6%) = EUR 41.73
+```
+
+Useful comparison if the rate had stayed at 8%:
+
+```text
+B_10^ZB(8%) = 100 / 1.08^15
+1.08^15 = 3.17217
+B_10^ZB(8%) = EUR 31.52
+```
+
+Interpretation: the rate drop raises the bond value because the same future EUR 100 is now discounted less heavily.
+
+Exam trap: after ten years, discount over `15` remaining years, not the original `25`.
+
+#### Part C: Annual Return If The Investor Sells At `k = 10`
+
+The investor paid `B_0 = EUR 14.60` and sells at `B_10 = EUR 41.73`. The holding period is ten years.
+
+```text
+q_HPR = (B_10 / B_0)^(1/10)
+q_HPR = (41.73 / 14.60)^(1/10)
+q_HPR = 1.1107
+
+r_HPR = 1.1107 - 1
+r_HPR = 11.07%
+```
+
+Interpretation: the investor earns more than the original 8% because the market rate fell and created a capital gain at sale.
+
+Exam trap: use a 10th root for a 10-year holding-period return. Do not use the full 25-year maturity.
+
+### Task A.2: Multiple-Choice Zero Bond
+
+#### Part A: Issue Price
+
+Inputs:
+
+```text
+B_N = 100
+r = 6.75% = 0.0675
+N = 20
 q = 1.0675
 ```
 
-Formula, substitution, and arithmetic:
-
 ```text
-B_0 = B_N / q^N
-B_0 = 100 / 1.0675^20
+B_0^ZB = 100 / 1.0675^20
 1.0675^20 = 3.69282
-B_0 = 100 / 3.69282
-B_0 = 27.08
+B_0^ZB = EUR 27.08
 ```
 
-Interpretation: the investor pays 27.08 today for the promise of 100 in 20 years. The return is created by price appreciation toward face value, not by coupon income.
+Answer: `B = EUR 27.08`.
 
-Analogy: a zero bond is a locked box sold at a discount. You buy the box today for 27.08 and it opens at maturity with 100 inside.
+Interpretation: a long-maturity zero bond trades far below face value because the only cash flow is at maturity.
 
-Exam trap: do not add coupons to a zero-coupon bond. Its only cash flow is the maturity payment.
+#### Part B: Interest Rate Drops After Eight Years
 
-### Calculation 2: Coupon Bond Price
-
-Decision problem and method choice:
-
-- A coupon bond is a package of coupon cash flows plus final principal repayment.
-- Value each promised cash flow at the same date and add the PVs.
-
-Known inputs:
+After eight years, the remaining maturity is `12` years. The new market rate is `6.25%`.
 
 ```text
-Face value = 100
-Annual coupon = 4
-Maturity = 3 years
-Discount rate = 5%
-q = 1.05
+B_8^ZB = 100 / 1.0625^12
+1.0625^12 = 2.06989
+B_8^ZB = EUR 48.31
 ```
 
-Expanded cash-flow route:
+Annual return if sold at year 8:
 
 ```text
-B_0 = 4/1.05 + 4/1.05^2 + 104/1.05^3
+q_HPR = (48.31 / 27.08)^(1/8)
+q_HPR = 1.0750
 
-PV coupon year 1 = 4 / 1.05 = 3.81
-PV coupon year 2 = 4 / 1.1025 = 3.63
-PV coupon plus face year 3 = 104 / 1.157625 = 89.84
-
-B_0 = 3.81 + 3.63 + 89.84
-B_0 = 97.28
+r_HPR = 7.50%
 ```
 
-Interpretation: because the 4% coupon is below the 5% required return, the bond trades below face value.
+Interpretation: statement A is correct: the investor who bought at issuance and sells after eight years earns about `7.50%` p.a. Statement B is not correct without limitation because a zero-bond investor who holds to maturity still receives the fixed EUR 100 maturity cash flow; the interim price change matters only if the bond is sold before maturity.
 
-Analogy: the bond is two products stapled together: a small coupon annuity and a big maturity repayment. Price each piece, then add them.
+Exam trap: distinguish realized return from selling early versus yield locked in by buying and holding the zero bond to maturity.
 
-Exam trap: the final cash flow is not just the coupon. In the final year the investor receives coupon plus face value.
+### Task A.3.1: Three-Year Par Coupon Bond
 
-### Calculation 3: Accrued Interest And Settlement Price
+#### Problem
 
-Decision problem and method choice:
+A coupon bond has a 10% coupon, face value `100`, maturity `3` years, and market interest rate `10%`.
 
-- A bond sold between coupon dates gives the seller compensation for coupon interest already earned.
-- Add accrued interest to the clean market price to get the simplified settlement price.
-
-Known inputs:
+Model selection: coupon bond = PV of coupons plus PV of face value.
 
 ```text
-Annual coupon C = 6
-Days since last coupon = 120
-Day-count convention = 360-day year
-Clean market price = 102
+C = 10
+B_N = 100
+r = 10%
+N = 3
+q = 1.10
+
+B_0 = 10/1.10 + 10/1.10^2 + 110/1.10^3
+B_0 = 9.09 + 8.26 + 82.64
+B_0 = EUR 100.00
 ```
 
-Formula and arithmetic:
+Interpretation: coupon rate equals market yield, so the bond trades at par.
+
+Exam trap: the last cash flow is `C + B_N = 110`, not just `100` and not just `10`.
+
+### Task A.3.2: BMW Coupon Bond Price
+
+#### Problem
+
+The BMW AG bond pays an annual coupon of `6%`, has face value `100`, is repaid at par after ten years, and the effective annual market interest rate is `6.5%`.
 
 ```text
-Accrued interest = (120/360) x 6
-Accrued interest = 0.3333 x 6
-Accrued interest = 2.00
-
-Settlement price = clean price + accrued interest
-Settlement price = 102 + 2
-Settlement price = 104
+C = 6
+B_N = 100
+r = 6.5% = 0.065
+N = 10
+q = 1.065
 ```
 
-Interpretation: the quoted bond value is 102, but the buyer pays 104 because the seller has earned part of the next coupon.
-
-Analogy: buying a bond between coupon dates is like taking over a rental apartment halfway through the month. The old tenant is compensated for the rent period already earned.
-
-Exam trap: do not confuse clean market price with the cash paid at settlement.
-
-### Calculation 4: Duration Price-Sensitivity Approximation
-
-Decision problem and method choice:
-
-- If the question asks for the approximate price effect of a small yield change, use modified duration.
-
-Known inputs:
+Use the coupon-bond annuity form:
 
 ```text
-Bond price B_0 = 100
-Macaulay duration D = 4.20
-Yield r = 5%
-Yield change Delta r = +1 percentage point = +0.01
+B_0 = C x [1 - 1/q^N]/r + B_N/q^N
+B_0 = 6 x [1 - 1/1.065^10]/0.065 + 100/1.065^10
+B_0 = EUR 96.41
 ```
 
-Formula and arithmetic:
+Interpretation: the bond trades at a discount because its 6% coupon is below the required market yield of 6.5%.
+
+Rate variation from the official solution:
 
 ```text
-D_mod = D / (1+r)
-D_mod = 4.20 / 1.05
-D_mod = 4.00
-
-Delta B_0 / B_0 approximately = -D_mod x Delta r
-Delta B_0 / B_0 approximately = -4.00 x 0.01
-Delta B_0 / B_0 approximately = -0.04 = -4.00%
-
-Approximate price change = 100 x (-4.00%) = -4.00
-Approximate new price = 96.00
+If r = 5.5%, B_0 = EUR 103.77 -> premium
+If r = 6.0%, B_0 = EUR 100.00 -> par
+If r = 6.5%, B_0 = EUR 96.41 -> discount
 ```
 
-Interpretation: a one percentage point yield increase reduces the bond price by approximately 4%.
+Exam trap: do not use the coupon rate as the discount rate unless the problem states that the market-required rate equals the coupon rate.
 
-Analogy: duration is the bond's interest-rate lever arm. Longer duration gives the rate change more leverage over price.
+### Task A.4: Twenty-Year Coupon Bond
 
-Exam trap: the sign is negative. Yield up means price down for fixed promised cash flows.
+#### Problem
+
+A bond has a coupon of `6%`, time to maturity `20` years, and is repaid at face value. The effective annual market interest rate is `6.2%`.
+
+```text
+C = 6
+B_N = 100
+r = 6.2% = 0.062
+N = 20
+q = 1.062
+```
+
+```text
+B_0 = 6 x [1 - 1/1.062^20]/0.062 + 100/1.062^20
+B_0 = EUR 97.74
+```
+
+Interpretation: the price is slightly below par because the coupon is slightly below the market-required return.
+
+Exam trap: small yield differences matter more over long maturities because many cash flows are discounted.
+
+### Task A.5: Wailua Coupon Bond With Later Rate Increase
+
+#### Problem
+
+The effective annual interest rate is `4%`. Wailua AG issues a 10-year coupon bond with face value `100` and coupon `6%`. After five years, the market interest rate rises to `5%`.
+
+#### Part A: Issue Price
+
+```text
+C = 6
+B_N = 100
+r = 4% = 0.04
+N = 10
+q = 1.04
+
+B_0 = 6 x [1 - 1/1.04^10]/0.04 + 100/1.04^10
+B_0 = EUR 116.22
+```
+
+Interpretation: the bond is issued above par because a 6% coupon is attractive when the market-required return is only 4%.
+
+#### Part B: Market Value After Five Years
+
+At year 5, five years remain. The new market interest rate is 5%.
+
+```text
+C = 6
+B_N = 100
+r_new = 5% = 0.05
+N_remaining = 5
+q_new = 1.05
+
+B_5 = 6 x [1 - 1/1.05^5]/0.05 + 100/1.05^5
+B_5 = EUR 104.33
+```
+
+Interpretation: the bond is still above par because coupon `6%` is still above the new 5% market rate, but the value has fallen from `116.22` because market rates increased from 4% to 5%.
+
+#### Part C: Average Annual Return If Sold After Five Years
+
+The official solution assumes coupon reinvestment at the initial market rate of 4% until the sale date.
+
+Future value of coupons at year 5:
+
+```text
+FV_5(coupons) = 6 x 1.04^4 + 6 x 1.04^3 + 6 x 1.04^2 + 6 x 1.04 + 6
+FV_5(coupons) = 7.02 + 6.75 + 6.49 + 6.24 + 6.00
+FV_5(coupons) = EUR 32.50
+```
+
+Terminal wealth at sale:
+
+```text
+terminal wealth = B_5 + FV_5(coupons)
+terminal wealth = 104.33 + 32.50
+terminal wealth = EUR 136.83
+```
+
+Average annual return:
+
+```text
+q_HPR = (136.83 / 116.22)^(1/5)
+q_HPR = 1.0332
+
+r_HPR = 3.32%
+```
+
+Interpretation: the investor earns less than the initial 4% yield because the market-rate increase reduces the sale price.
+
+Exam trap: for sell-before-maturity return, include both the sale price and the reinvested coupon payments.
+
+### Task A.6 Source Gap: Accrued Interest Concept
+
+The available official Exercise 7 decks do not contain a separate numeric `A.6` question. Between A.5 and A.7, the source presents the accrued-interest concept.
+
+Exam-use formula:
+
+```text
+I_0 = (t_1 - t_0) x (1/360) x C
+settlement price = clean market price + accrued interest
+```
+
+If a question gives a clean price, annual coupon, and days since the last coupon, calculate:
+
+```text
+accrued interest = days/360 x annual coupon
+cash paid by buyer = clean price + accrued interest
+```
+
+Interpretation: the seller earned part of the next coupon before the sale, so the buyer compensates the seller.
+
+Exam trap: the exchange-listed price is normally the clean price; the simplified settlement price adds accrued interest.
+
+### Task A.7: Allianz Coupon Bond With Redemption Premium
+
+#### Problem
+
+Allianz AG has a corporate bond with nominal value `100`, maturity `4` years, annual coupon `8%`, redemption amount `101`, and market interest rate `8.5%`.
+
+#### Part A: Market Value
+
+```text
+C = 8
+B_N = 101
+r = 8.5% = 0.085
+N = 4
+q = 1.085
+
+B_0 = 8 x [1 - 1/1.085^4]/0.085 + 101/1.085^4
+B_0 = EUR 99.08
+```
+
+Interpretation: the bond trades slightly below 100. The coupon rate is below the required 8.5% return, while the EUR 1 redemption premium partly offsets that discount.
+
+#### Part B: Future Wealth With Coupon Reinvestment
+
+The investor buys today, holds until maturity, and reinvests all coupons at the market rate.
+
+```text
+FV = B_N + sum from k=1 to N of C x (1+r)^(N-k)
+FV = 101 + 8 x 1.085^3 + 8 x 1.085^2 + 8 x 1.085 + 8
+FV = 101 + 10.22 + 9.42 + 8.68 + 8.00
+FV = EUR 137.32
+```
+
+Check the yield:
+
+```text
+q_YTM = (137.32 / 99.08)^(1/4)
+q_YTM = 1.085
+
+YTM = 8.50%
+```
+
+Interpretation: if the bond is priced at the market-required return and coupons are reinvested at that same return, the annualized return equals the market yield.
+
+Exam trap: future wealth is not the same as profit. Compare terminal wealth with the purchase price over the holding period.
+
+### Task A.8: Fiat Coupon Bond And Zero-Bond Variant
+
+#### Problem
+
+Fiat AG issues a 10-year bond with coupon `5%`. The interest rate for long-term government bonds is `5.75%`, and comparable A-rated securities trade with a risk premium of `50` basis points.
+
+First determine the risk-adjusted rate:
+
+```text
+r = 5.75% + 0.50%
+r = 6.25% = 0.0625
+q = 1.0625
+```
+
+#### Coupon-Bond Issue Price
+
+```text
+C = 5
+B_N = 100
+N = 10
+
+B_0 = 5 x [1 - 1/1.0625^10]/0.0625 + 100/1.0625^10
+B_0 = EUR 90.91
+```
+
+Interpretation: the bond trades below par because the 5% coupon is below the risk-adjusted market return of 6.25%.
+
+#### Zero-Bond Variant
+
+If the bond pays no coupons, only the face value is paid at maturity.
+
+```text
+B_0^ZB = 100 / 1.0625^10
+B_0^ZB = EUR 54.54
+```
+
+Answer: the option pair in the source is `B_0 = EUR 90.91` and `B_0^ZB = EUR 54.54`.
+
+Exam traps:
+
+- `50` basis points means `0.50%`, not `50%`.
+- Add the risk premium to the government yield before discounting.
+- For the zero-bond variant, remove all coupon cash flows.
 
 ## Exam Decision Tree
 

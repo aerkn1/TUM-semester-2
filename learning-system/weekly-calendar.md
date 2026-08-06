@@ -1,19 +1,26 @@
 # Weekly Study Calendar
 
-Generated: 2026-07-22
-Coverage window: 2026-07-22 to 2026-07-28
+Generated: 2026-08-01
+Coverage window: 2026-08-01 to 2026-08-07
 Source of truth: `learning-system/review-dashboard.md`
 Schedule semantics: chained model per `Spaced Repetition Schedule Semantics` in root `AGENTS.md`. `First Pass` = first active-recall completion date. Each `D+n` chains off the prior actual completion date (`D+1 = First Pass + 1`, `D+3 = D+1 completion + 3`, ...). Items with no `First Pass` are pending-first-pass candidates, not overdue repairs.
 
 ## Priority Warning
 
-Today is 2026-07-22. Marketing is the immediate exam-day priority because the Marketing exam is today. Use the updated topic cheatsheets only for compact final repair before the exam; after the exam, shift attention to Business Law unless the user explicitly requests Marketing post-exam cleanup.
+Today is 2026-08-01. Finance and Investment Management is the next live exam priority because the Finance exam is on 2026-08-03. Use compact formula-router repair first, then timed mock diagnostics; do not advance `First Pass` unless a closed-book coached recall or timed diagnostic is actually completed and recorded.
 
-The dashboard still contains multiple missed/unrecorded repair placements from earlier July. Treat them as unfinished unless the user reports they were completed outside the saved record, but do not let lower-priority backlog displace the Marketing final diagnostic today.
+The dashboard still contains multiple missed/unrecorded repair placements from earlier July. Treat them as unfinished unless the user reports they were completed outside the saved record, but do not let post-exam Business Law/Marketing backlog displace Finance preparation.
 
 Dashboard-first refresh completed:
 
 ```text
+2026-08-01 Finance Bonds I worked-solution repair -> full source solution added for the introduction concept question plus Exercise 6 A.1-A.2 and Exercise 7 A.3-A.8, no spaced checkpoint advanced
+2026-07-31 Finance Interest/Annuities worked-solution repair -> full source calculations added for Interest A.1-A.18 and Annuities A.1-A.16, no spaced checkpoint advanced
+2026-07-30 Finance IFM exam papers -> detailed all-question solution bank added to ifm-exam-papers.md, CONTEXT formula terms refreshed, no spaced checkpoint advanced
+2026-07-29 Finance IFM exam papers -> copied from Downloads to raw, three-paper diagnostic note and CONTEXT generated, Finance logistics/graph/dashboard updated, no spaced checkpoint advanced
+2026-07-27 Business Law Company Law shortcut -> last-minute legal-form, representation, liability, governance, and cross-topic correlation tutorial added, no spaced checkpoint advanced
+2026-07-27 Business Law Trade Law shortcut -> last-minute HGB merchant-overlay case-router tutorial and cross-topic correlation map added, no spaced checkpoint advanced
+2026-07-25 Business Law Transfer of Property shortcut -> last-minute case-router tutorial and cross-topic correlation map added, no spaced checkpoint advanced
 2026-07-22 Business Law mock/example answer-schema refinement -> Example Exam I, Example Exam II, WS24/25, and SS22 answers revised into legal-opinion/theory schemas with nuance flags, no spaced checkpoint advanced
 2026-07-22 Marketing all-topic cheatsheet upgrade -> Chapter 01-06 plus B2B cheatsheets updated from mock/example exam trap patterns, no spaced checkpoint advanced
 2026-07-22 Business Law exam strategy/schema pack -> six-day plan, legal-opinion schema, theory schema, lifecycle router, topic schemas, statutory index, and open-book paper setup generated; Business Law graph/dashboard updated, no spaced checkpoint advanced
@@ -33,10 +40,10 @@ Dashboard-first refresh completed:
 | Priority | Course | Exam Date | Days From Today | Current Allocation Rule |
 |---:|---|---:|---:|---|
 | 0 | SCM | 2026-07-20 | past | Post-exam only unless the user asks. |
-| 1 | Marketing | 2026-07-22 | today | Before the exam, use only compact cheatsheet/mistake repair; after the exam, switch to Business Law. |
-| 2 | Business Law | 2026-07-28 | 6 | Resume legal repair block after Marketing exam unless doing only a short decompression review. |
-| 3 | Finance and Investment Management | 2026-08-03 | 12 | Keep formula repairs behind Marketing and Business Law this week. |
-| 4 | Organization | 2026-08-06 | 15 | Preserve prerequisite order, but keep behind nearer exams. |
+| 1 | Marketing | 2026-07-22 | past | Post-exam cleanup only unless the user asks. |
+| 2 | Business Law | 2026-07-28 | past | Post-exam cleanup only unless the user asks. |
+| 3 | Finance and Investment Management | 2026-08-03 | 2 | Active exam priority: formula-router repair, official mock, then IFM exam-paper diagnostics. |
+| 4 | Organization | 2026-08-06 | 5 | Preserve prerequisite order, but keep intensive expansion behind Finance until 2026-08-03. |
 
 German A1.1 has no exam date recorded. Keep it as optional maintenance.
 
@@ -44,32 +51,46 @@ German A1.1 has no exam date recorded. Keep it as optional maintenance.
 
 | Order | Course | Item | Type | Target | Notes |
 |---:|---|---|---|---|---|
-| 1 | Marketing | Updated topic cheatsheets | Exam-day final repair | 45-60 min before exam | Read the new `Mock And Example Exam Upgrade` section in each Chapter 01-06 plus B2B cheatsheet. |
-| 2 | Marketing | Pricing / Promotion / Place trap sprint | Targeted repair | 20-30 min before exam | Recompute price-cut, break-even, CMR, expected-profit, bundling, CPT/GRP, push/pull, PKM, and channel-conflict traps. |
-| 3 | Marketing | Mock misses only | Optional final diagnostic repair | 20-30 min before exam | Do not run a full new mock unless there is enough time; repair missed options using the option-level rationales. |
-| 4 | Business Law | Exam strategy pack + Contract/SBT/Agency repair block | After Marketing exam | 45-60 min | Use the new schema pack first; then write one mini legal opinion from the older legal-router repair block. |
-| 5 | Finance/German/Organization | Maintenance only | Optional | 15-25 min | Use only if tired after the exam and not ready for Business Law. |
+| 1 | Finance | Interest + Financial Analysis repair | Carried-forward repair | 35-45 min | Restore rate-convention and ratio routers: growth factor, nominal/effective/continuous, book-vs-market, DuPont, P/E/P/B; use the refreshed Interest worked solutions only after attempting the A-tasks. |
+| 2 | Finance | Investment Analysis + Capital Budgeting bridge | Carried-forward repair | 35-45 min | NPV master rule, IRR pitfalls, incremental EBIT/FCF, sunk/opportunity/cannibalization, sensitivity/scenario/break-even. |
+| 3 | Finance | Cost of Capital + Bonds bridge | Formula-router repair | 30-40 min | Use bond cash flows/YTM as `r_D`, CAPM as `r_E`, then WACC as project hurdle. |
+| 4 | Finance | IFM Exam Papers Paper B or Paper C | Timed diagnostic | 70-80 min | Attempt closed-book first; use `ifm-exam-papers.md` answer matrix and detailed solution bank only after scoring. |
+| 5 | Finance | Error repair from diagnostic | Targeted correction | 25-35 min | Write one route label and one corrective sentence for every miss; do not advance checkpoints unless the timed attempt is recorded. |
+| 6 | Organization/German | Maintenance only | Optional | 15-25 min | Use only after the Finance block or when too fatigued for calculations. |
 
 ## Due And Rescheduled Queue
 
 | Date | Course | Item | Checkpoint | Current Handling |
 |---|---|---|---|---|
 | 2026-07-22 | Marketing | Chapter 01 Basic Concepts | Overdue `D+1` repair from 2026-07-07 placement | Use only as compact exam-day repair through the updated cheatsheets; no new checkpoint unless an actual coached recall closes. |
-| 2026-07-22 | Marketing | Chapters 02-06 plus B2B | Pending first pass sequence | Exam day: use updated cheatsheets for final coverage rather than full first-pass depth. |
+| 2026-07-22 | Marketing | Chapters 02-06 plus B2B | Pending first pass sequence | Post-exam cleanup only unless the user wants to record misses; do not retroactively advance first-pass states from cheatsheet reading. |
 | 2026-07-22 | Marketing | Mock Exam Questions / 30-Question Mock / Example Exam 2025 | Exam practice pending | Use missed questions and rationale sections only; full mocks are optional if time remains before the exam. |
-| 2026-07-22 | Business Law | Exam strategy pack plus Contract Law III + SBT + Agency | Custom schema refinement plus carried-forward missed repairs | Use the schema pack for route recall, then resume the older legal-router repair after Marketing exam or as a short evening block. |
+| 2026-07-22 | Business Law | Exam strategy pack plus Contract Law III + SBT + Agency | Custom schema refinement plus carried-forward missed repairs | Post-exam cleanup only unless the user wants to record misses; do not let this displace Finance. |
 | 2026-07-22 | Business Law | Warranty Rights I-II, Transfer, Trade, Company, Example Exams I-II, additional WS24/25/SS22 mock resources | Pending first pass / exam practice | Keep behind older legal repair and doctrine sequence; revised model answers are now available for schema-checking, but they do not create a D+ checkpoint. |
-| 2026-07-22 | Finance | Interest/Financial/Fundamental plus Investment/Capital Budgeting repairs | Carried-forward missed repairs | Resume after Marketing and Business Law priority unless explicitly choosing Finance. |
+| 2026-07-25 | Business Law | Transfer of Property shortcut | No-advancement study aid | Use as a compact route tutorial; it does not close `First Pass` until a closed-book recall session is completed. |
+| 2026-07-27 | Business Law | Trade Law shortcut | No-advancement study aid | Use as a compact HGB overlay tutorial; it does not close `First Pass` until a closed-book recall session is completed. |
+| 2026-07-27 | Business Law | Company Law shortcut | No-advancement study aid | Use as a compact legal-form and liability tutorial; it does not close `First Pass` until a closed-book recall session is completed. |
+| 2026-08-01 | Finance | Interest/Financial/Fundamental plus Investment/Capital Budgeting repairs | Carried-forward missed repairs | Active priority before full mock attempts; repair formula and ratio routers first. |
+| 2026-07-31 | Finance | Interest and Annuities full source worked solutions | Wiki refinement / worked-solution bank | Newly refreshed; use after closed-book setup attempts, not as passive reading. |
+| 2026-08-01 | Finance | Bonds I full source worked solutions | Wiki refinement / worked-solution bank | Newly refreshed with the introduction concept question, Exercise 6 A.1-A.2, and Exercise 7 A.3-A.8; use after closed-book bond setup attempts, not as passive reading. |
+| 2026-08-01 | Finance | Official mock exam plus IFM Exam Papers | Exam practice/reference pending | Use as timed diagnostics after compact formula-router repair; answer routes are inferred/annotated, not official; detailed solutions now support post-attempt repair. |
 | 2026-07-22 | German A1.1 | Lektion 2/3 active recall continuation and Lektion 4 D+1 repair | In-progress plus overdue repair | Optional maintenance only. |
 
 ## Completed Recently
 
 | Date | Course | Item | Type | Result | Next Planned Review |
 |---|---|---|---|---|---|
+| 2026-08-01 | Finance | Bonds I Full Source Worked Solutions | Wiki refinement | Replaced the representative Bonds I worked-example section with full source-backed solution guides for the introduction concept question, Exercise 6 A.1-A.2, and Exercise 7 A.3-A.8; preserved the duplicated A.3 label and missing A.6 source gap; refreshed `CONTEXT.md` with holding-period return, terminal wealth, basis points, reinvestment assumption, and source-label language. | No spaced checkpoint advanced; use after closed-book bond setup attempts. |
+| 2026-07-31 | Finance | Interest And Annuities Full Source Worked Solutions | Wiki refinement | Replaced answer-checkpoint tables with full formula, substitution, arithmetic, interpretation, and trap notes for Interest A.1-A.18 and Annuities A.1-A.16 in the two exercise notes; flagged missing Interest A.8 numbering and Annuities A.2 source-display ambiguity. | No spaced checkpoint advanced; use after closed-book route attempts. |
+| 2026-07-30 | Finance | IFM Exam Papers Solution Bank | Wiki refinement | Added detailed answer routes for each recoverable Paper A/B/C question in `ifm-exam-papers.md`; refreshed `CONTEXT.md` with formula terms such as TERP, interest coverage, annuity-loan balance, duration weighting, DDM terminal value, and peer P/E valuation. | No spaced checkpoint advanced; use the solutions only after a closed-book diagnostic attempt. |
+| 2026-07-29 | Finance | IFM Exam Papers Practice Pack | Material ingestion | Copied `IFM EXAM PAPERS.pdf` into Finance raw; generated `ifm-exam-papers.md` and `CONTEXT.md` with three-paper coverage, annotated/inferred answer matrix, source ambiguity flags, representative worked routes, and graph/dashboard/logistics links. | No spaced checkpoint advanced; use Paper B or Paper C as a timed diagnostic before the 2026-08-03 exam. |
+| 2026-07-27 | Business Law | Company Law Case Router Shortcut | Wiki refinement | Added a last-minute legal-form tutorial and cross-topic map covering GbR, oHG, KG, GmbH & Co. KG, GmbH, UG, AG, directors, shareholders, AG bodies, self-dealing, Prokura links, in-kind contributions, reserve duty, asset-pool liability, and Week 10 property transfer connections. | No spaced checkpoint advanced; Week 12-13 remains first-pass pending. |
+| 2026-07-27 | Business Law | Trade Law Case Router Shortcut | Wiki refinement | Added a last-minute HGB merchant-overlay tutorial and cross-topic map covering merchant gateways, Section 15 register publicity, Prokura, Handlungsvollmacht, shop authority, commercial silence, Section 377 warranty filter, B2B SBT/Incoterms, company-form links, property links, and compact drill cases. | No spaced checkpoint advanced; Week 11 remains first-pass pending. |
+| 2026-07-25 | Business Law | Transfer of Property Case Router Shortcut | Wiki refinement | Added a last-minute route tutorial and cross-topic map covering object classification, Section 929 sequence, delivery replacements, good-faith acquisition, Section 935 block, land, claims, retention of title, abstraction defects, replacement cure, and links to contract, agency, SBT, warranty, trade, company, restitution, and security logic. | No spaced checkpoint advanced; Week 10 remains first-pass pending. |
 | 2026-07-22 | Marketing | All Topic Exam Cheatsheets | Wiki refinement | Updated Chapter 01-06 and Modern B2B cheatsheets with mock/example-exam inspired statement-count rules, option-elimination traps, calculation routes, and MCQ repair cues. | No spaced checkpoint advanced; same-day exam repair material only. |
 | 2026-07-22 | Business Law | Mock And Example Exam Answer Schemas | Wiki refinement | Revised Example Exam I, Example Exam II, WS24/25 mock, and SS22 historical exam answers into the expected legal-opinion and theory schemas; added nuance flags for Prokura, rescission, damages, SBT validity, consumer/trader splits, Section 377 HGB, minors, and historical coverage gaps. | No spaced checkpoint advanced; use as schema-check material before timed mock attempts. |
 | 2026-07-22 | Business Law | Exam Strategy And Answer Schemas | Custom exam-method artifact | Generated the six-day plan, legal-opinion schema, short-answer/theory schema, lifecycle router, core topic schemas, statutory quick index, and open-book paper-material setup; updated Business Law graph and dashboard log. | No spaced checkpoint advanced; use as the daily route-recall and paper-navigation layer before full mock attempts. |
-| 2026-07-22 | Business Law | Additional Mock Exams And External Cheat Sheet | Material ingestion | Copied WS24/25 mock, SS22 historical exam, and external cheat sheet into Business Law raw; generated combined practice/reference note and `CONTEXT.md`; updated Business Law logistics and course graph. | No spaced checkpoint advanced; use after older legal repairs and current doctrine first passes, or as a timed coverage-gap scan before the 2026-07-28 exam. |
+| 2026-07-22 | Business Law | Additional Mock Exams And External Cheat Sheet | Material ingestion | Copied WS24/25 mock, SS22 historical exam, and external cheat sheet into Business Law raw; generated combined practice/reference note and `CONTEXT.md`; updated Business Law logistics and course graph. | No spaced checkpoint advanced; post-exam cleanup only unless the user wants to record misses. |
 | 2026-07-21 | Marketing | Mock Exam Rationale Expansion | Wiki refinement | Expanded the uploaded 9-question mock, the generated 30-question mock answer key, and the 2025 example exam companion with option-level explanations. | No spaced checkpoint advanced; use after closed-book attempts for fast correction. |
 | 2026-07-21 | Marketing | Mock Exam Questions | Material ingestion | Copied `Mock exam questions.pdf` into Marketing raw; generated answer-guide note, `CONTEXT.md`, and Marketing graph entries for the 9-question MCQ diagnostic. | No spaced checkpoint advanced; use as final diagnostic before 2026-07-22 exam. |
 | 2026-07-21 | Marketing | 30-Question All-Chapter Mock | Exam-practice generation | Generated a question-only mock, answer key, and `CONTEXT.md` with 5 MCQs per Chapter 01-06; answer key now includes option-level rationales. | No spaced checkpoint advanced; use for broad core-chapter scoring before the exam. |
@@ -91,32 +112,33 @@ Topics with a wiki note but no completed first active-recall session. They are c
 
 | Candidate Priority | Course | Item | Earliest Sensible Slot | Prerequisite / Warning |
 |---:|---|---|---|---|
-| 1 | Marketing | Updated Chapter 01-06 + B2B cheatsheets | 2026-07-22 | Exam-day compact repair only; read the new mock/example-exam upgrade sections before opening more source notes. |
-| 2 | Marketing | Mock Exam Questions | 2026-07-22 | Use missed options only unless time permits a fast 12-minute rerun; answer routes are inferred because no official key was included. |
-| 3 | Marketing | 30-Question All-Chapter Mock | 2026-07-22 | Use for targeted chapter scoring if time remains; generated answer key has option-level rationales. |
-| 4 | Marketing | Example Exam Marketing 2025 | 2026-07-22 | Use only selected blocks if time remains, especially pricing Q11/Q16/Q22 and innovation Q29-Q35; includes innovation-management bridge. |
-| 5 | Marketing | Chapters 02-06 plus B2B first-pass sequence | after exam or post-exam cleanup | Do not advance `First Pass` from same-day cheatsheet reading; a real coached recall is required. |
-| 6 | Business Law | Warranty Rights I-II, Transfer, Trade, Company, Example Exams I-II | 2026-07-23 onward | Resume after Marketing exam and older legal repair block. |
-| 7 | Business Law | Exam strategy and answer schemas | 2026-07-22 onward | Use daily as the route-recall and writing layer; it does not replace doctrine first passes. |
-| 8 | Business Law | Additional WS24/25/SS22 mock resources and external cheat sheet | 2026-07-24 onward | Use after core doctrine/official example-exam routing, or as a short coverage-gap scan; schema-tailored model answers are now available for correction after closed-book issue spotting. |
-| 9 | Finance | Annuities -> Redemptions -> Capital Budgeting -> Bonds/Stocks/Options/Mock | 2026-07-29 onward | Resume after Business Law priority unless choosing Finance earlier. |
-| 10 | Organization | Session 01 -> 12 sequence | After nearer July exams | Keep prerequisite order. |
+| 1 | Finance | Interest/Financial/Fundamental repair | 2026-08-01 | Oldest Finance repair and prerequisite for fast exam-paper calculation confidence. |
+| 2 | Finance | Investment Analysis -> Capital Budgeting -> Cost of Capital bridge | 2026-08-01 | Needed before WACC, capital structure, and project-value MCQs are reliable. |
+| 3 | Finance | Annuities -> Redemptions -> Bonds I/II | 2026-08-01 | Time-value pipeline before duration, YTM, spot/forward, and loan-balance questions; use the refreshed Annuities, Redemptions, and Bonds I worked solutions after attempting setup. |
+| 4 | Finance | Stocks -> Options | 2026-08-01 | Independent exercise modules; use compactly after the bond/time-value route is stable. |
+| 5 | Finance | Official Mock + IFM Exam Papers | 2026-08-01 onward | Use after formula-router warmup or earlier as a diagnostic; answer routes and detailed solutions are inferred/annotated and do not close `First Pass` by reading. |
+| 6 | Organization | Session 01 -> 12 sequence | After Finance exam or short maintenance only before 2026-08-03 | Keep prerequisite order. |
+| 7 | Business Law / Marketing | Post-exam cleanup | Optional | Only if the user wants to record missed exam-relevant weak spots. |
 
 ## Recommended Next Starts
 
 | Priority | Course | Subject | Why |
 |---:|---|---|---|
-| 1 | Marketing | Updated topic cheatsheet sprint | Exam-day use only: fastest way to repair the exact MCQ traps from the mocks without rereading full notes. |
-| 2 | Marketing | Mock misses and calculation reruns | Best final check if there is still time before the exam. |
-| 3 | Business Law | Exam strategy pack + carried-forward Contract/SBT/Agency repair block | Next exam after Marketing; schema first, then route repair to unlock Warranty/Trade/mock routing. |
-| 4 | Business Law | Warranty Rights I-II gateway | Next doctrine block after older legal repairs. |
-| 5 | Business Law | Additional mock coverage diagnostic | Use after the core legal repair/doctrine order to check WS24/25 wine-label routing and SS22 historical gaps. |
-| 6 | Finance | Interest/Financial/Fundamental repair | Restores formula and ratio routers after July exams. |
+| 1 | Finance | Interest/Financial/Fundamental repair | Restores formula and ratio routers before timed papers. |
+| 2 | Finance | Investment Analysis + Capital Budgeting bridge | NPV/IRR and incremental FCF are repeated across the new IFM papers. |
+| 3 | Finance | Cost of Capital + Bonds bridge | The mock papers repeatedly combine bond market values, CAPM, WACC, and capital budgeting. |
+| 4 | Finance | IFM Exam Papers Paper B timed diagnostic | Cleanest new diagnostic block; use the answer matrix and detailed solutions only after scoring. |
+| 5 | Finance | Paper C targeted diagnostic | Second broad diagnostic; flag Q42 source inconsistency instead of forcing an answer. |
+| 6 | Organization | Session 01 foundation | Start only as light maintenance before Finance, or after the 2026-08-03 exam. |
+| 7 | Business Law / Marketing | Post-exam cleanup | Optional only if user wants to record missed exam-relevant weak spots. |
 
 ## Weekly Mixed Practice Suggestions
 
 | Block | Courses | Task | Hint |
 |---|---|---|---|
+| F1 | Finance IFM Exam Papers | Attempt Paper B under 70-80 minutes, then score with the annotated/inferred answer matrix and detailed solution bank; repair each miss with a one-line route rule. | Route label before formula; full precision before option matching. |
+| F2 | Finance Official Mock + IFM Exam Papers | Compare one official mock section with the matching Paper C section: Financial Analysis, Investment Analysis, Cost of Capital, Bonds, or Stocks. | Same formula family, different numbers; this tests transfer rather than memorization. |
+| F3 | Finance Bonds + Cost of Capital + Capital Budgeting | Solve or observe bond YTM, use it as `r_D`, compute WACC, then calculate NPV. | Bond yield supplies debt input; WACC is the hurdle; NPV is surplus. |
 | A | Marketing Cheatsheets + Mock Exam | Read the new mock/example-exam upgrade sections, then answer only previously missed 9-question mock items. | Recall != relationship; psychographic != demographic; delighter can become basic. |
 | B | Marketing 30-Question Mock | Score or revisit six blocks of five questions and repair the weakest two chapters. | Treat below 4/5 in a chapter as a repair signal; use the A/B/C/D rationales after scoring. |
 | C | Marketing Example Exam 2025 | Do pricing Q11/Q16/Q22 and innovation Q29-Q35, then repair the weakest route. | Contribution, expected value, bundling, tacit knowledge, agile, Delphi; use the expanded rationales and cheatsheets for missed options. |
@@ -127,7 +149,6 @@ Topics with a wiki note but no completed first active-recall session. They are c
 | H | Business Law Answer Schema Sprint | Write one issue sentence, one SBT paragraph, one warranty damages paragraph, and one theory answer from the new schema pack. | Issue sentence -> requirements -> application -> consequence; theory = definition -> anchor -> example -> trap. |
 | I | Business Law Mock Answer Upgrade Drill | Cover the revised model answers and reproduce headings, statutory anchors, and final conclusions for one Example Exam I, one Example Exam II, and one WS24/25 route. | Format first; then compare nuance: Prokura internal limit, no grace period for consequential damage, signed SBT still needs validity control. |
 | J | Business Law Additional Mock Exams | Run WS24/25 wine-label issue spotting, then one SS22 historical gap mini-drill. | Consumer/trader before withdrawal; merchant status before Section 377; historical gap topics stay behind current doctrine. |
-| K | Finance Bonds + Cost of Capital + Capital Budgeting | Solve or observe bond YTM, use it as `r_D`, compute WACC, then calculate NPV. | Bond yield supplies debt input; WACC is the hurdle; NPV is surplus. |
 | L | Organization Trends + Marketing B2B Guest Lecture | Use the four-problem canvas on a partner ecosystem. | Networks organize value; B2B channels show the market-facing version. |
 | M | German A1.1 Lektion 4 + Lektion 5 | Buy party food, then schedule the meeting. | Accusative objects first, then time/modal language. |
 

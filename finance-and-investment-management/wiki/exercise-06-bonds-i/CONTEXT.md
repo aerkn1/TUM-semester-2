@@ -52,6 +52,11 @@ This file is a standalone terminology and formula companion for bond valuation, 
 | **Premium Bond** | Bond trading above face value, usually when coupon rate is above market yield. | overpriced bond always |
 | **Duration** | Weighted average timing of bond cash flows and a rate-sensitivity measure. | maturity |
 | **Modified Duration** | Duration adjusted to approximate percentage price change for a yield change. | coupon |
+| **Basis Point** | One hundredth of one percentage point; `50` basis points means `0.50%`. | 50 percent |
+| **Holding-Period Return** | Annualized return earned over the investor's actual holding window, based on initial price, coupons received or reinvested, and sale price or final repayment. | coupon rate, YTM automatically |
+| **Terminal Wealth** | Cash value at the end of the holding period, including sale proceeds or redemption plus accumulated coupon payments where the exercise asks for reinvestment. | profit, price today |
+| **Reinvestment Assumption** | Rule for growing coupon payments to the evaluation date before calculating terminal wealth or YTM. | ignore coupons |
+| **Source-Labeled Exercise Gap** | A missing or duplicated exercise label in the official source deck; preserve the source issue instead of inventing a question. | solved hidden exercise |
 | **Return Series** | Ordered returns over repeated periods, such as the monthly Daimler returns in the Excel video resource; always state the period unit before calculating or interpreting statistics. | price series automatically |
 
 ## Core Bond Formulas
@@ -65,6 +70,7 @@ This file is a standalone terminology and formula companion for bond valuation, 
 | `I_0 = days/360 x C` | Simplified accrued interest | Use when the bond is sold between coupon dates. |
 | `Settlement price = clean price + accrued interest` | Simplified cash paid by buyer | Distinguish quoted price from final payment. |
 | `Delta B_0 / B_0 approx -D_mod x Delta r` | Modified-duration approximation | Estimate small yield-change price effect. |
+| `r_HPR = (terminal wealth / initial price)^(1/holding years) - 1` | Holding-period annual return | Use when an investor sells before maturity or when coupons are accumulated to a sale date. |
 
 ## Worked Calculation Language
 
@@ -105,6 +111,18 @@ PV of face value = 1,000 / (1+r)^N
 
 Interpretation: `1,000` is the contractual maturity repayment. `1,000 / (1+r)^N` is today's value of that repayment and belongs in the bond price calculation. Trap: calling the discounted PV amount the maturity repayment.
 
+Holding-period anchor:
+
+```text
+Initial price = EUR 116.22
+Sale price after 5 years = EUR 104.33
+Future value of coupons at sale date = EUR 32.50
+Terminal wealth = 104.33 + 32.50 = EUR 136.83
+r_HPR = (136.83 / 116.22)^(1/5) - 1 = 3.32%
+```
+
+Interpretation: when a coupon bond is sold before maturity, the investor's return depends on both coupon accumulation and the sale price. Trap: using only the sale price and forgetting coupons, or using only coupon rate as the return.
+
 ## Relationships
 
 - **Bond Price** equals the **Present Value** of promised bond cash flows.
@@ -115,6 +133,8 @@ Interpretation: `1,000` is the contractual maturity repayment. `1,000 / (1+r)^N`
 - **Debt Cost Of Capital** enters WACC after tax; it is not the whole project discount rate unless the project is pure debt-like cash flow and the task explicitly says so.
 - **Clean Price** differs from **Settlement Price** when **Accrued Interest** is owed.
 - **Discount Bond** and **Premium Bond** move toward **Face Value** as maturity approaches, assuming repayment at par.
+- **Terminal Wealth** combines sale or redemption proceeds with accumulated coupons before **Holding-Period Return** is annualized.
+- **Basis Point** converts into the market-required yield before bond cash flows are discounted.
 - Higher market yield lowers **Bond Price**.
 - Higher **Duration** means greater sensitivity to market-yield changes.
 - A **Return Series** belongs to performance/statistical analysis; do not mix it with promised bond cash flows unless the exercise explicitly asks for realized return data.
@@ -170,6 +190,7 @@ flowchart TD
 | "Debt cost" | Say market-required `r_D` from YTM/comparable debt yield, not coupon rate automatically. |
 | "Value added" | For a bond investor, use intrinsic value minus market price; for a project, use PV of operating FCF minus investment. |
 | "Return data" | Say return series and period unit, such as monthly returns, before computing any statistic. |
+| "A.6 in Exercise 7" | The available official decks contain accrued-interest concept slides between A.5 and A.7 but no separate numeric A.6; preserve this as a source gap. |
 
 ## Exam Trap Corrections
 
@@ -184,6 +205,8 @@ flowchart TD
 | Confusing clean and settlement price. | Add accrued interest when the bond is sold between coupon dates. |
 | Thinking all below-par bonds are bad. | Discount can simply mean coupon rate is below current market yield. |
 | Treating maturity as duration. | Maturity is final repayment date; duration is weighted timing/sensitivity. |
+| Treating 50 basis points as 50%. | Convert `50 bps` to `0.50%`, then add it to the base yield. |
+| Calculating sell-before-maturity return from sale price alone. | Add accumulated coupons to sale price first, then annualize terminal wealth against the initial price. |
 
 ## Cheat-Sheet Language
 
@@ -194,6 +217,7 @@ Face value is repaid at maturity; PV of face value is today's discounted value.
 Final-year coupon-bond CF = coupon + face value.
 For market quotes: clean price + accrued interest = settlement price.
 For yield changes: market yield up means bond price down.
+For holding-period return: terminal wealth = sale price or redemption + accumulated coupons.
 For Cost of Capital: comparable bond yield can estimate r_D; WACC then tests project value added through NPV.
 For Excel return resources: first identify the return period, then compute the requested statistic; do not treat historical monthly returns as promised coupon cash flows.
 ```

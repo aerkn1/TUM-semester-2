@@ -6,6 +6,7 @@ Source files processed:
 - `finance-and-investment-management/raw/Formulary.pdf`
 - `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260604/Investment and  950881761 (S26)_2026064_1514.zip`
 - `finance-and-investment-management/raw/moodle-export-investment-and-financial-management-950881761-s26-20260709/`
+- `finance-and-investment-management/raw/external-mock-exams/IFM EXAM PAPERS.pdf`
 
 Administrative/logistical content is preserved here and excluded from subject Mermaid diagrams and the course knowledge graph unless it directly affects exam preparation.
 
@@ -116,9 +117,21 @@ The Moodle export `Investment and  950881761 (S26)_2026079_1135` was copied into
 | CW28 07.07 / 08.07 | `Exercise 12.pdf`; `Exercise 12 - Solutions.pdf` | Generated `exercise-12-options` with payoff/profit, put-call parity, binomial valuation, hedge ratio, and American-put checks. |
 | CW29 14.07 / 15.07 | `Exercise 13 Mock Exam.pdf` | Generated `exercise-13-mock-exam`; the source has no official answer key, so answer routes are marked as inferred. |
 
+## Downloads Import 2026-07-29
+
+The user provided `/Users/ardaerkan/Downloads/IFM EXAM PAPERS.pdf`. A preserved copy was stored at `finance-and-investment-management/raw/external-mock-exams/IFM EXAM PAPERS.pdf`.
+
+Handling:
+
+- Generated `finance-and-investment-management/wiki/ifm-exam-papers/ifm-exam-papers.md`.
+- Generated `finance-and-investment-management/wiki/ifm-exam-papers/CONTEXT.md`.
+- The PDF contains three exam-paper blocks across 50 pages. The first paper has handwritten annotations; the second and third papers are cleaner question papers.
+- No official solution key is identified in the source. The new wiki note therefore marks answer routes as annotated/inferred and flags source ambiguities separately.
+- This is exam-practice/reference material. It does not advance `First Pass` or any spaced-repetition checkpoint until the user completes a closed-book timed diagnostic or coached recall session.
+
 ## Study Implications
 
 - Because the exam is 100% written final exam and all lectures/exercises count, both conceptual interpretation and calculation fluency matter.
 - The formulary reduces formula memorization pressure but does not remove the need to recognize the correct formula, map variables, handle timing, and interpret the result.
 - Highest-value early sequence: financial statement analysis, interest calculation, annuities, investment analysis, redemptions, bonds.
-- Finance is the fourth exam in the current sequence. Keep overdue calculation repairs active, then expand the two independent tracks steadily after SCM, Marketing, and Business Law have received their nearer-exam coverage slots.
+- As of 2026-07-29, Finance is the next exam in the current sequence. Keep overdue calculation repairs active, then use the official mock exam and the new external IFM exam papers as timed diagnostics.
